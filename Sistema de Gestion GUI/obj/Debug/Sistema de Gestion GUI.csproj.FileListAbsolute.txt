@@ -1,0 +1,29 @@
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Sistema de Gestion GUI.exe.config
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Sistema de Gestion GUI.exe
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Sistema de Gestion GUI.pdb
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Entidad.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Logica.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Datos.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Entidad.pdb
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Logica.pdb
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\Datos.pdb
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csprojAssemblyReference.cache
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Properties.Resources.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.GenerateResource.cache
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.CoreCompileInputs.cache
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.CopyComplete
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.exe
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.pdb
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmMenuPrincipal.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmLogin.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionProveedores.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionProducto.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionUsuarios.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmDgtvCategorias.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvProveedores.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionCategoria.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvRoles.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvUsuario.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\CustomControls.RJControls.RJTextBox.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\CustomControls.RJControls.dll
