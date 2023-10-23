@@ -11,7 +11,7 @@ namespace Datos
 {
     public class ConexionRepository
     {
-        private SqlConnection connection = new SqlConnection("Server=(local)\\SQLEXPRESS;DataBase=BDSISTEMA_INVENTARIO2;Integrated Security=true");
+        private SqlConnection connection = new SqlConnection("Server=.\\SQLEXPRESS;DataBase=BDSISTEMA_INVENTARIO2;Integrated Security=true");
         
         public SqlConnection AbrirConnection()
         {
