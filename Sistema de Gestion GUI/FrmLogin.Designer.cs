@@ -32,15 +32,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancelar = new CustomControls.RJControls.RJButton();
-            this.btnIngresar = new CustomControls.RJControls.RJButton();
             this.txtContraseña = new CustomControls.RJControls.RJTextBox();
             this.txtUsuario = new CustomControls.RJControls.RJTextBox();
-            this.lbError = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnCancelar = new CustomControls.RJControls.RJButton();
+            this.btnIngresar = new CustomControls.RJControls.RJButton();
+            this.lbError = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -66,6 +68,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnIngresar);
             this.panel1.Controls.Add(this.txtContraseña);
@@ -82,6 +85,85 @@
             this.panel1.Size = new System.Drawing.Size(549, 226);
             this.panel1.TabIndex = 16;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.BackColor = System.Drawing.SystemColors.Window;
+            this.txtContraseña.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txtContraseña.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtContraseña.BorderRadius = 15;
+            this.txtContraseña.BorderSize = 2;
+            this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtContraseña.Location = new System.Drawing.Point(272, 105);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContraseña.Multiline = false;
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtContraseña.PasswordChar = false;
+            this.txtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtContraseña.PlaceholderText = "";
+            this.txtContraseña.Size = new System.Drawing.Size(250, 31);
+            this.txtContraseña.TabIndex = 23;
+            this.txtContraseña.Texts = "";
+            this.txtContraseña.UnderlinedStyle = false;
+            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsuario.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txtUsuario.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtUsuario.BorderRadius = 15;
+            this.txtUsuario.BorderSize = 2;
+            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtUsuario.Location = new System.Drawing.Point(272, 53);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.Multiline = false;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtUsuario.PasswordChar = false;
+            this.txtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtUsuario.PlaceholderText = "";
+            this.txtUsuario.Size = new System.Drawing.Size(250, 31);
+            this.txtUsuario.TabIndex = 22;
+            this.txtUsuario.Texts = "";
+            this.txtUsuario.UnderlinedStyle = false;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.SteelBlue;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(61, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 32);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "FitControl";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.SteelBlue;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(251, 226);
+            this.label4.TabIndex = 18;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 229);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
             // btnCancelar
             // 
@@ -131,52 +213,6 @@
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // txtContraseña
-            // 
-            this.txtContraseña.BackColor = System.Drawing.SystemColors.Window;
-            this.txtContraseña.BorderColor = System.Drawing.Color.SteelBlue;
-            this.txtContraseña.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtContraseña.BorderRadius = 15;
-            this.txtContraseña.BorderSize = 2;
-            this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtContraseña.Location = new System.Drawing.Point(272, 105);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContraseña.Multiline = false;
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtContraseña.PasswordChar = false;
-            this.txtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtContraseña.PlaceholderText = "";
-            this.txtContraseña.Size = new System.Drawing.Size(250, 31);
-            this.txtContraseña.TabIndex = 23;
-            this.txtContraseña.Texts = "";
-            this.txtContraseña.UnderlinedStyle = false;
-            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.txtUsuario.BorderColor = System.Drawing.Color.SteelBlue;
-            this.txtUsuario.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtUsuario.BorderRadius = 15;
-            this.txtUsuario.BorderSize = 2;
-            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUsuario.Location = new System.Drawing.Point(272, 53);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUsuario.Multiline = false;
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtUsuario.PasswordChar = false;
-            this.txtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtUsuario.PlaceholderText = "";
-            this.txtUsuario.Size = new System.Drawing.Size(250, 31);
-            this.txtUsuario.TabIndex = 22;
-            this.txtUsuario.Texts = "";
-            this.txtUsuario.UnderlinedStyle = false;
-            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
-            // 
             // lbError
             // 
             this.lbError.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,27 +236,6 @@
             this.label6.Size = new System.Drawing.Size(94, 74);
             this.label6.TabIndex = 20;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.SteelBlue;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(61, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 32);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "FitControl";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.SteelBlue;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 226);
-            this.label4.TabIndex = 18;
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +247,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -248,5 +264,6 @@
         private CustomControls.RJControls.RJTextBox txtUsuario;
         private CustomControls.RJControls.RJButton btnIngresar;
         private CustomControls.RJControls.RJButton btnCancelar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

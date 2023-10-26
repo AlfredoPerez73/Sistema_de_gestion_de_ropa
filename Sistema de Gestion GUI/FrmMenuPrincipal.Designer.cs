@@ -30,15 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
-            this.label11 = new System.Windows.Forms.Label();
             this.Contenedor = new System.Windows.Forms.Panel();
             this.SlideContenedor2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MenuDesplegable = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnMenu = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnAcerca = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnGestionProductos = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -49,41 +47,30 @@
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnGestionProveedores = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnPerfil = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.btnPerfil = new System.Windows.Forms.Button();
-            this.slideBar = new System.Windows.Forms.Timer(this.components);
+            this.slideBar2 = new System.Windows.Forms.Timer(this.components);
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.slideBar2 = new System.Windows.Forms.Timer(this.components);
             this.Contenedor.SuspendLayout();
             this.SlideContenedor2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuDesplegable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel10.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label11
-            // 
-            this.label11.BackColor = System.Drawing.Color.SteelBlue;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(59, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(148, 32);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "FitControl";
             // 
             // Contenedor
             // 
@@ -104,12 +91,12 @@
             this.SlideContenedor2.BackColor = System.Drawing.Color.SteelBlue;
             this.SlideContenedor2.Controls.Add(this.panel1);
             this.SlideContenedor2.Controls.Add(this.panel2);
-            this.SlideContenedor2.Controls.Add(this.panel8);
             this.SlideContenedor2.Controls.Add(this.panel3);
             this.SlideContenedor2.Controls.Add(this.panel7);
             this.SlideContenedor2.Controls.Add(this.panel4);
             this.SlideContenedor2.Controls.Add(this.panel6);
             this.SlideContenedor2.Controls.Add(this.panel5);
+            this.SlideContenedor2.Controls.Add(this.panel8);
             this.SlideContenedor2.Location = new System.Drawing.Point(0, 0);
             this.SlideContenedor2.MaximumSize = new System.Drawing.Size(255, 0);
             this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 619);
@@ -120,7 +107,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.MenuDesplegable);
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -138,6 +125,17 @@
             this.MenuDesplegable.TabIndex = 0;
             this.MenuDesplegable.TabStop = false;
             this.MenuDesplegable.Click += new System.EventHandler(this.MenuDesplegable_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit__3___3_;
+            this.pictureBox1.Location = new System.Drawing.Point(36, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(164, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "";
             // 
             // panel2
             // 
@@ -166,33 +164,6 @@
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenu.UseVisualStyleBackColor = true;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnAcerca);
-            this.panel8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel8.Location = new System.Drawing.Point(3, 457);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(262, 52);
-            this.panel8.TabIndex = 47;
-            // 
-            // btnAcerca
-            // 
-            this.btnAcerca.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAcerca.FlatAppearance.BorderSize = 0;
-            this.btnAcerca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAcerca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcerca.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAcerca.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.informacion;
-            this.btnAcerca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcerca.Location = new System.Drawing.Point(12, -4);
-            this.btnAcerca.Name = "btnAcerca";
-            this.btnAcerca.Size = new System.Drawing.Size(255, 62);
-            this.btnAcerca.TabIndex = 47;
-            this.btnAcerca.Text = "           Acerca de";
-            this.btnAcerca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAcerca.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -333,6 +304,36 @@
             this.btnGestionProveedores.UseVisualStyleBackColor = true;
             this.btnGestionProveedores.Click += new System.EventHandler(this.btnGestionProveedores_Click);
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btnPerfil);
+            this.panel8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel8.Location = new System.Drawing.Point(3, 526);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(262, 52);
+            this.panel8.TabIndex = 47;
+            // 
+            // btnPerfil
+            // 
+            this.btnPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPerfil.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPerfil.FlatAppearance.BorderSize = 0;
+            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPerfil.ForeColor = System.Drawing.Color.White;
+            this.btnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("btnPerfil.Image")));
+            this.btnPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPerfil.Location = new System.Drawing.Point(12, 7);
+            this.btnPerfil.Name = "btnPerfil";
+            this.btnPerfil.Size = new System.Drawing.Size(213, 38);
+            this.btnPerfil.TabIndex = 45;
+            this.btnPerfil.Text = "            ADMINISTRADOR";
+            this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.LightGray;
@@ -346,7 +347,6 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel10.Controls.Add(this.btnPerfil);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 25);
             this.panel10.Name = "panel10";
@@ -354,28 +354,10 @@
             this.panel10.TabIndex = 47;
             this.panel10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel10_MouseDown);
             // 
-            // btnPerfil
+            // slideBar2
             // 
-            this.btnPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPerfil.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPerfil.ForeColor = System.Drawing.Color.White;
-            this.btnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("btnPerfil.Image")));
-            this.btnPerfil.Location = new System.Drawing.Point(1087, 3);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(180, 38);
-            this.btnPerfil.TabIndex = 45;
-            this.btnPerfil.Text = "ADMINISTRADOR";
-            this.btnPerfil.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPerfil.UseVisualStyleBackColor = false;
-            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
-            // 
-            // slideBar
-            // 
-            this.slideBar.Interval = 10;
+            this.slideBar2.Interval = 10;
+            this.slideBar2.Tick += new System.EventHandler(this.slideBar2_Tick);
             // 
             // btnMaximizar
             // 
@@ -383,7 +365,7 @@
             this.btnMaximizar.BackColor = System.Drawing.Color.LightGray;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado__1_;
-            this.btnMaximizar.Location = new System.Drawing.Point(1227, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1228, 0);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(18, 18);
             this.btnMaximizar.TabIndex = 49;
@@ -418,11 +400,6 @@
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // slideBar2
-            // 
-            this.slideBar2.Interval = 10;
-            this.slideBar2.Tick += new System.EventHandler(this.slideBar2_Tick);
-            // 
             // FrmMenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -446,14 +423,14 @@
             this.SlideContenedor2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MenuDesplegable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
@@ -462,7 +439,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Panel Contenedor;
         private System.Windows.Forms.PictureBox btnCerrar;
@@ -482,12 +458,11 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button btnAnalisis;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btnAcerca;
         private System.Windows.Forms.PictureBox MenuDesplegable;
-        private System.Windows.Forms.Timer slideBar;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel SlideContenedor2;
         private System.Windows.Forms.Timer slideBar2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

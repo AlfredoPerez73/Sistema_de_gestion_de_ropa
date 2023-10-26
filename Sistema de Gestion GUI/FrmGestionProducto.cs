@@ -17,6 +17,7 @@ namespace Sistema_de_Gestion_GUI
     public partial class FrmGestionProducto : Form
     {      
         private ProductoService productoService = new ProductoService();
+        private CategoriaService categoriaService = new CategoriaService();
 
         public FrmGestionProducto()
         {

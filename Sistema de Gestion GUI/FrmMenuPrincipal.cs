@@ -31,6 +31,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
+            ContenedorPrincipal();
             CargarDatosUsuario();
             Permisos();
         }
@@ -47,7 +48,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void CargarDatosUsuario()
         {
-            btnPerfil.Text = Usuario.Rol;
+            btnPerfil.Text = "            " + Usuario.Rol;
         }
 
         private void Inicio(Form Formulario)
@@ -56,13 +57,14 @@ namespace Sistema_de_Gestion_GUI
             {
                 FormularioActivo.Close();
             }
+
             FormularioActivo = Formulario;
             Formulario.TopLevel = false;
             Formulario.Dock = DockStyle.Fill;
             Formulario.FormBorderStyle = FormBorderStyle.None;
+            Formulario.BackColor = Color.SteelBlue;
+
             Contenedor.Controls.Add(Formulario);
-            Contenedor.Tag = Formulario;
-            Formulario.BringToFront();
             Formulario.Show();
         }
 
@@ -151,10 +153,12 @@ namespace Sistema_de_Gestion_GUI
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            if (FormularioActivo != null)
-            {
-                FormularioActivo.Close();
-            }
+            Inicio(new FrmPrincipal());
+        }
+
+        private void ContenedorPrincipal()
+        {
+            Inicio(new FrmPrincipal());
         }
 
         private void btnGestionProductos_Click(object sender, EventArgs e)

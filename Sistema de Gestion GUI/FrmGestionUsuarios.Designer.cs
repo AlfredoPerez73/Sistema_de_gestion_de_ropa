@@ -477,7 +477,6 @@
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.basura1;
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnEliminar.Location = new System.Drawing.Point(26, 398);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(203, 32);
