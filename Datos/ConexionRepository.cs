@@ -11,23 +11,41 @@ namespace Datos
 {
     public class ConexionRepository
     {
-        private SqlConnection connection = new SqlConnection("Server=.\\SQLEXPRESS;DataBase=BDSISTEMA_INVENTARIO2;Integrated Security=true");
-        
+        protected SqlConnection Connection;
+        protected string StringConnection = "Server=.\\SQLEXPRESS;DataBase=BDSISTEMA_INVENTARIO2;Integrated Security=true";
+
+        public ConexionRepository()
+        {
+            Connection = new SqlConnection(StringConnection);
+        }
         public SqlConnection AbrirConnection()
         {
-            if (connection.State == ConnectionState.Closed)
+            if (Connection.State == ConnectionState.Closed)
             {
-                connection.Open();
+                Connection.Open();
             }
-            return connection;
+            return Connection;
         }
+
+        public string Abrir()
+        {
+            Connection.Open();
+            return Connection.State.ToString();
+        }
+
+        public string Cerrar()
+        {
+            Connection.Close();
+            return Connection.State.ToString();
+        }
+
         public SqlConnection CerrarConnection()
         {
-            if (connection.State == ConnectionState.Open)
+            if (Connection.State == ConnectionState.Open)
             {
-                connection.Close();
+                Connection.Close();
             }
-            return connection;
+            return Connection;
         }
     }
 }

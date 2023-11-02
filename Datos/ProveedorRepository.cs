@@ -27,34 +27,34 @@ namespace Datos
             return table;
         }
 
-        public string GuardarRegistros(string IdProveedor, string Documento, string RazonSocial, string Correo, string Telefono)
+        public string GuardarRegistros(Proveedor proveedor)
         {
             connection.AbrirConnection();
-            command.CommandText = "insert into PROVEEDOR values('" + IdProveedor + "','" + Documento + "','" + RazonSocial + "','" + Correo + "','" + Telefono + "')";
+            command.CommandText = "insert into PROVEEDOR values('" + proveedor.IdProveedor + "','" + proveedor.Documento + "','" + proveedor.RazonSocial + "','" + proveedor.Correo + "','" + proveedor.Telefono + "')";
             command.ExecuteNonQuery();
             return $"Producto almacenado";
         }
 
-        public void ModificarRegistros(string Documento, string RazonSocial, string Correo, string Telefono, string IdProveedor)
+        public void ModificarRegistros(Proveedor proveedor)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "ModificarProveedor";
-            command.Parameters.AddWithValue("@Documento", Documento);
-            command.Parameters.AddWithValue("@RazonSocial", RazonSocial);
-            command.Parameters.AddWithValue("@Correo", Correo);
-            command.Parameters.AddWithValue("@Telefono", Telefono);
-            command.Parameters.AddWithValue("@IdProveedor", IdProveedor);
+            command.Parameters.AddWithValue("@Documento", proveedor.Documento);
+            command.Parameters.AddWithValue("@RazonSocial", proveedor.RazonSocial);
+            command.Parameters.AddWithValue("@Correo", proveedor.Correo);
+            command.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+            command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }
 
-        public void EliminarRegistros(string IdProveedor)
+        public void EliminarRegistros(Proveedor proveedor)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "EliminarProveedor";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdProveedor", IdProveedor);
+            command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }

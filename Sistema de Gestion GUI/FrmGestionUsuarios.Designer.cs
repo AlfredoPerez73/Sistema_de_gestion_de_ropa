@@ -35,7 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tblRegistro = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.txtBuscarProducto = new CustomControls.RJControls.RJTextBox();
+            this.txtBuscarUsuario = new CustomControls.RJControls.RJTextBox();
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
@@ -68,7 +68,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.tblRegistro);
-            this.panel1.Controls.Add(this.txtBuscarProducto);
+            this.panel1.Controls.Add(this.txtBuscarUsuario);
             this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.rjTextBox1);
@@ -144,29 +144,31 @@
             this.btnSeleccionar.Text = "Id de producto";
             this.btnSeleccionar.Width = 30;
             // 
-            // txtBuscarProducto
+            // txtBuscarUsuario
             // 
-            this.txtBuscarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarProducto.BackColor = System.Drawing.Color.White;
-            this.txtBuscarProducto.BorderColor = System.Drawing.Color.White;
-            this.txtBuscarProducto.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtBuscarProducto.BorderRadius = 15;
-            this.txtBuscarProducto.BorderSize = 1;
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProducto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarProducto.Location = new System.Drawing.Point(278, 79);
-            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarProducto.Multiline = false;
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscarProducto.PasswordChar = false;
-            this.txtBuscarProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBuscarProducto.PlaceholderText = "";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(625, 32);
-            this.txtBuscarProducto.TabIndex = 20;
-            this.txtBuscarProducto.Texts = "Buscar por Id:";
-            this.txtBuscarProducto.UnderlinedStyle = false;
+            this.txtBuscarUsuario.BackColor = System.Drawing.Color.White;
+            this.txtBuscarUsuario.BorderColor = System.Drawing.Color.White;
+            this.txtBuscarUsuario.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtBuscarUsuario.BorderRadius = 15;
+            this.txtBuscarUsuario.BorderSize = 1;
+            this.txtBuscarUsuario.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtBuscarUsuario.Location = new System.Drawing.Point(278, 79);
+            this.txtBuscarUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarUsuario.Multiline = false;
+            this.txtBuscarUsuario.Name = "txtBuscarUsuario";
+            this.txtBuscarUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtBuscarUsuario.PasswordChar = false;
+            this.txtBuscarUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtBuscarUsuario.PlaceholderText = "";
+            this.txtBuscarUsuario.Size = new System.Drawing.Size(625, 32);
+            this.txtBuscarUsuario.TabIndex = 20;
+            this.txtBuscarUsuario.Texts = "Buscar:";
+            this.txtBuscarUsuario.UnderlinedStyle = false;
+            this.txtBuscarUsuario.Enter += new System.EventHandler(this.txtBuscarProducto_Enter);
+            this.txtBuscarUsuario.Leave += new System.EventHandler(this.txtBuscarProducto_Leave);
             // 
             // btnExcel
             // 
@@ -626,7 +628,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView tblRegistro;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private CustomControls.RJControls.RJTextBox txtBuscarProducto;
+        private CustomControls.RJControls.RJTextBox txtBuscarUsuario;
         private CustomControls.RJControls.RJButton btnExcel;
         private System.Windows.Forms.Label label9;
         private CustomControls.RJControls.RJTextBox rjTextBox1;

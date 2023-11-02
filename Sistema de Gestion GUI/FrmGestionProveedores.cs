@@ -29,8 +29,15 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "") 
                     || (txtTelefono.Texts != ""))
                 {
-                    productoService.Guardar(txtIdProveedor.Texts, txtDocumento.Texts.ToUpper(),
-                        txtRazonSocial.Texts.ToUpper(), txtCorreo.Texts.ToLower(), txtTelefono.Texts);
+                    Proveedor proveedor = new Proveedor
+                    {
+                        IdProveedor = txtIdProveedor.Texts,
+                        Documento = txtDocumento.Texts,
+                        RazonSocial = txtRazonSocial.Texts.ToUpper(),
+                        Correo = txtCorreo.Texts.ToLower(),
+                        Telefono = txtCorreo.Texts
+                    };
+                    productoService.Guardar(proveedor);
 
                     MessageBox.Show("Registro almacenado con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
@@ -60,8 +67,15 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
                     || (txtTelefono.Texts != ""))
                 {
-                    productoService.ModificarRegistros(txtDocumento.Texts.ToUpper(),
-                        txtRazonSocial.Texts.ToUpper(), txtCorreo.Texts.ToLower(), txtTelefono.Texts, txtIdProveedor.Texts);
+                    Proveedor proveedor = new Proveedor
+                    {
+                        Documento = txtDocumento.Texts,
+                        RazonSocial = txtRazonSocial.Texts.ToUpper(),
+                        Correo = txtCorreo.Texts.ToLower(),
+                        Telefono = txtCorreo.Texts,
+                        IdProveedor = txtIdProveedor.Texts
+                    };
+                    productoService.ModificarRegistros(proveedor);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -80,8 +94,6 @@ namespace Sistema_de_Gestion_GUI
 
         public void EliminarRegistro()
         {
-            string idProveedor = txtIdProveedor.Texts;
-
             try
             {
                 if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
@@ -91,7 +103,11 @@ namespace Sistema_de_Gestion_GUI
                     {
                         if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de proveedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            productoService.EliminarRegistros(idProveedor);
+                            Proveedor proveedor = new Proveedor
+                            {
+                                IdProveedor = txtIdProveedor.Texts
+                            };
+                            productoService.EliminarRegistros(proveedor);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -265,6 +281,24 @@ namespace Sistema_de_Gestion_GUI
 
                 e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscarProducto_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarProveedor.Texts == "Buscar:")
+            {
+                txtBuscarProveedor.Texts = "";
+                txtBuscarProveedor.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarProveedor.Texts == "")
+            {
+                txtBuscarProveedor.Texts = "Buscar:";
+                txtBuscarProveedor.ForeColor = Color.Gainsboro;
             }
         }
     }

@@ -38,7 +38,12 @@ namespace Sistema_de_Gestion_GUI
             {
                 if ((txtIdCategoria.Texts != "") || (txtTipoCategoria.Texts != ""))
                 {
-                    categoriaService.Guardar(txtIdCategoria.Texts, txtTipoCategoria.Texts.ToUpper());
+                    Categoria categoria = new Categoria
+                    {
+                        IdCategoria = txtIdCategoria.Texts,
+                        TipoCategoria = txtTipoCategoria.Texts.ToUpper()
+                    };
+                    categoriaService.Guardar(categoria);
                     MessageBox.Show("Registro almacenado con exito!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -66,7 +71,12 @@ namespace Sistema_de_Gestion_GUI
             {
                 if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
                 {
-                    categoriaService.ModificarRegistros(txtTipoCategoria.Texts.ToUpper(), txtIdCategoria.Texts);
+                    Categoria categoria = new Categoria
+                    {
+                        TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
+                        IdCategoria = txtIdCategoria.Texts
+                    };
+                    categoriaService.ModificarRegistros(categoria);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -95,7 +105,11 @@ namespace Sistema_de_Gestion_GUI
                     {
                         if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de categorias", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            categoriaService.EliminarRegistros(txtIdCategoria.Texts);
+                            Categoria categoria = new Categoria
+                            {
+                                IdCategoria = txtIdCategoria.Texts
+                            };
+                            categoriaService.EliminarRegistros(categoria);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -224,6 +238,24 @@ namespace Sistema_de_Gestion_GUI
             if (char.IsDigit(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscarProducto_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarCategoria.Texts == "Buscar:")
+            {
+                txtBuscarCategoria.Texts = "";
+                txtBuscarCategoria.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarCategoria.Texts == "")
+            {
+                txtBuscarCategoria.Texts = "Buscar:";
+                txtBuscarCategoria.ForeColor = Color.Gainsboro;
             }
         }
     }

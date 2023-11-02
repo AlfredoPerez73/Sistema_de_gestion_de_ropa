@@ -100,5 +100,23 @@ namespace Sistema_de_Gestion_GUI
                 e.Handled = true;
             }
         }
+
+        private void txtBuscarProducto_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarCategoria.Texts == "Buscar:")
+            {
+                txtBuscarCategoria.Texts = "";
+                txtBuscarCategoria.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarCategoria.Texts == "")
+            {
+                txtBuscarCategoria.Texts = "Buscar:";
+                txtBuscarCategoria.ForeColor = Color.Gainsboro;
+            }
+        }
     }
 }

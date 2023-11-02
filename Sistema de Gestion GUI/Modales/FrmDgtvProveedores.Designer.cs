@@ -144,11 +144,11 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.menos_pequeno;
+            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
             this.btnMinimizar.Location = new System.Drawing.Point(457, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 51;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -158,11 +158,11 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cruz_pequena;
+            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
             this.btnCerrar.Location = new System.Drawing.Point(480, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 18);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 50;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -210,8 +210,10 @@
             this.txtBuscarProveedor.PlaceholderText = "";
             this.txtBuscarProveedor.Size = new System.Drawing.Size(341, 32);
             this.txtBuscarProveedor.TabIndex = 23;
-            this.txtBuscarProveedor.Texts = "Buscar por Id:";
+            this.txtBuscarProveedor.Texts = "Buscar:";
             this.txtBuscarProveedor.UnderlinedStyle = false;
+            this.txtBuscarProveedor.Enter += new System.EventHandler(this.txtBuscarProveedor_Enter);
+            this.txtBuscarProveedor.Leave += new System.EventHandler(this.txtBuscarProveedor_Leave);
             // 
             // rjTextBox1
             // 

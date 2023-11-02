@@ -39,7 +39,7 @@
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnExcel = new CustomControls.RJControls.RJButton();
-            this.txtBuscarProveedor = new CustomControls.RJControls.RJTextBox();
+            this.txtBuscarRoles = new CustomControls.RJControls.RJTextBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
@@ -55,7 +55,7 @@
             this.panel1.Controls.Add(this.btnMinimizar);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.btnExcel);
-            this.panel1.Controls.Add(this.txtBuscarProveedor);
+            this.panel1.Controls.Add(this.txtBuscarRoles);
             this.panel1.Controls.Add(this.rjTextBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -144,11 +144,11 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.menos_pequeno;
+            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
             this.btnMinimizar.Location = new System.Drawing.Point(457, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 51;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -158,11 +158,11 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cruz_pequena;
+            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
             this.btnCerrar.Location = new System.Drawing.Point(480, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 18);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 50;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
@@ -189,29 +189,31 @@
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExcel.UseVisualStyleBackColor = false;
             // 
-            // txtBuscarProveedor
+            // txtBuscarRoles
             // 
-            this.txtBuscarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscarRoles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarProveedor.BackColor = System.Drawing.Color.White;
-            this.txtBuscarProveedor.BorderColor = System.Drawing.Color.White;
-            this.txtBuscarProveedor.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtBuscarProveedor.BorderRadius = 15;
-            this.txtBuscarProveedor.BorderSize = 1;
-            this.txtBuscarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProveedor.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarProveedor.Location = new System.Drawing.Point(148, 57);
-            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarProveedor.Multiline = false;
-            this.txtBuscarProveedor.Name = "txtBuscarProveedor";
-            this.txtBuscarProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscarProveedor.PasswordChar = false;
-            this.txtBuscarProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBuscarProveedor.PlaceholderText = "";
-            this.txtBuscarProveedor.Size = new System.Drawing.Size(341, 32);
-            this.txtBuscarProveedor.TabIndex = 23;
-            this.txtBuscarProveedor.Texts = "Buscar por Id:";
-            this.txtBuscarProveedor.UnderlinedStyle = false;
+            this.txtBuscarRoles.BackColor = System.Drawing.Color.White;
+            this.txtBuscarRoles.BorderColor = System.Drawing.Color.White;
+            this.txtBuscarRoles.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtBuscarRoles.BorderRadius = 15;
+            this.txtBuscarRoles.BorderSize = 1;
+            this.txtBuscarRoles.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarRoles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtBuscarRoles.Location = new System.Drawing.Point(148, 57);
+            this.txtBuscarRoles.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarRoles.Multiline = false;
+            this.txtBuscarRoles.Name = "txtBuscarRoles";
+            this.txtBuscarRoles.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtBuscarRoles.PasswordChar = false;
+            this.txtBuscarRoles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtBuscarRoles.PlaceholderText = "";
+            this.txtBuscarRoles.Size = new System.Drawing.Size(341, 32);
+            this.txtBuscarRoles.TabIndex = 23;
+            this.txtBuscarRoles.Texts = "Buscar por Id:";
+            this.txtBuscarRoles.UnderlinedStyle = false;
+            this.txtBuscarRoles.Enter += new System.EventHandler(this.txtBuscarProveedor_Enter);
+            this.txtBuscarRoles.Leave += new System.EventHandler(this.txtBuscarProveedor_Leave);
             // 
             // rjTextBox1
             // 
@@ -265,7 +267,7 @@
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private CustomControls.RJControls.RJButton btnExcel;
-        private CustomControls.RJControls.RJTextBox txtBuscarProveedor;
+        private CustomControls.RJControls.RJTextBox txtBuscarRoles;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
     }
 }

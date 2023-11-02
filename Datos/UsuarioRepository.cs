@@ -17,11 +17,11 @@ namespace Datos
         DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
-        public void GuardarRegistros(string IdUsuario, string Documento, string Usuario, string Contraseña, string Correo, string IdRol, string Rol)
+        public void GuardarRegistros(Usuario usuario)
         {
             connection.AbrirConnection();
             command.Connection = connection.AbrirConnection();
-            command.CommandText = "INSERT INTO USUARIO(IdUsuario,Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + IdUsuario + "','" + Documento + "','" + Usuario + "','" + Contraseña + "','" + Correo + "','" + IdRol + "','" + Rol + "');";
+            command.CommandText = "INSERT INTO USUARIO(IdUsuario,Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + usuario.IdUser+ "','" + usuario.Documento + "','" + usuario.User + "','" + usuario.Password + "','" + usuario.Correo + "','" + usuario.Rol.IdRol + "','" + usuario.Rol.NRol + "');";
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
             command.Parameters.Clear();
@@ -39,48 +39,50 @@ namespace Datos
             return table;
         }
 
-        public void ModificarRegistros(string Usuario, string Contraseña, string Correo, string IdRol, string Rol, string IdUsuario)
+        public void ModificarRegistros(Usuario usuario)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "ModificarUsuario";
-            command.Parameters.AddWithValue("@Usuario", Usuario);
-            command.Parameters.AddWithValue("@Contraseña", Contraseña);
-            command.Parameters.AddWithValue("@Correo", Correo);
-            command.Parameters.AddWithValue("@IdRol", IdRol);
-            command.Parameters.AddWithValue("@Rol", Rol);
-            command.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+            command.Parameters.AddWithValue("@Usuario", usuario.User);
+            command.Parameters.AddWithValue("@Contraseña", usuario.Password);
+            command.Parameters.AddWithValue("@Correo", usuario.Correo);
+            command.Parameters.AddWithValue("@IdRol", usuario.Rol.NRol);
+            command.Parameters.AddWithValue("@Rol", usuario.Rol.NRol);
+            command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }
 
-        public void EliminarRegistros(string IdUsuario)
+        public void EliminarRegistros(Usuario usuario)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "EliminarUsuario";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdUsuario", IdUsuario);
+            command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }
 
-        public bool Login(string usuario, string contraseña)
+        public bool Login(Usuario usuario)
         {
             var connections = connection.AbrirConnection();
             command.Connection = connections;
             command.CommandText = "select * from USUARIO where Usuario=@Usuario and Contraseña=@Contraseña";
-            command.Parameters.AddWithValue("@Usuario", usuario);
-            command.Parameters.AddWithValue("@Contraseña", contraseña);
+            command.Parameters.AddWithValue("@Usuario", usuario.User);
+            command.Parameters.AddWithValue("@Contraseña", usuario.Password);
             command.CommandType = CommandType.Text;
             reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    Usuario.IdUser = reader.GetString(0);
-                    Usuario.User = reader.GetString(2);
-                    Usuario.Correo = reader.GetString(4);
-                    Usuario.Rol = reader.GetString(7);
+                    usuario.IdUser = reader.GetString(0);
+                    usuario.Documento = reader.GetString(1);
+                    usuario.User = reader.GetString(2);
+                    usuario.Password = reader.GetString(3);
+                    usuario.Correo = reader.GetString(4);
+                    usuario.Rol = new Rol { NRol = reader.GetString(7) };
                 }
                 return true;
             }

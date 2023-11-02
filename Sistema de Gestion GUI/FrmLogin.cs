@@ -31,11 +31,23 @@ namespace Sistema_de_Gestion_GUI
             {
                 if (txtContraseña.Texts != "")
                 {
-                    UsuarioService usuario = new UsuarioService();
-                    var validacionLogin = usuario.LoginUser(txtUsuario.Texts, txtContraseña.Texts);
+                    UsuarioService oUsuarioService = new UsuarioService();
+                    Usuario usuario = new Usuario
+                    {
+                        User = txtUsuario.Texts,
+                        Password = txtContraseña.Texts
+                    };
+                    Permiso permiso = new Permiso
+                    {
+                        Rol = new Rol
+                        {
+                            NRol = "ADMINISTRADOR"
+                        }
+                    };
+                    var validacionLogin = oUsuarioService.LoginUser(usuario);
                     if (validacionLogin == true)
                     {
-                        FrmMenuPrincipal menu = new FrmMenuPrincipal();
+                        FrmMenuPrincipal menu = new FrmMenuPrincipal(usuario,permiso);
                         menu.Show();
                         this.Hide();
                         menu.FormClosing += frm_Closing;

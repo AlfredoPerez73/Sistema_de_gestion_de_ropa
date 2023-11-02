@@ -124,8 +124,8 @@
   <data name="libro-marcador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\libro-marcador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fit__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fit (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Fit__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fit (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cuadrado-de-la-pluma" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cuadrado-de-la-pluma1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,8 +133,8 @@
   <data name="exclamation (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cuadrado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cuadrado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="barras-escalonadas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barras-escalonadas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fit__3___3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit (3) (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,29 +151,20 @@
   <data name="disco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\disco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Fit__2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Fit (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cuadrado (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cuadrado (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cross_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cross-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="file-excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\file-excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fit__2__removebg_preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit__2_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="house-chimney" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\house-chimney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bala3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bala (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fit__3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="basura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\basura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="file-excel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file-excel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +172,8 @@
   <data name="tarjeta-de-direccion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tarjeta-de-direccion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="circulo-cruzado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\circulo-cruzado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="barras-escalonadas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\barras-escalonadas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bala2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bala (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="check_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,11 +193,20 @@
   <data name="caja-abierta-llena" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caja-abierta-llena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="etiquetas (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\etiquetas (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="informacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\informacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menos-pequeno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\menos-pequeno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="etiqueta-de-usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\etiqueta-de-usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="circulo-marca-x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\circulo-marca-x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="recibo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recibo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fit__3___1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit (3) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,14 +214,23 @@
   <data name="house-chimney (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\house-chimney (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="etiquetas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\etiquetas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Fit__3___2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit (3) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="basura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\basura.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Fit__3_-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Fit__3_-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cruz-pequena" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cruz-pequena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bala" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fit__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fit (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="basura1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\basura1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,10 +238,13 @@
   <data name="id-insignia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\id-insignia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fit contol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fit contol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="caja-abierta-llena (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\caja-abierta-llena (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fit contol" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fit contol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="etiqueta-de-usuario (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\etiqueta-de-usuario (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -20,7 +20,7 @@ namespace Datos
         public DataTable CargarRegistros()
         {
             command.Connection = connection.AbrirConnection();
-            command.CommandText = "CargarCategoria";
+            command.CommandText = "CargarCategorias";
             command.CommandType = CommandType.StoredProcedure;
             reader = command.ExecuteReader();
             table.Load(reader);
@@ -28,32 +28,32 @@ namespace Datos
             return table;
         }
 
-        public void GuardarRegistros(string IdCategoria, string TipoCategoria)
+        public void GuardarRegistros(Categoria categoria)
         {
             command.Connection = connection.AbrirConnection();
-            command.CommandText = "INSERT INTO CATEGORIA(IdCategoria,TipoCategoria) VALUES('" + IdCategoria + "', '" + TipoCategoria + "');";
+            command.CommandText = "INSERT INTO CATEGORIA(IdCategoria,TipoCategoria) VALUES('" + categoria.IdCategoria + "', '" + categoria.TipoCategoria + "');";
             command.CommandType = CommandType.Text;
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }
 
-        public void ModificarRegistros(string TipoCategoria, string IdCategoria)
+        public void ModificarRegistros(Categoria categoria)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "ModificarCategoria";
-            command.Parameters.AddWithValue("@TipoCategoria", TipoCategoria);
-            command.Parameters.AddWithValue("@IdCategoria", IdCategoria);
+            command.Parameters.AddWithValue("@TipoCategoria", categoria.TipoCategoria);
+            command.Parameters.AddWithValue("@IdCategoria", categoria.IdCategoria);
             command.CommandType = CommandType.StoredProcedure;
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }
 
-        public void EliminarRegistros(string IdCategoria)
+        public void EliminarRegistros(Categoria categoria)
         {
             command.Connection = connection.AbrirConnection();
             command.CommandText = "EliminarCategoria";
             command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdCategoria", IdCategoria);
+            command.Parameters.AddWithValue("@IdCategoria", categoria.IdCategoria);
             command.ExecuteNonQuery();
             command.Parameters.Clear();
         }

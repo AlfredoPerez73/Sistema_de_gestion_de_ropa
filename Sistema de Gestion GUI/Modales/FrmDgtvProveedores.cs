@@ -31,7 +31,7 @@ namespace Sistema_de_Gestion_GUI.Modales
         {
             ProveedorService productoService = new ProveedorService();
             tblRegistroProveedores.DataSource = proveedorService.CargarRegistros();
-            
+
         }
 
         private void CargarEstablecimientosFiltrado(string filtro)
@@ -98,6 +98,24 @@ namespace Sistema_de_Gestion_GUI.Modales
 
                 e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscarProveedor_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarProveedor.Texts == "Buscar:")
+            {
+                txtBuscarProveedor.Texts = "";
+                txtBuscarProveedor.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProveedor_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarProveedor.Texts == "Buscar:")
+            {
+                txtBuscarProveedor.Texts = "";
+                txtBuscarProveedor.ForeColor = Color.Gainsboro;
             }
         }
     }

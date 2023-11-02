@@ -90,5 +90,23 @@ namespace Sistema_de_Gestion_GUI.Modales
                 e.Handled = true;
             }
         }
+
+        private void txtBuscarProveedor_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarRoles.Texts == "Buscar:")
+            {
+                txtBuscarRoles.Texts = "";
+                txtBuscarRoles.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProveedor_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarRoles.Texts == "")
+            {
+                txtBuscarRoles.Texts = "Buscar:";
+                txtBuscarRoles.ForeColor = Color.Gainsboro;
+            }
+        }
     }
 }

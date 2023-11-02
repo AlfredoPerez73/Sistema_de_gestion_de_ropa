@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
+using Logica;
 using FontAwesome.Sharp;
 using Sistema_de_Gestion_GUI.Modales;
 
@@ -16,6 +17,8 @@ namespace Sistema_de_Gestion_GUI
 {
     public partial class FrmMenuPrincipal : Form
     {
+        private Usuario oUsuario;
+        private Permiso oPermiso;
         private static Button MenuActivo = null;
         private static Form FormularioActivo = null;
         bool SliderExpand;
@@ -24,10 +27,14 @@ namespace Sistema_de_Gestion_GUI
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        public FrmMenuPrincipal()
+        public FrmMenuPrincipal(Usuario oUsuario, Permiso oPermiso)
         {
             InitializeComponent();
+            this.oUsuario = oUsuario;
+            this.oPermiso = oPermiso;
         }
+
+        
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
@@ -38,17 +45,23 @@ namespace Sistema_de_Gestion_GUI
 
         private void Permisos()
         {
-            if (Usuario.Rol == Permiso.Empleado)
+            if (oUsuario.Rol.NRol != oPermiso.Rol.NRol)
             {
                 btnGestionCategorias.Visible = false;
-                btnGestionProveedores.Visible = false;
                 btnGestionUsuarios.Visible = false;
+                btnVenta.Visible = false;
+                btnClientes.Visible = false;
+                //-----------------------------
+                Point nuevaUbicacionBtnProveedores = new Point(3, 225);
+                panel5.Location = nuevaUbicacionBtnProveedores;
+                Point nuevaUbicacionBtnCompras = new Point(3, 283);
+                panel7.Location = nuevaUbicacionBtnCompras;
             }
         }
 
         private void CargarDatosUsuario()
         {
-            btnPerfil.Text = "            " + Usuario.Rol;
+            btnPerfil.Text = "            " + oUsuario.Rol.NRol;
         }
 
         private void Inicio(Form Formulario)
@@ -181,6 +194,21 @@ namespace Sistema_de_Gestion_GUI
             AbrirFrmGestionProductos((Button)sender, new FrmGestionUsuarios());
         }
 
+        private void btnCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionCompra());
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionCliente());
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionVenta());
+        }
+
         private void panel9_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -203,11 +231,6 @@ namespace Sistema_de_Gestion_GUI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void Contenedor_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

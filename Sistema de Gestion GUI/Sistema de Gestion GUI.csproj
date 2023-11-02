@@ -62,6 +62,24 @@
     <Compile Include="FrmGestionCategoria.Designer.cs">
       <DependentUpon>FrmGestionCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCliente.Designer.cs">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionCompra.Designer.cs">
+      <DependentUpon>FrmGestionCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGestionVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionVenta.Designer.cs">
+      <DependentUpon>FrmGestionVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modales\FrmDgtvCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +150,15 @@
     </Compile>
     <EmbeddedResource Include="FrmGestionCategoria.resx">
       <DependentUpon>FrmGestionCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCliente.resx">
+      <DependentUpon>FrmGestionCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionCompra.resx">
+      <DependentUpon>FrmGestionCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionVenta.resx">
+      <DependentUpon>FrmGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\FrmDgtvCategorias.resx">
       <DependentUpon>FrmDgtvCategorias.cs</DependentUpon>
@@ -338,6 +365,7 @@
     <None Include="Resources\Fit__3_-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\recibo.png" />
     <None Include="Resources\fit contol.png" />
     <None Include="Resources\Fit-removebg-preview.png" />
     <None Include="Resources\Fit %281%29.png" />
@@ -347,6 +375,14 @@
     <None Include="Resources\Fit %283%29 %281%29.png" />
     <None Include="Resources\Fit %283%29 %282%29.png" />
     <None Include="Resources\Fit %283%29 %283%29.png" />
+    <None Include="Resources\etiquetas.png" />
+    <None Include="Resources\etiquetas %281%29.png" />
+    <None Include="Resources\bala %282%29.png" />
+    <None Include="Resources\bala %281%29.png" />
+    <None Include="Resources\bala.png" />
+    <None Include="Resources\circulo-marca-x.png" />
+    <None Include="Resources\etiqueta-de-usuario.png" />
+    <None Include="Resources\etiqueta-de-usuario %281%29.png" />
     <Content Include="Resources\Fit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

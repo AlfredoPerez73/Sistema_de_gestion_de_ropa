@@ -11,60 +11,149 @@ using Entidad;
 
 namespace Datos
 {
-    public class ProductoRepository
+    public class ProductoRepository : ConexionRepository
     {
-        private ConexionRepository connection = new ConexionRepository();
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
-        public DataTable CargarRegistros()
+        public ProductoRepository() : base()
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "CargarProductos";
-            command.CommandType = CommandType.StoredProcedure;
-            reader = command.ExecuteReader();
-            table.Load(reader);
-            connection.CerrarConnection();
-            return table;
+
         }
 
-        public void GuardarRegistros(string IdProducto, string NombreProducto, string Marca, int Stock, double PrecioUnitario, string IdCategoria
-            , string IdProveedor, string TipoCategoria)
+        public List<Producto> CargarRegistro()
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "INSERT INTO PRODUCTO(IdProducto,NombreProducto,Marca,Stock,PrecioUnitario,IdCategoria,IdProveedor,TipoCategoria) VALUES('" + IdProducto + "', '" + NombreProducto + "', '" + Marca + "', " + Stock + ", " + PrecioUnitario + ", '" + IdCategoria + "', '" + IdProveedor + "', '" + TipoCategoria + "');";
-            command.CommandType = CommandType.Text;
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            List<Producto> productoList = new List<Producto>();
+            string Consulta = "SELECT * FROM PRODUCTO";
+            try
+            {
+                SqlCommand command = new SqlCommand(Consulta, Connection);
+                Abrir();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    productoList.Add(Map(reader));
+                }
+                reader.Close();
+                Cerrar();
+        }
+            catch (Exception)
+            {
+                return null;
+            }
+            return productoList;
         }
 
-        public void ModificarRegistros(string NombreProducto, string Marca, int Stock, double PrecioUnitario, string IdCategoria
-            , string IdProveedor, string TipoCategoria, string IdProducto)
+        public string GuardarRegistros(Producto producto)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "ModificarProductos";
-            command.Parameters.AddWithValue("@NombreProducto", NombreProducto);
-            command.Parameters.AddWithValue("@Marca", Marca);
-            command.Parameters.AddWithValue("@Stock", Stock);
-            command.Parameters.AddWithValue("@PrecioUnitario", PrecioUnitario);
-            command.Parameters.AddWithValue("@IdCategoria", IdCategoria);
-            command.Parameters.AddWithValue("@IdProveedor", IdProveedor);
-            command.Parameters.AddWithValue("@TipoCategoria", TipoCategoria);
-            command.Parameters.AddWithValue("@IdProducto", IdProducto);
-            command.CommandType = CommandType.StoredProcedure;
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            try
+            {
+                string Registro = "INSERT INTO PRODUCTO(IdProducto,NombreProducto,Marca,Stock,PrecioCompra,PrecioVenta,IdCategoria,TipoCategoria) VALUES" +
+                    "('" + producto.IdProducto + "', '" + producto.NombreProducto + "', '" + producto.Marca + "', " + producto.Stock + ", " + producto.PrecioCompra + ", '" + producto.PrecioVenta + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
+                SqlCommand command = new SqlCommand(Registro, Connection);
+                Abrir();
+                var index = command.ExecuteNonQuery();
+                Cerrar();
+            }
+            catch (Exception)
+            {
+                return "Error al registrar el producto";
+            }
+
+            return $"Se ha registrado el producto {producto.NombreProducto} " +
+                $"con la ID {producto.IdProducto}";
         }
 
-        public void EliminarRegistros(string IdProducto)
+        public string ModificarRegistros(Producto producto)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "EliminarProductos";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdProducto", IdProducto);
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            try
+            {
+                string Actualizar = "ModificarProductos";
+                SqlCommand command = new SqlCommand(Actualizar, Connection);
+                command.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
+                command.Parameters.AddWithValue("@Marca", producto.Marca);
+                command.Parameters.AddWithValue("@Stock", producto.Stock);
+                command.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
+                command.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
+                command.Parameters.AddWithValue("@IdCategoria", producto.Categoria.IdCategoria);
+                command.Parameters.AddWithValue("@TipoCategoria", producto.Categoria.TipoCategoria);
+                command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+                command.CommandType = CommandType.StoredProcedure;
+                Abrir();
+                var index = command.ExecuteNonQuery();
+                Cerrar();
+            }
+            catch (Exception)
+            {
+                return "Error al modificar el producto";
+            }
+
+            return $"Se ha modificar el producto {producto.NombreProducto} " +
+                $"con la ID {producto.IdProducto}";
+            //command.Connection = AbrirConnection();
+            //command.CommandText = "ModificarProductos";
+            //command.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
+            //command.Parameters.AddWithValue("@Marca", producto.Marca);
+            //command.Parameters.AddWithValue("@Stock", producto.Stock);
+            //command.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
+            //command.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
+            //command.Parameters.AddWithValue("@IdCategoria", producto.Categoria.IdCategoria);
+            //command.Parameters.AddWithValue("@TipoCategoria", producto.Categoria.TipoCategoria);
+            //command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+            //command.CommandType = CommandType.StoredProcedure;
+            //command.ExecuteNonQuery();
+            //command.Parameters.Clear();
+        }
+
+        public string EliminarRegistros(Producto producto)
+        {
+            try
+            {
+                string Registro = "EliminarProductos";
+
+                SqlCommand command = new SqlCommand(Registro, Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+                Abrir();
+                var index = command.ExecuteNonQuery();
+                Cerrar();
+            }
+            catch (Exception)
+            {
+                return "Error al eliminar el producto";
+            }
+
+            return $"Se ha eliminar el producto {producto.NombreProducto} " +
+                $"con la ID {producto.IdProducto}";
+            //command.Connection = AbrirConnection();
+            //command.CommandText = "EliminarProductos";
+            //command.CommandType = CommandType.StoredProcedure;
+            //command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+            //command.ExecuteNonQuery();
+            //command.Parameters.Clear();
+        }
+
+        private Producto Map(SqlDataReader reader)
+        {
+            Producto producto = new Producto
+            {
+                IdProducto = Convert.ToString(reader["IdProducto"]),
+                Categoria = new Categoria
+                {
+                    IdCategoria = Convert.ToString(reader["IdCategoria"]),
+                    TipoCategoria = Convert.ToString(reader["TipoCategoria"])
+                },
+                NombreProducto = Convert.ToString(reader["NombreProducto"]),
+                Marca = Convert.ToString(reader["Marca"]),
+                Stock = Convert.ToInt32(reader["Stock"]),
+                PrecioVenta = Convert.ToDecimal(reader["PrecioCompra"]),
+                PrecioCompra = Convert.ToDecimal(reader["PrecioVenta"]),
+                FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
+            };
+           
+            return producto;
         }
     }
 }

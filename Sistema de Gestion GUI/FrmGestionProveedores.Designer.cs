@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBuscarProducto = new CustomControls.RJControls.RJTextBox();
+            this.txtBuscarProveedor = new CustomControls.RJControls.RJTextBox();
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
@@ -63,7 +63,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.txtBuscarProducto);
+            this.panel1.Controls.Add(this.txtBuscarProveedor);
             this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.rjTextBox1);
@@ -75,29 +75,31 @@
             this.panel1.Size = new System.Drawing.Size(1213, 578);
             this.panel1.TabIndex = 44;
             // 
-            // txtBuscarProducto
+            // txtBuscarProveedor
             // 
-            this.txtBuscarProducto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBuscarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarProducto.BackColor = System.Drawing.Color.White;
-            this.txtBuscarProducto.BorderColor = System.Drawing.Color.White;
-            this.txtBuscarProducto.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtBuscarProducto.BorderRadius = 15;
-            this.txtBuscarProducto.BorderSize = 1;
-            this.txtBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProducto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarProducto.Location = new System.Drawing.Point(278, 79);
-            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarProducto.Multiline = false;
-            this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscarProducto.PasswordChar = false;
-            this.txtBuscarProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBuscarProducto.PlaceholderText = "";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(625, 32);
-            this.txtBuscarProducto.TabIndex = 20;
-            this.txtBuscarProducto.Texts = "Buscar por Id:";
-            this.txtBuscarProducto.UnderlinedStyle = false;
+            this.txtBuscarProveedor.BackColor = System.Drawing.Color.White;
+            this.txtBuscarProveedor.BorderColor = System.Drawing.Color.White;
+            this.txtBuscarProveedor.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtBuscarProveedor.BorderRadius = 15;
+            this.txtBuscarProveedor.BorderSize = 1;
+            this.txtBuscarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProveedor.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtBuscarProveedor.Location = new System.Drawing.Point(278, 79);
+            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarProveedor.Multiline = false;
+            this.txtBuscarProveedor.Name = "txtBuscarProveedor";
+            this.txtBuscarProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtBuscarProveedor.PasswordChar = false;
+            this.txtBuscarProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtBuscarProveedor.PlaceholderText = "";
+            this.txtBuscarProveedor.Size = new System.Drawing.Size(625, 32);
+            this.txtBuscarProveedor.TabIndex = 20;
+            this.txtBuscarProveedor.Texts = "Buscar:";
+            this.txtBuscarProveedor.UnderlinedStyle = false;
+            this.txtBuscarProveedor.Enter += new System.EventHandler(this.txtBuscarProducto_Enter);
+            this.txtBuscarProveedor.Leave += new System.EventHandler(this.txtBuscarProducto_Leave);
             // 
             // btnExcel
             // 
@@ -556,7 +558,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private CustomControls.RJControls.RJTextBox txtBuscarProducto;
+        private CustomControls.RJControls.RJTextBox txtBuscarProveedor;
         private CustomControls.RJControls.RJButton btnExcel;
         private System.Windows.Forms.Label label9;
         private CustomControls.RJControls.RJTextBox rjTextBox1;

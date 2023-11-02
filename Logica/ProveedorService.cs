@@ -15,9 +15,9 @@ namespace Logica
     {
         private ProveedorRepository proveedorRepository = new ProveedorRepository();
 
-        public void Guardar(string IdProveedor, string Documento, string RazonSocial, string Correo, string Telefono)
+        public void Guardar(Proveedor proveedor)
         {
-            proveedorRepository.GuardarRegistros(IdProveedor, Documento, RazonSocial, Correo, Telefono);
+            proveedorRepository.GuardarRegistros(proveedor);
         }
 
         public DataTable CargarRegistros()
@@ -27,14 +27,14 @@ namespace Logica
             return table;
         }
 
-        public void ModificarRegistros(string Documento, string RazonSocial, string Correo, string Telefono, string IdProveedor)
+        public void ModificarRegistros(Proveedor proveedor)
         {
-            proveedorRepository.ModificarRegistros(Documento, RazonSocial, Correo, Telefono, IdProveedor);
+            proveedorRepository.ModificarRegistros(proveedor);
         }
 
-        public void EliminarRegistros(string IdProveedo)
+        public void EliminarRegistros(Proveedor proveedor)
         {
-            proveedorRepository.EliminarRegistros(IdProveedo);
+            proveedorRepository.EliminarRegistros(proveedor);
         }
     }
 }

@@ -11,34 +11,32 @@ using System.Data.SqlClient;
 
 namespace Logica
 {
-    public class ProductoService
+    public class ProductoService : ICrudService
     {
         private ProductoRepository productoRepository = new ProductoRepository();
 
-        public void Guardar(string IdProducto, string NombreProducto, string Marca, string Stock, string PrecioUnitario, string IdCategoria
-            , string IdProveedor, string TipoCategoria)
+        public string Guardar(Producto producto)
         {
-            productoRepository.GuardarRegistros(IdProducto, NombreProducto, Marca, Convert.ToInt32(Stock), Convert.ToDouble(PrecioUnitario), IdCategoria,
-                IdProveedor, TipoCategoria);
+            var msg = productoRepository.GuardarRegistros(producto);
+            return msg;
         }
 
-        public DataTable CargarRegistros()
+        public List<Producto> CargarRegistro()
         {
-            DataTable table = new DataTable();
-            table = productoRepository.CargarRegistros();
-            return table;
+            var msg = productoRepository.CargarRegistro();
+            return msg;
         }
 
-        public void ModificarRegistros(string NombreProducto, string Marca, string Stock, string PrecioUnitario, string IdCategoria
-            , string IdProveedor, string TipoCategoria, string IdProducto)
+        public string ModificarRegistros(Producto producto)
         {
-            productoRepository.ModificarRegistros(NombreProducto, Marca, Convert.ToInt32(Stock), Convert.ToDouble(PrecioUnitario), IdCategoria,
-                IdProveedor, TipoCategoria, IdProducto);
+            var msg = productoRepository.ModificarRegistros(producto);
+            return msg;
         }
 
-        public void EliminarRegistros(string IdProducto)
+        public string EliminarRegistros(Producto producto)
         {
-            productoRepository.EliminarRegistros(IdProducto);
+            var msg = productoRepository.EliminarRegistros(producto);
+            return msg;
         }
     }
 }

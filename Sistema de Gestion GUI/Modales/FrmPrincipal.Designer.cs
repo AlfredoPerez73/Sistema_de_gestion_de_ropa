@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblFechaActual = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.slideBar = new System.Windows.Forms.Timer(this.components);
-            this.lblFechaActual = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,20 +50,28 @@
             this.panel1.Size = new System.Drawing.Size(1213, 578);
             this.panel1.TabIndex = 0;
             // 
+            // lblFechaActual
+            // 
+            this.lblFechaActual.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaActual.ForeColor = System.Drawing.Color.LightSteelBlue;
+            this.lblFechaActual.Location = new System.Drawing.Point(547, 459);
+            this.lblFechaActual.Name = "lblFechaActual";
+            this.lblFechaActual.Size = new System.Drawing.Size(395, 39);
+            this.lblFechaActual.TabIndex = 2;
+            // 
             // lblFecha
             // 
             this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblFecha.Location = new System.Drawing.Point(539, 409);
+            this.lblFecha.Location = new System.Drawing.Point(585, 409);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(356, 69);
             this.lblFecha.TabIndex = 1;
-            this.lblFecha.Text = "label1";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.fit_contol;
-            this.pictureBox1.Location = new System.Drawing.Point(407, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(441, 63);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(488, 421);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -74,16 +82,6 @@
             // 
             this.slideBar.Interval = 1000;
             this.slideBar.Tick += new System.EventHandler(this.slideBar_Tick);
-            // 
-            // lblFechaActual
-            // 
-            this.lblFechaActual.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaActual.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.lblFechaActual.Location = new System.Drawing.Point(504, 459);
-            this.lblFechaActual.Name = "lblFechaActual";
-            this.lblFechaActual.Size = new System.Drawing.Size(395, 39);
-            this.lblFechaActual.TabIndex = 2;
-            this.lblFechaActual.Text = "label1";
             // 
             // FrmPrincipal
             // 

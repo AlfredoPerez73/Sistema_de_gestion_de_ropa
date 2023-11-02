@@ -32,15 +32,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtContraseña = new CustomControls.RJControls.RJTextBox();
-            this.txtUsuario = new CustomControls.RJControls.RJTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new CustomControls.RJControls.RJButton();
             this.btnIngresar = new CustomControls.RJControls.RJButton();
+            this.txtContraseña = new CustomControls.RJControls.RJTextBox();
+            this.txtUsuario = new CustomControls.RJControls.RJTextBox();
             this.lbError = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +85,66 @@
             this.panel1.Size = new System.Drawing.Size(549, 226);
             this.panel1.TabIndex = 16;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
+            this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 229);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.Brown;
+            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancelar.BorderRadius = 15;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.circulo_marca_x;
+            this.btnCancelar.Location = new System.Drawing.Point(395, 172);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(101, 26);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnIngresar
+            // 
+            this.btnIngresar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnIngresar.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnIngresar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIngresar.BorderRadius = 15;
+            this.btnIngresar.BorderSize = 0;
+            this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIngresar.FlatAppearance.BorderSize = 0;
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.ForeColor = System.Drawing.Color.White;
+            this.btnIngresar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.tarjeta_de_direccion;
+            this.btnIngresar.Location = new System.Drawing.Point(291, 172);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(101, 26);
+            this.btnIngresar.TabIndex = 24;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIngresar.TextColor = System.Drawing.Color.White;
+            this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // txtContraseña
             // 
@@ -132,87 +192,6 @@
             this.txtUsuario.UnderlinedStyle = false;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.SteelBlue;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(61, 142);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 32);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "FitControl";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.SteelBlue;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 226);
-            this.label4.TabIndex = 18;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
-            this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(251, 229);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
-            this.btnCancelar.BackgroundColor = System.Drawing.Color.Brown;
-            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancelar.BorderRadius = 15;
-            this.btnCancelar.BorderSize = 0;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.circulo_cruzado;
-            this.btnCancelar.Location = new System.Drawing.Point(395, 172);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(101, 26);
-            this.btnCancelar.TabIndex = 25;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.TextColor = System.Drawing.Color.White;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnIngresar
-            // 
-            this.btnIngresar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnIngresar.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.btnIngresar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnIngresar.BorderRadius = 15;
-            this.btnIngresar.BorderSize = 0;
-            this.btnIngresar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnIngresar.FlatAppearance.BorderSize = 0;
-            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.ForeColor = System.Drawing.Color.White;
-            this.btnIngresar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.tarjeta_de_direccion;
-            this.btnIngresar.Location = new System.Drawing.Point(291, 172);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(101, 26);
-            this.btnIngresar.TabIndex = 24;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnIngresar.TextColor = System.Drawing.Color.White;
-            this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnIngresar.UseVisualStyleBackColor = false;
-            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
-            // 
             // lbError
             // 
             this.lbError.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -235,6 +214,27 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 74);
             this.label6.TabIndex = 20;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.SteelBlue;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(61, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(136, 32);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "FitControl";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.SteelBlue;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(251, 226);
+            this.label4.TabIndex = 18;
             // 
             // FrmLogin
             // 

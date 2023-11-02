@@ -63,6 +63,36 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bala {
+            get {
+                object obj = ResourceManager.GetObject("bala", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bala2 {
+            get {
+                object obj = ResourceManager.GetObject("bala2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bala3 {
+            get {
+                object obj = ResourceManager.GetObject("bala3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap barras_escalonadas {
             get {
                 object obj = ResourceManager.GetObject("barras-escalonadas", resourceCulture);
@@ -143,9 +173,9 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap circulo_cruzado {
+        internal static System.Drawing.Bitmap circulo_marca_x {
             get {
-                object obj = ResourceManager.GetObject("circulo-cruzado", resourceCulture);
+                object obj = ResourceManager.GetObject("circulo-marca-x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,36 +186,6 @@ namespace Sistema_de_Gestion_GUI.Properties {
         internal static System.Drawing.Bitmap cross_circle {
             get {
                 object obj = ResourceManager.GetObject("cross_circle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cruz_pequena {
-            get {
-                object obj = ResourceManager.GetObject("cruz-pequena", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cuadrado {
-            get {
-                object obj = ResourceManager.GetObject("cuadrado", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cuadrado__1_ {
-            get {
-                object obj = ResourceManager.GetObject("cuadrado (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +236,46 @@ namespace Sistema_de_Gestion_GUI.Properties {
         internal static System.Drawing.Bitmap estadisticas {
             get {
                 object obj = ResourceManager.GetObject("estadisticas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiqueta_de_usuario {
+            get {
+                object obj = ResourceManager.GetObject("etiqueta-de-usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiqueta_de_usuario__1_ {
+            get {
+                object obj = ResourceManager.GetObject("etiqueta-de-usuario (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiquetas {
+            get {
+                object obj = ResourceManager.GetObject("etiquetas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiquetas__1_ {
+            get {
+                object obj = ResourceManager.GetObject("etiquetas (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,16 +403,6 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap house_chimney {
-            get {
-                object obj = ResourceManager.GetObject("house-chimney", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap house_chimney__1_ {
             get {
                 object obj = ResourceManager.GetObject("house-chimney (1)", resourceCulture);
@@ -413,9 +443,9 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap menos_pequeno {
+        internal static System.Drawing.Bitmap recibo {
             get {
-                object obj = ResourceManager.GetObject("menos-pequeno", resourceCulture);
+                object obj = ResourceManager.GetObject("recibo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -15,14 +15,14 @@ namespace Logica
     {
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-        public bool LoginUser(string usuario, string contraseña)
+        public bool LoginUser(Usuario usuario)
         {
-            return usuarioRepository.Login(usuario, contraseña);
+            return usuarioRepository.Login(usuario);
         }
 
-        public void GuardarRegistros(string IdUsuario, string Documento, string Usuario, string Contraseña, string Correo, string IdRol, string Rol)
+        public void GuardarRegistros(Usuario usuario)
         {
-            usuarioRepository.GuardarRegistros(IdUsuario, Documento, Usuario, Contraseña, Correo, IdRol, Rol);
+            usuarioRepository.GuardarRegistros(usuario);
         }
 
         public DataTable CargarRegistros()
@@ -32,14 +32,14 @@ namespace Logica
             return table;
         }
 
-        public void ModificarRegistros(string Usuario, string Contraseña, string Correo, string IdRol, string Rol, string IdUsuario)
+        public void ModificarRegistros(Usuario usuario)
         {
-            usuarioRepository.ModificarRegistros(Usuario, Contraseña, Correo, IdRol, Rol, IdUsuario);
+            usuarioRepository.ModificarRegistros(usuario);
         }
 
-        public void EliminarRegistros(string IdUsuario)
+        public void EliminarRegistros(Usuario usuario)
         {
-            usuarioRepository.EliminarRegistros(IdUsuario);
+            usuarioRepository.EliminarRegistros(usuario);
         }
     }
 }

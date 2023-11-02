@@ -17,6 +17,8 @@ namespace Sistema_de_Gestion_GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Usuario oUsuario = new Usuario();
+            Permiso oPermiso = new Permiso();
             Application.Run(new FrmLogin());
         }
     }

@@ -15,9 +15,8 @@ using Sistema_de_Gestion_GUI.Modales;
 namespace Sistema_de_Gestion_GUI
 {
     public partial class FrmGestionProducto : Form
-    {      
+    {
         private ProductoService productoService = new ProductoService();
-        private CategoriaService categoriaService = new CategoriaService();
 
         public FrmGestionProducto()
         {
@@ -34,16 +33,28 @@ namespace Sistema_de_Gestion_GUI
             try
             {
                 if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioProducto.Texts != "") || (txtProveedor.Texts != ""))
+                || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
-
-                    productoService.Guardar(txtIdProducto.Texts, txtNombreProducto.Texts.ToUpper(),
-                        txtMarcaProducto.Texts.ToUpperInvariant(), txtStock.Texts,
-                        txtPrecioProducto.Texts, txtIdCategoria.Text, txtProveedor.Texts.ToUpper(), txtTipoProducto.Texts.ToUpper());
-                    
+                    Producto producto = new Producto
+                    {
+                        IdProducto = txtIdProducto.Texts,
+                        NombreProducto = txtNombreProducto.Texts.ToUpper(),
+                        Marca = txtMarcaProducto.Texts.ToUpper(),
+                        Stock = Convert.ToInt32(txtStock.Texts),
+                        PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Texts),
+                        PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Texts),
+                        Categoria = new Categoria
+                        {
+                            IdCategoria = txtIdCategoria.Text,
+                            TipoCategoria = txtTipoProducto.Texts.ToUpper()
+                        }
+                    };
+                    var msg = productoService.Guardar(producto);
+                    MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Registro almacenado con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
+
                 }
                 else
                 {
@@ -52,14 +63,33 @@ namespace Sistema_de_Gestion_GUI
             }
             catch (Exception)
             {
-                MessageBox.Show("ID de producto ya ingresado!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error al ingresar el producto", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void RecargarRegistros()
         {
-            ProductoService Service = new ProductoService();
-            tblRegistro.DataSource = Service.CargarRegistros();
+            var productos = new ProductoService().CargarRegistro();
+            tblRegistro.Rows.Clear();
+            tblRegistro.Rows.Add();
+            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+
+            foreach (var producto in productos)
+            {
+                row.Cells["IdProducto"].Value = producto.IdProducto;
+                row.Cells["IdCategoria"].Value = producto.Categoria.IdCategoria;
+                row.Cells["TipoCategoria"].Value = producto.Categoria.TipoCategoria;
+                row.Cells["NombreProducto"].Value = producto.NombreProducto;
+                row.Cells["Marca"].Value = producto.Marca;
+                row.Cells["Stock"].Value = producto.Stock;
+                row.Cells["PrecioVenta"].Value = producto.PrecioVenta;
+                row.Cells["PrecioCompra"].Value = producto.PrecioCompra;
+                row.Cells["FechaRegistro"].Value = producto.FechaRegistro.ToString("d");
+
+                tblRegistro.Rows.Add();
+                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            }
+            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         private void ModificarProducto()
@@ -67,11 +97,24 @@ namespace Sistema_de_Gestion_GUI
             try
             {
                 if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioProducto.Texts != "") || (txtProveedor.Texts != ""))
+                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
-                    productoService.ModificarRegistros(txtNombreProducto.Texts.ToUpper(),
-                         txtMarcaProducto.Texts.ToUpperInvariant(), txtStock.Texts,
-                         txtPrecioProducto.Texts, txtIdCategoria.Text, txtProveedor.Texts.ToUpper(), txtTipoProducto.Texts.ToUpper(), txtIdProducto.Texts);
+                    Producto producto = new Producto
+                    {
+                        NombreProducto = txtNombreProducto.Texts.ToUpper(),
+                        Marca = txtMarcaProducto.Texts.ToUpper(),
+                        Stock = Convert.ToInt32(txtStock.Texts),
+                        PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Texts),
+                        PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Texts),
+                        Categoria = new Categoria
+                        {
+                            IdCategoria = txtIdCategoria.Text,
+                            TipoCategoria = txtTipoProducto.Texts.ToUpper()
+                        },
+                        IdProducto = txtIdProducto.Texts,
+                    };
+                    var msg = productoService.ModificarRegistros(producto);
+                    MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -95,13 +138,18 @@ namespace Sistema_de_Gestion_GUI
             try
             {
                 if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioProducto.Texts != "") || (txtProveedor.Texts != ""))
+                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
                     if (Convert.ToInt32(txtIdProducto.Texts) != 0)
                     {
                         if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            productoService.EliminarRegistros(idProducto);
+                            Producto producto = new Producto
+                            {
+                                IdProducto = txtIdProducto.Texts
+                            };
+                            var msg = productoService.EliminarRegistros(producto);
+                            MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -136,8 +184,8 @@ namespace Sistema_de_Gestion_GUI
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
-            txtPrecioProducto.Texts = "";
-            txtProveedor.Texts = "";
+            txtPrecioCompra.Texts = "";
+            txtPrecioVenta.Texts = "";
             txtIdProducto.Focus();
         }
 
@@ -152,8 +200,8 @@ namespace Sistema_de_Gestion_GUI
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
-            txtPrecioProducto.Texts = "";
-            txtProveedor.Texts = "";
+            txtPrecioCompra.Texts = "";
+            txtPrecioVenta.Texts = "";
             txtIdProducto.Focus();
         }
 
@@ -175,8 +223,8 @@ namespace Sistema_de_Gestion_GUI
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
-            txtPrecioProducto.Texts = "";
-            txtProveedor.Texts = "";
+            txtPrecioCompra.Texts = "";
+            txtPrecioVenta.Texts = "";
             txtIdProducto.Focus();
         }
 
@@ -211,9 +259,9 @@ namespace Sistema_de_Gestion_GUI
                     txtNombreProducto.Texts = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString();
                     txtMarcaProducto.Texts = tblRegistro.Rows[index].Cells["Marca"].Value.ToString();
                     txtStock.Texts = tblRegistro.Rows[index].Cells["Stock"].Value.ToString();
-                    txtPrecioProducto.Texts = tblRegistro.Rows[index].Cells["PrecioUnitario"].Value.ToString();
+                    txtPrecioCompra.Texts = tblRegistro.Rows[index].Cells["PrecioCompra"].Value.ToString();
+                    txtPrecioVenta.Texts = tblRegistro.Rows[index].Cells["PrecioVenta"].Value.ToString();
                     txtIdCategoria.Text = tblRegistro.Rows[index].Cells["IdCategoria"].Value.ToString();
-                    txtProveedor.Texts = tblRegistro.Rows[index].Cells["IdProveedor"].Value.ToString();
                     txtTipoProducto.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
                 }
             }
@@ -264,7 +312,7 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    txtProveedor.Texts = modal.proveedor.IdProveedor.ToString();
+                    txtPrecioVenta.Texts = modal.proveedor.IdProveedor.ToString();
                 }
             }
         }
@@ -330,6 +378,24 @@ namespace Sistema_de_Gestion_GUI
             if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtBuscarProducto_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarProducto.Texts == "Buscar:")
+            {
+                txtBuscarProducto.Texts = "";
+                txtBuscarProducto.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarProducto.Texts == "")
+            {
+                txtBuscarProducto.Texts = "Buscar:";
+                txtBuscarProducto.ForeColor = Color.Gainsboro;
             }
         }
     }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidad
 {
-    public struct Permiso
+    public class Permiso
     {
         public string IdPermiso { get; set; }
-        public const string Administrador = "ADMINISTRADOR";
-        public const string Empleado = "EMPLEADO";
+        public Rol Rol { get; set; }
+        public string NPermiso { get; set; }
     }
 }

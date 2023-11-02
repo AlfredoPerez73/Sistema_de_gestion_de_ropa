@@ -15,9 +15,9 @@ namespace Logica
     {
         private CategoriaRepository categoriaRepository = new CategoriaRepository();
 
-        public void Guardar(string IdCategoria, string TipoCategoria)
+        public void Guardar(Categoria categoria)
         {
-            categoriaRepository.GuardarRegistros(IdCategoria, TipoCategoria);
+            categoriaRepository.GuardarRegistros(categoria);
         }
 
         public DataTable CargarRegistros()
@@ -27,14 +27,14 @@ namespace Logica
             return table;
         }
 
-        public void ModificarRegistros(string TipoCategoria, string IdCategoria)
+        public void ModificarRegistros(Categoria categoria)
         {
-            categoriaRepository.ModificarRegistros(TipoCategoria, IdCategoria);
+            categoriaRepository.ModificarRegistros(categoria);
         }
 
-        public void EliminarRegistros(string IdCategoria)
+        public void EliminarRegistros(Categoria categoria)
         {
-            categoriaRepository.EliminarRegistros(IdCategoria);
+            categoriaRepository.EliminarRegistros(categoria);
         }
     }
 }

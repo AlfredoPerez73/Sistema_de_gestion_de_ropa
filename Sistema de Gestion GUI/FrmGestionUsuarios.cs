@@ -42,8 +42,20 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdUsuario.Texts != "") || (txtIdRol.Text != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
                     || (txtContraseña.Texts != "") || (txtRol.Texts != "") || (txtCorreo.Texts != ""))
                 {
-                    usuarioService.GuardarRegistros(txtIdUsuario.Texts, txtIdRol.Text, txtDocumento.Texts, txtNombreUsuario.Texts.ToUpper(),
-                        txtContraseña.Texts.ToLower(), txtRol.Text, txtCorreo.Texts.ToLower());
+                    Usuario usuario = new Usuario
+                    {
+                        IdUser = txtIdUsuario.Texts,
+                        Documento = txtDocumento.Texts,
+                        User = txtIdUsuario.Texts,
+                        Password = txtContraseña.Texts,
+                        Rol = new Rol
+                        {
+                            IdRol = txtIdRol.Text,
+                            NRol = txtRol.Texts
+                        },
+                        Correo = txtCorreo.Texts.ToLower()
+                    };
+                    usuarioService.GuardarRegistros(usuario);
 
                     MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
@@ -79,7 +91,11 @@ namespace Sistema_de_Gestion_GUI
                     {
                         if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            usuarioService.EliminarRegistros(idUsuario);
+                            Usuario usuario = new Usuario
+                            {
+                                IdUser = txtIdUsuario.Texts
+                            };
+                            usuarioService.EliminarRegistros(usuario);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -268,6 +284,24 @@ namespace Sistema_de_Gestion_GUI
                     txtIdRol.Text = modal.roles.IdRol.ToString();
                     txtRol.Texts = modal.roles.NRol.ToString();
                 }
+            }
+        }
+
+        private void txtBuscarProducto_Enter(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Texts == "Buscar:")
+            {
+                txtBuscarUsuario.Texts = "";
+                txtBuscarUsuario.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto_Leave(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Texts == "")
+            {
+                txtBuscarUsuario.Texts = "Buscar:";
+                txtBuscarUsuario.ForeColor = Color.Gainsboro;
             }
         }
     }

@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.Contenedor = new System.Windows.Forms.Panel();
             this.SlideContenedor2 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.btnClientes = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnVenta = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MenuDesplegable = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,7 +44,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnGestionProductos = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.btnAnalisis = new System.Windows.Forms.Button();
+            this.btnCompra = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnGestionCategorias = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -49,7 +53,6 @@
             this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnPerfil = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.slideBar2 = new System.Windows.Forms.Timer(this.components);
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
@@ -57,6 +60,8 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.Contenedor.SuspendLayout();
             this.SlideContenedor2.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MenuDesplegable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,31 +83,88 @@
             this.Contenedor.Controls.Add(this.SlideContenedor2);
             this.Contenedor.Cursor = System.Windows.Forms.Cursors.Default;
             this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(0, 69);
+            this.Contenedor.Location = new System.Drawing.Point(0, 44);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1270, 619);
+            this.Contenedor.Size = new System.Drawing.Size(1270, 644);
             this.Contenedor.TabIndex = 46;
-            this.Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.Contenedor_Paint);
             // 
             // SlideContenedor2
             // 
             this.SlideContenedor2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.SlideContenedor2.BackColor = System.Drawing.Color.SteelBlue;
+            this.SlideContenedor2.Controls.Add(this.panel5);
+            this.SlideContenedor2.Controls.Add(this.panel12);
+            this.SlideContenedor2.Controls.Add(this.panel11);
             this.SlideContenedor2.Controls.Add(this.panel1);
             this.SlideContenedor2.Controls.Add(this.panel2);
             this.SlideContenedor2.Controls.Add(this.panel3);
             this.SlideContenedor2.Controls.Add(this.panel7);
             this.SlideContenedor2.Controls.Add(this.panel4);
             this.SlideContenedor2.Controls.Add(this.panel6);
-            this.SlideContenedor2.Controls.Add(this.panel5);
             this.SlideContenedor2.Controls.Add(this.panel8);
             this.SlideContenedor2.Location = new System.Drawing.Point(0, 0);
             this.SlideContenedor2.MaximumSize = new System.Drawing.Size(255, 0);
-            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 619);
+            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 644);
             this.SlideContenedor2.Name = "SlideContenedor2";
-            this.SlideContenedor2.Size = new System.Drawing.Size(66, 619);
+            this.SlideContenedor2.Size = new System.Drawing.Size(66, 644);
             this.SlideContenedor2.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnClientes);
+            this.panel12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel12.Location = new System.Drawing.Point(3, 400);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(262, 50);
+            this.panel12.TabIndex = 49;
+            // 
+            // btnClientes
+            // 
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientes.FlatAppearance.BorderSize = 0;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnClientes.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiqueta_de_usuario__1_;
+            this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.Location = new System.Drawing.Point(12, -4);
+            this.btnClientes.Name = "btnClientes";
+            this.btnClientes.Size = new System.Drawing.Size(255, 62);
+            this.btnClientes.TabIndex = 47;
+            this.btnClientes.Text = "           Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClientes.UseVisualStyleBackColor = true;
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnVenta);
+            this.panel11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel11.Location = new System.Drawing.Point(3, 516);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(262, 52);
+            this.panel11.TabIndex = 48;
+            // 
+            // btnVenta
+            // 
+            this.btnVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVenta.FlatAppearance.BorderSize = 0;
+            this.btnVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVenta.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnVenta.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.recibo;
+            this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenta.Location = new System.Drawing.Point(12, -4);
+            this.btnVenta.Name = "btnVenta";
+            this.btnVenta.Size = new System.Drawing.Size(255, 62);
+            this.btnVenta.TabIndex = 47;
+            this.btnVenta.Text = "           Ventas";
+            this.btnVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVenta.UseVisualStyleBackColor = true;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click);
             // 
             // panel1
             // 
@@ -195,30 +257,31 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.btnAnalisis);
+            this.panel7.Controls.Add(this.btnCompra);
             this.panel7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel7.Location = new System.Drawing.Point(3, 399);
+            this.panel7.Location = new System.Drawing.Point(3, 457);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(262, 52);
             this.panel7.TabIndex = 47;
             // 
-            // btnAnalisis
+            // btnCompra
             // 
-            this.btnAnalisis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnalisis.FlatAppearance.BorderSize = 0;
-            this.btnAnalisis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalisis.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalisis.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAnalisis.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.estadisticas;
-            this.btnAnalisis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalisis.Location = new System.Drawing.Point(12, -4);
-            this.btnAnalisis.Name = "btnAnalisis";
-            this.btnAnalisis.Size = new System.Drawing.Size(255, 62);
-            this.btnAnalisis.TabIndex = 47;
-            this.btnAnalisis.Text = "           Analisis";
-            this.btnAnalisis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnalisis.UseVisualStyleBackColor = true;
+            this.btnCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompra.FlatAppearance.BorderSize = 0;
+            this.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompra.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiquetas__1_;
+            this.btnCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompra.Location = new System.Drawing.Point(12, -4);
+            this.btnCompra.Name = "btnCompra";
+            this.btnCompra.Size = new System.Drawing.Size(255, 62);
+            this.btnCompra.TabIndex = 47;
+            this.btnCompra.Text = "           Compra";
+            this.btnCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompra.UseVisualStyleBackColor = true;
+            this.btnCompra.Click += new System.EventHandler(this.btnCompra_Click);
             // 
             // panel4
             // 
@@ -309,7 +372,7 @@
             this.panel8.Controls.Add(this.btnPerfil);
             this.panel8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel8.Location = new System.Drawing.Point(3, 526);
+            this.panel8.Location = new System.Drawing.Point(3, 589);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(262, 52);
             this.panel8.TabIndex = 47;
@@ -334,21 +397,11 @@
             this.btnPerfil.UseVisualStyleBackColor = false;
             this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.LightGray;
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1270, 25);
-            this.panel9.TabIndex = 46;
-            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseDown);
-            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.SteelBlue;
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 25);
+            this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(1270, 44);
             this.panel10.TabIndex = 47;
@@ -362,12 +415,13 @@
             // btnMaximizar
             // 
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximizar.BackColor = System.Drawing.Color.LightGray;
+            this.btnMaximizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado__1_;
+            this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala2;
             this.btnMaximizar.Location = new System.Drawing.Point(1228, 0);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(18, 18);
+            this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMaximizar.TabIndex = 49;
             this.btnMaximizar.TabStop = false;
             this.btnMaximizar.Click += new System.EventHandler(this.btnMaximizar_Click);
@@ -375,13 +429,13 @@
             // btnMinimizar
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.LightGray;
+            this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.menos_pequeno;
+            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
             this.btnMinimizar.Location = new System.Drawing.Point(1202, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 49;
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
@@ -389,13 +443,13 @@
             // btnCerrar
             // 
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.LightGray;
+            this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cruz_pequena;
+            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
             this.btnCerrar.Location = new System.Drawing.Point(1250, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 18);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 48;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -412,7 +466,6 @@
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel9);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmMenuPrincipal";
@@ -421,6 +474,8 @@
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.Contenedor.ResumeLayout(false);
             this.SlideContenedor2.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MenuDesplegable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -456,13 +511,16 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnGestionUsuarios;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btnAnalisis;
+        private System.Windows.Forms.Button btnCompra;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox MenuDesplegable;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel SlideContenedor2;
         private System.Windows.Forms.Timer slideBar2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnVenta;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Button btnClientes;
     }
 }
