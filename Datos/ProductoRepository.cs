@@ -29,7 +29,7 @@ namespace Datos
             try
             {
                 SqlCommand command = new SqlCommand(Consulta, Connection);
-                Abrir();
+                AbrirConnection();
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -37,8 +37,8 @@ namespace Datos
                     productoList.Add(Map(reader));
                 }
                 reader.Close();
-                Cerrar();
-        }
+                CerrarConnection();
+            }
             catch (Exception)
             {
                 return null;
@@ -53,16 +53,16 @@ namespace Datos
                 string Registro = "INSERT INTO PRODUCTO(IdProducto,NombreProducto,Marca,Stock,PrecioCompra,PrecioVenta,IdCategoria,TipoCategoria) VALUES" +
                     "('" + producto.IdProducto + "', '" + producto.NombreProducto + "', '" + producto.Marca + "', " + producto.Stock + ", " + producto.PrecioCompra + ", '" + producto.PrecioVenta + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
                 SqlCommand command = new SqlCommand(Registro, Connection);
-                Abrir();
+                AbrirConnection();
                 var index = command.ExecuteNonQuery();
-                Cerrar();
+                CerrarConnection();
             }
             catch (Exception)
             {
-                return "Error al registrar el producto";
+                return "Error al registrar el producto...";
             }
 
-            return $"Se ha registrado el producto {producto.NombreProducto} " +
+            return $"Se ha registrado el producto {producto.NombreProducto}" +
                 $"con la ID {producto.IdProducto}";
         }
 
@@ -81,58 +81,67 @@ namespace Datos
                 command.Parameters.AddWithValue("@TipoCategoria", producto.Categoria.TipoCategoria);
                 command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
                 command.CommandType = CommandType.StoredProcedure;
-                Abrir();
+                AbrirConnection();
                 var index = command.ExecuteNonQuery();
-                Cerrar();
+                CerrarConnection();
             }
             catch (Exception)
             {
                 return "Error al modificar el producto";
             }
 
-            return $"Se ha modificar el producto {producto.NombreProducto} " +
+            return $"Se ha modificar el producto {producto.NombreProducto}" +
                 $"con la ID {producto.IdProducto}";
-            //command.Connection = AbrirConnection();
-            //command.CommandText = "ModificarProductos";
-            //command.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
-            //command.Parameters.AddWithValue("@Marca", producto.Marca);
-            //command.Parameters.AddWithValue("@Stock", producto.Stock);
-            //command.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
-            //command.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
-            //command.Parameters.AddWithValue("@IdCategoria", producto.Categoria.IdCategoria);
-            //command.Parameters.AddWithValue("@TipoCategoria", producto.Categoria.TipoCategoria);
-            //command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
-            //command.CommandType = CommandType.StoredProcedure;
-            //command.ExecuteNonQuery();
-            //command.Parameters.Clear();
         }
 
         public string EliminarRegistros(Producto producto)
         {
             try
             {
-                string Registro = "EliminarProductos";
+                string Eliminar = "EliminarProductos";
 
-                SqlCommand command = new SqlCommand(Registro, Connection);
+                SqlCommand command = new SqlCommand(Eliminar, Connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
-                Abrir();
+                AbrirConnection();
                 var index = command.ExecuteNonQuery();
-                Cerrar();
+                CerrarConnection();
             }
             catch (Exception)
             {
                 return "Error al eliminar el producto";
             }
-
-            return $"Se ha eliminar el producto {producto.NombreProducto} " +
+            return $"Se ha eliminar el producto {producto.NombreProducto}" +
                 $"con la ID {producto.IdProducto}";
-            //command.Connection = AbrirConnection();
-            //command.CommandText = "EliminarProductos";
-            //command.CommandType = CommandType.StoredProcedure;
-            //command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
-            //command.ExecuteNonQuery();
-            //command.Parameters.Clear();
+        }
+
+        public bool BuscarProducto(Producto producto)
+        {
+            try
+            {
+                string ID = "select * from PRODUCTO where IdProducto=@IdProducto";
+                SqlCommand command = new SqlCommand(ID, Connection);
+                command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
+                command.CommandType = CommandType.Text;
+                AbrirConnection();
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        producto.IdProducto = reader.GetString(0);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private Producto Map(SqlDataReader reader)

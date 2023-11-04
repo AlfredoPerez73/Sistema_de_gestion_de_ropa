@@ -15,11 +15,9 @@ namespace Logica
     {
         RolRepository rolRepository = new RolRepository();
 
-        public DataTable CargarRegistros()
+        public List<Rol> CargarRegistro()
         {
-            DataTable table = new DataTable();
-            table = rolRepository.CargarRegistros();
-            return table;
+            return rolRepository.CargarRegistro();
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Entidad
     {
         public string IdRol { get; set; }
         public string NRol { get; set; }
+        public DateTime FechaRegistro { get; set; }
 
     }
 }

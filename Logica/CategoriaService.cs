@@ -11,30 +11,37 @@ using System.IO;
 
 namespace Logica
 {
-    public class CategoriaService
+    public class CategoriaService : ICrudService<Categoria>
     {
         private CategoriaRepository categoriaRepository = new CategoriaRepository();
 
-        public void Guardar(Categoria categoria)
+        public string Guardar(Categoria categoria)
         {
-            categoriaRepository.GuardarRegistros(categoria);
+            var msg = categoriaRepository.GuardarRegistros(categoria);
+            return msg;
         }
 
-        public DataTable CargarRegistros()
+        public bool BuscarID(Categoria categoria)
         {
-            DataTable table = new DataTable();
-            table = categoriaRepository.CargarRegistros();
-            return table;
+            return categoriaRepository.BuscarCategoria(categoria);
         }
 
-        public void ModificarRegistros(Categoria categoria)
+        public List<Categoria> CargarRegistro()
         {
-            categoriaRepository.ModificarRegistros(categoria);
+            var msg = categoriaRepository.CargarRegistro();
+            return msg;
         }
 
-        public void EliminarRegistros(Categoria categoria)
+        public string ModificarRegistros(Categoria categoria)
         {
-            categoriaRepository.EliminarRegistros(categoria);
+            var msg = categoriaRepository.ModificarRegistros(categoria);
+            return msg;
+        }
+
+        public string EliminarRegistros(Categoria categoria)
+        {
+            var msg = categoriaRepository.EliminarRegistros(categoria);
+            return msg;
         }
     }
 }

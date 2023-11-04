@@ -10,86 +10,194 @@ using Entidad;
 
 namespace Datos
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : ConexionRepository
     {
         private ConexionRepository connection = new ConexionRepository();
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
-        public void GuardarRegistros(Usuario usuario)
+        public UsuarioRepository() : base()
         {
-            connection.AbrirConnection();
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "INSERT INTO USUARIO(IdUsuario,Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + usuario.IdUser+ "','" + usuario.Documento + "','" + usuario.User + "','" + usuario.Password + "','" + usuario.Correo + "','" + usuario.Rol.IdRol + "','" + usuario.Rol.NRol + "');";
-            command.CommandType = CommandType.Text;
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
-            command.ExecuteNonQuery();
+
         }
 
-        public DataTable CargarRegistros()
+        public string GuardarRegistros(Usuario usuario)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "CargarUsuario";
-            command.CommandType = CommandType.Text;
-            reader = command.ExecuteReader();
-            table.Load(reader);
-            connection.CerrarConnection();
-            return table;
+            try
+            {
+                string Registro = "INSERT INTO USUARIO(IdUsuario,Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + usuario.IdUser + "','" + usuario.Documento + "','" + usuario.User + "','" + usuario.Password + "','" + usuario.Correo + "','" + usuario.Rol.IdRol + "','" + usuario.Rol.NRol + "');";
+                SqlCommand command = new SqlCommand(Registro, Connection);
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al registrar el usuario";
+            }
+
+            return $"Se ha registrado el producto {usuario.User}" +
+                $"con la ID {usuario.IdUser}";
         }
 
-        public void ModificarRegistros(Usuario usuario)
+        public List<Usuario> CargarRegistro()
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "ModificarUsuario";
-            command.Parameters.AddWithValue("@Usuario", usuario.User);
-            command.Parameters.AddWithValue("@Contraseña", usuario.Password);
-            command.Parameters.AddWithValue("@Correo", usuario.Correo);
-            command.Parameters.AddWithValue("@IdRol", usuario.Rol.NRol);
-            command.Parameters.AddWithValue("@Rol", usuario.Rol.NRol);
-            command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
-            command.CommandType = CommandType.StoredProcedure;
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            List<Usuario> usuarioList = new List<Usuario>();
+            string Consulta = "SELECT * FROM USUARIO";
+            try
+            {
+                SqlCommand command = new SqlCommand(Consulta, Connection);
+                AbrirConnection();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    usuarioList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return usuarioList;
         }
 
-        public void EliminarRegistros(Usuario usuario)
+        public string ModificarRegistros(Usuario usuario)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "EliminarUsuario";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            try
+            {
+                string Actualizar = "ModificarUsuario";
+                SqlCommand command = new SqlCommand(Actualizar, Connection);
+                command.Parameters.AddWithValue("@Usuario", usuario.User);
+                command.Parameters.AddWithValue("@Contraseña", usuario.Password);
+                command.Parameters.AddWithValue("@Correo", usuario.Correo);
+                command.Parameters.AddWithValue("@IdRol", usuario.Rol.NRol);
+                command.Parameters.AddWithValue("@Rol", usuario.Rol.NRol);
+                command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
+                command.CommandType = CommandType.StoredProcedure;
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al modificar el usuario";
+            }
+
+            return $"Se ha modificar el usuario {usuario.User}" +
+                $"con la ID {usuario.IdUser}";
+        }
+
+        public string EliminarRegistros(Usuario usuario)
+        {
+            try
+            {
+                string Eliminar = "EliminarUsuario";
+                SqlCommand command = new SqlCommand(Eliminar, Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al modificar el usuario";
+            }
+
+            return $"Se ha modificar el usuario {usuario.User}" +
+                $"con la ID {usuario.IdUser}";
         }
 
         public bool Login(Usuario usuario)
         {
-            var connections = connection.AbrirConnection();
-            command.Connection = connections;
-            command.CommandText = "select * from USUARIO where Usuario=@Usuario and Contraseña=@Contraseña";
-            command.Parameters.AddWithValue("@Usuario", usuario.User);
-            command.Parameters.AddWithValue("@Contraseña", usuario.Password);
-            command.CommandType = CommandType.Text;
-            reader = command.ExecuteReader();
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                string Login = "select * from USUARIO where Usuario=@Usuario and Contraseña=@Contraseña";
+                SqlCommand command = new SqlCommand(Login, Connection);
+                command.Parameters.AddWithValue("@Usuario", usuario.User);
+                command.Parameters.AddWithValue("@Contraseña", usuario.Password);
+                command.CommandType = CommandType.Text;
+                AbrirConnection();
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    usuario.IdUser = reader.GetString(0);
-                    usuario.Documento = reader.GetString(1);
-                    usuario.User = reader.GetString(2);
-                    usuario.Password = reader.GetString(3);
-                    usuario.Correo = reader.GetString(4);
-                    usuario.Rol = new Rol { NRol = reader.GetString(7) };
+                    while (reader.Read())
+                    {
+                        usuario.IdUser = reader.GetString(0);
+                        usuario.Documento = reader.GetString(1);
+                        usuario.User = reader.GetString(2);
+                        usuario.Password = reader.GetString(3);
+                        usuario.Correo = reader.GetString(4);
+                        usuario.Rol = new Rol { NRol = reader.GetString(7) };
+                    }
+                    return true;
                 }
-                return true;
+                else
+                {
+                    return false;
+                }
+                
             }
-            else
+            catch (Exception)
             {
                 return false;
             }
+        }
+
+        public bool BuscarID(Usuario usuario)
+        {
+            try
+            {
+                string ID = "select * from USUARIO where IdUsuario=@IdUsuario and Documento=@Documento";
+                SqlCommand command = new SqlCommand(ID, Connection);
+                command.Parameters.AddWithValue("@Usuario", usuario.IdUser);
+                command.Parameters.AddWithValue("@Contraseña", usuario.Documento);
+                command.CommandType = CommandType.Text;
+                AbrirConnection();
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        usuario.IdUser = reader.GetString(0);
+                        usuario.Documento = reader.GetString(1);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private Usuario Map(SqlDataReader reader)
+        {
+            Usuario usuario = new Usuario
+            {
+                IdUser = Convert.ToString(reader["IdUsuario"]),
+                Rol = new Rol
+                {
+                    IdRol = Convert.ToString(reader["IdRol"]),
+                    NRol = Convert.ToString(reader["Rol"])
+                },
+                Documento = Convert.ToString(reader["Documento"]),
+                User = Convert.ToString(reader["Usuario"]),
+                Password = Convert.ToString(reader["Contraseña"]),
+                Correo = Convert.ToString(reader["Correo"]),
+                FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
+            };
+
+            return usuario;
         }
     }
 }

@@ -18,34 +18,17 @@ namespace Datos
         {
             Connection = new SqlConnection(StringConnection);
         }
-        public SqlConnection AbrirConnection()
-        {
-            if (Connection.State == ConnectionState.Closed)
-            {
-                Connection.Open();
-            }
-            return Connection;
-        }
 
-        public string Abrir()
+        public string AbrirConnection()
         {
             Connection.Open();
             return Connection.State.ToString();
         }
 
-        public string Cerrar()
+        public string CerrarConnection()
         {
             Connection.Close();
             return Connection.State.ToString();
-        }
-
-        public SqlConnection CerrarConnection()
-        {
-            if (Connection.State == ConnectionState.Open)
-            {
-                Connection.Close();
-            }
-            return Connection;
         }
     }
 }

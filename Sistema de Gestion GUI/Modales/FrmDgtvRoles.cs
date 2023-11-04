@@ -34,8 +34,22 @@ namespace Sistema_de_Gestion_GUI.Modales
 
         public void CargarRegistros()
         {
-            RolService rolService = new RolService();
-            tblRegistro.DataSource = rolService.CargarRegistros();
+            var roles = new RolService().CargarRegistro();
+            tblRegistro.Rows.Clear();
+            tblRegistro.Rows.Add();
+            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            tblRegistro.Columns[1].Visible = false;
+
+            foreach (var rol in roles)
+            {
+                row.Cells["IdRol"].Value = rol.IdRol;
+                row.Cells["Rol"].Value = rol.NRol;
+                row.Cells["FechaRegistro"].Value = rol.FechaRegistro.ToString("d");
+
+                tblRegistro.Rows.Add();
+                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            }
+            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -64,7 +78,8 @@ namespace Sistema_de_Gestion_GUI.Modales
                     roles = new Rol()
                     {
                         IdRol = tblRegistro.Rows[index].Cells["IdRol"].Value.ToString(),
-                        NRol = tblRegistro.Rows[index].Cells["Rol"].Value.ToString()
+                        NRol = tblRegistro.Rows[index].Cells["Rol"].Value.ToString(),
+                        FechaRegistro = Convert.ToDateTime(tblRegistro.Rows[index].Cells["FechaRegistro"].Value.ToString())
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();

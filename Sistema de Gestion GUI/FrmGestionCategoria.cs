@@ -36,6 +36,7 @@ namespace Sistema_de_Gestion_GUI
         {
             try
             {
+                CategoriaService oCategoriaService = new CategoriaService();
                 if ((txtIdCategoria.Texts != "") || (txtTipoCategoria.Texts != ""))
                 {
                     Categoria categoria = new Categoria
@@ -43,10 +44,19 @@ namespace Sistema_de_Gestion_GUI
                         IdCategoria = txtIdCategoria.Texts,
                         TipoCategoria = txtTipoCategoria.Texts.ToUpper()
                     };
-                    categoriaService.Guardar(categoria);
-                    MessageBox.Show("Registro almacenado con exito!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
-                    Nuevo();
+                    var ID = oCategoriaService.BuscarID(categoria);
+                    if (ID == false)
+                    {
+                        var msg = categoriaService.Guardar(categoria);
+                        MessageBox.Show(msg, "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro almacenado con exito!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecargarRegistros();
+                        Nuevo();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Categoria con la ID {categoria.IdCategoria} ya existe!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -61,8 +71,21 @@ namespace Sistema_de_Gestion_GUI
 
         private void RecargarRegistros()
         {
-            CategoriaService categoriaService = new CategoriaService();
-            tblRegistro.DataSource = categoriaService.CargarRegistros();
+            var categorias = new CategoriaService().CargarRegistro();
+            tblRegistro.Rows.Clear();
+            tblRegistro.Rows.Add();
+            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+
+            foreach (var categoria in categorias)
+            {
+                row.Cells["IdCategoria"].Value = categoria.IdCategoria;
+                row.Cells["TipoCategoria"].Value = categoria.TipoCategoria;
+                row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
+
+                tblRegistro.Rows.Add();
+                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            }
+            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         private void ModificarCategoria()
@@ -76,7 +99,8 @@ namespace Sistema_de_Gestion_GUI
                         TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
                         IdCategoria = txtIdCategoria.Texts
                     };
-                    categoriaService.ModificarRegistros(categoria);
+                    var msg = categoriaService.ModificarRegistros(categoria);
+                    MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -109,7 +133,8 @@ namespace Sistema_de_Gestion_GUI
                             {
                                 IdCategoria = txtIdCategoria.Texts
                             };
-                            categoriaService.EliminarRegistros(categoria);
+                            var msg = categoriaService.EliminarRegistros(categoria);
+                            MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();

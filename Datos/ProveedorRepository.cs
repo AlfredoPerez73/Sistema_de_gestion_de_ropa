@@ -9,54 +9,150 @@ using System.Data.SqlClient;
 using Entidad;
 namespace Datos
 {
-    public class ProveedorRepository
+    public class ProveedorRepository : ConexionRepository
     {
         private ConexionRepository connection = new ConexionRepository();
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
-        public DataTable CargarRegistros()
+        public ProveedorRepository() : base()
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "CargarProveedores";
-            command.CommandType = CommandType.StoredProcedure;
-            reader = command.ExecuteReader();
-            table.Load(reader);
-            connection.CerrarConnection();
-            return table;
+
+        }
+
+        public List<Proveedor> CargarRegistro()
+        {
+            List<Proveedor> proveedorList = new List<Proveedor>();
+            string Consulta = "SELECT * FROM PROVEEDOR";
+            try
+            {
+                SqlCommand command = new SqlCommand(Consulta, Connection);
+                AbrirConnection();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    proveedorList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return proveedorList;
         }
 
         public string GuardarRegistros(Proveedor proveedor)
         {
-            connection.AbrirConnection();
-            command.CommandText = "insert into PROVEEDOR values('" + proveedor.IdProveedor + "','" + proveedor.Documento + "','" + proveedor.RazonSocial + "','" + proveedor.Correo + "','" + proveedor.Telefono + "')";
-            command.ExecuteNonQuery();
-            return $"Producto almacenado";
+            try
+            {
+                string Registro = "INSERT INTO PROVEEDOR(IdProveedor,Documento,RazonSocial,Correo,Telefono) VALUES" +
+                    "('" + proveedor.IdProveedor + "','" + proveedor.Documento + "','" + proveedor.RazonSocial + "','" + proveedor.Correo + "','" + proveedor.Telefono + "')";
+                SqlCommand command = new SqlCommand(Registro, Connection);
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al registrar el proveedor...";
+            }
+
+            return $"Se ha registrado el producto {proveedor.RazonSocial}" +
+                $"con la ID {proveedor.IdProveedor}";
         }
 
-        public void ModificarRegistros(Proveedor proveedor)
+        public string ModificarRegistros(Proveedor proveedor)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "ModificarProveedor";
-            command.Parameters.AddWithValue("@Documento", proveedor.Documento);
-            command.Parameters.AddWithValue("@RazonSocial", proveedor.RazonSocial);
-            command.Parameters.AddWithValue("@Correo", proveedor.Correo);
-            command.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
-            command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
-            command.CommandType = CommandType.StoredProcedure;
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            try
+            {
+                string Actualizar = "ModificarProveedor";
+                SqlCommand command = new SqlCommand(Actualizar, Connection);
+                command.Parameters.AddWithValue("@Documento", proveedor.Documento);
+                command.Parameters.AddWithValue("@RazonSocial", proveedor.RazonSocial);
+                command.Parameters.AddWithValue("@Correo", proveedor.Correo);
+                command.Parameters.AddWithValue("@Telefono", proveedor.Telefono);
+                command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                command.CommandType = CommandType.StoredProcedure;
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al modificar el proveedor";
+            }
+
+            return $"Se ha modificar el proveedor {proveedor.RazonSocial}" +
+                $"con la ID {proveedor.IdProveedor}";
         }
 
-        public void EliminarRegistros(Proveedor proveedor)
+        public string EliminarRegistros(Proveedor proveedor)
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "EliminarProveedor";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
-            command.ExecuteNonQuery();
-            command.Parameters.Clear();
+            try
+            {
+                string Eliminar = "EliminarProveedor";
+
+                SqlCommand command = new SqlCommand(Eliminar, Connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                AbrirConnection();
+                var index = command.ExecuteNonQuery();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return "Error al eliminar el producto";
+            }
+            return $"Se ha eliminar el producto {proveedor.RazonSocial}" +
+                $"con la ID {proveedor.IdProveedor}";
+        }
+
+        public bool BuscarProducto(Proveedor proveedor)
+        {
+            try
+            {
+                string ID = "select * from PROVEEDOR where IdProveedor=@IdProveedor";
+                SqlCommand command = new SqlCommand(ID, Connection);
+                command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
+                command.CommandType = CommandType.Text;
+                AbrirConnection();
+                var reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        proveedor.IdProveedor = reader.GetString(0);
+                    }
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        private Proveedor Map(SqlDataReader reader)
+        {
+            Proveedor proveedor = new Proveedor
+            {
+                IdProveedor = Convert.ToString(reader["IdProveedor"]),
+                Documento = Convert.ToString(reader["Documento"]),
+                RazonSocial = Convert.ToString(reader["RazonSocial"]),
+                Correo = Convert.ToString(reader["Correo"]),
+                Telefono = Convert.ToString(reader["Telefono"]),
+                FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
+            };
+
+            return proveedor;
         }
     }
 }

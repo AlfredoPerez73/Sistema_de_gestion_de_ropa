@@ -34,8 +34,21 @@ namespace Sistema_de_Gestion_GUI
 
         private void RecargarRegistros()
         {
-            CategoriaService categoriaService = new CategoriaService();
-            tblRegistroCategoria.DataSource = categoriaService.CargarRegistros();
+            var categorias = new CategoriaService().CargarRegistro();
+            tblRegistroCategoria.Rows.Clear();
+            tblRegistroCategoria.Rows.Add();
+            DataGridViewRow row = tblRegistroCategoria.Rows[tblRegistroCategoria.Rows.Count - 1];
+
+            foreach (var categoria in categorias)
+            {
+                row.Cells["IdCategoria"].Value = categoria.IdCategoria;
+                row.Cells["Categoria"].Value = categoria.TipoCategoria;
+                row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
+
+                tblRegistroCategoria.Rows.Add();
+                row = tblRegistroCategoria.Rows[tblRegistroCategoria.Rows.Count - 1];
+            }
+            tblRegistroCategoria.Rows.RemoveAt(tblRegistroCategoria.Rows.Count - 1);
         }
 
         private void CargarEstablecimientosFiltrado(string filtro)
@@ -74,7 +87,7 @@ namespace Sistema_de_Gestion_GUI
                     categoria = new Categoria()
                     {
                         IdCategoria = tblRegistroCategoria.Rows[index].Cells["IdCategoria"].Value.ToString(),
-                        TipoCategoria = tblRegistroCategoria.Rows[index].Cells["TipoCategoria"].Value.ToString()
+                        TipoCategoria = tblRegistroCategoria.Rows[index].Cells["Categoria"].Value.ToString()
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();

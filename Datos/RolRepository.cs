@@ -9,22 +9,52 @@ using Entidad;
 
 namespace Datos
 {
-    public class RolRepository
+    public class RolRepository : ConexionRepository
     {
         private ConexionRepository connection = new ConexionRepository();
         SqlDataReader reader;
         DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
-        public DataTable CargarRegistros()
+        public RolRepository() : base()
         {
-            command.Connection = connection.AbrirConnection();
-            command.CommandText = "CargarRol";
-            command.CommandType = CommandType.StoredProcedure;
-            reader = command.ExecuteReader();
-            table.Load(reader);
-            connection.CerrarConnection();
-            return table;
+
+        }
+
+        public List<Rol> CargarRegistro()
+        {
+            List<Rol> rolList = new List<Rol>();
+            string Consulta = "SELECT * FROM ROL";
+            try
+            {
+                SqlCommand command = new SqlCommand(Consulta, Connection);
+                AbrirConnection();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    rolList.Add(Map(reader));
+                }
+                reader.Close();
+                CerrarConnection();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return rolList;
+        }
+
+        private Rol Map(SqlDataReader reader)
+        {
+            Rol rol = new Rol
+            {
+                IdRol = Convert.ToString(reader["IdRol"]),
+                NRol = Convert.ToString(reader["Rol"]),
+                FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
+            };
+
+            return rol;
         }
     }
 }

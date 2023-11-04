@@ -8,11 +8,12 @@ using Entidad;
 
 namespace Logica
 {
-    public interface ICrudService
+    public interface ICrudService<T>
     {
-        string Guardar(Producto producto);
-        List<Producto> CargarRegistro();
-        string ModificarRegistros(Producto producto);
-        string EliminarRegistros(Producto producto);
+        string Guardar(T entidad);
+        List<T> CargarRegistro();
+        string ModificarRegistros(T entidad);
+        string EliminarRegistros(T entidad);
+
     }
 }

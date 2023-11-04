@@ -42,6 +42,7 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdUsuario.Texts != "") || (txtIdRol.Text != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
                     || (txtContraseña.Texts != "") || (txtRol.Texts != "") || (txtCorreo.Texts != ""))
                 {
+                    UsuarioService oUsuarioService = new UsuarioService();
                     Usuario usuario = new Usuario
                     {
                         IdUser = txtIdUsuario.Texts,
@@ -55,11 +56,20 @@ namespace Sistema_de_Gestion_GUI
                         },
                         Correo = txtCorreo.Texts.ToLower()
                     };
-                    usuarioService.GuardarRegistros(usuario);
-
-                    MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
-                    Nuevo();
+                    var ID = oUsuarioService.BuscarID(usuario);
+                    if (ID != false)
+                    {
+                        var msg = usuarioService.Guardar(usuario);
+                        MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecargarRegistros();
+                        Nuevo();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El usuario con la ID {usuario.IdUser} o " +
+                            $"Documento {usuario.Documento} ya existe!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
@@ -74,8 +84,27 @@ namespace Sistema_de_Gestion_GUI
 
         public void RecargarRegistros()
         {
-            UsuarioService Service = new UsuarioService();
-            tblRegistro.DataSource = Service.CargarRegistros();
+            var usuarios = new UsuarioService().CargarRegistro();
+            tblRegistro.Rows.Clear();
+            tblRegistro.Rows.Add();
+            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            tblRegistro.Columns[3].Visible = false;
+
+            foreach (var usuario in usuarios)
+            {
+                row.Cells["IdUsuario"].Value = usuario.IdUser;
+                row.Cells["Documento"].Value = usuario.Documento;
+                row.Cells["IdRol"].Value = usuario.Rol.IdRol;
+                row.Cells["Rol"].Value = usuario.Rol.NRol;
+                row.Cells["Usuario"].Value = usuario.User;
+                row.Cells["Contraseña"].Value = usuario.Password;
+                row.Cells["Correo"].Value = usuario.Correo;
+                row.Cells["FechaRegistro"].Value = usuario.FechaRegistro.ToString("d");
+
+                tblRegistro.Rows.Add();
+                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            }
+            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         public void EliminarRegistro()
@@ -95,7 +124,8 @@ namespace Sistema_de_Gestion_GUI
                             {
                                 IdUser = txtIdUsuario.Texts
                             };
-                            usuarioService.EliminarRegistros(usuario);
+                            var msg = usuarioService.EliminarRegistros(usuario);
+                            MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -244,13 +274,13 @@ namespace Sistema_de_Gestion_GUI
                 if (index >= 0)
                 {
                     EnabledDgtv();
-                    txtIdUsuario.Text = tblRegistro.Rows[index].Cells["IdUsuario"].Value.ToString();
+                    txtIdUsuario.Texts = tblRegistro.Rows[index].Cells["IdUsuario"].Value.ToString();
                     txtIdRol.Text = tblRegistro.Rows[index].Cells["IdRol"].Value.ToString();
-                    txtDocumento.Text = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
-                    txtNombreUsuario.Text = tblRegistro.Rows[index].Cells["Usuario"].Value.ToString();
-                    txtCorreo.Text = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
-                    txtRol.Text = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
-                    txtContraseña.Text = tblRegistro.Rows[index].Cells["Contraseña"].Value.ToString();
+                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
+                    txtNombreUsuario.Texts = tblRegistro.Rows[index].Cells["Usuario"].Value.ToString();
+                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
+                    txtRol.Texts = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
+                    txtContraseña.Texts = tblRegistro.Rows[index].Cells["Contraseña"].Value.ToString();
                 }
             }
         }

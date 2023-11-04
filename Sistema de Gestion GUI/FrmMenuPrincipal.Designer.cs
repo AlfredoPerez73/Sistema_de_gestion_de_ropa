@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenuPrincipal));
             this.Contenedor = new System.Windows.Forms.Panel();
             this.SlideContenedor2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.btnClientes = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -49,8 +51,6 @@
             this.btnGestionCategorias = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -60,6 +60,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.Contenedor.SuspendLayout();
             this.SlideContenedor2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,7 +71,6 @@
             this.panel7.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -109,6 +109,34 @@
             this.SlideContenedor2.Name = "SlideContenedor2";
             this.SlideContenedor2.Size = new System.Drawing.Size(66, 644);
             this.SlideContenedor2.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btnGestionProveedores);
+            this.panel5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel5.Location = new System.Drawing.Point(3, 283);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(262, 52);
+            this.panel5.TabIndex = 47;
+            // 
+            // btnGestionProveedores
+            // 
+            this.btnGestionProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGestionProveedores.FlatAppearance.BorderSize = 0;
+            this.btnGestionProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGestionProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGestionProveedores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnGestionProveedores.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.id_insignia;
+            this.btnGestionProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionProveedores.Location = new System.Drawing.Point(12, -4);
+            this.btnGestionProveedores.Name = "btnGestionProveedores";
+            this.btnGestionProveedores.Size = new System.Drawing.Size(255, 62);
+            this.btnGestionProveedores.TabIndex = 47;
+            this.btnGestionProveedores.Text = "           Proveedores";
+            this.btnGestionProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGestionProveedores.UseVisualStyleBackColor = true;
+            this.btnGestionProveedores.Click += new System.EventHandler(this.btnGestionProveedores_Click);
             // 
             // panel12
             // 
@@ -339,34 +367,6 @@
             this.btnGestionUsuarios.UseVisualStyleBackColor = true;
             this.btnGestionUsuarios.Click += new System.EventHandler(this.GestionUsuarios_Click);
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnGestionProveedores);
-            this.panel5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel5.Location = new System.Drawing.Point(3, 283);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(262, 52);
-            this.panel5.TabIndex = 47;
-            // 
-            // btnGestionProveedores
-            // 
-            this.btnGestionProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGestionProveedores.FlatAppearance.BorderSize = 0;
-            this.btnGestionProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionProveedores.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGestionProveedores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnGestionProveedores.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.id_insignia;
-            this.btnGestionProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionProveedores.Location = new System.Drawing.Point(12, -4);
-            this.btnGestionProveedores.Name = "btnGestionProveedores";
-            this.btnGestionProveedores.Size = new System.Drawing.Size(255, 62);
-            this.btnGestionProveedores.TabIndex = 47;
-            this.btnGestionProveedores.Text = "           Proveedores";
-            this.btnGestionProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionProveedores.UseVisualStyleBackColor = true;
-            this.btnGestionProveedores.Click += new System.EventHandler(this.btnGestionProveedores_Click);
-            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.btnPerfil);
@@ -418,7 +418,7 @@
             this.btnMaximizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala2;
-            this.btnMaximizar.Location = new System.Drawing.Point(1228, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1230, 0);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(18, 18);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -432,7 +432,7 @@
             this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
-            this.btnMinimizar.Location = new System.Drawing.Point(1202, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1207, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -474,6 +474,7 @@
             this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.Contenedor.ResumeLayout(false);
             this.SlideContenedor2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -484,7 +485,6 @@
             this.panel7.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();

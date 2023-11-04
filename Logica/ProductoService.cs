@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace Logica
 {
-    public class ProductoService : ICrudService
+    public class ProductoService : ICrudService<Producto>
     {
         private ProductoRepository productoRepository = new ProductoRepository();
 
@@ -19,6 +19,11 @@ namespace Logica
         {
             var msg = productoRepository.GuardarRegistros(producto);
             return msg;
+        }
+
+        public bool BuscarID(Producto producto)
+        {
+            return productoRepository.BuscarProducto(producto);
         }
 
         public List<Producto> CargarRegistro()

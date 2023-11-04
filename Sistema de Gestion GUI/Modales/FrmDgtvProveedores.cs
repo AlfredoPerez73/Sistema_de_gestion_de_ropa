@@ -29,8 +29,24 @@ namespace Sistema_de_Gestion_GUI.Modales
 
         private void RecargarRegistros()
         {
-            ProveedorService productoService = new ProveedorService();
-            tblRegistroProveedores.DataSource = proveedorService.CargarRegistros();
+            var proveedores = new ProveedorService().CargarRegistro();
+            tblRegistroProveedores.Rows.Clear();
+            tblRegistroProveedores.Rows.Add();
+            DataGridViewRow row = tblRegistroProveedores.Rows[tblRegistroProveedores.Rows.Count - 1];
+
+            foreach (var proveedor in proveedores)
+            {
+                row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
+                row.Cells["Documento"].Value = proveedor.Documento;
+                row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
+                row.Cells["Correo"].Value = proveedor.Correo;
+                row.Cells["Telefono"].Value = proveedor.Telefono;
+                row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
+
+                tblRegistroProveedores.Rows.Add();
+                row = tblRegistroProveedores.Rows[tblRegistroProveedores.Rows.Count - 1];
+            }
+            tblRegistroProveedores.Rows.RemoveAt(tblRegistroProveedores.Rows.Count - 1);
 
         }
 

@@ -15,7 +15,6 @@ namespace Sistema_de_Gestion_GUI
     public partial class FrmGestionProveedores : Form
     {
         private ProveedorService productoService = new ProveedorService();
-        private FrmGestionCategoria categoria = new FrmGestionCategoria();
 
         public FrmGestionProveedores()
         {
@@ -29,19 +28,30 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "") 
                     || (txtTelefono.Texts != ""))
                 {
+                    ProveedorService oProductoService = new ProveedorService();
                     Proveedor proveedor = new Proveedor
                     {
                         IdProveedor = txtIdProveedor.Texts,
                         Documento = txtDocumento.Texts,
                         RazonSocial = txtRazonSocial.Texts.ToUpper(),
                         Correo = txtCorreo.Texts.ToLower(),
-                        Telefono = txtCorreo.Texts
+                        Telefono = txtTelefono.Texts
                     };
-                    productoService.Guardar(proveedor);
 
-                    MessageBox.Show("Registro almacenado con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
-                    Nuevo();
+                    var ID = oProductoService.BuscarID(proveedor);
+                    if (ID == false)
+                    {
+                        var msg = productoService.Guardar(proveedor);
+                        MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro almacenado con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecargarRegistros();
+                        Nuevo();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El registro con la ID {proveedor.IdProveedor} ya existe!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                 }
                 else
                 {
@@ -50,14 +60,30 @@ namespace Sistema_de_Gestion_GUI
             }
             catch (Exception)
             {
-                MessageBox.Show("ID de producto ya ingresado!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error al ingresar el proveedor!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void RecargarRegistros()
         {
-            ProveedorService productoService = new ProveedorService();
-            tblRegistro.DataSource = productoService.CargarRegistros();
+            var proveedores = new ProveedorService().CargarRegistro();
+            tblRegistro.Rows.Clear();
+            tblRegistro.Rows.Add();
+            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+
+            foreach (var proveedor in proveedores)
+            {
+                row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
+                row.Cells["Documento"].Value = proveedor.Documento;
+                row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
+                row.Cells["Correo"].Value = proveedor.Correo;
+                row.Cells["Telefono"].Value = proveedor.Telefono;
+                row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
+
+                tblRegistro.Rows.Add();
+                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            }
+            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         public void ModificarRegistro()
@@ -75,7 +101,8 @@ namespace Sistema_de_Gestion_GUI
                         Telefono = txtCorreo.Texts,
                         IdProveedor = txtIdProveedor.Texts
                     };
-                    productoService.ModificarRegistros(proveedor);
+                    var msg = productoService.ModificarRegistros(proveedor);
+                    MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros();
                     Nuevo();
@@ -107,7 +134,8 @@ namespace Sistema_de_Gestion_GUI
                             {
                                 IdProveedor = txtIdProveedor.Texts
                             };
-                            productoService.EliminarRegistros(proveedor);
+                            var msg = productoService.EliminarRegistros(proveedor);
+                            MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros();
                             EnabledDelete();
@@ -125,12 +153,12 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void btnGuardarProveedor_Click(object sender, EventArgs e)
         {
             GuardarRegistro();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificarProveedor_Click(object sender, EventArgs e)
         {
             ModificarRegistro();
         }
@@ -140,9 +168,9 @@ namespace Sistema_de_Gestion_GUI
             EliminarRegistro();
         }
 
-        private void Limpiar_Click(object sender, EventArgs e)
+        private void btnLimpiarProveedor_Click(object sender, EventArgs e)
         {
-            Nuevo();
+            Nuevo();    
         }
 
         private void CargarEstablecimientosFiltrado(string filtro)
@@ -233,7 +261,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsSeparator(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            if (char.IsSeparator(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -256,11 +284,11 @@ namespace Sistema_de_Gestion_GUI
                 {
                     txtIdProveedor.Enabled = false;
                     txtDocumento.Enabled = false;
-                    txtIdProveedor.Text = tblRegistro.Rows[index].Cells["IdProveedor"].Value.ToString();
-                    txtDocumento.Text = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
-                    txtRazonSocial.Text = tblRegistro.Rows[index].Cells["RazonSocial"].Value.ToString();
-                    txtCorreo.Text = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
-                    txtTelefono.Text = tblRegistro.Rows[index].Cells["Telefono"].Value.ToString();
+                    txtIdProveedor.Texts = tblRegistro.Rows[index].Cells["IdProveedor"].Value.ToString();
+                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
+                    txtRazonSocial.Texts = tblRegistro.Rows[index].Cells["RazonSocial"].Value.ToString();
+                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
+                    txtTelefono.Texts = tblRegistro.Rows[index].Cells["Telefono"].Value.ToString();
                 }
             }
         }

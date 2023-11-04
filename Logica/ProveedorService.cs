@@ -11,30 +11,38 @@ using System.IO;
 
 namespace Logica
 {
-    public class ProveedorService
+    public class ProveedorService : ICrudService<Proveedor>
     {
         private ProveedorRepository proveedorRepository = new ProveedorRepository();
 
-        public void Guardar(Proveedor proveedor)
+        public string Guardar(Proveedor proveedor)
         {
-            proveedorRepository.GuardarRegistros(proveedor);
+            var msg = proveedorRepository.GuardarRegistros(proveedor);
+            return msg;
         }
 
-        public DataTable CargarRegistros()
+        public bool BuscarID(Proveedor proveedor)
         {
-            DataTable table = new DataTable();
-            table = proveedorRepository.CargarRegistros();
-            return table;
+            var msg = proveedorRepository.BuscarProducto(proveedor);
+            return msg;
         }
 
-        public void ModificarRegistros(Proveedor proveedor)
+        public List<Proveedor> CargarRegistro()
         {
-            proveedorRepository.ModificarRegistros(proveedor);
+            var msg = proveedorRepository.CargarRegistro();
+            return msg;
         }
 
-        public void EliminarRegistros(Proveedor proveedor)
+        public string ModificarRegistros(Proveedor proveedor)
         {
-            proveedorRepository.EliminarRegistros(proveedor);
+            var msg = proveedorRepository.ModificarRegistros(proveedor);
+            return msg;
+        }
+
+        public string EliminarRegistros(Proveedor proveedor)
+        {
+            var msg = proveedorRepository.EliminarRegistros(proveedor);
+            return msg;
         }
     }
 }

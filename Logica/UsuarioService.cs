@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Logica
 {
-    public class UsuarioService
+    public class UsuarioService : ICrudService<Usuario>
     {
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
@@ -20,26 +20,33 @@ namespace Logica
             return usuarioRepository.Login(usuario);
         }
 
-        public void GuardarRegistros(Usuario usuario)
+        public bool BuscarID(Usuario usuario)
         {
-            usuarioRepository.GuardarRegistros(usuario);
+            return usuarioRepository.BuscarID(usuario);
         }
 
-        public DataTable CargarRegistros()
+        public string Guardar(Usuario usuario)
         {
-            DataTable table = new DataTable();
-            table = usuarioRepository.CargarRegistros();
-            return table;
+            var msg = usuarioRepository.GuardarRegistros(usuario);
+            return msg;
         }
 
-        public void ModificarRegistros(Usuario usuario)
+        public List<Usuario> CargarRegistro()
         {
-            usuarioRepository.ModificarRegistros(usuario);
+            var msg = usuarioRepository.CargarRegistro();
+            return msg;
         }
 
-        public void EliminarRegistros(Usuario usuario)
+        public string ModificarRegistros(Usuario usuario)
         {
-            usuarioRepository.EliminarRegistros(usuario);
+            var msg = usuarioRepository.ModificarRegistros(usuario);
+            return msg;
+        }
+
+        public string EliminarRegistros(Usuario usuario)
+        {
+            var msg = usuarioRepository.EliminarRegistros(usuario);
+            return msg;
         }
     }
 }

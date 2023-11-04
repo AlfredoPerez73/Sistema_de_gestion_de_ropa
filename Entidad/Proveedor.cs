@@ -13,5 +13,6 @@ namespace Entidad
         public string RazonSocial { get; set; }
         public string Correo { get; set; }
         public string Telefono { get; set; }
+        public DateTime FechaRegistro { get; set; }
     }
 }

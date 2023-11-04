@@ -14,5 +14,6 @@ namespace Entidad
         public string Password { get; set; }
         public Rol Rol { get; set; }
         public string Correo { get; set; }
+        public DateTime FechaRegistro { get; set; }
     }
 }

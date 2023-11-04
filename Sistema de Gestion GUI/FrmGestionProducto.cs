@@ -35,6 +35,7 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
                 || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
+                    ProductoService oProductoService = new ProductoService();
                     Producto producto = new Producto
                     {
                         IdProducto = txtIdProducto.Texts,
@@ -49,11 +50,19 @@ namespace Sistema_de_Gestion_GUI
                             TipoCategoria = txtTipoProducto.Texts.ToUpper()
                         }
                     };
-                    var msg = productoService.Guardar(producto);
-                    MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show("Registro almacenado con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
-                    Nuevo();
+                    var ID = oProductoService.BuscarID(producto);
+                    if (ID == false)
+                    {
+                        var msg = productoService.Guardar(producto);
+                        MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Registro almacenado con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RecargarRegistros();
+                        Nuevo();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"El registro con la ID {producto.IdProducto} ya existe!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
                 }
                 else
@@ -63,7 +72,7 @@ namespace Sistema_de_Gestion_GUI
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al ingresar el producto", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error al ingresar el producto!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -73,6 +82,7 @@ namespace Sistema_de_Gestion_GUI
             tblRegistro.Rows.Clear();
             tblRegistro.Rows.Add();
             DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
+            tblRegistro.Columns[1].Visible = false;
 
             foreach (var producto in productos)
             {
