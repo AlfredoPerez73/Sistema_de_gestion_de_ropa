@@ -67,8 +67,8 @@ namespace Sistema_de_Gestion_GUI
                     }
                     else
                     {
-                        MessageBox.Show($"El usuario con la ID {usuario.IdUser} o " +
-                            $"Documento {usuario.Documento} ya existe!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"El usuario con la ID {usuario.IdUser} y/o" +
+                            $"DOCUMENTO {usuario.Documento} ya existe!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else

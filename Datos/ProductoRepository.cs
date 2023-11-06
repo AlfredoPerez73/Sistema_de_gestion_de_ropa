@@ -13,8 +13,9 @@ namespace Datos
 {
     public class ProductoRepository : ConexionRepository
     {
+        private CategoriaRepository categoriaRepository = new CategoriaRepository();
+        
         SqlDataReader reader;
-        DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
         public ProductoRepository() : base()
@@ -61,7 +62,6 @@ namespace Datos
             {
                 return "Error al registrar el producto...";
             }
-
             return $"Se ha registrado el producto {producto.NombreProducto}" +
                 $"con la ID {producto.IdProducto}";
         }
@@ -115,45 +115,11 @@ namespace Datos
                 $"con la ID {producto.IdProducto}";
         }
 
-        public bool BuscarProducto(Producto producto)
-        {
-            try
-            {
-                string ID = "select * from PRODUCTO where IdProducto=@IdProducto";
-                SqlCommand command = new SqlCommand(ID, Connection);
-                command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        producto.IdProducto = reader.GetString(0);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
         private Producto Map(SqlDataReader reader)
         {
             Producto producto = new Producto
             {
                 IdProducto = Convert.ToString(reader["IdProducto"]),
-                Categoria = new Categoria
-                {
-                    IdCategoria = Convert.ToString(reader["IdCategoria"]),
-                    TipoCategoria = Convert.ToString(reader["TipoCategoria"])
-                },
                 NombreProducto = Convert.ToString(reader["NombreProducto"]),
                 Marca = Convert.ToString(reader["Marca"]),
                 Stock = Convert.ToInt32(reader["Stock"]),
@@ -161,8 +127,16 @@ namespace Datos
                 PrecioCompra = Convert.ToDecimal(reader["PrecioVenta"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };
-           
+            string IdCategoria = Convert.ToString(reader["IdCategoria"]);
+            string TipoCategoria = Convert.ToString(reader["TipoCategoria"]);
+            producto.Categoria = ObtenerCategoria(IdCategoria, TipoCategoria);
+
             return producto;
+        }
+
+        private Categoria ObtenerCategoria(string IdCategoria, string TipoCategoria)
+        {
+            return categoriaRepository.CargarRegistro().Find(c => c.IdCategoria == IdCategoria && c.TipoCategoria == TipoCategoria);
         }
     }
 }

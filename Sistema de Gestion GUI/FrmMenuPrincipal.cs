@@ -17,6 +17,7 @@ namespace Sistema_de_Gestion_GUI
 {
     public partial class FrmMenuPrincipal : Form
     {
+        private PermisoService permisoService = new PermisoService();
         private Usuario oUsuario;
         private Permiso oPermiso;
         private static Button MenuActivo = null;
@@ -34,8 +35,6 @@ namespace Sistema_de_Gestion_GUI
             this.oPermiso = oPermiso;
         }
 
-        
-
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             ContenedorPrincipal();
@@ -45,6 +44,8 @@ namespace Sistema_de_Gestion_GUI
 
         private void Permisos()
         {
+            Permiso opermiso = new Permiso();
+            var permiso = permisoService.BuscarPermiso(opermiso);
             if (oUsuario.Rol.NRol != oPermiso.Rol.NRol)
             {
                 btnGestionCategorias.Visible = false;
@@ -61,6 +62,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void CargarDatosUsuario()
         {
+
             btnPerfil.Text = "            " + oUsuario.Rol.NRol;
         }
 

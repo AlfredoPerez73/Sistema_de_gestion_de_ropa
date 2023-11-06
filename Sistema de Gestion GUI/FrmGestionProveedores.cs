@@ -49,7 +49,8 @@ namespace Sistema_de_Gestion_GUI
                     }
                     else
                     {
-                        MessageBox.Show($"El registro con la ID {proveedor.IdProveedor} ya existe!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"El registro con la ID {proveedor.IdProveedor} y/o" +
+                            $"DOCUMENTO {proveedor.Documento} ya existe!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
                 }
@@ -173,14 +174,14 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();    
         }
 
-        private void CargarEstablecimientosFiltrado(string filtro)
+        private void CargarProveedoresFiltrado(string filtro)
         {
             //tblRegistroProveedores.DataSource = productoService.ConsultarFiltrado(filtro);
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            //CargarEstablecimientosFiltrado(txtBuscar.Text);
+            //CargarClientesFiltrado(txtBuscar.Text);
         }
 
         private void EnabledUpdate()
@@ -328,6 +329,11 @@ namespace Sistema_de_Gestion_GUI
                 txtBuscarProveedor.Texts = "Buscar:";
                 txtBuscarProveedor.ForeColor = Color.Gainsboro;
             }
+        }
+
+        private void txtBuscarProveedor__TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

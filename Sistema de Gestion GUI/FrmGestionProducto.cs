@@ -26,6 +26,7 @@ namespace Sistema_de_Gestion_GUI
         private void FrmRopa_Load(object sender, EventArgs e)
         {
             RecargarRegistros();
+            ListarTiposCategorias();
         }
 
         public void GuardarRegistro()
@@ -35,7 +36,7 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
                 || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
-                    ProductoService oProductoService = new ProductoService();
+                    Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                     Producto producto = new Producto
                     {
                         IdProducto = txtIdProducto.Texts,
@@ -44,14 +45,11 @@ namespace Sistema_de_Gestion_GUI
                         Stock = Convert.ToInt32(txtStock.Texts),
                         PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Texts),
                         PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Texts),
-                        Categoria = new Categoria
-                        {
-                            IdCategoria = txtIdCategoria.Text,
-                            TipoCategoria = txtTipoProducto.Texts.ToUpper()
-                        }
+
+                        Categoria = CategoriaIndex
                     };
-                    var ID = oProductoService.BuscarID(producto);
-                    if (ID == false)
+                    var Id = productoService.ValidarRegistrosDuplicados(txtIdProducto.Texts);
+                    if (Id != true)
                     {
                         var msg = productoService.Guardar(producto);
                         MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -69,12 +67,12 @@ namespace Sistema_de_Gestion_GUI
                 {
                     MessageBox.Show("Faltan datos por ingresar!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+        }
             catch (Exception)
             {
                 MessageBox.Show("Error al ingresar el producto!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
+}
 
         private void RecargarRegistros()
         {
@@ -100,6 +98,16 @@ namespace Sistema_de_Gestion_GUI
                 row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
             tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
+        }
+
+        private void ListarTiposCategorias()
+        {
+            CategoriaService categoriaService = new CategoriaService();
+            cboTipoCategoria.DataSource = categoriaService.CargarRegistro();
+            cboTipoCategoria.DisplayMember = "TipoCategoria";
+            cboTipoCategoria.ValueMember = "IdCategoria";
+            cboTipoCategoria.SelectedIndex = -1;
+            cboTipoCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void ModificarProducto()
@@ -177,7 +185,7 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void CargarEstablecimientosFiltrado(string filtro)
+        private void CargarProductosFiltrado(string filtro)
         {
 
             //tblRegistro.DataSource = productoService.ConsultarFiltrado(filtro);
@@ -279,7 +287,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtBuscarProducto__TextsChanged(object sender, EventArgs e)
         {
-            CargarEstablecimientosFiltrado(txtBuscarProducto.Texts);
+            //CargarProductosFiltrado(txtBuscarProducto.Texts);
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)
@@ -311,18 +319,6 @@ namespace Sistema_de_Gestion_GUI
                 {
                     txtIdCategoria.Text = modal.categoria.IdCategoria.ToString();
                     txtTipoProducto.Texts = modal.categoria.TipoCategoria.ToString();
-                }
-            }
-        }
-
-        private void btnBuscarProveedor_Click_1(object sender, EventArgs e)
-        {
-            using (var modal = new FrmDgtvProveedores())
-            {
-                var result = modal.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    txtPrecioVenta.Texts = modal.proveedor.IdProveedor.ToString();
                 }
             }
         }

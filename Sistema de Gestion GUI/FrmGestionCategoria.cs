@@ -154,7 +154,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            //CargarEstablecimientosFiltrado(txtBuscar.Text);
+            //CargarCategoriasFiltrado(txtBuscar.Text);
         }
 
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
-        private void CargarEstablecimientosFiltrado(string filtro)
+        private void CargarCategoriasFiltrado(string filtro)
         {
             //tblRegistroCategoria.DataSource = categoriaService.ConsultarFiltrado(filtro);
         }

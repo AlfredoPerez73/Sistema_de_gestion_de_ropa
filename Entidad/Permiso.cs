@@ -9,7 +9,8 @@ namespace Entidad
     public class Permiso
     {
         public string IdPermiso { get; set; }
-        public Rol Rol { get; set; }
         public string NPermiso { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public Rol Rol { get; set; }
     }
 }

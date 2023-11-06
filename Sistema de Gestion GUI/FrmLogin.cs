@@ -44,6 +44,7 @@ namespace Sistema_de_Gestion_GUI
                             NRol = "ADMINISTRADOR"
                         }
                     };
+
                     var validacionLogin = oUsuarioService.LoginUser(usuario);
                     if (validacionLogin == true)
                     {

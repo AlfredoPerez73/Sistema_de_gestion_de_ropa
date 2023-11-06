@@ -5,9 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidad;
 using Datos;
-using System.Data;
-using System.Data.SqlClient;
-using System.IO;
 
 namespace Logica
 {

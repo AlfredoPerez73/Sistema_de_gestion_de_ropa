@@ -21,9 +21,9 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(Producto producto)
+        public bool ValidarRegistrosDuplicados(string id)
         {
-            return productoRepository.BuscarProducto(producto);
+            return CargarRegistro().Any(p => p.IdProducto == id); 
         }
 
         public List<Producto> CargarRegistro()

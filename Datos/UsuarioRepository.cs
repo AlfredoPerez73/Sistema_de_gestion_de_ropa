@@ -12,9 +12,7 @@ namespace Datos
 {
     public class UsuarioRepository : ConexionRepository
     {
-        private ConexionRepository connection = new ConexionRepository();
         SqlDataReader reader;
-        DataTable table = new DataTable();
         SqlCommand command = new SqlCommand();
 
         public UsuarioRepository() : base()
