@@ -43,9 +43,7 @@ namespace Sistema_de_Gestion_GUI
         }
 
         private void Permisos()
-        {
-            Permiso opermiso = new Permiso();
-            var permiso = permisoService.BuscarPermiso(opermiso);
+        {          
             if (oUsuario.Rol.NRol != oPermiso.Rol.NRol)
             {
                 btnGestionCategorias.Visible = false;

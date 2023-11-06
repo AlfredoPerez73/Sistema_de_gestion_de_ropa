@@ -22,42 +22,26 @@ namespace Sistema_de_Gestion_GUI
             InitializeComponent();
         }
 
-        private void txtBuscarCategoria_Click(object sender, EventArgs e)
-        {
-            using (var modal = new FrmDgtvRoles())
-            {
-                var result = modal.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    txtIdRol.Text = modal.roles.IdRol.ToString();
-                    txtRol.Text = modal.roles.NRol.ToString();
-                }
-            }
-        }
-
         public void GuardarRegistro()
         {
             try
             {
-                if ((txtIdUsuario.Texts != "") || (txtIdRol.Text != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
-                    || (txtContraseña.Texts != "") || (txtRol.Texts != "") || (txtCorreo.Texts != ""))
+                if ((txtIdUsuario.Texts != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
+                    || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
                 {
-                    UsuarioService oUsuarioService = new UsuarioService();
+
+                    Rol RolIndex = (Rol)cboRoles.SelectedItem;
                     Usuario usuario = new Usuario
                     {
                         IdUser = txtIdUsuario.Texts,
                         Documento = txtDocumento.Texts,
                         User = txtIdUsuario.Texts,
                         Password = txtContraseña.Texts,
-                        Rol = new Rol
-                        {
-                            IdRol = txtIdRol.Text,
-                            NRol = txtRol.Texts
-                        },
+                        Rol = RolIndex,
                         Correo = txtCorreo.Texts.ToLower()
                     };
-                    var ID = oUsuarioService.BuscarID(usuario);
-                    if (ID != false)
+                    var ID = usuarioService.BuscarID(txtIdUsuario.Texts);
+                    if (ID != true)
                     {
                         var msg = usuarioService.Guardar(usuario);
                         MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -86,12 +70,12 @@ namespace Sistema_de_Gestion_GUI
         {
             var usuarios = new UsuarioService().CargarRegistro();
             tblRegistro.Rows.Clear();
-            tblRegistro.Rows.Add();
-            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             tblRegistro.Columns[3].Visible = false;
 
             foreach (var usuario in usuarios)
             {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdUsuario"].Value = usuario.IdUser;
                 row.Cells["Documento"].Value = usuario.Documento;
                 row.Cells["IdRol"].Value = usuario.Rol.IdRol;
@@ -100,11 +84,17 @@ namespace Sistema_de_Gestion_GUI
                 row.Cells["Contraseña"].Value = usuario.Password;
                 row.Cells["Correo"].Value = usuario.Correo;
                 row.Cells["FechaRegistro"].Value = usuario.FechaRegistro.ToString("d");
-
-                tblRegistro.Rows.Add();
-                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
-            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
+        }
+
+        private void ListarRoles()
+        {
+            RolService rolService = new RolService();
+            cboRoles.DataSource = rolService.CargarRegistro();
+            cboRoles.DisplayMember = "NRol";
+            cboRoles.ValueMember = "IdRol";
+            cboRoles.SelectedIndex = -1;
+            cboRoles.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         public void EliminarRegistro()
@@ -113,8 +103,8 @@ namespace Sistema_de_Gestion_GUI
 
             try
             {
-                if ((txtIdUsuario.Texts != "") || (txtIdRol.Text != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
-                    || (txtContraseña.Texts != "") || (txtRol.Texts != "") || (txtCorreo.Texts != ""))
+                if ((txtIdUsuario.Texts != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
+                    || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
                 {
                     if (Convert.ToInt32(txtIdUsuario.Texts) != 0)
                     {
@@ -146,6 +136,7 @@ namespace Sistema_de_Gestion_GUI
         private void FrmGestionUsuarios_Load(object sender, EventArgs e)
         {
             RecargarRegistros();
+            ListarRoles();
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)
@@ -163,16 +154,41 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
+        void CargarDgtv(List<Usuario> list)
+        {
+            tblRegistro.Rows.Clear();
+            tblRegistro.Columns[1].Visible = false;
+
+            foreach (var item in list)
+            {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdUsuario"].Value = item.IdUser;
+                row.Cells["Documento"].Value = item.Documento;
+                row.Cells["IdRol"].Value = item.Rol.IdRol;
+                row.Cells["Rol"].Value = item.Rol.NRol;
+                row.Cells["Usuario"].Value = item.User;
+                row.Cells["Contraseña"].Value = item.Password;
+                row.Cells["Correo"].Value = item.Correo;
+                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
+            }
+        }
+
+        private void CargarUsuarioFiltrado()
+        {
+            var filtro = txtBuscarUsuario.Texts;
+            var list = usuarioService.BuscarX(filtro);
+            CargarDgtv(list);
+        }
+
         private void EnabledUpdate()
         {
             txtIdUsuario.Enabled = true;
-            txtIdRol.Enabled = false;
-            txtRol.Enabled = false;
+            cboRoles.Enabled = false;
             btnGuardar.Enabled = true;
             btnEliminar.Enabled = true;
             txtIdUsuario.Texts = "";
-            txtIdRol.Clear();
-            txtRol.Texts = "";
+            cboRoles.SelectedIndex = -1;
             txtNombreUsuario.Texts = "";
             txtDocumento.Texts = "";
             txtContraseña.Texts = "";
@@ -183,11 +199,10 @@ namespace Sistema_de_Gestion_GUI
         private void EnabledDelete()
         {
             txtIdUsuario.Enabled = true;
-            txtIdRol.Enabled = true;
+            cboRoles.Enabled = false;
             btnGuardar.Enabled = true;
             txtIdUsuario.Texts = "";
-            txtIdRol.Clear();
-            txtRol.Texts = "";
+            cboRoles.SelectedIndex = -1;
             txtNombreUsuario.Texts = "";
             txtDocumento.Texts = "";
             txtContraseña.Texts = "";
@@ -198,8 +213,7 @@ namespace Sistema_de_Gestion_GUI
         private void EnabledDgtv()
         {
             txtIdUsuario.Enabled = false;
-            txtIdRol.Enabled = false;
-            txtRol.Enabled = false;
+            cboRoles.Enabled = false;
             btnGuardar.Enabled = false;
 
             txtIdUsuario.Focus();
@@ -208,12 +222,11 @@ namespace Sistema_de_Gestion_GUI
         private void Nuevo()
         {
             txtIdUsuario.Enabled = true;
-            txtIdRol.Enabled = true;
+            cboRoles.Enabled = false;
             btnGuardar.Enabled = true;
             btnEliminar.Enabled = true;
             txtIdUsuario.Texts = "";
-            txtIdRol.Clear();
-            txtRol.Texts = "";
+            cboRoles.SelectedIndex = -1;
             txtNombreUsuario.Texts = "";
             txtDocumento.Texts = "";
             txtContraseña.Texts = "";
@@ -275,11 +288,10 @@ namespace Sistema_de_Gestion_GUI
                 {
                     EnabledDgtv();
                     txtIdUsuario.Texts = tblRegistro.Rows[index].Cells["IdUsuario"].Value.ToString();
-                    txtIdRol.Text = tblRegistro.Rows[index].Cells["IdRol"].Value.ToString();
                     txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
                     txtNombreUsuario.Texts = tblRegistro.Rows[index].Cells["Usuario"].Value.ToString();
                     txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
-                    txtRol.Texts = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
+                    cboRoles.Texts = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
                     txtContraseña.Texts = tblRegistro.Rows[index].Cells["Contraseña"].Value.ToString();
                 }
             }
@@ -304,19 +316,6 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void btnBuscarCategoria_Click(object sender, EventArgs e)
-        {
-            using (var modal = new FrmDgtvRoles())
-            {
-                var result = modal.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    txtIdRol.Text = modal.roles.IdRol.ToString();
-                    txtRol.Texts = modal.roles.NRol.ToString();
-                }
-            }
-        }
-
         private void txtBuscarProducto_Enter(object sender, EventArgs e)
         {
             if (txtBuscarUsuario.Texts == "Buscar:")
@@ -332,6 +331,18 @@ namespace Sistema_de_Gestion_GUI
             {
                 txtBuscarUsuario.Texts = "Buscar:";
                 txtBuscarUsuario.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarUsuario__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarUsuario.Texts == "Buscar:")
+            {
+                RecargarRegistros();
+            }
+            else
+            {
+                CargarUsuarioFiltrado();
             }
         }
     }

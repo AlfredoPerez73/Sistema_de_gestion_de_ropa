@@ -14,9 +14,6 @@ namespace Datos
     public class ProductoRepository : ConexionRepository
     {
         private CategoriaRepository categoriaRepository = new CategoriaRepository();
-        
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
 
         public ProductoRepository() : base()
         {

@@ -12,9 +12,6 @@ namespace Datos
 {
     public class CategoriaRepository : ConexionRepository
     {
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
-
         public CategoriaRepository() : base()
         {
 
@@ -102,35 +99,6 @@ namespace Datos
             }
             return $"Se ha eliminar la categoria {categoria.TipoCategoria}" +
                 $"con la ID {categoria.TipoCategoria}";
-        }
-
-        public bool BuscarCategoria(Categoria categoria)
-        {
-            try
-            {
-                string ID = "select * from CATEGORIA where IdCategoria=@IdCategoria";
-                SqlCommand command = new SqlCommand(ID, Connection);
-                command.Parameters.AddWithValue("@IdCategoria", categoria.IdCategoria);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        categoria.IdCategoria = reader.GetString(0);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private Categoria Map(SqlDataReader reader)

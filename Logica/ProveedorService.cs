@@ -21,16 +21,21 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(Proveedor proveedor)
+        public bool BuscarID(string id)
         {
-            var msg = proveedorRepository.BuscarProducto(proveedor);
-            return msg;
+            return CargarRegistro().Any(pr => pr.IdProveedor == id);
         }
 
         public List<Proveedor> CargarRegistro()
         {
             var msg = proveedorRepository.CargarRegistro();
             return msg;
+        }
+
+        public List<Proveedor> BuscarX(string x)
+        {
+            return CargarRegistro()
+                .Where(item => item.IdProveedor == x || item.Documento == x || item.RazonSocial.Contains(x.ToUpper())).ToList();
         }
 
         public string ModificarRegistros(Proveedor proveedor)

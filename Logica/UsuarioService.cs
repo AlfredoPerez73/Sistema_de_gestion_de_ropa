@@ -20,9 +20,9 @@ namespace Logica
             return usuarioRepository.Login(usuario);
         }
 
-        public bool BuscarID(Usuario usuario)
+        public bool BuscarID(string id)
         {
-            return usuarioRepository.BuscarID(usuario);
+            return CargarRegistro().Any(u => u.IdUser == id);
         }
 
         public string Guardar(Usuario usuario)
@@ -35,6 +35,13 @@ namespace Logica
         {
             var msg = usuarioRepository.CargarRegistro();
             return msg;
+        }
+
+        public List<Usuario> BuscarX(string x)
+        {
+            return CargarRegistro()
+                .Where(item => item.IdUser == x || item.Documento == x || item.User.Contains(x.ToUpper()) 
+                || item.Rol.NRol.Contains(x.ToUpper())).ToList();
         }
 
         public string ModificarRegistros(Usuario usuario)

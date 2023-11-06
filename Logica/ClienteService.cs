@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidad;
 using Datos;
+using System.Globalization;
 
 namespace Logica
 {
@@ -24,10 +25,16 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(Cliente cliente)
+        public bool BuscarID(string id)
         {
-            var msg = clienteRepository.BuscarCliente(cliente);
-            return msg;
+            return CargarRegistro().Any(cl => cl.IdCliente == id);
+        }
+
+        public List<Cliente> BuscarX(string x)
+        {
+            return CargarRegistro()
+                .Where(item => item.IdCliente == x || item.Documento == x || item.NombreCliente.Contains(x.ToUpper()) 
+                || item.Telefono.Contains(x)).ToList();
         }
 
         public string ModificarRegistros(Cliente cliente)

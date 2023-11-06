@@ -18,9 +18,15 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(Categoria categoria)
+        public bool BuscarID(string id)
         {
-            return categoriaRepository.BuscarCategoria(categoria);
+            return CargarRegistro().Any(c => c.IdCategoria == id);
+        }
+
+        public List<Categoria> BuscarX(string x)
+        {
+            return CargarRegistro()
+                .Where(item => item.IdCategoria == x || item.TipoCategoria.Contains(x.ToUpper())).ToList();
         }
 
         public List<Categoria> CargarRegistro()

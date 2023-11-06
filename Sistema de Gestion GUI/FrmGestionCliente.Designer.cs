@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtBuscarCliente = new CustomControls.RJControls.RJTextBox();
             this.rjButton1 = new CustomControls.RJControls.RJButton();
@@ -77,8 +77,9 @@
             this.panel2.Controls.Add(this.tblRegistro);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1213, 578);
+            this.panel2.Size = new System.Drawing.Size(1617, 711);
             this.panel2.TabIndex = 53;
             // 
             // txtBuscarCliente
@@ -92,18 +93,19 @@
             this.txtBuscarCliente.BorderSize = 1;
             this.txtBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCliente.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarCliente.Location = new System.Drawing.Point(278, 79);
-            this.txtBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarCliente.Location = new System.Drawing.Point(371, 97);
+            this.txtBuscarCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtBuscarCliente.Multiline = false;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
-            this.txtBuscarCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtBuscarCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtBuscarCliente.PasswordChar = false;
             this.txtBuscarCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtBuscarCliente.PlaceholderText = "";
-            this.txtBuscarCliente.Size = new System.Drawing.Size(625, 32);
+            this.txtBuscarCliente.Size = new System.Drawing.Size(833, 39);
             this.txtBuscarCliente.TabIndex = 20;
             this.txtBuscarCliente.Texts = "Buscar:";
             this.txtBuscarCliente.UnderlinedStyle = false;
+            this.txtBuscarCliente._TextChanged += new System.EventHandler(this.txtBuscarCliente__TextChanged);
             this.txtBuscarCliente.Enter += new System.EventHandler(this.txtBuscarCliente_Enter);
             this.txtBuscarCliente.Leave += new System.EventHandler(this.txtBuscarCliente_Leave);
             // 
@@ -119,9 +121,10 @@
             this.rjButton1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.file_excel;
-            this.rjButton1.Location = new System.Drawing.Point(142, 81);
+            this.rjButton1.Location = new System.Drawing.Point(189, 100);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(129, 30);
+            this.rjButton1.Size = new System.Drawing.Size(172, 37);
             this.rjButton1.TabIndex = 21;
             this.rjButton1.Text = "Exportar a excel";
             this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,9 +136,10 @@
             // 
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(154, 47);
+            this.label10.Location = new System.Drawing.Point(205, 58);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(179, 19);
+            this.label10.Size = new System.Drawing.Size(239, 23);
             this.label10.TabIndex = 19;
             this.label10.Text = "Lista de clientes:";
             // 
@@ -150,15 +154,15 @@
             this.rjTextBox2.BorderSize = 3;
             this.rjTextBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(142, 40);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.rjTextBox2.Location = new System.Drawing.Point(189, 49);
+            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.rjTextBox2.Multiline = false;
             this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.rjTextBox2.PasswordChar = false;
             this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox2.PlaceholderText = "";
-            this.rjTextBox2.Size = new System.Drawing.Size(761, 34);
+            this.rjTextBox2.Size = new System.Drawing.Size(1015, 43);
             this.rjTextBox2.TabIndex = 22;
             this.rjTextBox2.Texts = "";
             this.rjTextBox2.UnderlinedStyle = false;
@@ -185,9 +189,10 @@
             this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel4.Location = new System.Drawing.Point(946, 0);
+            this.panel4.Location = new System.Drawing.Point(1261, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(268, 579);
+            this.panel4.Size = new System.Drawing.Size(356, 712);
             this.panel4.TabIndex = 52;
             // 
             // txtTelefono
@@ -200,15 +205,15 @@
             this.txtTelefono.BorderSize = 2;
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTelefono.Location = new System.Drawing.Point(27, 283);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.Location = new System.Drawing.Point(36, 348);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtTelefono.Multiline = false;
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTelefono.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtTelefono.PasswordChar = false;
             this.txtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtTelefono.PlaceholderText = "";
-            this.txtTelefono.Size = new System.Drawing.Size(193, 32);
+            this.txtTelefono.Size = new System.Drawing.Size(257, 39);
             this.txtTelefono.TabIndex = 30;
             this.txtTelefono.Texts = "";
             this.txtTelefono.UnderlinedStyle = false;
@@ -224,15 +229,15 @@
             this.txtCorreo.BorderSize = 2;
             this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCorreo.Location = new System.Drawing.Point(27, 231);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorreo.Location = new System.Drawing.Point(36, 284);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCorreo.Multiline = false;
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCorreo.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtCorreo.PasswordChar = false;
             this.txtCorreo.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtCorreo.PlaceholderText = "";
-            this.txtCorreo.Size = new System.Drawing.Size(193, 32);
+            this.txtCorreo.Size = new System.Drawing.Size(257, 39);
             this.txtCorreo.TabIndex = 29;
             this.txtCorreo.Texts = "";
             this.txtCorreo.UnderlinedStyle = false;
@@ -248,15 +253,15 @@
             this.txtNombreCliente.BorderSize = 2;
             this.txtNombreCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombreCliente.Location = new System.Drawing.Point(27, 178);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCliente.Location = new System.Drawing.Point(36, 219);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNombreCliente.Multiline = false;
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtNombreCliente.PasswordChar = false;
             this.txtNombreCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtNombreCliente.PlaceholderText = "";
-            this.txtNombreCliente.Size = new System.Drawing.Size(193, 32);
+            this.txtNombreCliente.Size = new System.Drawing.Size(257, 39);
             this.txtNombreCliente.TabIndex = 28;
             this.txtNombreCliente.Texts = "";
             this.txtNombreCliente.UnderlinedStyle = false;
@@ -272,15 +277,15 @@
             this.txtDocumento.BorderSize = 2;
             this.txtDocumento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDocumento.Location = new System.Drawing.Point(28, 125);
-            this.txtDocumento.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDocumento.Location = new System.Drawing.Point(37, 154);
+            this.txtDocumento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtDocumento.Multiline = false;
             this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDocumento.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtDocumento.PasswordChar = false;
             this.txtDocumento.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtDocumento.PlaceholderText = "";
-            this.txtDocumento.Size = new System.Drawing.Size(192, 32);
+            this.txtDocumento.Size = new System.Drawing.Size(256, 39);
             this.txtDocumento.TabIndex = 23;
             this.txtDocumento.Texts = "";
             this.txtDocumento.UnderlinedStyle = false;
@@ -296,15 +301,15 @@
             this.txtIdCliente.BorderSize = 2;
             this.txtIdCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtIdCliente.Location = new System.Drawing.Point(27, 73);
-            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdCliente.Location = new System.Drawing.Point(36, 90);
+            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtIdCliente.Multiline = false;
             this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtIdCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtIdCliente.PasswordChar = false;
             this.txtIdCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtIdCliente.PlaceholderText = "";
-            this.txtIdCliente.Size = new System.Drawing.Size(193, 32);
+            this.txtIdCliente.Size = new System.Drawing.Size(257, 39);
             this.txtIdCliente.TabIndex = 22;
             this.txtIdCliente.Texts = "";
             this.txtIdCliente.UnderlinedStyle = false;
@@ -317,9 +322,10 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(34, 161);
+            this.label11.Location = new System.Drawing.Point(45, 198);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(123, 17);
+            this.label11.Size = new System.Drawing.Size(149, 20);
             this.label11.TabIndex = 3;
             this.label11.Text = "Nombre del cliente";
             // 
@@ -335,9 +341,10 @@
             this.btnLimpiarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarCliente.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba;
-            this.btnLimpiarCliente.Location = new System.Drawing.Point(27, 421);
+            this.btnLimpiarCliente.Location = new System.Drawing.Point(36, 518);
+            this.btnLimpiarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLimpiarCliente.Name = "btnLimpiarCliente";
-            this.btnLimpiarCliente.Size = new System.Drawing.Size(203, 32);
+            this.btnLimpiarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnLimpiarCliente.TabIndex = 26;
             this.btnLimpiarCliente.Text = "Limpiar";
             this.btnLimpiarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -358,9 +365,10 @@
             this.btnEliminarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
             this.btnEliminarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.basura1;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(26, 387);
+            this.btnEliminarCliente.Location = new System.Drawing.Point(35, 476);
+            this.btnEliminarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(203, 32);
+            this.btnEliminarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnEliminarCliente.TabIndex = 25;
             this.btnEliminarCliente.Text = "Eliminar";
             this.btnEliminarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -381,9 +389,10 @@
             this.btnModificarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
             this.btnModificarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado_de_la_pluma;
-            this.btnModificarCliente.Location = new System.Drawing.Point(26, 353);
+            this.btnModificarCliente.Location = new System.Drawing.Point(35, 434);
+            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(203, 32);
+            this.btnModificarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnModificarCliente.TabIndex = 24;
             this.btnModificarCliente.Text = "Modificar";
             this.btnModificarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -404,9 +413,10 @@
             this.btnGuardarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarCliente.ForeColor = System.Drawing.Color.White;
             this.btnGuardarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.disco;
-            this.btnGuardarCliente.Location = new System.Drawing.Point(26, 320);
+            this.btnGuardarCliente.Location = new System.Drawing.Point(35, 394);
+            this.btnGuardarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnGuardarCliente.Name = "btnGuardarCliente";
-            this.btnGuardarCliente.Size = new System.Drawing.Size(203, 32);
+            this.btnGuardarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnGuardarCliente.TabIndex = 23;
             this.btnGuardarCliente.Text = "Guardar";
             this.btnGuardarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -423,9 +433,10 @@
             this.label12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label12.Location = new System.Drawing.Point(29, 30);
+            this.label12.Location = new System.Drawing.Point(39, 37);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(119, 19);
+            this.label12.Size = new System.Drawing.Size(152, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "Detalle cliente";
             // 
@@ -436,9 +447,10 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(34, 214);
+            this.label13.Location = new System.Drawing.Point(45, 263);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 17);
+            this.label13.Size = new System.Drawing.Size(61, 20);
             this.label13.TabIndex = 4;
             this.label13.Text = "Correo";
             // 
@@ -449,9 +461,10 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(34, 267);
+            this.label14.Location = new System.Drawing.Point(45, 329);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 17);
+            this.label14.Size = new System.Drawing.Size(71, 20);
             this.label14.TabIndex = 6;
             this.label14.Text = "Telefono";
             // 
@@ -462,9 +475,10 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(34, 55);
+            this.label15.Location = new System.Drawing.Point(45, 68);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(87, 17);
+            this.label15.Size = new System.Drawing.Size(107, 20);
             this.label15.TabIndex = 1;
             this.label15.Text = "Id del Cliente";
             // 
@@ -475,9 +489,10 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(34, 109);
+            this.label16.Location = new System.Drawing.Point(45, 134);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(79, 17);
+            this.label16.Size = new System.Drawing.Size(96, 20);
             this.label16.TabIndex = 2;
             this.label16.Text = "Documento";
             // 
@@ -492,15 +507,15 @@
             this.tblRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tblRegistro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tblRegistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tblRegistro.ColumnHeadersHeight = 30;
             this.tblRegistro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewButtonColumn1,
@@ -510,40 +525,42 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle3;
             this.tblRegistro.EnableHeadersVisualStyles = false;
-            this.tblRegistro.Location = new System.Drawing.Point(142, 143);
+            this.tblRegistro.Location = new System.Drawing.Point(189, 176);
+            this.tblRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblRegistro.MultiSelect = false;
             this.tblRegistro.Name = "tblRegistro";
             this.tblRegistro.ReadOnly = true;
             this.tblRegistro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tblRegistro.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.tblRegistro.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.tblRegistro.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.tblRegistro.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tblRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblRegistro.Size = new System.Drawing.Size(761, 387);
+            this.tblRegistro.Size = new System.Drawing.Size(1015, 476);
             this.tblRegistro.TabIndex = 17;
             this.tblRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistro_CellContentClick);
             this.tblRegistro.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistro_CellPainting);
             // 
             // dataGridViewButtonColumn1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.MinimumWidth = 3;
@@ -555,6 +572,7 @@
             // IdCliente
             // 
             this.IdCliente.HeaderText = "Id de cliente";
+            this.IdCliente.MinimumWidth = 6;
             this.IdCliente.Name = "IdCliente";
             this.IdCliente.ReadOnly = true;
             this.IdCliente.Width = 130;
@@ -562,40 +580,50 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "Documento";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // NombreCliente
             // 
             this.NombreCliente.HeaderText = "Cliente";
+            this.NombreCliente.MinimumWidth = 6;
             this.NombreCliente.Name = "NombreCliente";
             this.NombreCliente.ReadOnly = true;
+            this.NombreCliente.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Correo";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Telefono";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Fecha de registro";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 130;
             // 
             // FrmGestionCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 578);
+            this.ClientSize = new System.Drawing.Size(1617, 711);
             this.Controls.Add(this.panel2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmGestionCliente";
             this.Text = "FrmGestionCliente";
             this.Load += new System.EventHandler(this.FrmGestionCliente_Load);

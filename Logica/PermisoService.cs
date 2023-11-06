@@ -12,9 +12,5 @@ namespace Logica
     {
         PermisoRepository permisoRepository = new PermisoRepository();
 
-        public Permiso BuscarPermiso(Permiso permiso)
-        {
-            return permisoRepository.BuscarPermiso(permiso);
-        }
     }
 }

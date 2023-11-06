@@ -4,3 +4,9 @@ C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Entidad\obj\D
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Entidad\obj\Debug\Entidad.dll
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Entidad\obj\Debug\Entidad.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\bin\Debug\Entidad.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\bin\Debug\Entidad.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\obj\Debug\Entidad.csproj.AssemblyReference.cache
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\obj\Debug\Entidad.csproj.CoreCompileInputs.cache
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\obj\Debug\Entidad.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Entidad\obj\Debug\Entidad.pdb

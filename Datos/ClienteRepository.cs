@@ -11,9 +11,6 @@ namespace Datos
 {
     public class ClienteRepository : ConexionRepository
     {
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
-
         public ClienteRepository() : base()
         {
 
@@ -107,37 +104,6 @@ namespace Datos
             }
             return $"Se ha eliminar el cliente {cliente.NombreCliente}" +
                 $"con la ID {cliente.IdCliente}";
-        }
-
-        public bool BuscarCliente(Cliente cliente)
-        {
-            try
-            {
-                string ID = "select * from CLIENTE where IdProveedor=@IdProveedor and Documento=@Documento";
-                SqlCommand command = new SqlCommand(ID, Connection);
-                command.Parameters.AddWithValue("@IdProveedor", cliente.IdCliente);
-                command.Parameters.AddWithValue("@Documento", cliente.Documento);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        cliente.IdCliente = reader.GetString(0);
-                        cliente.Documento = reader.GetString(1);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private Cliente Map(SqlDataReader reader)

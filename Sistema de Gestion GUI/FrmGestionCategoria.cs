@@ -36,7 +36,6 @@ namespace Sistema_de_Gestion_GUI
         {
             try
             {
-                CategoriaService oCategoriaService = new CategoriaService();
                 if ((txtIdCategoria.Texts != "") || (txtTipoCategoria.Texts != ""))
                 {
                     Categoria categoria = new Categoria
@@ -44,8 +43,8 @@ namespace Sistema_de_Gestion_GUI
                         IdCategoria = txtIdCategoria.Texts,
                         TipoCategoria = txtTipoCategoria.Texts.ToUpper()
                     };
-                    var ID = oCategoriaService.BuscarID(categoria);
-                    if (ID == false)
+                    var ID = categoriaService.BuscarID(txtIdCategoria.Text);
+                    if (ID != true)
                     {
                         var msg = categoriaService.Guardar(categoria);
                         MessageBox.Show(msg, "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -73,19 +72,15 @@ namespace Sistema_de_Gestion_GUI
         {
             var categorias = new CategoriaService().CargarRegistro();
             tblRegistro.Rows.Clear();
-            tblRegistro.Rows.Add();
-            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
 
             foreach (var categoria in categorias)
             {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdCategoria"].Value = categoria.IdCategoria;
                 row.Cells["TipoCategoria"].Value = categoria.TipoCategoria;
                 row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
-
-                tblRegistro.Rows.Add();
-                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
-            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         private void ModificarCategoria()
@@ -119,8 +114,6 @@ namespace Sistema_de_Gestion_GUI
 
         private void EliminarCategoria()
         {
-            string idCategoria = txtIdCategoria.Texts;
-
             try
             {
                 if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
@@ -152,11 +145,6 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            //CargarCategoriasFiltrado(txtBuscar.Text);
-        }
-
         private void btnGuardarCategoria_Click(object sender, EventArgs e)
         {
             GuardarRegistro();
@@ -177,9 +165,25 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
-        private void CargarCategoriasFiltrado(string filtro)
+        void CargarDgtv(List<Categoria> list)
         {
-            //tblRegistroCategoria.DataSource = categoriaService.ConsultarFiltrado(filtro);
+            tblRegistro.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdCategoria"].Value = item.IdCategoria;
+                row.Cells["TipoCategoria"].Value = item.TipoCategoria;
+                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
+            }
+        }
+
+        private void CargarCategoriasFiltrado()
+        {
+            var filtro = txtBuscarCategoria.Texts;
+            var list = categoriaService.BuscarX(filtro);
+            CargarDgtv(list);
         }
 
         private void EnabledUpdate()
@@ -281,6 +285,18 @@ namespace Sistema_de_Gestion_GUI
             {
                 txtBuscarCategoria.Texts = "Buscar:";
                 txtBuscarCategoria.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarCategoria__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarCategoria.Texts == "Buscar:")
+            {
+                RecargarRegistros();
+            }
+            else
+            {
+                CargarCategoriasFiltrado();
             }
         }
     }

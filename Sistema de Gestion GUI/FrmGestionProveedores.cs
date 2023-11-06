@@ -28,7 +28,7 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "") 
                     || (txtTelefono.Texts != ""))
                 {
-                    ProveedorService oProductoService = new ProveedorService();
+
                     Proveedor proveedor = new Proveedor
                     {
                         IdProveedor = txtIdProveedor.Texts,
@@ -38,8 +38,8 @@ namespace Sistema_de_Gestion_GUI
                         Telefono = txtTelefono.Texts
                     };
 
-                    var ID = oProductoService.BuscarID(proveedor);
-                    if (ID == false)
+                    var ID = productoService.BuscarID(txtIdProveedor.Texts);
+                    if (ID != true)
                     {
                         var msg = productoService.Guardar(proveedor);
                         MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -69,22 +69,18 @@ namespace Sistema_de_Gestion_GUI
         {
             var proveedores = new ProveedorService().CargarRegistro();
             tblRegistro.Rows.Clear();
-            tblRegistro.Rows.Add();
-            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
 
             foreach (var proveedor in proveedores)
             {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
                 row.Cells["Documento"].Value = proveedor.Documento;
                 row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
                 row.Cells["Correo"].Value = proveedor.Correo;
                 row.Cells["Telefono"].Value = proveedor.Telefono;
                 row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
-
-                tblRegistro.Rows.Add();
-                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
-            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         public void ModificarRegistro()
@@ -173,15 +169,28 @@ namespace Sistema_de_Gestion_GUI
         {
             Nuevo();    
         }
-
-        private void CargarProveedoresFiltrado(string filtro)
+        void CargarDgtv(List<Proveedor> list)
         {
-            //tblRegistroProveedores.DataSource = productoService.ConsultarFiltrado(filtro);
+            tblRegistro.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdProveedor"].Value = item.IdProveedor;
+                row.Cells["Documento"].Value = item.Documento;
+                row.Cells["RazonSocial"].Value = item.RazonSocial;
+                row.Cells["Correo"].Value = item.Correo;
+                row.Cells["Telefono"].Value = item.Telefono;
+                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
+            }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void CargarProveedoresFiltrado()
         {
-            //CargarClientesFiltrado(txtBuscar.Text);
+            var filtro = txtBuscarProveedor.Texts;
+            var list = productoService.BuscarX(filtro);
+            CargarDgtv(list);
         }
 
         private void EnabledUpdate()
@@ -333,7 +342,14 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtBuscarProveedor__TextChanged(object sender, EventArgs e)
         {
-
+            if (txtBuscarProveedor.Texts == "Buscar:")
+            {
+                RecargarRegistros();
+            }
+            else
+            {
+                CargarProveedoresFiltrado();
+            }
         }
     }
 }

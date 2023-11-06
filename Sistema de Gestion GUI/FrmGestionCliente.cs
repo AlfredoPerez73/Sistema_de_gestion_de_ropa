@@ -28,7 +28,7 @@ namespace Sistema_de_Gestion_GUI
                 if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
                     || (txtTelefono.Texts != ""))
                 {
-                    ClienteService oClienteService = new ClienteService();
+
                     Cliente cliente = new Cliente
                     {
                         IdCliente = txtIdCliente.Texts,
@@ -38,8 +38,8 @@ namespace Sistema_de_Gestion_GUI
                         Telefono = txtTelefono.Texts
                     };
 
-                    var ID = oClienteService.BuscarID(cliente);
-                    if (ID == false)
+                    var ID = clienteService.BuscarID(txtIdCliente.Texts);
+                    if (ID != true)
                     {
                         var msg = clienteService.Guardar(cliente);
                         MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -69,22 +69,18 @@ namespace Sistema_de_Gestion_GUI
         {
             var clientes = new ClienteService().CargarRegistro();
             tblRegistro.Rows.Clear();
-            tblRegistro.Rows.Add();
-            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
 
             foreach (var cliente in clientes)
             {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdCliente"].Value = cliente.IdCliente;
                 row.Cells["Documento"].Value = cliente.Documento;
                 row.Cells["NombreCliente"].Value = cliente.NombreCliente;
                 row.Cells["Correo"].Value = cliente.Correo;
                 row.Cells["Telefono"].Value = cliente.Telefono;
                 row.Cells["FechaRegistro"].Value = cliente.FechaRegistro.ToString("d");
-
-                tblRegistro.Rows.Add();
-                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
-            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         public void ModificarRegistro()
@@ -175,6 +171,29 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
+        void CargarDgtv(List<Cliente> list)
+        {
+            tblRegistro.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdCliente"].Value = item.IdCliente;
+                row.Cells["Documento"].Value = item.Documento;
+                row.Cells["NombreCliente"].Value = item.NombreCliente;
+                row.Cells["Correo"].Value = item.Correo;
+                row.Cells["Telefono"].Value = item.Telefono;
+                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
+            }
+        }
+
+        private void CargarClientesFiltrado()
+        {
+            var filtro = txtBuscarCliente.Texts;
+            var list = clienteService.BuscarX(filtro);
+            CargarDgtv(list);
+        }
         private void EnabledUpdate()
         {
             txtIdCliente.Enabled = true;
@@ -319,6 +338,18 @@ namespace Sistema_de_Gestion_GUI
             {
                 txtBuscarCliente.Texts = "Buscar:";
                 txtBuscarCliente.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarCliente__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarCliente.Texts == "Buscar:")
+            {
+                RecargarRegistros();
+            }
+            else
+            {
+                CargarClientesFiltrado();
             }
         }
     }

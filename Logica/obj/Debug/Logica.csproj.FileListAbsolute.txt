@@ -9,3 +9,14 @@ C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Logica\obj\De
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Logica\obj\Debug\Logica.csproj.CopyComplete
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Logica\obj\Debug\Logica.dll
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Logica\obj\Debug\Logica.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Logica.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Logica.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Datos.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Entidad.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Datos.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\bin\Debug\Entidad.pdb
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\obj\Debug\Logica.dll
+C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Logica\obj\Debug\Logica.pdb

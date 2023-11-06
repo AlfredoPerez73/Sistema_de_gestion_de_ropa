@@ -12,9 +12,6 @@ namespace Datos
 {
     public class UsuarioRepository : ConexionRepository
     {
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
-
         public UsuarioRepository() : base()
         {
 
@@ -139,38 +136,6 @@ namespace Datos
                     return false;
                 }
                 
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool BuscarID(Usuario usuario)
-        {
-            try
-            {
-                string ID = "select * from USUARIO where IdUsuario=@IdUsuario and Documento=@Documento";
-                SqlCommand command = new SqlCommand(ID, Connection);
-                command.Parameters.AddWithValue("@Usuario", usuario.IdUser);
-                command.Parameters.AddWithValue("@Contraseña", usuario.Documento);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        usuario.IdUser = reader.GetString(0);
-                        usuario.Documento = reader.GetString(1);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
             }
             catch (Exception)
             {

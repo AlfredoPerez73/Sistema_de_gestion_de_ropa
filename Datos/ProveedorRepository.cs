@@ -12,9 +12,6 @@ namespace Datos
 {
     public class ProveedorRepository : ConexionRepository
     {
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
-
         public ProveedorRepository() : base()
         {
 
@@ -108,37 +105,6 @@ namespace Datos
             }
             return $"Se ha eliminar el producto {proveedor.RazonSocial}" +
                 $"con la ID {proveedor.IdProveedor}";
-        }
-
-        public bool BuscarProducto(Proveedor proveedor)
-        {
-            try
-            {
-                string ID = "select * from PROVEEDOR where IdProveedor=@IdProveedor and Documento=@Documento";
-                SqlCommand command = new SqlCommand(ID, Connection);
-                command.Parameters.AddWithValue("@IdProveedor", proveedor.IdProveedor);
-                command.Parameters.AddWithValue("@Documento", proveedor.Documento);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        proveedor.IdProveedor = reader.GetString(0);
-                        proveedor.Documento = reader.GetString(1);
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         private Proveedor Map(SqlDataReader reader)

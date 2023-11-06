@@ -33,8 +33,8 @@ namespace Sistema_de_Gestion_GUI
         {
             try
             {
-                if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
+                if ((txtIdProducto.Texts != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
+                || (cboTipoCategoria.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
                     Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                     Producto producto = new Producto
@@ -48,7 +48,7 @@ namespace Sistema_de_Gestion_GUI
 
                         Categoria = CategoriaIndex
                     };
-                    var Id = productoService.ValidarRegistrosDuplicados(txtIdProducto.Texts);
+                    var Id = productoService.BuscarID(txtIdProducto.Texts);
                     if (Id != true)
                     {
                         var msg = productoService.Guardar(producto);
@@ -78,12 +78,12 @@ namespace Sistema_de_Gestion_GUI
         {
             var productos = new ProductoService().CargarRegistro();
             tblRegistro.Rows.Clear();
-            tblRegistro.Rows.Add();
-            DataGridViewRow row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             tblRegistro.Columns[1].Visible = false;
 
             foreach (var producto in productos)
             {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdProducto"].Value = producto.IdProducto;
                 row.Cells["IdCategoria"].Value = producto.Categoria.IdCategoria;
                 row.Cells["TipoCategoria"].Value = producto.Categoria.TipoCategoria;
@@ -93,11 +93,7 @@ namespace Sistema_de_Gestion_GUI
                 row.Cells["PrecioVenta"].Value = producto.PrecioVenta;
                 row.Cells["PrecioCompra"].Value = producto.PrecioCompra;
                 row.Cells["FechaRegistro"].Value = producto.FechaRegistro.ToString("d");
-
-                tblRegistro.Rows.Add();
-                row = tblRegistro.Rows[tblRegistro.Rows.Count - 1];
             }
-            tblRegistro.Rows.RemoveAt(tblRegistro.Rows.Count - 1);
         }
 
         private void ListarTiposCategorias()
@@ -114,9 +110,11 @@ namespace Sistema_de_Gestion_GUI
         {
             try
             {
-                if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
+                if ((txtIdProducto.Texts != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
+                    || (cboTipoCategoria.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
+
+                    Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                     Producto producto = new Producto
                     {
                         NombreProducto = txtNombreProducto.Texts.ToUpper(),
@@ -124,11 +122,7 @@ namespace Sistema_de_Gestion_GUI
                         Stock = Convert.ToInt32(txtStock.Texts),
                         PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Texts),
                         PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Texts),
-                        Categoria = new Categoria
-                        {
-                            IdCategoria = txtIdCategoria.Text,
-                            TipoCategoria = txtTipoProducto.Texts.ToUpper()
-                        },
+                        Categoria = CategoriaIndex,
                         IdProducto = txtIdProducto.Texts,
                     };
                     var msg = productoService.ModificarRegistros(producto);
@@ -151,12 +145,10 @@ namespace Sistema_de_Gestion_GUI
 
         private void EliminarProducto()
         {
-            string idProducto = txtIdProducto.Texts;
-
             try
             {
-                if ((txtIdProducto.Texts != "") || (txtIdCategoria.Text != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
-                    || (txtTipoProducto.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
+                if ((txtIdProducto.Texts != "") || (txtNombreProducto.Texts != "") || (txtMarcaProducto.Texts != "")
+                    || (cboTipoCategoria.Texts != "") || (txtStock.Texts != "") || (txtPrecioCompra.Texts != "") || (txtPrecioVenta.Texts != ""))
                 {
                     if (Convert.ToInt32(txtIdProducto.Texts) != 0)
                     {
@@ -184,11 +176,32 @@ namespace Sistema_de_Gestion_GUI
                 MessageBox.Show("No se eliminaron correctamente", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-        private void CargarProductosFiltrado(string filtro)
+        void CargarDgtv(List<Producto> list)
         {
+            tblRegistro.Rows.Clear();
+            tblRegistro.Columns[1].Visible = false;
 
-            //tblRegistro.DataSource = productoService.ConsultarFiltrado(filtro);
+            foreach (var item in list)
+            {
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdProducto"].Value = item.IdProducto;
+                row.Cells["IdCategoria"].Value = item.Categoria.IdCategoria;
+                row.Cells["TipoCategoria"].Value = item.Categoria.TipoCategoria;
+                row.Cells["NombreProducto"].Value = item.NombreProducto;
+                row.Cells["Marca"].Value = item.Marca;
+                row.Cells["Stock"].Value = item.Stock;
+                row.Cells["PrecioVenta"].Value = item.PrecioVenta;
+                row.Cells["PrecioCompra"].Value = item.PrecioCompra;
+                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
+            }           
+        }
+
+        private void CargarProductosFiltrado()
+        {
+            var filtro = txtBuscarProducto.Texts;
+            var list = productoService.BuscarX(filtro);
+            CargarDgtv(list);
         }
 
         private void EnabledUpdate()
@@ -197,8 +210,7 @@ namespace Sistema_de_Gestion_GUI
             btnGuardarProducto.Enabled = true;
             btnEliminarProducto.Enabled = true;
             txtIdProducto.Texts = "";
-            txtIdCategoria.Text = "";
-            txtTipoProducto.Texts = "";
+            cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
@@ -213,8 +225,7 @@ namespace Sistema_de_Gestion_GUI
             btnGuardarProducto.Enabled = true;
             btnModificarProducto.Enabled = true;
             txtIdProducto.Texts = "";
-            txtIdCategoria.Text = "";
-            txtTipoProducto.Texts = "";
+            cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
@@ -236,8 +247,7 @@ namespace Sistema_de_Gestion_GUI
             btnGuardarProducto.Enabled = true;
             btnEliminarProducto.Enabled = true;
             txtIdProducto.Texts = "";
-            txtIdCategoria.Text = "";
-            txtTipoProducto.Texts = "";
+            cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
@@ -279,15 +289,9 @@ namespace Sistema_de_Gestion_GUI
                     txtStock.Texts = tblRegistro.Rows[index].Cells["Stock"].Value.ToString();
                     txtPrecioCompra.Texts = tblRegistro.Rows[index].Cells["PrecioCompra"].Value.ToString();
                     txtPrecioVenta.Texts = tblRegistro.Rows[index].Cells["PrecioVenta"].Value.ToString();
-                    txtIdCategoria.Text = tblRegistro.Rows[index].Cells["IdCategoria"].Value.ToString();
-                    txtTipoProducto.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
+                    cboTipoCategoria.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
                 }
             }
-        }
-
-        private void txtBuscarProducto__TextsChanged(object sender, EventArgs e)
-        {
-            //CargarProductosFiltrado(txtBuscarProducto.Texts);
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)
@@ -308,19 +312,6 @@ namespace Sistema_de_Gestion_GUI
         private void btnLimpiarProducto_Click(object sender, EventArgs e)
         {
             Nuevo();
-        }
-
-        private void btnBuscarCategoria_Click(object sender, EventArgs e)
-        {
-            using (var modal = new FrmDgtvCategorias())
-            {
-                var result = modal.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    txtIdCategoria.Text = modal.categoria.IdCategoria.ToString();
-                    txtTipoProducto.Texts = modal.categoria.TipoCategoria.ToString();
-                }
-            }
         }
 
         private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
@@ -402,6 +393,18 @@ namespace Sistema_de_Gestion_GUI
             {
                 txtBuscarProducto.Texts = "Buscar:";
                 txtBuscarProducto.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProducto__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarProducto.Texts == "Buscar:")
+            {
+                RecargarRegistros();
+            }
+            else
+            {
+                CargarProductosFiltrado();
             }
         }
     }

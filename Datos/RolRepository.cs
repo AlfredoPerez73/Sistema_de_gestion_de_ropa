@@ -11,9 +11,6 @@ namespace Datos
 {
     public class RolRepository : ConexionRepository
     {
-        SqlDataReader reader;
-        SqlCommand command = new SqlCommand();
-
         public RolRepository() : base()
         {
 
