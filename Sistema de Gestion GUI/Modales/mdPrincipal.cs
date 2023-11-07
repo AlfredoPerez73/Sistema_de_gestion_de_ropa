@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema_de_Gestion_GUI.Modales
 {
-    public partial class FrmPrincipal : Form
+    public partial class mdPrincipal : Form
     {
-        public FrmPrincipal()
+        public mdPrincipal()
         {
             InitializeComponent();
         }

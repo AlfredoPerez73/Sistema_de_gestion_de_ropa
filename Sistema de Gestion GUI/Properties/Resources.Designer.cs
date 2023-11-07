@@ -63,6 +63,36 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agregar {
+            get {
+                object obj = ResourceManager.GetObject("agregar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap agregar__1_ {
+            get {
+                object obj = ResourceManager.GetObject("agregar (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap agregar__2_ {
+            get {
+                object obj = ResourceManager.GetObject("agregar (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bala {
             get {
                 object obj = ResourceManager.GetObject("bala", resourceCulture);
@@ -276,6 +306,16 @@ namespace Sistema_de_Gestion_GUI.Properties {
         internal static System.Drawing.Bitmap etiquetas__1_ {
             get {
                 object obj = ResourceManager.GetObject("etiquetas (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap etiquetas1 {
+            get {
+                object obj = ResourceManager.GetObject("etiquetas1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

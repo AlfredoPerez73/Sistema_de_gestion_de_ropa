@@ -15,11 +15,6 @@ namespace Logica
     {
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-        public bool LoginUser(Usuario usuario)
-        {
-            return usuarioRepository.Login(usuario);
-        }
-
         public bool BuscarID(string id)
         {
             return CargarRegistro().Any(u => u.IdUser == id);

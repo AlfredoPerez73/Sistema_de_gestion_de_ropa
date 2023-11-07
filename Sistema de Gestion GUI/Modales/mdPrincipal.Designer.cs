@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Gestion_GUI.Modales
 {
-    partial class FrmPrincipal
+    partial class mdPrincipal
     {
         /// <summary>
         /// Required designer variable.

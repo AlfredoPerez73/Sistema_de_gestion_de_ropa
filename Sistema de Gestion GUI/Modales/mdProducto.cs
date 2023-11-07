@@ -13,7 +13,7 @@ using Logica;
 
 namespace Sistema_de_Gestion_GUI
 {
-    public partial class FrmDgtvCategorias : Form
+    public partial class mdProducto : Form
     {
         private CategoriaService categoriaService = new CategoriaService();
         public Categoria categoria { get; set; }
@@ -22,7 +22,7 @@ namespace Sistema_de_Gestion_GUI
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        public FrmDgtvCategorias()
+        public mdProducto()
         {
             InitializeComponent();
         }

@@ -47,16 +47,11 @@ C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionCliente.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionCompra.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionVenta.resources
-C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmDgtvCategorias.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmMenuPrincipal.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmLogin.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionProveedores.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionProducto.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionUsuarios.resources
-C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvUsuario.resources
-C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvProveedores.resources
-C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmDgtvRoles.resources
-C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.FrmPrincipal.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Properties.Resources.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\CustomControls.RJControls.RJTextBox.resources
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.GenerateResource.cache
@@ -64,3 +59,7 @@ C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.CopyComplete
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.exe
 C:\Users\Angie Zarate\Source\Repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.pdb
+C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.mdProducto.resources
+C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdUsuario.resources
+C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdProveedor.resources
+C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdPrincipal.resources

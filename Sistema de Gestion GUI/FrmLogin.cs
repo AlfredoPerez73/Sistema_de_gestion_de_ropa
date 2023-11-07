@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Entidad;
+using Logica;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Drawing.Drawing2D;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidad;
-using Logica;
 
 namespace Sistema_de_Gestion_GUI
 {
@@ -18,6 +15,21 @@ namespace Sistema_de_Gestion_GUI
         public FrmLogin()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            int radio = 20;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            this.Region = new Region(path);
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -31,24 +43,11 @@ namespace Sistema_de_Gestion_GUI
             {
                 if (txtContraseña.Texts != "")
                 {
-                    UsuarioService oUsuarioService = new UsuarioService();
-                    Usuario usuario = new Usuario
+                    List<Usuario> TEST = new UsuarioService().CargarRegistro();
+                    Usuario oUsuario = new UsuarioService().CargarRegistro().Where(u => u.User == txtUsuario.Texts && u.Password == txtContraseña.Texts).FirstOrDefault();
+                    if (oUsuario != null)
                     {
-                        User = txtUsuario.Texts,
-                        Password = txtContraseña.Texts
-                    };
-                    Permiso permiso = new Permiso
-                    {
-                        Rol = new Rol
-                        {
-                            NRol = "ADMINISTRADOR"
-                        }
-                    };
-
-                    var validacionLogin = oUsuarioService.LoginUser(usuario);
-                    if (validacionLogin == true)
-                    {
-                        FrmMenuPrincipal menu = new FrmMenuPrincipal(usuario,permiso);
+                        FrmMenuPrincipal menu = new FrmMenuPrincipal(oUsuario);
                         menu.Show();
                         this.Hide();
                         menu.FormClosing += frm_Closing;

@@ -81,11 +81,11 @@
     <Compile Include="FrmGestionVenta.Designer.cs">
       <DependentUpon>FrmGestionVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\FrmDgtvCategorias.cs">
+    <Compile Include="Modales\mdProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\FrmDgtvCategorias.Designer.cs">
-      <DependentUpon>FrmDgtvCategorias.cs</DependentUpon>
+    <Compile Include="Modales\mdProducto.Designer.cs">
+      <DependentUpon>mdProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -117,29 +117,23 @@
     <Compile Include="FrmGestionUsuarios.Designer.cs">
       <DependentUpon>FrmGestionUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\FrmDgtvUsuario.cs">
+    <Compile Include="Modales\mdUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\FrmDgtvUsuario.Designer.cs">
-      <DependentUpon>FrmDgtvUsuario.cs</DependentUpon>
+    <Compile Include="Modales\mdUsuario.Designer.cs">
+      <DependentUpon>mdUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\FrmDgtvProveedores.cs">
+    <Compile Include="Modales\mdProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\FrmDgtvProveedores.Designer.cs">
-      <DependentUpon>FrmDgtvProveedores.cs</DependentUpon>
+    <Compile Include="Modales\mdProveedor.Designer.cs">
+      <DependentUpon>mdProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modales\FrmDgtvRoles.cs">
+    <Compile Include="Modales\mdPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modales\FrmDgtvRoles.Designer.cs">
-      <DependentUpon>FrmDgtvRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modales\FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modales\FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <Compile Include="Modales\mdPrincipal.Designer.cs">
+      <DependentUpon>mdPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,8 +155,8 @@
     <EmbeddedResource Include="FrmGestionVenta.resx">
       <DependentUpon>FrmGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmDgtvCategorias.resx">
-      <DependentUpon>FrmDgtvCategorias.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\mdProducto.resx">
+      <DependentUpon>mdProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
@@ -179,17 +173,14 @@
     <EmbeddedResource Include="FrmGestionUsuarios.resx">
       <DependentUpon>FrmGestionUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmDgtvUsuario.resx">
-      <DependentUpon>FrmDgtvUsuario.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\mdUsuario.resx">
+      <DependentUpon>mdUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmDgtvProveedores.resx">
-      <DependentUpon>FrmDgtvProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\mdProveedor.resx">
+      <DependentUpon>mdProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmDgtvRoles.resx">
-      <DependentUpon>FrmDgtvRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modales\FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Modales\mdPrincipal.resx">
+      <DependentUpon>mdPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -384,6 +375,10 @@
     <None Include="Resources\circulo-marca-x.png" />
     <None Include="Resources\etiqueta-de-usuario.png" />
     <None Include="Resources\etiqueta-de-usuario %281%29.png" />
+    <None Include="Resources\agregar.png" />
+    <None Include="Resources\agregar %281%29.png" />
+    <None Include="Resources\agregar %282%29.png" />
+    <None Include="Resources\etiquetas1.png" />
     <Content Include="Resources\Fit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

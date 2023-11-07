@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Gestion_GUI.Modales
 {
-    partial class FrmDgtvUsuario
+    partial class mdUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDgtvUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mdUsuario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();

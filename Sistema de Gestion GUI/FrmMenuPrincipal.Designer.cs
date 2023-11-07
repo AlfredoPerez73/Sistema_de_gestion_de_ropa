@@ -54,10 +54,10 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnPerfil = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.slideBar2 = new System.Windows.Forms.Timer(this.components);
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.slideBar2 = new System.Windows.Forms.Timer(this.components);
             this.Contenedor.SuspendLayout();
             this.SlideContenedor2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -72,6 +72,7 @@
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -83,10 +84,12 @@
             this.Contenedor.Controls.Add(this.SlideContenedor2);
             this.Contenedor.Cursor = System.Windows.Forms.Cursors.Default;
             this.Contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Contenedor.Location = new System.Drawing.Point(0, 44);
+            this.Contenedor.Location = new System.Drawing.Point(0, 54);
+            this.Contenedor.Margin = new System.Windows.Forms.Padding(4);
             this.Contenedor.Name = "Contenedor";
-            this.Contenedor.Size = new System.Drawing.Size(1270, 644);
+            this.Contenedor.Size = new System.Drawing.Size(1693, 793);
             this.Contenedor.TabIndex = 46;
+            this.Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.Contenedor_Paint);
             // 
             // SlideContenedor2
             // 
@@ -104,10 +107,11 @@
             this.SlideContenedor2.Controls.Add(this.panel6);
             this.SlideContenedor2.Controls.Add(this.panel8);
             this.SlideContenedor2.Location = new System.Drawing.Point(0, 0);
-            this.SlideContenedor2.MaximumSize = new System.Drawing.Size(255, 0);
-            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 644);
+            this.SlideContenedor2.Margin = new System.Windows.Forms.Padding(4);
+            this.SlideContenedor2.MaximumSize = new System.Drawing.Size(340, 0);
+            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(88, 793);
             this.SlideContenedor2.Name = "SlideContenedor2";
-            this.SlideContenedor2.Size = new System.Drawing.Size(66, 644);
+            this.SlideContenedor2.Size = new System.Drawing.Size(88, 793);
             this.SlideContenedor2.TabIndex = 1;
             // 
             // panel5
@@ -115,9 +119,10 @@
             this.panel5.Controls.Add(this.btnGestionProveedores);
             this.panel5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel5.Location = new System.Drawing.Point(3, 283);
+            this.panel5.Location = new System.Drawing.Point(4, 348);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(262, 52);
+            this.panel5.Size = new System.Drawing.Size(349, 64);
             this.panel5.TabIndex = 47;
             // 
             // btnGestionProveedores
@@ -129,9 +134,10 @@
             this.btnGestionProveedores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGestionProveedores.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.id_insignia;
             this.btnGestionProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionProveedores.Location = new System.Drawing.Point(12, -4);
+            this.btnGestionProveedores.Location = new System.Drawing.Point(17, -5);
+            this.btnGestionProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProveedores.Name = "btnGestionProveedores";
-            this.btnGestionProveedores.Size = new System.Drawing.Size(255, 62);
+            this.btnGestionProveedores.Size = new System.Drawing.Size(340, 76);
             this.btnGestionProveedores.TabIndex = 47;
             this.btnGestionProveedores.Text = "           Proveedores";
             this.btnGestionProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -143,9 +149,10 @@
             this.panel12.Controls.Add(this.btnClientes);
             this.panel12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel12.Location = new System.Drawing.Point(3, 400);
+            this.panel12.Location = new System.Drawing.Point(4, 492);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(262, 50);
+            this.panel12.Size = new System.Drawing.Size(349, 62);
             this.panel12.TabIndex = 49;
             // 
             // btnClientes
@@ -157,9 +164,10 @@
             this.btnClientes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnClientes.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiqueta_de_usuario__1_;
             this.btnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClientes.Location = new System.Drawing.Point(12, -4);
+            this.btnClientes.Location = new System.Drawing.Point(17, -5);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(4);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(255, 62);
+            this.btnClientes.Size = new System.Drawing.Size(340, 76);
             this.btnClientes.TabIndex = 47;
             this.btnClientes.Text = "           Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -171,9 +179,10 @@
             this.panel11.Controls.Add(this.btnVenta);
             this.panel11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel11.Location = new System.Drawing.Point(3, 516);
+            this.panel11.Location = new System.Drawing.Point(4, 635);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(262, 52);
+            this.panel11.Size = new System.Drawing.Size(349, 64);
             this.panel11.TabIndex = 48;
             // 
             // btnVenta
@@ -185,9 +194,10 @@
             this.btnVenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnVenta.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.recibo;
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVenta.Location = new System.Drawing.Point(12, -4);
+            this.btnVenta.Location = new System.Drawing.Point(17, -5);
+            this.btnVenta.Margin = new System.Windows.Forms.Padding(4);
             this.btnVenta.Name = "btnVenta";
-            this.btnVenta.Size = new System.Drawing.Size(255, 62);
+            this.btnVenta.Size = new System.Drawing.Size(340, 76);
             this.btnVenta.TabIndex = 47;
             this.btnVenta.Text = "           Ventas";
             this.btnVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -199,9 +209,10 @@
             this.panel1.Controls.Add(this.MenuDesplegable);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 100);
+            this.panel1.Size = new System.Drawing.Size(336, 123);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -209,9 +220,10 @@
             // 
             this.MenuDesplegable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MenuDesplegable.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.barras_escalonadas__1_;
-            this.MenuDesplegable.Location = new System.Drawing.Point(9, 21);
+            this.MenuDesplegable.Location = new System.Drawing.Point(12, 26);
+            this.MenuDesplegable.Margin = new System.Windows.Forms.Padding(4);
             this.MenuDesplegable.Name = "MenuDesplegable";
-            this.MenuDesplegable.Size = new System.Drawing.Size(35, 32);
+            this.MenuDesplegable.Size = new System.Drawing.Size(47, 39);
             this.MenuDesplegable.TabIndex = 0;
             this.MenuDesplegable.TabStop = false;
             this.MenuDesplegable.Click += new System.EventHandler(this.MenuDesplegable_Click);
@@ -219,9 +231,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit__3___3_;
-            this.pictureBox1.Location = new System.Drawing.Point(36, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(48, 1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 72);
+            this.pictureBox1.Size = new System.Drawing.Size(219, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -232,9 +245,10 @@
             this.panel2.Controls.Add(this.btnMenu);
             this.panel2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Location = new System.Drawing.Point(3, 109);
+            this.panel2.Location = new System.Drawing.Point(4, 134);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(253, 52);
+            this.panel2.Size = new System.Drawing.Size(337, 64);
             this.panel2.TabIndex = 46;
             // 
             // btnMenu
@@ -246,9 +260,10 @@
             this.btnMenu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnMenu.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.house_chimney__1_;
             this.btnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenu.Location = new System.Drawing.Point(12, -4);
+            this.btnMenu.Location = new System.Drawing.Point(15, -5);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(4);
             this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(255, 62);
+            this.btnMenu.Size = new System.Drawing.Size(340, 76);
             this.btnMenu.TabIndex = 47;
             this.btnMenu.Text = "            Menu Principal";
             this.btnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -260,9 +275,10 @@
             this.panel3.Controls.Add(this.btnGestionProductos);
             this.panel3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Location = new System.Drawing.Point(3, 167);
+            this.panel3.Location = new System.Drawing.Point(4, 206);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(262, 52);
+            this.panel3.Size = new System.Drawing.Size(349, 64);
             this.panel3.TabIndex = 47;
             // 
             // btnGestionProductos
@@ -274,9 +290,10 @@
             this.btnGestionProductos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGestionProductos.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.caja_abierta_llena__1_;
             this.btnGestionProductos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionProductos.Location = new System.Drawing.Point(12, -4);
+            this.btnGestionProductos.Location = new System.Drawing.Point(18, -1);
+            this.btnGestionProductos.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionProductos.Name = "btnGestionProductos";
-            this.btnGestionProductos.Size = new System.Drawing.Size(255, 62);
+            this.btnGestionProductos.Size = new System.Drawing.Size(340, 76);
             this.btnGestionProductos.TabIndex = 47;
             this.btnGestionProductos.Text = "           Productos";
             this.btnGestionProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,9 +305,10 @@
             this.panel7.Controls.Add(this.btnCompra);
             this.panel7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel7.Location = new System.Drawing.Point(3, 457);
+            this.panel7.Location = new System.Drawing.Point(4, 562);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(262, 52);
+            this.panel7.Size = new System.Drawing.Size(349, 64);
             this.panel7.TabIndex = 47;
             // 
             // btnCompra
@@ -302,9 +320,10 @@
             this.btnCompra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiquetas__1_;
             this.btnCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompra.Location = new System.Drawing.Point(12, -4);
+            this.btnCompra.Location = new System.Drawing.Point(17, -5);
+            this.btnCompra.Margin = new System.Windows.Forms.Padding(4);
             this.btnCompra.Name = "btnCompra";
-            this.btnCompra.Size = new System.Drawing.Size(255, 62);
+            this.btnCompra.Size = new System.Drawing.Size(340, 76);
             this.btnCompra.TabIndex = 47;
             this.btnCompra.Text = "           Compra";
             this.btnCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -316,9 +335,10 @@
             this.panel4.Controls.Add(this.btnGestionCategorias);
             this.panel4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel4.Location = new System.Drawing.Point(3, 225);
+            this.panel4.Location = new System.Drawing.Point(4, 277);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(262, 52);
+            this.panel4.Size = new System.Drawing.Size(349, 64);
             this.panel4.TabIndex = 47;
             // 
             // btnGestionCategorias
@@ -330,9 +350,10 @@
             this.btnGestionCategorias.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGestionCategorias.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.libro_marcador;
             this.btnGestionCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionCategorias.Location = new System.Drawing.Point(12, -4);
+            this.btnGestionCategorias.Location = new System.Drawing.Point(18, -5);
+            this.btnGestionCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionCategorias.Name = "btnGestionCategorias";
-            this.btnGestionCategorias.Size = new System.Drawing.Size(255, 62);
+            this.btnGestionCategorias.Size = new System.Drawing.Size(340, 76);
             this.btnGestionCategorias.TabIndex = 47;
             this.btnGestionCategorias.Text = "           Categorias";
             this.btnGestionCategorias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,9 +365,10 @@
             this.panel6.Controls.Add(this.btnGestionUsuarios);
             this.panel6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel6.Location = new System.Drawing.Point(3, 341);
+            this.panel6.Location = new System.Drawing.Point(4, 420);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(262, 52);
+            this.panel6.Size = new System.Drawing.Size(349, 64);
             this.panel6.TabIndex = 47;
             // 
             // btnGestionUsuarios
@@ -358,9 +380,10 @@
             this.btnGestionUsuarios.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnGestionUsuarios.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.equipo_de_usuarios;
             this.btnGestionUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGestionUsuarios.Location = new System.Drawing.Point(12, -4);
+            this.btnGestionUsuarios.Location = new System.Drawing.Point(17, -5);
+            this.btnGestionUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.btnGestionUsuarios.Name = "btnGestionUsuarios";
-            this.btnGestionUsuarios.Size = new System.Drawing.Size(255, 62);
+            this.btnGestionUsuarios.Size = new System.Drawing.Size(340, 76);
             this.btnGestionUsuarios.TabIndex = 47;
             this.btnGestionUsuarios.Text = "           Usuarios";
             this.btnGestionUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -372,9 +395,10 @@
             this.panel8.Controls.Add(this.btnPerfil);
             this.panel8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel8.Location = new System.Drawing.Point(3, 589);
+            this.panel8.Location = new System.Drawing.Point(4, 725);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(262, 52);
+            this.panel8.Size = new System.Drawing.Size(349, 64);
             this.panel8.TabIndex = 47;
             // 
             // btnPerfil
@@ -388,9 +412,10 @@
             this.btnPerfil.ForeColor = System.Drawing.Color.White;
             this.btnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("btnPerfil.Image")));
             this.btnPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerfil.Location = new System.Drawing.Point(12, 7);
+            this.btnPerfil.Location = new System.Drawing.Point(16, 9);
+            this.btnPerfil.Margin = new System.Windows.Forms.Padding(4);
             this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(213, 38);
+            this.btnPerfil.Size = new System.Drawing.Size(284, 47);
             this.btnPerfil.TabIndex = 45;
             this.btnPerfil.Text = "            ADMINISTRADOR";
             this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -400,17 +425,16 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel10.Controls.Add(this.btnMaximizar);
+            this.panel10.Controls.Add(this.btnMinimizar);
+            this.panel10.Controls.Add(this.btnCerrar);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1270, 44);
+            this.panel10.Size = new System.Drawing.Size(1693, 54);
             this.panel10.TabIndex = 47;
             this.panel10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel10_MouseDown);
-            // 
-            // slideBar2
-            // 
-            this.slideBar2.Interval = 10;
-            this.slideBar2.Tick += new System.EventHandler(this.slideBar2_Tick);
             // 
             // btnMaximizar
             // 
@@ -418,9 +442,10 @@
             this.btnMaximizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala2;
-            this.btnMaximizar.Location = new System.Drawing.Point(1230, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1624, 0);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(18, 18);
+            this.btnMaximizar.Size = new System.Drawing.Size(24, 22);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMaximizar.TabIndex = 49;
             this.btnMaximizar.TabStop = false;
@@ -432,9 +457,10 @@
             this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
-            this.btnMinimizar.Location = new System.Drawing.Point(1207, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1593, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
+            this.btnMinimizar.Size = new System.Drawing.Size(27, 22);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 49;
             this.btnMinimizar.TabStop = false;
@@ -446,28 +472,32 @@
             this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
-            this.btnCerrar.Location = new System.Drawing.Point(1250, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(1651, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 18);
+            this.btnCerrar.Size = new System.Drawing.Size(27, 22);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 48;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // slideBar2
+            // 
+            this.slideBar2.Interval = 10;
+            this.slideBar2.Tick += new System.EventHandler(this.slideBar2_Tick);
+            // 
             // FrmMenuPrincipal
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1270, 688);
-            this.Controls.Add(this.btnMaximizar);
-            this.Controls.Add(this.btnMinimizar);
-            this.Controls.Add(this.btnCerrar);
+            this.ClientSize = new System.Drawing.Size(1693, 847);
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.panel10);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -486,6 +516,7 @@
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
@@ -501,7 +532,6 @@
         private System.Windows.Forms.PictureBox btnMaximizar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnGestionProductos;
         private System.Windows.Forms.Panel panel4;
@@ -522,5 +552,6 @@
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Button btnClientes;
+        private System.Windows.Forms.Button btnMenu;
     }
 }

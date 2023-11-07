@@ -46,7 +46,7 @@ namespace Sistema_de_Gestion_GUI
                         var msg = usuarioService.Guardar(usuario);
                         MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros();
+                        RecargarRegistros(usuarioService.CargarRegistro());
                         Nuevo();
                     }
                     else
@@ -66,9 +66,8 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        public void RecargarRegistros()
+        public void RecargarRegistros(List<Usuario> usuarios)
         {
-            var usuarios = new UsuarioService().CargarRegistro();
             tblRegistro.Rows.Clear();
             tblRegistro.Columns[3].Visible = false;
 
@@ -117,7 +116,7 @@ namespace Sistema_de_Gestion_GUI
                             var msg = usuarioService.EliminarRegistros(usuario);
                             MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros();
+                            RecargarRegistros(usuarioService.CargarRegistro());
                             EnabledDelete();
                         }
                     }
@@ -135,7 +134,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmGestionUsuarios_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(usuarioService.CargarRegistro());
             ListarRoles();
         }
 
@@ -154,31 +153,11 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
-        void CargarDgtv(List<Usuario> list)
-        {
-            tblRegistro.Rows.Clear();
-            tblRegistro.Columns[1].Visible = false;
-
-            foreach (var item in list)
-            {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdUsuario"].Value = item.IdUser;
-                row.Cells["Documento"].Value = item.Documento;
-                row.Cells["IdRol"].Value = item.Rol.IdRol;
-                row.Cells["Rol"].Value = item.Rol.NRol;
-                row.Cells["Usuario"].Value = item.User;
-                row.Cells["Contraseña"].Value = item.Password;
-                row.Cells["Correo"].Value = item.Correo;
-                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
-            }
-        }
-
         private void CargarUsuarioFiltrado()
         {
             var filtro = txtBuscarUsuario.Texts;
             var list = usuarioService.BuscarX(filtro);
-            CargarDgtv(list);
+            RecargarRegistros(list);
         }
 
         private void EnabledUpdate()
@@ -338,7 +317,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (txtBuscarUsuario.Texts == "Buscar:")
             {
-                RecargarRegistros();
+                RecargarRegistros(usuarioService.CargarRegistro());
             }
             else
             {

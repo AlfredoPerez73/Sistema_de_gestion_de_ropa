@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tblRegistro = new System.Windows.Forms.DataGridView();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +44,7 @@
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboTipoCategoria = new CustomControls.RJControls.RJComboBox();
             this.txtPrecioVenta = new CustomControls.RJControls.RJTextBox();
             this.txtPrecioCompra = new CustomControls.RJControls.RJTextBox();
             this.txtStock = new CustomControls.RJControls.RJTextBox();
@@ -67,7 +68,6 @@
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            this.cboTipoCategoria = new CustomControls.RJControls.RJComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,15 +84,15 @@
             this.tblRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tblRegistro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tblRegistro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tblRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tblRegistro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tblRegistro.ColumnHeadersHeight = 30;
             this.tblRegistro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -105,14 +105,14 @@
             this.PrecioCompra,
             this.PrecioVenta,
             this.FechaRegistro});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle3;
             this.tblRegistro.EnableHeadersVisualStyles = false;
             this.tblRegistro.Location = new System.Drawing.Point(189, 176);
             this.tblRegistro.Margin = new System.Windows.Forms.Padding(4);
@@ -122,11 +122,11 @@
             this.tblRegistro.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tblRegistro.RowHeadersVisible = false;
             this.tblRegistro.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.tblRegistro.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.tblRegistro.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tblRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblRegistro.Size = new System.Drawing.Size(1015, 476);
             this.tblRegistro.TabIndex = 17;
@@ -135,12 +135,12 @@
             // 
             // btnSeleccionar
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
             this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleccionar.HeaderText = "";
             this.btnSeleccionar.MinimumWidth = 3;
@@ -252,6 +252,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(356, 712);
             this.panel3.TabIndex = 52;
+            // 
+            // cboTipoCategoria
+            // 
+            this.cboTipoCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboTipoCategoria.BorderColor = System.Drawing.Color.SteelBlue;
+            this.cboTipoCategoria.BorderSize = 2;
+            this.cboTipoCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cboTipoCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoCategoria.ForeColor = System.Drawing.Color.DimGray;
+            this.cboTipoCategoria.IconColor = System.Drawing.Color.SteelBlue;
+            this.cboTipoCategoria.ListBackColor = System.Drawing.Color.White;
+            this.cboTipoCategoria.ListTextColor = System.Drawing.Color.Black;
+            this.cboTipoCategoria.Location = new System.Drawing.Point(43, 165);
+            this.cboTipoCategoria.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cboTipoCategoria.Name = "cboTipoCategoria";
+            this.cboTipoCategoria.Padding = new System.Windows.Forms.Padding(2);
+            this.cboTipoCategoria.Size = new System.Drawing.Size(250, 30);
+            this.cboTipoCategoria.TabIndex = 54;
+            this.cboTipoCategoria.Texts = "";
             // 
             // txtPrecioVenta
             // 
@@ -707,25 +726,6 @@
             this.rjTextBox1.TabIndex = 22;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
-            // 
-            // cboTipoCategoria
-            // 
-            this.cboTipoCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cboTipoCategoria.BorderColor = System.Drawing.Color.SteelBlue;
-            this.cboTipoCategoria.BorderSize = 2;
-            this.cboTipoCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cboTipoCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipoCategoria.ForeColor = System.Drawing.Color.DimGray;
-            this.cboTipoCategoria.IconColor = System.Drawing.Color.SteelBlue;
-            this.cboTipoCategoria.ListBackColor = System.Drawing.Color.White;
-            this.cboTipoCategoria.ListTextColor = System.Drawing.Color.Black;
-            this.cboTipoCategoria.Location = new System.Drawing.Point(43, 165);
-            this.cboTipoCategoria.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cboTipoCategoria.Name = "cboTipoCategoria";
-            this.cboTipoCategoria.Padding = new System.Windows.Forms.Padding(2);
-            this.cboTipoCategoria.Size = new System.Drawing.Size(250, 30);
-            this.cboTipoCategoria.TabIndex = 54;
-            this.cboTipoCategoria.Texts = "";
             // 
             // FrmGestionProducto
             // 

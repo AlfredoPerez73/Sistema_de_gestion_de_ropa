@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_Gestion_GUI.Modales
 {
-    partial class FrmDgtvProveedores
+    partial class mdProveedor
     {
         /// <summary>
         /// Required designer variable.

@@ -12,9 +12,9 @@ using Logica;
 
 namespace Sistema_de_Gestion_GUI.Modales
 {
-    public partial class FrmDgtvUsuario : Form
+    public partial class mdUsuario : Form
     {
-        public FrmDgtvUsuario()
+        public mdUsuario()
         {
             InitializeComponent();
         }

@@ -12,5 +12,9 @@ namespace Logica
     {
         PermisoRepository permisoRepository = new PermisoRepository();
 
+        public List<Permiso> CargarRegistro(string IdUsuario)
+        {
+            return permisoRepository.CargarRegistro(IdUsuario);
+        }
     }
 }

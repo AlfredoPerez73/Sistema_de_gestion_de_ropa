@@ -12,6 +12,8 @@ namespace Datos
 {
     public class UsuarioRepository : ConexionRepository
     {
+        RolRepository rolRepository = new RolRepository();
+
         public UsuarioRepository() : base()
         {
 
@@ -107,42 +109,6 @@ namespace Datos
                 $"con la ID {usuario.IdUser}";
         }
 
-        public bool Login(Usuario usuario)
-        {
-            try
-            {
-                string Login = "select * from USUARIO where Usuario=@Usuario and Contraseña=@Contraseña";
-                SqlCommand command = new SqlCommand(Login, Connection);
-                command.Parameters.AddWithValue("@Usuario", usuario.User);
-                command.Parameters.AddWithValue("@Contraseña", usuario.Password);
-                command.CommandType = CommandType.Text;
-                AbrirConnection();
-                var reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        usuario.IdUser = reader.GetString(0);
-                        usuario.Documento = reader.GetString(1);
-                        usuario.User = reader.GetString(2);
-                        usuario.Password = reader.GetString(3);
-                        usuario.Correo = reader.GetString(4);
-                        usuario.Rol = new Rol { NRol = reader.GetString(7) };
-                    }
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-                
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
         private Usuario Map(SqlDataReader reader)
         {
             Usuario usuario = new Usuario
@@ -159,8 +125,16 @@ namespace Datos
                 Correo = Convert.ToString(reader["Correo"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };
+            string IdRol = Convert.ToString(reader["IdRol"]);
+            string Rol = Convert.ToString(reader["Rol"]);
+            usuario.Rol = ObtenerRol(IdRol, Rol);
 
             return usuario;
+        }
+
+        private Rol ObtenerRol(string IdRol, string Rol)
+        {
+            return rolRepository.CargarRegistro().Find(c => c.IdRol == IdRol && c.NRol == Rol);
         }
     }
 }

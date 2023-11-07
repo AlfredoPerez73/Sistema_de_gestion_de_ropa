@@ -53,9 +53,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(278, 36);
+            this.label2.Location = new System.Drawing.Point(371, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 16);
+            this.label2.Size = new System.Drawing.Size(58, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Usuario";
             // 
@@ -63,9 +64,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(278, 88);
+            this.label3.Location = new System.Drawing.Point(371, 108);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.Size = new System.Drawing.Size(90, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Contraseña";
             // 
@@ -87,8 +89,9 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(549, 226);
+            this.panel1.Size = new System.Drawing.Size(732, 278);
             this.panel1.TabIndex = 16;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -98,9 +101,10 @@
             this.btnMinimizar.BackColor = System.Drawing.Color.White;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
-            this.btnMinimizar.Location = new System.Drawing.Point(507, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(662, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
+            this.btnMinimizar.Size = new System.Drawing.Size(27, 22);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnMinimizar.TabIndex = 51;
             this.btnMinimizar.TabStop = false;
@@ -112,9 +116,10 @@
             this.btnCerrar.BackColor = System.Drawing.Color.White;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
-            this.btnCerrar.Location = new System.Drawing.Point(529, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(691, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 18);
+            this.btnCerrar.Size = new System.Drawing.Size(27, 22);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.btnCerrar.TabIndex = 50;
             this.btnCerrar.TabStop = false;
@@ -125,8 +130,9 @@
             this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit_removebg_preview;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(251, 229);
+            this.pictureBox1.Size = new System.Drawing.Size(335, 282);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
@@ -145,9 +151,10 @@
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.circulo_marca_x;
-            this.btnCancelar.Location = new System.Drawing.Point(395, 172);
+            this.btnCancelar.Location = new System.Drawing.Point(527, 212);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(101, 26);
+            this.btnCancelar.Size = new System.Drawing.Size(135, 32);
             this.btnCancelar.TabIndex = 25;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -169,9 +176,10 @@
             this.btnIngresar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.tarjeta_de_direccion;
-            this.btnIngresar.Location = new System.Drawing.Point(291, 172);
+            this.btnIngresar.Location = new System.Drawing.Point(388, 212);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(101, 26);
+            this.btnIngresar.Size = new System.Drawing.Size(135, 32);
             this.btnIngresar.TabIndex = 24;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,15 +197,15 @@
             this.txtContraseña.BorderSize = 2;
             this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtContraseña.Location = new System.Drawing.Point(272, 105);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContraseña.Location = new System.Drawing.Point(363, 129);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtContraseña.Multiline = false;
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtContraseña.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtContraseña.PasswordChar = false;
             this.txtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtContraseña.PlaceholderText = "";
-            this.txtContraseña.Size = new System.Drawing.Size(250, 31);
+            this.txtContraseña.Size = new System.Drawing.Size(333, 38);
             this.txtContraseña.TabIndex = 23;
             this.txtContraseña.Texts = "";
             this.txtContraseña.UnderlinedStyle = false;
@@ -212,15 +220,15 @@
             this.txtUsuario.BorderSize = 2;
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtUsuario.Location = new System.Drawing.Point(272, 53);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.Location = new System.Drawing.Point(363, 65);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtUsuario.Multiline = false;
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtUsuario.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.txtUsuario.PasswordChar = false;
             this.txtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtUsuario.PlaceholderText = "";
-            this.txtUsuario.Size = new System.Drawing.Size(250, 31);
+            this.txtUsuario.Size = new System.Drawing.Size(333, 38);
             this.txtUsuario.TabIndex = 22;
             this.txtUsuario.Texts = "";
             this.txtUsuario.UnderlinedStyle = false;
@@ -231,9 +239,10 @@
             this.lbError.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbError.Image = ((System.Drawing.Image)(resources.GetObject("lbError.Image")));
             this.lbError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbError.Location = new System.Drawing.Point(282, 135);
+            this.lbError.Location = new System.Drawing.Point(376, 166);
+            this.lbError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbError.Name = "lbError";
-            this.lbError.Size = new System.Drawing.Size(226, 38);
+            this.lbError.Size = new System.Drawing.Size(301, 47);
             this.lbError.TabIndex = 21;
             this.lbError.Text = "Error, usuario o contraseña incorrectos";
             this.lbError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -244,9 +253,10 @@
             this.label6.BackColor = System.Drawing.Color.SteelBlue;
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Image = ((System.Drawing.Image)(resources.GetObject("label6.Image")));
-            this.label6.Location = new System.Drawing.Point(75, 53);
+            this.label6.Location = new System.Drawing.Point(100, 65);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 74);
+            this.label6.Size = new System.Drawing.Size(125, 91);
             this.label6.TabIndex = 20;
             // 
             // label5
@@ -255,9 +265,10 @@
             this.label5.BackColor = System.Drawing.Color.SteelBlue;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(61, 142);
+            this.label5.Location = new System.Drawing.Point(81, 175);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(136, 32);
+            this.label5.Size = new System.Drawing.Size(171, 40);
             this.label5.TabIndex = 19;
             this.label5.Text = "FitControl";
             // 
@@ -266,17 +277,19 @@
             this.label4.BackColor = System.Drawing.Color.SteelBlue;
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 226);
+            this.label4.Size = new System.Drawing.Size(335, 278);
             this.label4.TabIndex = 18;
             // 
             // FrmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 226);
+            this.ClientSize = new System.Drawing.Size(732, 278);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);

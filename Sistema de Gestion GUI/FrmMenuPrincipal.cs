@@ -12,14 +12,13 @@ using Entidad;
 using Logica;
 using FontAwesome.Sharp;
 using Sistema_de_Gestion_GUI.Modales;
+using System.Drawing.Drawing2D;
 
 namespace Sistema_de_Gestion_GUI
 {
     public partial class FrmMenuPrincipal : Form
     {
-        private PermisoService permisoService = new PermisoService();
         private Usuario oUsuario;
-        private Permiso oPermiso;
         private static Button MenuActivo = null;
         private static Form FormularioActivo = null;
         bool SliderExpand;
@@ -28,40 +27,62 @@ namespace Sistema_de_Gestion_GUI
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        public FrmMenuPrincipal(Usuario oUsuario, Permiso oPermiso)
+        public FrmMenuPrincipal(Usuario oUsuario)
         {
             InitializeComponent();
             this.oUsuario = oUsuario;
-            this.oPermiso = oPermiso;
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             ContenedorPrincipal();
-            CargarDatosUsuario();
+            CargarUsuario();
             Permisos();
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            int radio = 20;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            this.Region = new Region(path);
         }
 
         private void Permisos()
-        {          
-            if (oUsuario.Rol.NRol != oPermiso.Rol.NRol)
+        {
+            List<Permiso> permisoList = new PermisoService().CargarRegistro(oUsuario.IdUser);
+
+            bool index = permisoList.Any(m => m.NPermiso == btnGestionCategorias.Name);
+            if (index == false)
             {
-                btnGestionCategorias.Visible = false;
-                btnGestionUsuarios.Visible = false;
-                btnVenta.Visible = false;
-                btnClientes.Visible = false;
-                //-----------------------------
-                Point nuevaUbicacionBtnProveedores = new Point(3, 225);
-                panel5.Location = nuevaUbicacionBtnProveedores;
-                Point nuevaUbicacionBtnCompras = new Point(3, 283);
-                panel7.Location = nuevaUbicacionBtnCompras;
+                ButtonBlock();
             }
         }
 
-        private void CargarDatosUsuario()
+        private void ButtonBlock()
         {
+            btnGestionCategorias.Visible = false;
+            btnGestionUsuarios.Visible = false;
+            btnVenta.Visible = false;
+            btnClientes.Visible = false;
+            //-----------------------------
+            Point nuevaUbicacionBtnProveedores = new Point(3, 225);
+            panel5.Location = nuevaUbicacionBtnProveedores;
+            Point nuevaUbicacionBtnCompras = new Point(3, 283);
+            panel7.Location = nuevaUbicacionBtnCompras;
+        }
 
+        private void CargarUsuario()
+        {
             btnPerfil.Text = "            " + oUsuario.Rol.NRol;
+
         }
 
         private void Inicio(Form Formulario)
@@ -100,7 +121,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            Inicio(new FrmDgtvUsuario());
+            Inicio(new mdUsuario());
         }
 
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
@@ -166,12 +187,12 @@ namespace Sistema_de_Gestion_GUI
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            Inicio(new FrmPrincipal());
+            Inicio(new mdPrincipal());
         }
 
         private void ContenedorPrincipal()
         {
-            Inicio(new FrmPrincipal());
+            Inicio(new mdPrincipal());
         }
 
         private void btnGestionProductos_Click(object sender, EventArgs e)
@@ -196,7 +217,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void btnCompra_Click(object sender, EventArgs e)
         {
-            AbrirFrmGestionProductos((Button)sender, new FrmGestionCompra());
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionCompra(oUsuario));
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
@@ -231,6 +252,11 @@ namespace Sistema_de_Gestion_GUI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void Contenedor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

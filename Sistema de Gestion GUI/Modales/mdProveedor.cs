@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 
 namespace Sistema_de_Gestion_GUI.Modales
 {
-    public partial class FrmDgtvProveedores : Form
+    public partial class mdProveedor : Form
     {
         private ProveedorService proveedorService = new ProveedorService();
         public Proveedor proveedor { get; set; }
@@ -22,7 +22,7 @@ namespace Sistema_de_Gestion_GUI.Modales
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        public FrmDgtvProveedores()
+        public mdProveedor()
         {
             InitializeComponent();
         }
