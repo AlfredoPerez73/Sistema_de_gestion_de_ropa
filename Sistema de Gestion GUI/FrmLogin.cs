@@ -69,20 +69,20 @@ namespace Sistema_de_Gestion_GUI
 
         private void BorderRadius()
         {
-            //int radio = 20;
+            int radio = 20;
 
-            //GraphicsPath path = new GraphicsPath();
-            //path.StartFigure();
-            //path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
-            //path.AddLine(radio, 0, this.Width - radio, 0);
-            //path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
-            //path.AddLine(this.Width, radio, this.Width, this.Height - radio);
-            //path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
-            //path.AddLine(this.Width - radio, this.Height, radio, this.Height);
-            //path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
-            //path.CloseFigure();
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
 
-            //this.Region = new Region(path);
+            this.Region = new Region(path);
         }
 
         private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
