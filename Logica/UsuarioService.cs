@@ -20,6 +20,11 @@ namespace Logica
             return CargarRegistro().Any(u => u.IdUser == id);
         }
 
+        public List<Usuario> LoginUser(string user, string password)
+        {
+            return CargarRegistro().Where(u => u.User == user && u.Password == password).ToList();
+        }
+
         public string Guardar(Usuario usuario)
         {
             var msg = usuarioRepository.GuardarRegistros(usuario);
