@@ -44,8 +44,6 @@ namespace Sistema_de_Gestion_GUI
                 int index = tblRegistro.Rows.Add();
                 DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdProducto"].Value = producto.IdProducto;
-                row.Cells["IdCategoria"].Value = producto.Categoria.IdCategoria;
-                row.Cells["TipoCategoria"].Value = producto.Categoria.TipoCategoria;
                 row.Cells["NombreProducto"].Value = producto.NombreProducto;
                 row.Cells["Marca"].Value = producto.Marca;
                 row.Cells["Stock"].Value = producto.Stock;
@@ -55,14 +53,11 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void CargarEstablecimientosFiltrado(string filtro)
-        { 
-            //tblRegistroCategoria.DataSource = categoriaService.ConsultarFiltrado(filtro);
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void CargarProductosFiltrado()
         {
-            //CargarEstablecimientosFiltrado(txtBuscar.Text);
+            var filtro = txtBuscarProducto.Texts;
+            var list = productoService.BuscarX(filtro);
+            RecargarRegistros(list);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -138,19 +133,31 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtBuscarProducto_Enter(object sender, EventArgs e)
         {
-            if (txtBuscarCategoria.Texts == "Buscar:")
+            if (txtBuscarProducto.Texts == "Buscar:")
             {
-                txtBuscarCategoria.Texts = "";
-                txtBuscarCategoria.ForeColor = Color.Gainsboro;
+                txtBuscarProducto.Texts = "";
+                txtBuscarProducto.ForeColor = Color.Gainsboro;
             }
         }
 
         private void txtBuscarProducto_Leave(object sender, EventArgs e)
         {
-            if (txtBuscarCategoria.Texts == "")
+            if (txtBuscarProducto.Texts == "")
             {
-                txtBuscarCategoria.Texts = "Buscar:";
-                txtBuscarCategoria.ForeColor = Color.Gainsboro;
+                txtBuscarProducto.Texts = "Buscar:";
+                txtBuscarProducto.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarCategoria__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarProducto.Texts == "Buscar:")
+            {
+                RecargarRegistros(productoService.CargarRegistro());
+            }
+            else
+            {
+                CargarProductosFiltrado();
             }
         }
     }

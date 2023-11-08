@@ -222,6 +222,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BD\DBSISTEMA_INVENTARIO2.rar" />
     <None Include="Resources\cross-circle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +380,7 @@
     <None Include="Resources\agregar %281%29.png" />
     <None Include="Resources\agregar %282%29.png" />
     <None Include="Resources\etiquetas1.png" />
+    <Content Include="Resources\BD\PROCEDIMIENTOS BD.sql" />
     <Content Include="Resources\Fit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

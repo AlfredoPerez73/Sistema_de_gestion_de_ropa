@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
+using Sistema_de_Gestion_GUI.Modales;
 
 namespace Sistema_de_Gestion_GUI
 {
@@ -49,7 +50,64 @@ namespace Sistema_de_Gestion_GUI
             panel3.Region = new Region(path);
         }
 
+        private void mdProducto()
+        {
+
+        }
+
+        private void mdProveedor()
+        {
+            using (var modal = new mdProveedor())
+            {
+                var result = modal.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    txtDocumento.Texts = modal.proveedor.Documento.ToString();
+                    txtProveedor.Texts = modal.proveedor.RazonSocial.ToString();
+                }
+                else
+                {
+                    txtDocumento.Select();
+                }
+            }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            mdProveedor();
+        }
+
+        private void txtIdProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !allowEdit;
+        }
+
+        private void txtNombreProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !allowEdit;
+        }
+
+        private void rjTextBox5_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !allowEdit;
+        }
+
         private void txtFechaCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !allowEdit;
+        }
+
+        private void txtIdProveedor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !allowEdit;
+        }
+
+        private void txtProveedor_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !allowEdit;
         }

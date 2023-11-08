@@ -35,17 +35,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.tblRegistroProveedores = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.txtBuscarProveedor = new CustomControls.RJControls.RJTextBox();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistroProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -63,7 +60,7 @@
             this.panel1.Controls.Add(this.rjTextBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(669, 571);
             this.panel1.TabIndex = 46;
@@ -103,11 +100,8 @@
             this.tblRegistroProveedores.ColumnHeadersHeight = 30;
             this.tblRegistroProveedores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
-            this.IdProveedor,
             this.Documento,
             this.RazonSocial,
-            this.Correo,
-            this.Telefono,
             this.FechaRegistro});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
@@ -119,7 +113,7 @@
             this.tblRegistroProveedores.DefaultCellStyle = dataGridViewCellStyle3;
             this.tblRegistroProveedores.EnableHeadersVisualStyles = false;
             this.tblRegistroProveedores.Location = new System.Drawing.Point(16, 118);
-            this.tblRegistroProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tblRegistroProveedores.Margin = new System.Windows.Forms.Padding(4);
             this.tblRegistroProveedores.MultiSelect = false;
             this.tblRegistroProveedores.Name = "tblRegistroProveedores";
             this.tblRegistroProveedores.ReadOnly = true;
@@ -137,70 +131,6 @@
             this.tblRegistroProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistroProveedores_CellContentClick_1);
             this.tblRegistroProveedores.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistroProveedores_CellPainting_1);
             // 
-            // btnSeleccionar
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 3;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Text = "Id de producto";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdProveedor
-            // 
-            this.IdProveedor.HeaderText = "Id de proveedor";
-            this.IdProveedor.MinimumWidth = 6;
-            this.IdProveedor.Name = "IdProveedor";
-            this.IdProveedor.ReadOnly = true;
-            this.IdProveedor.Width = 130;
-            // 
-            // Documento
-            // 
-            this.Documento.HeaderText = "Documento";
-            this.Documento.MinimumWidth = 6;
-            this.Documento.Name = "Documento";
-            this.Documento.ReadOnly = true;
-            this.Documento.Width = 125;
-            // 
-            // RazonSocial
-            // 
-            this.RazonSocial.HeaderText = "Proveedor";
-            this.RazonSocial.MinimumWidth = 6;
-            this.RazonSocial.Name = "RazonSocial";
-            this.RazonSocial.ReadOnly = true;
-            this.RazonSocial.Width = 125;
-            // 
-            // Correo
-            // 
-            this.Correo.HeaderText = "Correo";
-            this.Correo.MinimumWidth = 6;
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 125;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.MinimumWidth = 6;
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Width = 125;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha de registro";
-            this.FechaRegistro.MinimumWidth = 6;
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 130;
-            // 
             // btnMinimizar
             // 
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -208,7 +138,7 @@
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
             this.btnMinimizar.Location = new System.Drawing.Point(609, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(27, 22);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -223,7 +153,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
             this.btnCerrar.Location = new System.Drawing.Point(640, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(27, 22);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -243,7 +173,7 @@
             this.txtBuscarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarProveedor.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtBuscarProveedor.Location = new System.Drawing.Point(16, 70);
-            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(5);
             this.txtBuscarProveedor.Multiline = false;
             this.txtBuscarProveedor.Name = "txtBuscarProveedor";
             this.txtBuscarProveedor.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -254,6 +184,7 @@
             this.txtBuscarProveedor.TabIndex = 23;
             this.txtBuscarProveedor.Texts = "Buscar:";
             this.txtBuscarProveedor.UnderlinedStyle = false;
+            this.txtBuscarProveedor._TextChanged += new System.EventHandler(this.txtBuscarProveedor__TextChanged);
             this.txtBuscarProveedor.Enter += new System.EventHandler(this.txtBuscarProveedor_Enter);
             this.txtBuscarProveedor.Leave += new System.EventHandler(this.txtBuscarProveedor_Leave);
             // 
@@ -269,7 +200,7 @@
             this.rjTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.White;
             this.rjTextBox1.Location = new System.Drawing.Point(16, 22);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(5);
             this.rjTextBox1.Multiline = false;
             this.rjTextBox1.Name = "rjTextBox1";
             this.rjTextBox1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -281,6 +212,46 @@
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
+            // btnSeleccionar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 3;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Text = "Id de producto";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // Documento
+            // 
+            this.Documento.HeaderText = "Documento";
+            this.Documento.MinimumWidth = 6;
+            this.Documento.Name = "Documento";
+            this.Documento.ReadOnly = true;
+            this.Documento.Width = 150;
+            // 
+            // RazonSocial
+            // 
+            this.RazonSocial.HeaderText = "Proveedor";
+            this.RazonSocial.MinimumWidth = 6;
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.ReadOnly = true;
+            this.RazonSocial.Width = 150;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.MinimumWidth = 6;
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 190;
+            // 
             // mdProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -288,7 +259,7 @@
             this.ClientSize = new System.Drawing.Size(669, 571);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "mdProveedor";
             this.Text = "FrmDgtvProveedores";
             this.Load += new System.EventHandler(this.FrmDgtvProveedores_Load);
@@ -310,11 +281,8 @@
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdProveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
     }
 }

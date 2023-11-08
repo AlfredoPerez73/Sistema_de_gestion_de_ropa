@@ -36,29 +36,23 @@ namespace Sistema_de_Gestion_GUI.Modales
             {
                 int index = tblRegistroProveedores.Rows.Add();
                 DataGridViewRow row = tblRegistroProveedores.Rows[index];
-                row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
                 row.Cells["Documento"].Value = proveedor.Documento;
                 row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
-                row.Cells["Correo"].Value = proveedor.Correo;
-                row.Cells["Telefono"].Value = proveedor.Telefono;
                 row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
             }
         }
 
-        private void CargarEstablecimientosFiltrado(string filtro)
+        private void CargarProveedoresFiltrado()
         {
-            //tblRegistroProveedores.DataSource = proveedorService.ConsultarFiltrado(filtro);
+            var filtro = txtBuscarProveedor.Texts;
+            var list = proveedorService.BuscarX(filtro);
+            RecargarRegistros(list);
         }
 
         private void FrmDgtvProveedores_Load(object sender, EventArgs e)
         {
             RecargarRegistros(proveedorService.CargarRegistro());
             BorderRadius();
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            //CargarEstablecimientosFiltrado(txtBuscar.Text);
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -146,6 +140,18 @@ namespace Sistema_de_Gestion_GUI.Modales
             {
                 txtBuscarProveedor.Texts = "";
                 txtBuscarProveedor.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void txtBuscarProveedor__TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscarProveedor.Texts == "Buscar:")
+            {
+                RecargarRegistros(proveedorService.CargarRegistro());
+            }
+            else
+            {
+                CargarProveedoresFiltrado();
             }
         }
     }
