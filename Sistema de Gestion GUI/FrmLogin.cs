@@ -30,7 +30,7 @@ namespace Sistema_de_Gestion_GUI
                 if (txtContraseña.Texts != "")
                 {
                     List<Usuario> TEST = new UsuarioService().CargarRegistro();
-                    Usuario oUsuario = new UsuarioService().CargarRegistro().Where(u => u.User == txtUsuario.Texts && u.Password == txtContraseña.Texts).FirstOrDefault();
+                    Usuario oUsuario = new UsuarioService().LoginUser(txtUsuario.Texts, txtContraseña.Texts).FirstOrDefault();
                     if (oUsuario != null)
                     {
                         FrmMenuPrincipal menu = new FrmMenuPrincipal(oUsuario);
