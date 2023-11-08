@@ -227,7 +227,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            AbrirFrmGestionProductos((Button)sender, new FrmGestionVenta());
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionVenta(oUsuario));
         }
 
         private void panel9_MouseDown(object sender, MouseEventArgs e)

@@ -736,6 +736,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGestionVenta";
             this.Text = "FrmGestionVenta";
+            this.Load += new System.EventHandler(this.FrmGestionVenta_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

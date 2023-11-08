@@ -222,7 +222,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BDSISTEMA_INVENTARIO2.rar" />
     <None Include="Resources\cross-circle.png" />
   </ItemGroup>
   <ItemGroup>
