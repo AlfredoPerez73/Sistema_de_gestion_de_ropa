@@ -80,7 +80,9 @@ namespace Sistema_de_Gestion_GUI.Modales
                 {
                     proveedor = new Proveedor()
                     {
-                        IdProveedor = tblRegistroProveedores.Rows[index].Cells["IdProveedor"].Value.ToString()
+                        Documento = tblRegistroProveedores.Rows[index].Cells["Documento"].Value.ToString(),
+                        RazonSocial = tblRegistroProveedores.Rows[index].Cells["RazonSocial"].Value.ToString(),
+                        FechaRegistro = Convert.ToDateTime(tblRegistroProveedores.Rows[index].Cells["FechaRegistro"].Value.ToString())
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();
