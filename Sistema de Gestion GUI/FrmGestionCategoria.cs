@@ -24,7 +24,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(categoriaService.CargarRegistro());
         }
 
         private void Limpiar_Click(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace Sistema_de_Gestion_GUI
                         var msg = categoriaService.Guardar(categoria);
                         MessageBox.Show(msg, "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Registro almacenado con exito!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros();
+                        RecargarRegistros(categoriaService.CargarRegistro());
                         Nuevo();
                     }
                     else
@@ -68,9 +68,8 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Categoria> categorias)
         {
-            var categorias = new CategoriaService().CargarRegistro();
             tblRegistro.Rows.Clear();
 
             foreach (var categoria in categorias)
@@ -97,7 +96,7 @@ namespace Sistema_de_Gestion_GUI
                     var msg = categoriaService.ModificarRegistros(categoria);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
+                    RecargarRegistros(categoriaService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
@@ -129,7 +128,7 @@ namespace Sistema_de_Gestion_GUI
                             var msg = categoriaService.EliminarRegistros(categoria);
                             MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros();
+                            RecargarRegistros(categoriaService.CargarRegistro());
                             EnabledDelete();
                         }
                     }
@@ -165,25 +164,11 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
-        void CargarDgtv(List<Categoria> list)
-        {
-            tblRegistro.Rows.Clear();
-
-            foreach (var item in list)
-            {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdCategoria"].Value = item.IdCategoria;
-                row.Cells["TipoCategoria"].Value = item.TipoCategoria;
-                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
-            }
-        }
-
         private void CargarCategoriasFiltrado()
         {
             var filtro = txtBuscarCategoria.Texts;
             var list = categoriaService.BuscarX(filtro);
-            CargarDgtv(list);
+            RecargarRegistros(list);
         }
 
         private void EnabledUpdate()
@@ -292,7 +277,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (txtBuscarCategoria.Texts == "Buscar:")
             {
-                RecargarRegistros();
+                RecargarRegistros(categoriaService.CargarRegistro());
             }
             else
             {

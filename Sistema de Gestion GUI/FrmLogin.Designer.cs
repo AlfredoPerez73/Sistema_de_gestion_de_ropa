@@ -89,7 +89,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(732, 278);
             this.panel1.TabIndex = 16;
@@ -102,7 +102,7 @@
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
             this.btnMinimizar.Location = new System.Drawing.Point(662, 0);
-            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(27, 22);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -117,7 +117,7 @@
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
             this.btnCerrar.Location = new System.Drawing.Point(691, 0);
-            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(27, 22);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -130,7 +130,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.Fit_removebg_preview;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(335, 282);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -152,7 +152,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.circulo_marca_x;
             this.btnCancelar.Location = new System.Drawing.Point(527, 212);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(135, 32);
             this.btnCancelar.TabIndex = 25;
@@ -177,7 +177,7 @@
             this.btnIngresar.ForeColor = System.Drawing.Color.White;
             this.btnIngresar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.tarjeta_de_direccion;
             this.btnIngresar.Location = new System.Drawing.Point(388, 212);
-            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIngresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(135, 32);
             this.btnIngresar.TabIndex = 24;
@@ -198,7 +198,7 @@
             this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtContraseña.Location = new System.Drawing.Point(363, 129);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(5);
             this.txtContraseña.Multiline = false;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -221,7 +221,7 @@
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtUsuario.Location = new System.Drawing.Point(363, 65);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.txtUsuario.Multiline = false;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -289,9 +289,10 @@
             this.ClientSize = new System.Drawing.Size(732, 278);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();

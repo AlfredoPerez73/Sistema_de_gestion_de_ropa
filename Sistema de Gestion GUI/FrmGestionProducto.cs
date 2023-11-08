@@ -25,7 +25,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmRopa_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(productoService.CargarRegistro());
             ListarTiposCategorias();
         }
 
@@ -54,7 +54,7 @@ namespace Sistema_de_Gestion_GUI
                         var msg = productoService.Guardar(producto);
                         MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Registro almacenado con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros();
+                        RecargarRegistros(productoService.CargarRegistro());
                         Nuevo();
                     }
                     else
@@ -74,9 +74,8 @@ namespace Sistema_de_Gestion_GUI
             }
 }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Producto> productos)
         {
-            var productos = new ProductoService().CargarRegistro();
             tblRegistro.Rows.Clear();
             tblRegistro.Columns[1].Visible = false;
 
@@ -128,7 +127,7 @@ namespace Sistema_de_Gestion_GUI
                     var msg = productoService.ModificarRegistros(producto);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
+                    RecargarRegistros(productoService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
@@ -161,7 +160,7 @@ namespace Sistema_de_Gestion_GUI
                             var msg = productoService.EliminarRegistros(producto);
                             MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros();
+                            RecargarRegistros(productoService.CargarRegistro());
                             EnabledDelete();
                         }
                     }
@@ -176,32 +175,12 @@ namespace Sistema_de_Gestion_GUI
                 MessageBox.Show("No se eliminaron correctamente", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        void CargarDgtv(List<Producto> list)
-        {
-            tblRegistro.Rows.Clear();
-            tblRegistro.Columns[1].Visible = false;
-
-            foreach (var item in list)
-            {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdProducto"].Value = item.IdProducto;
-                row.Cells["IdCategoria"].Value = item.Categoria.IdCategoria;
-                row.Cells["TipoCategoria"].Value = item.Categoria.TipoCategoria;
-                row.Cells["NombreProducto"].Value = item.NombreProducto;
-                row.Cells["Marca"].Value = item.Marca;
-                row.Cells["Stock"].Value = item.Stock;
-                row.Cells["PrecioVenta"].Value = item.PrecioVenta;
-                row.Cells["PrecioCompra"].Value = item.PrecioCompra;
-                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
-            }           
-        }
 
         private void CargarProductosFiltrado()
         {
             var filtro = txtBuscarProducto.Texts;
             var list = productoService.BuscarX(filtro);
-            CargarDgtv(list);
+            RecargarRegistros(list);
         }
 
         private void EnabledUpdate()
@@ -400,7 +379,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (txtBuscarProducto.Texts == "Buscar:")
             {
-                RecargarRegistros();
+                RecargarRegistros(productoService.CargarRegistro());
             }
             else
             {

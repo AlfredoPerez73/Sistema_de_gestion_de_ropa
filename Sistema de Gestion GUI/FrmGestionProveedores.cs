@@ -44,7 +44,7 @@ namespace Sistema_de_Gestion_GUI
                         var msg = productoService.Guardar(proveedor);
                         MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Registro almacenado con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros();
+                        RecargarRegistros(productoService.CargarRegistro());
                         Nuevo();
                     }
                     else
@@ -65,9 +65,8 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Proveedor> proveedores)
         {
-            var proveedores = new ProveedorService().CargarRegistro();
             tblRegistro.Rows.Clear();
 
             foreach (var proveedor in proveedores)
@@ -101,7 +100,7 @@ namespace Sistema_de_Gestion_GUI
                     var msg = productoService.ModificarRegistros(proveedor);
                     MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
+                    RecargarRegistros(productoService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
@@ -134,7 +133,7 @@ namespace Sistema_de_Gestion_GUI
                             var msg = productoService.EliminarRegistros(proveedor);
                             MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros();
+                            RecargarRegistros(productoService.CargarRegistro());
                             EnabledDelete();
                         }
                     }
@@ -169,28 +168,12 @@ namespace Sistema_de_Gestion_GUI
         {
             Nuevo();    
         }
-        void CargarDgtv(List<Proveedor> list)
-        {
-            tblRegistro.Rows.Clear();
-
-            foreach (var item in list)
-            {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdProveedor"].Value = item.IdProveedor;
-                row.Cells["Documento"].Value = item.Documento;
-                row.Cells["RazonSocial"].Value = item.RazonSocial;
-                row.Cells["Correo"].Value = item.Correo;
-                row.Cells["Telefono"].Value = item.Telefono;
-                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
-            }
-        }
 
         private void CargarProveedoresFiltrado()
         {
             var filtro = txtBuscarProveedor.Texts;
             var list = productoService.BuscarX(filtro);
-            CargarDgtv(list);
+            RecargarRegistros(list);
         }
 
         private void EnabledUpdate()
@@ -242,7 +225,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmGestionProveedores_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(productoService.CargarRegistro());
         }
 
         private void txtIdProveedor_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,7 +327,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (txtBuscarProveedor.Texts == "Buscar:")
             {
-                RecargarRegistros();
+                RecargarRegistros(productoService.CargarRegistro());
             }
             else
             {

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Sistema_de_Gestion_GUI</RootNamespace>
     <AssemblyName>Sistema de Gestion GUI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -222,6 +222,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\BDSISTEMA_INVENTARIO2.rar" />
     <None Include="Resources\cross-circle.png" />
   </ItemGroup>
   <ItemGroup>

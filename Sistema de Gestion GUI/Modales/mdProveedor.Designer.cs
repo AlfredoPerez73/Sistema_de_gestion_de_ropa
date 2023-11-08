@@ -35,11 +35,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.tblRegistroProveedores = new System.Windows.Forms.DataGridView();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.btnExcel = new CustomControls.RJControls.RJButton();
-            this.txtBuscarProveedor = new CustomControls.RJControls.RJTextBox();
-            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdProveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +42,10 @@
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.txtBuscarProveedor = new CustomControls.RJControls.RJTextBox();
+            this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistroProveedores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -60,13 +59,13 @@
             this.panel1.Controls.Add(this.tblRegistroProveedores);
             this.panel1.Controls.Add(this.btnMinimizar);
             this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.txtBuscarProveedor);
             this.panel1.Controls.Add(this.rjTextBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 464);
+            this.panel1.Size = new System.Drawing.Size(669, 571);
             this.panel1.TabIndex = 46;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -74,9 +73,10 @@
             // 
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(23, 26);
+            this.label9.Location = new System.Drawing.Point(31, 32);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 19);
+            this.label9.Size = new System.Drawing.Size(239, 23);
             this.label9.TabIndex = 53;
             this.label9.Text = "Lista de proveedores:";
             // 
@@ -118,122 +118,24 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tblRegistroProveedores.DefaultCellStyle = dataGridViewCellStyle3;
             this.tblRegistroProveedores.EnableHeadersVisualStyles = false;
-            this.tblRegistroProveedores.Location = new System.Drawing.Point(12, 96);
+            this.tblRegistroProveedores.Location = new System.Drawing.Point(16, 118);
+            this.tblRegistroProveedores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tblRegistroProveedores.MultiSelect = false;
             this.tblRegistroProveedores.Name = "tblRegistroProveedores";
             this.tblRegistroProveedores.ReadOnly = true;
             this.tblRegistroProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.tblRegistroProveedores.RowHeadersVisible = false;
+            this.tblRegistroProveedores.RowHeadersWidth = 51;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.tblRegistroProveedores.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tblRegistroProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblRegistroProveedores.Size = new System.Drawing.Size(477, 339);
+            this.tblRegistroProveedores.Size = new System.Drawing.Size(636, 417);
             this.tblRegistroProveedores.TabIndex = 52;
             this.tblRegistroProveedores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistroProveedores_CellContentClick_1);
             this.tblRegistroProveedores.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistroProveedores_CellPainting_1);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
-            this.btnMinimizar.Location = new System.Drawing.Point(457, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnMinimizar.TabIndex = 51;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
-            this.btnCerrar.Location = new System.Drawing.Point(480, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 18);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnCerrar.TabIndex = 50;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnExcel
-            // 
-            this.btnExcel.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnExcel.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.btnExcel.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnExcel.BorderRadius = 15;
-            this.btnExcel.BorderSize = 0;
-            this.btnExcel.FlatAppearance.BorderSize = 0;
-            this.btnExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.file_excel;
-            this.btnExcel.Location = new System.Drawing.Point(12, 59);
-            this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(129, 30);
-            this.btnExcel.TabIndex = 24;
-            this.btnExcel.Text = "Exportar a excel";
-            this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcel.TextColor = System.Drawing.Color.White;
-            this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExcel.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscarProveedor
-            // 
-            this.txtBuscarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBuscarProveedor.BackColor = System.Drawing.Color.White;
-            this.txtBuscarProveedor.BorderColor = System.Drawing.Color.White;
-            this.txtBuscarProveedor.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtBuscarProveedor.BorderRadius = 15;
-            this.txtBuscarProveedor.BorderSize = 1;
-            this.txtBuscarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarProveedor.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarProveedor.Location = new System.Drawing.Point(148, 57);
-            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarProveedor.Multiline = false;
-            this.txtBuscarProveedor.Name = "txtBuscarProveedor";
-            this.txtBuscarProveedor.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscarProveedor.PasswordChar = false;
-            this.txtBuscarProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBuscarProveedor.PlaceholderText = "";
-            this.txtBuscarProveedor.Size = new System.Drawing.Size(341, 32);
-            this.txtBuscarProveedor.TabIndex = 23;
-            this.txtBuscarProveedor.Texts = "Buscar:";
-            this.txtBuscarProveedor.UnderlinedStyle = false;
-            this.txtBuscarProveedor.Enter += new System.EventHandler(this.txtBuscarProveedor_Enter);
-            this.txtBuscarProveedor.Leave += new System.EventHandler(this.txtBuscarProveedor_Leave);
-            // 
-            // rjTextBox1
-            // 
-            this.rjTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox1.BorderColor = System.Drawing.Color.White;
-            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.White;
-            this.rjTextBox1.BorderRadius = 15;
-            this.rjTextBox1.BorderSize = 3;
-            this.rjTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjTextBox1.ForeColor = System.Drawing.Color.White;
-            this.rjTextBox1.Location = new System.Drawing.Point(12, 18);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox1.Multiline = false;
-            this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox1.PasswordChar = false;
-            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(477, 34);
-            this.rjTextBox1.TabIndex = 25;
-            this.rjTextBox1.Texts = "";
-            this.rjTextBox1.UnderlinedStyle = false;
             // 
             // btnSeleccionar
             // 
@@ -254,6 +156,7 @@
             // IdProveedor
             // 
             this.IdProveedor.HeaderText = "Id de proveedor";
+            this.IdProveedor.MinimumWidth = 6;
             this.IdProveedor.Name = "IdProveedor";
             this.IdProveedor.ReadOnly = true;
             this.IdProveedor.Width = 130;
@@ -261,42 +164,132 @@
             // Documento
             // 
             this.Documento.HeaderText = "Documento";
+            this.Documento.MinimumWidth = 6;
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
+            this.Documento.Width = 125;
             // 
             // RazonSocial
             // 
             this.RazonSocial.HeaderText = "Proveedor";
+            this.RazonSocial.MinimumWidth = 6;
             this.RazonSocial.Name = "RazonSocial";
             this.RazonSocial.ReadOnly = true;
+            this.RazonSocial.Width = 125;
             // 
             // Correo
             // 
             this.Correo.HeaderText = "Correo";
+            this.Correo.MinimumWidth = 6;
             this.Correo.Name = "Correo";
             this.Correo.ReadOnly = true;
+            this.Correo.Width = 125;
             // 
             // Telefono
             // 
             this.Telefono.HeaderText = "Telefono";
+            this.Telefono.MinimumWidth = 6;
             this.Telefono.Name = "Telefono";
             this.Telefono.ReadOnly = true;
+            this.Telefono.Width = 125;
             // 
             // FechaRegistro
             // 
             this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.MinimumWidth = 6;
             this.FechaRegistro.Name = "FechaRegistro";
             this.FechaRegistro.ReadOnly = true;
             this.FechaRegistro.Width = 130;
             // 
-            // FrmDgtvProveedores
+            // btnMinimizar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
+            this.btnMinimizar.Location = new System.Drawing.Point(609, 0);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(27, 22);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnMinimizar.TabIndex = 51;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
+            this.btnCerrar.Location = new System.Drawing.Point(640, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(27, 22);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnCerrar.TabIndex = 50;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // txtBuscarProveedor
+            // 
+            this.txtBuscarProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscarProveedor.BackColor = System.Drawing.Color.White;
+            this.txtBuscarProveedor.BorderColor = System.Drawing.Color.White;
+            this.txtBuscarProveedor.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtBuscarProveedor.BorderRadius = 15;
+            this.txtBuscarProveedor.BorderSize = 1;
+            this.txtBuscarProveedor.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProveedor.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtBuscarProveedor.Location = new System.Drawing.Point(16, 70);
+            this.txtBuscarProveedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBuscarProveedor.Multiline = false;
+            this.txtBuscarProveedor.Name = "txtBuscarProveedor";
+            this.txtBuscarProveedor.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtBuscarProveedor.PasswordChar = false;
+            this.txtBuscarProveedor.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtBuscarProveedor.PlaceholderText = "";
+            this.txtBuscarProveedor.Size = new System.Drawing.Size(620, 39);
+            this.txtBuscarProveedor.TabIndex = 23;
+            this.txtBuscarProveedor.Texts = "Buscar:";
+            this.txtBuscarProveedor.UnderlinedStyle = false;
+            this.txtBuscarProveedor.Enter += new System.EventHandler(this.txtBuscarProveedor_Enter);
+            this.txtBuscarProveedor.Leave += new System.EventHandler(this.txtBuscarProveedor_Leave);
+            // 
+            // rjTextBox1
+            // 
+            this.rjTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.rjTextBox1.BorderColor = System.Drawing.Color.White;
+            this.rjTextBox1.BorderFocusColor = System.Drawing.Color.White;
+            this.rjTextBox1.BorderRadius = 15;
+            this.rjTextBox1.BorderSize = 3;
+            this.rjTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjTextBox1.ForeColor = System.Drawing.Color.White;
+            this.rjTextBox1.Location = new System.Drawing.Point(16, 22);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTextBox1.Multiline = false;
+            this.rjTextBox1.Name = "rjTextBox1";
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.rjTextBox1.PasswordChar = false;
+            this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.rjTextBox1.PlaceholderText = "";
+            this.rjTextBox1.Size = new System.Drawing.Size(636, 43);
+            this.rjTextBox1.TabIndex = 25;
+            this.rjTextBox1.Texts = "";
+            this.rjTextBox1.UnderlinedStyle = false;
+            // 
+            // mdProveedor
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 464);
+            this.ClientSize = new System.Drawing.Size(669, 571);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmDgtvProveedores";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "mdProveedor";
             this.Text = "FrmDgtvProveedores";
             this.Load += new System.EventHandler(this.FrmDgtvProveedores_Load);
             this.panel1.ResumeLayout(false);
@@ -313,7 +306,6 @@
         private System.Windows.Forms.DataGridView tblRegistroProveedores;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
-        private CustomControls.RJControls.RJButton btnExcel;
         private CustomControls.RJControls.RJTextBox txtBuscarProveedor;
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private System.Windows.Forms.Label label9;

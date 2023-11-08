@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Logica;
 using Entidad;
 using System.Runtime.InteropServices;
+using System.Drawing.Drawing2D;
 
 namespace Sistema_de_Gestion_GUI.Modales
 {
@@ -27,27 +28,21 @@ namespace Sistema_de_Gestion_GUI.Modales
             InitializeComponent();
         }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Proveedor> proveedores)
         {
-            var proveedores = new ProveedorService().CargarRegistro();
             tblRegistroProveedores.Rows.Clear();
-            tblRegistroProveedores.Rows.Add();
-            DataGridViewRow row = tblRegistroProveedores.Rows[tblRegistroProveedores.Rows.Count - 1];
 
             foreach (var proveedor in proveedores)
             {
+                int index = tblRegistroProveedores.Rows.Add();
+                DataGridViewRow row = tblRegistroProveedores.Rows[index];
                 row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
                 row.Cells["Documento"].Value = proveedor.Documento;
                 row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
                 row.Cells["Correo"].Value = proveedor.Correo;
                 row.Cells["Telefono"].Value = proveedor.Telefono;
                 row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
-
-                tblRegistroProveedores.Rows.Add();
-                row = tblRegistroProveedores.Rows[tblRegistroProveedores.Rows.Count - 1];
             }
-            tblRegistroProveedores.Rows.RemoveAt(tblRegistroProveedores.Rows.Count - 1);
-
         }
 
         private void CargarEstablecimientosFiltrado(string filtro)
@@ -57,7 +52,8 @@ namespace Sistema_de_Gestion_GUI.Modales
 
         private void FrmDgtvProveedores_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(proveedorService.CargarRegistro());
+            BorderRadius();
         }
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
@@ -115,6 +111,24 @@ namespace Sistema_de_Gestion_GUI.Modales
                 e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void BorderRadius()
+        {
+            int radio = 20;
+
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            this.Region = new Region(path);
         }
 
         private void txtBuscarProveedor_Enter(object sender, EventArgs e)

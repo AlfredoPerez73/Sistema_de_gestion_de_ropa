@@ -44,7 +44,7 @@ namespace Sistema_de_Gestion_GUI
                         var msg = clienteService.Guardar(cliente);
                         MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MessageBox.Show("Registro almacenado con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros();
+                        RecargarRegistros(clienteService.CargarRegistro());
                         Nuevo();
                     }
                     else
@@ -65,9 +65,8 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Cliente> clientes)
         {
-            var clientes = new ClienteService().CargarRegistro();
             tblRegistro.Rows.Clear();
 
             foreach (var cliente in clientes)
@@ -102,7 +101,7 @@ namespace Sistema_de_Gestion_GUI
                     var msg = clienteService.ModificarRegistros(cliente);
                     MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Actualizacion con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RecargarRegistros();
+                    RecargarRegistros(clienteService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
@@ -135,7 +134,7 @@ namespace Sistema_de_Gestion_GUI
                             var msg = clienteService.EliminarRegistros(cliente);
                             MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             MessageBox.Show("Eliminacion con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros();
+                            RecargarRegistros(clienteService.CargarRegistro());
                             EnabledDelete();
                         }
                     }
@@ -171,28 +170,11 @@ namespace Sistema_de_Gestion_GUI
             Nuevo();
         }
 
-        void CargarDgtv(List<Cliente> list)
-        {
-            tblRegistro.Rows.Clear();
-
-            foreach (var item in list)
-            {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdCliente"].Value = item.IdCliente;
-                row.Cells["Documento"].Value = item.Documento;
-                row.Cells["NombreCliente"].Value = item.NombreCliente;
-                row.Cells["Correo"].Value = item.Correo;
-                row.Cells["Telefono"].Value = item.Telefono;
-                row.Cells["FechaRegistro"].Value = item.FechaRegistro.ToString("d");
-            }
-        }
-
         private void CargarClientesFiltrado()
         {
             var filtro = txtBuscarCliente.Texts;
             var list = clienteService.BuscarX(filtro);
-            CargarDgtv(list);
+            RecargarRegistros(list);
         }
         private void EnabledUpdate()
         {
@@ -243,7 +225,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmGestionCliente_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(clienteService.CargarRegistro());
         }
 
         private void txtIdCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -345,7 +327,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (txtBuscarCliente.Texts == "Buscar:")
             {
-                RecargarRegistros();
+                RecargarRegistros(clienteService.CargarRegistro());
             }
             else
             {

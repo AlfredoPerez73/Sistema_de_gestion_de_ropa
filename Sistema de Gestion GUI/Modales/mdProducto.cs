@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -15,8 +16,8 @@ namespace Sistema_de_Gestion_GUI
 {
     public partial class mdProducto : Form
     {
-        private CategoriaService categoriaService = new CategoriaService();
-        public Categoria categoria { get; set; }
+        private ProductoService productoService = new ProductoService();
+        public Producto producto { get; set; }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -29,26 +30,29 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmDgtvCategorias_Load(object sender, EventArgs e)
         {
-            RecargarRegistros();
+            RecargarRegistros(productoService.CargarRegistro());
+            BorderRadius();
         }
 
-        private void RecargarRegistros()
+        private void RecargarRegistros(List<Producto> productos)
         {
-            var categorias = new CategoriaService().CargarRegistro();
-            tblRegistroCategoria.Rows.Clear();
-            tblRegistroCategoria.Rows.Add();
-            DataGridViewRow row = tblRegistroCategoria.Rows[tblRegistroCategoria.Rows.Count - 1];
+            tblRegistro.Rows.Clear();
+            tblRegistro.Columns[1].Visible = false;
 
-            foreach (var categoria in categorias)
+            foreach (var producto in productos)
             {
-                row.Cells["IdCategoria"].Value = categoria.IdCategoria;
-                row.Cells["Categoria"].Value = categoria.TipoCategoria;
-                row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
-
-                tblRegistroCategoria.Rows.Add();
-                row = tblRegistroCategoria.Rows[tblRegistroCategoria.Rows.Count - 1];
+                int index = tblRegistro.Rows.Add();
+                DataGridViewRow row = tblRegistro.Rows[index];
+                row.Cells["IdProducto"].Value = producto.IdProducto;
+                row.Cells["IdCategoria"].Value = producto.Categoria.IdCategoria;
+                row.Cells["TipoCategoria"].Value = producto.Categoria.TipoCategoria;
+                row.Cells["NombreProducto"].Value = producto.NombreProducto;
+                row.Cells["Marca"].Value = producto.Marca;
+                row.Cells["Stock"].Value = producto.Stock;
+                row.Cells["PrecioVenta"].Value = producto.PrecioVenta;
+                row.Cells["PrecioCompra"].Value = producto.PrecioCompra;
+                row.Cells["FechaRegistro"].Value = producto.FechaRegistro.ToString("d");
             }
-            tblRegistroCategoria.Rows.RemoveAt(tblRegistroCategoria.Rows.Count - 1);
         }
 
         private void CargarEstablecimientosFiltrado(string filtro)
@@ -79,15 +83,15 @@ namespace Sistema_de_Gestion_GUI
 
         private void tblRegistroCategoria_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (tblRegistroCategoria.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 int index = e.RowIndex;
                 if (index >= 0)
                 {
-                    categoria = new Categoria()
+                    producto = new Producto()
                     {
-                        IdCategoria = tblRegistroCategoria.Rows[index].Cells["IdCategoria"].Value.ToString(),
-                        TipoCategoria = tblRegistroCategoria.Rows[index].Cells["Categoria"].Value.ToString()
+                        IdProducto = tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString(),
+                        NombreProducto = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString()
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -112,6 +116,24 @@ namespace Sistema_de_Gestion_GUI
                 e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
+        }
+
+        private void BorderRadius()
+        {
+            int radio = 20;
+
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            this.Region = new Region(path);
         }
 
         private void txtBuscarProducto_Enter(object sender, EventArgs e)

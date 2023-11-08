@@ -25,6 +25,16 @@ namespace Sistema_de_Gestion_GUI
         private void FrmGestionCompra_Load(object sender, EventArgs e)
         {
             CargarUsuario();
+            BorderRadius();
+        }
+
+        private void CargarUsuario()
+        {
+            txtFechaCompra.Texts = DateTime.Now.ToString("d");
+        }
+
+        private void BorderRadius()
+        {
             int radio = 25;
             GraphicsPath path = new GraphicsPath();
             path.StartFigure();
@@ -37,12 +47,6 @@ namespace Sistema_de_Gestion_GUI
             path.AddArc(0, panel3.Height - radio * 2, radio * 2, radio * 2, 90, 90);
             path.CloseFigure();
             panel3.Region = new Region(path);
-            tblRegistro.Region = new Region();
-        }
-
-        private void CargarUsuario()
-        {
-            txtFechaCompra.Texts = DateTime.Now.ToString("d");
         }
 
         private void txtFechaCompra_KeyPress(object sender, KeyPressEventArgs e)
