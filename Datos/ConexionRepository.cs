@@ -12,7 +12,7 @@ namespace Datos
     public class ConexionRepository
     {
         protected SqlConnection Connection;
-        protected string StringConnection = "Server=.\\SQLEXPRESS;DataBase=DBSISTEMA_INVENTARIO2;Integrated Security=True";
+        protected string StringConnection = "Server=.\\SQLEXPRESS;DataBase=BDSISTEMA_INVENTARIO2;Integrated Security=True";
 
         public ConexionRepository()
         {
