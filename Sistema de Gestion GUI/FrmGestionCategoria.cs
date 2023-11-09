@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Entidad;
 using Logica;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace Sistema_de_Gestion_GUI
 {
@@ -24,6 +25,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
+            BorderRadius();
             RecargarRegistros(categoriaService.CargarRegistro());
         }
 
@@ -206,7 +208,7 @@ namespace Sistema_de_Gestion_GUI
             txtIdCategoria.Focus();
         }
 
-        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -225,7 +227,7 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -237,6 +239,33 @@ namespace Sistema_de_Gestion_GUI
                     txtTipoCategoria.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
                 }
             }
+        }
+
+        private void BorderRadius()
+        {
+            int radio = 20;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, panel2.Width - radio, 0);
+            path.AddArc(panel2.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(panel2.Width, radio, panel2.Width, panel2.Height - radio);
+            path.AddArc(panel2.Width - radio * 2, panel2.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(panel2.Width - radio, panel2.Height, radio, panel2.Height);
+            path.AddArc(0, panel2.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            panel2.Region = new Region(path);
+        }
+
+        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            CellPainting(sender, e);
+        }
+
+        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellContentClick(sender, e);
         }
 
         private void txtIdCategoria_KeyPress(object sender, KeyPressEventArgs e)

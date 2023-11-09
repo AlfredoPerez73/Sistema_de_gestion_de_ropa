@@ -37,7 +37,6 @@ namespace Sistema_de_Gestion_GUI
         private void RecargarRegistros(List<Producto> productos)
         {
             tblRegistro.Rows.Clear();
-            tblRegistro.Columns[1].Visible = false;
 
             foreach (var producto in productos)
             {
@@ -45,11 +44,6 @@ namespace Sistema_de_Gestion_GUI
                 DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdProducto"].Value = producto.IdProducto;
                 row.Cells["NombreProducto"].Value = producto.NombreProducto;
-                row.Cells["Marca"].Value = producto.Marca;
-                row.Cells["Stock"].Value = producto.Stock;
-                row.Cells["PrecioVenta"].Value = producto.PrecioVenta;
-                row.Cells["PrecioCompra"].Value = producto.PrecioCompra;
-                row.Cells["FechaRegistro"].Value = producto.FechaRegistro.ToString("d");
             }
         }
 
@@ -76,7 +70,7 @@ namespace Sistema_de_Gestion_GUI
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void tblRegistroCategoria_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -94,7 +88,7 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void tblRegistroCategoria_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
+        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
             {
