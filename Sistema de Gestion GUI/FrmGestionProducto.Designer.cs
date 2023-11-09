@@ -68,18 +68,17 @@
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblRegistro
             // 
             this.tblRegistro.AllowUserToAddRows = false;
             this.tblRegistro.AllowUserToDeleteRows = false;
-            this.tblRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tblRegistro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.tblRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tblRegistro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -113,8 +112,9 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tblRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblRegistro.EnableHeadersVisualStyles = false;
-            this.tblRegistro.Location = new System.Drawing.Point(189, 176);
+            this.tblRegistro.Location = new System.Drawing.Point(0, 0);
             this.tblRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.tblRegistro.MultiSelect = false;
             this.tblRegistro.Name = "tblRegistro";
@@ -628,7 +628,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
-            this.panel1.Controls.Add(this.tblRegistro);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtBuscarProducto);
             this.panel1.Controls.Add(this.btnExcel);
             this.panel1.Controls.Add(this.label9);
@@ -727,6 +727,14 @@
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tblRegistro);
+            this.panel2.Location = new System.Drawing.Point(189, 174);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1015, 476);
+            this.panel2.TabIndex = 53;
+            // 
             // FrmGestionProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -743,6 +751,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -785,6 +794,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
         private CustomControls.RJControls.RJComboBox cboTipoCategoria;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

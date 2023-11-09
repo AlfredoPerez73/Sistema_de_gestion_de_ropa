@@ -61,23 +61,25 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.txtBuscarCliente);
             this.panel2.Controls.Add(this.rjButton1);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.rjTextBox2);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.tblRegistro);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1617, 711);
             this.panel2.TabIndex = 53;
@@ -94,7 +96,7 @@
             this.txtBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarCliente.ForeColor = System.Drawing.Color.Gainsboro;
             this.txtBuscarCliente.Location = new System.Drawing.Point(371, 97);
-            this.txtBuscarCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtBuscarCliente.Margin = new System.Windows.Forms.Padding(5);
             this.txtBuscarCliente.Multiline = false;
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -122,7 +124,7 @@
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.file_excel;
             this.rjButton1.Location = new System.Drawing.Point(189, 100);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(4);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(172, 37);
             this.rjButton1.TabIndex = 21;
@@ -155,7 +157,7 @@
             this.rjTextBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.rjTextBox2.Location = new System.Drawing.Point(189, 49);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(5);
             this.rjTextBox2.Multiline = false;
             this.rjTextBox2.Name = "rjTextBox2";
             this.rjTextBox2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -190,7 +192,7 @@
             this.panel4.Controls.Add(this.label16);
             this.panel4.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel4.Location = new System.Drawing.Point(1261, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(356, 712);
             this.panel4.TabIndex = 52;
@@ -206,7 +208,7 @@
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefono.Location = new System.Drawing.Point(36, 348);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(5);
             this.txtTelefono.Multiline = false;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -230,7 +232,7 @@
             this.txtCorreo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtCorreo.Location = new System.Drawing.Point(36, 284);
-            this.txtCorreo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCorreo.Margin = new System.Windows.Forms.Padding(5);
             this.txtCorreo.Multiline = false;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -254,7 +256,7 @@
             this.txtNombreCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtNombreCliente.Location = new System.Drawing.Point(36, 219);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(5);
             this.txtNombreCliente.Multiline = false;
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -278,7 +280,7 @@
             this.txtDocumento.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDocumento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtDocumento.Location = new System.Drawing.Point(37, 154);
-            this.txtDocumento.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDocumento.Margin = new System.Windows.Forms.Padding(5);
             this.txtDocumento.Multiline = false;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -302,7 +304,7 @@
             this.txtIdCliente.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtIdCliente.Location = new System.Drawing.Point(36, 90);
-            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(5);
             this.txtIdCliente.Multiline = false;
             this.txtIdCliente.Name = "txtIdCliente";
             this.txtIdCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -342,7 +344,7 @@
             this.btnLimpiarCliente.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba;
             this.btnLimpiarCliente.Location = new System.Drawing.Point(36, 518);
-            this.btnLimpiarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCliente.Name = "btnLimpiarCliente";
             this.btnLimpiarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnLimpiarCliente.TabIndex = 26;
@@ -366,7 +368,7 @@
             this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
             this.btnEliminarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.basura1;
             this.btnEliminarCliente.Location = new System.Drawing.Point(35, 476);
-            this.btnEliminarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarCliente.Name = "btnEliminarCliente";
             this.btnEliminarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnEliminarCliente.TabIndex = 25;
@@ -390,7 +392,7 @@
             this.btnModificarCliente.ForeColor = System.Drawing.Color.White;
             this.btnModificarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado_de_la_pluma;
             this.btnModificarCliente.Location = new System.Drawing.Point(35, 434);
-            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificarCliente.Name = "btnModificarCliente";
             this.btnModificarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnModificarCliente.TabIndex = 24;
@@ -414,7 +416,7 @@
             this.btnGuardarCliente.ForeColor = System.Drawing.Color.White;
             this.btnGuardarCliente.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.disco;
             this.btnGuardarCliente.Location = new System.Drawing.Point(35, 394);
-            this.btnGuardarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGuardarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardarCliente.Name = "btnGuardarCliente";
             this.btnGuardarCliente.Size = new System.Drawing.Size(271, 39);
             this.btnGuardarCliente.TabIndex = 23;
@@ -500,9 +502,6 @@
             // 
             this.tblRegistro.AllowUserToAddRows = false;
             this.tblRegistro.AllowUserToDeleteRows = false;
-            this.tblRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tblRegistro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             this.tblRegistro.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tblRegistro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -533,9 +532,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tblRegistro.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tblRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblRegistro.EnableHeadersVisualStyles = false;
-            this.tblRegistro.Location = new System.Drawing.Point(189, 176);
-            this.tblRegistro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tblRegistro.Location = new System.Drawing.Point(0, 0);
+            this.tblRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.tblRegistro.MultiSelect = false;
             this.tblRegistro.Name = "tblRegistro";
             this.tblRegistro.ReadOnly = true;
@@ -617,13 +617,21 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 130;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tblRegistro);
+            this.panel1.Location = new System.Drawing.Point(189, 172);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1015, 476);
+            this.panel1.TabIndex = 53;
+            // 
             // FrmGestionCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1617, 711);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGestionCliente";
             this.Text = "FrmGestionCliente";
             this.Load += new System.EventHandler(this.FrmGestionCliente_Load);
@@ -631,6 +639,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -666,5 +675,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Panel panel1;
     }
 }

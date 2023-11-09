@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
 using Logica;
+using System.Drawing.Drawing2D;
 
 namespace Sistema_de_Gestion_GUI
 {
@@ -20,6 +21,13 @@ namespace Sistema_de_Gestion_GUI
         public FrmGestionUsuarios()
         {
             InitializeComponent();
+        }
+
+        private void FrmGestionUsuarios_Load(object sender, EventArgs e)
+        {
+            BorderRadius();
+            RecargarRegistros(usuarioService.CargarRegistro());
+            ListarRoles();
         }
 
         public void GuardarRegistro()
@@ -132,12 +140,6 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void FrmGestionUsuarios_Load(object sender, EventArgs e)
-        {
-            RecargarRegistros(usuarioService.CargarRegistro());
-            ListarRoles();
-        }
-
         private void btnGuardarProducto_Click(object sender, EventArgs e)
         {
             GuardarRegistro();
@@ -213,6 +215,73 @@ namespace Sistema_de_Gestion_GUI
             txtIdUsuario.Focus();
         }
 
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.check_circle.Width;
+                var h = Properties.Resources.cross_circle.Width;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void BorderRadius()
+        {
+            int radio = 20;
+            var tamañoOriginal = panel2.Size;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, panel2.Width - radio, 0);
+            path.AddArc(panel2.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(panel2.Width, radio, panel2.Width, panel2.Height - radio);
+            path.AddArc(panel2.Width - radio * 2, panel2.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(panel2.Width - radio, panel2.Height, radio, panel2.Height);
+            path.AddArc(0, panel2.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            panel2.Region = new Region(path);
+            panel2.Size = tamañoOriginal;
+
+        }
+
+        private void CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    EnabledDgtv();
+                    txtIdUsuario.Texts = tblRegistro.Rows[index].Cells["IdUsuario"].Value.ToString();
+                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
+                    txtNombreUsuario.Texts = tblRegistro.Rows[index].Cells["Usuario"].Value.ToString();
+                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
+                    cboRoles.Texts = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
+                    txtContraseña.Texts = tblRegistro.Rows[index].Cells["Contraseña"].Value.ToString();
+                }
+            }
+        }
+
+        private void tblRegistro_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            CellPainting(sender, e);
+        }
+
+        private void tblRegistro_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            CellContentClick(sender, e);
+        }
+
         private void txtIdUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
@@ -256,43 +325,6 @@ namespace Sistema_de_Gestion_GUI
         private void Limpiar_Click(object sender, EventArgs e)
         {
             Nuevo();
-        }
-
-        private void tblRegistro_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                int index = e.RowIndex;
-                if (index >= 0)
-                {
-                    EnabledDgtv();
-                    txtIdUsuario.Texts = tblRegistro.Rows[index].Cells["IdUsuario"].Value.ToString();
-                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
-                    txtNombreUsuario.Texts = tblRegistro.Rows[index].Cells["Usuario"].Value.ToString();
-                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
-                    cboRoles.Texts = tblRegistro.Rows[index].Cells["Rol"].Value.ToString();
-                    txtContraseña.Texts = tblRegistro.Rows[index].Cells["Contraseña"].Value.ToString();
-                }
-            }
-        }
-
-        private void tblRegistro_CellPainting_1(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-            if (e.ColumnIndex == 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var w = Properties.Resources.check_circle.Width;
-                var h = Properties.Resources.cross_circle.Width;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
-                e.Handled = true;
-            }
         }
 
         private void txtBuscarProducto_Enter(object sender, EventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmRopa_Load(object sender, EventArgs e)
         {
+            BorderRadius();
             RecargarRegistros(productoService.CargarRegistro());
             ListarTiposCategorias();
         }
@@ -226,7 +228,7 @@ namespace Sistema_de_Gestion_GUI
             btnGuardarProducto.Enabled = true;
             btnEliminarProducto.Enabled = true;
             txtIdProducto.Texts = "";
-            cboTipoCategoria.SelectedIndex = -1;
+            cboTipoCategoria.SelectedIndex = 0;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
             txtStock.Texts = "";
@@ -235,7 +237,7 @@ namespace Sistema_de_Gestion_GUI
             txtIdProducto.Focus();
         }
 
-        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex < 0)
             {
@@ -254,7 +256,27 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
-        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void BorderRadius()
+        {
+            int radio = 20;
+            var tamañoOriginal = panel2.Size;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, panel2.Width - radio, 0);
+            path.AddArc(panel2.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(panel2.Width, radio, panel2.Width, panel2.Height - radio);
+            path.AddArc(panel2.Width - radio * 2, panel2.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(panel2.Width - radio, panel2.Height, radio, panel2.Height);
+            path.AddArc(0, panel2.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            panel2.Region = new Region(path);
+            panel2.Size = tamañoOriginal;
+
+        }
+
+        private void CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -271,6 +293,16 @@ namespace Sistema_de_Gestion_GUI
                     cboTipoCategoria.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
                 }
             }
+        }
+
+        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            CellPainting(sender, e);
+        }
+
+        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellContentClick(sender, e);
         }
 
         private void btnGuardarProducto_Click(object sender, EventArgs e)

@@ -19,9 +19,12 @@ namespace Sistema_de_Gestion_GUI
     public partial class FrmMenuPrincipal : Form
     {
         private Usuario oUsuario;
+        // ---------------------------------
         private static Button MenuActivo = null;
         private static Form FormularioActivo = null;
+        // --------------------------------
         bool SliderExpand;
+        bool BorderRadiusEvent = true;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -36,23 +39,9 @@ namespace Sistema_de_Gestion_GUI
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             ContenedorPrincipal();
+            BorderRadius(BorderRadiusEvent);
             CargarUsuario();
             Permisos();
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            int radio = 20;
-            GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
-            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
-            path.AddLine(radio, 0, this.Width - radio, 0);
-            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
-            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
-            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
-            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
-            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
-            path.CloseFigure();
-
-            this.Region = new Region(path);
         }
 
         private void Permisos()
@@ -138,17 +127,53 @@ namespace Sistema_de_Gestion_GUI
             Close();
         }
 
-        private void btnMaximizar_Click(object sender, EventArgs e)
+        private void Maximizar()
         {
             if (WindowState == FormWindowState.Normal)
-                WindowState = FormWindowState.Maximized;
+            {
+                BorderRadiusEvent = true;
+                BorderRadius(false);
+                this.WindowState = FormWindowState.Maximized;
+            }
             else
-                WindowState = FormWindowState.Normal;
+            {
+                BorderRadius(BorderRadiusEvent);
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void Minimizar()
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            Maximizar();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            Minimizar();
+        }
+
+        private void BorderRadius(bool BorderRadius)
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            int radio = 20;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, this.Width - radio, 0);
+            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
+            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
+            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            this.Region = BorderRadius ? new Region(path) : null;
         }
 
         public void SliderBar2()

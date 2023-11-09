@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace Sistema_de_Gestion_GUI
         public FrmGestionProveedores()
         {
             InitializeComponent();
+        }
+
+        private void FrmGestionProveedores_Load(object sender, EventArgs e)
+        {
+            BorderRadius();
+            RecargarRegistros(productoService.CargarRegistro());
         }
 
         public void GuardarRegistro()
@@ -223,9 +230,71 @@ namespace Sistema_de_Gestion_GUI
             txtIdProveedor.Focus();
         }
 
-        private void FrmGestionProveedores_Load(object sender, EventArgs e)
+        private void CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            RecargarRegistros(productoService.CargarRegistro());
+            if (e.RowIndex < 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                var w = Properties.Resources.check_circle.Width;
+                var h = Properties.Resources.cross_circle.Width;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void BorderRadius()
+        {
+            int radio = 20;
+            var tamañoOriginal = panel2.Size;
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
+            path.AddLine(radio, 0, panel2.Width - radio, 0);
+            path.AddArc(panel2.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
+            path.AddLine(panel2.Width, radio, panel2.Width, panel2.Height - radio);
+            path.AddArc(panel2.Width - radio * 2, panel2.Height - radio * 2, radio * 2, radio * 2, 0, 90);
+            path.AddLine(panel2.Width - radio, panel2.Height, radio, panel2.Height);
+            path.AddArc(0, panel2.Height - radio * 2, radio * 2, radio * 2, 90, 90);
+            path.CloseFigure();
+
+            panel2.Region = new Region(path);
+            panel2.Size = tamañoOriginal;
+
+        }
+
+        private void CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            {
+                int index = e.RowIndex;
+                if (index >= 0)
+                {
+                    txtIdProveedor.Enabled = false;
+                    txtDocumento.Enabled = false;
+                    txtIdProveedor.Texts = tblRegistro.Rows[index].Cells["IdProveedor"].Value.ToString();
+                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
+                    txtRazonSocial.Texts = tblRegistro.Rows[index].Cells["RazonSocial"].Value.ToString();
+                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
+                    txtTelefono.Texts = tblRegistro.Rows[index].Cells["Telefono"].Value.ToString();
+                }
+            }
+        }
+
+        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            CellPainting(sender, e);
+        }
+
+        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellContentClick(sender, e);
         }
 
         private void txtIdProveedor_KeyPress(object sender, KeyPressEventArgs e)
@@ -264,43 +333,6 @@ namespace Sistema_de_Gestion_GUI
         {
             if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
             {
-                e.Handled = true;
-            }
-        }
-
-        private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (tblRegistro.Columns[e.ColumnIndex].Name == "btnSeleccionar")
-            {
-                int index = e.RowIndex;
-                if (index >= 0)
-                {
-                    txtIdProveedor.Enabled = false;
-                    txtDocumento.Enabled = false;
-                    txtIdProveedor.Texts = tblRegistro.Rows[index].Cells["IdProveedor"].Value.ToString();
-                    txtDocumento.Texts = tblRegistro.Rows[index].Cells["Documento"].Value.ToString();
-                    txtRazonSocial.Texts = tblRegistro.Rows[index].Cells["RazonSocial"].Value.ToString();
-                    txtCorreo.Texts = tblRegistro.Rows[index].Cells["Correo"].Value.ToString();
-                    txtTelefono.Texts = tblRegistro.Rows[index].Cells["Telefono"].Value.ToString();
-                }
-            }
-        }
-
-        private void tblRegistro_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-            if (e.ColumnIndex == 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
-                var w = Properties.Resources.check_circle.Width;
-                var h = Properties.Resources.cross_circle.Width;
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                e.Graphics.DrawImage(Properties.Resources.check_circle, new Rectangle(x, y, w, h));
                 e.Handled = true;
             }
         }
