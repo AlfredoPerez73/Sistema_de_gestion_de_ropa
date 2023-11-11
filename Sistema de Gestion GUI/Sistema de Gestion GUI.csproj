@@ -381,6 +381,7 @@
     <None Include="Resources\agregar %282%29.png" />
     <None Include="Resources\etiquetas1.png" />
     <Content Include="Resources\BD\PROCEDIMIENTOS BD.sql" />
+    <None Include="Resources\cross-circle25.png" />
     <Content Include="Resources\Fit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

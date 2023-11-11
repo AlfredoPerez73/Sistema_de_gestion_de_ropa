@@ -41,7 +41,7 @@ namespace Sistema_de_Gestion_GUI
                     Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                     Producto producto = new Producto
                     {
-                        IdProducto = txtIdProducto.Texts,
+                        IdProducto = Convert.ToInt32(txtIdProducto.Texts),
                         NombreProducto = txtNombreProducto.Texts.ToUpper(),
                         Marca = txtMarcaProducto.Texts.ToUpper(),
                         Stock = Convert.ToInt32(txtStock.Texts),
@@ -50,7 +50,7 @@ namespace Sistema_de_Gestion_GUI
 
                         Categoria = CategoriaIndex
                     };
-                    var Id = productoService.BuscarID(txtIdProducto.Texts);
+                    var Id = productoService.BuscarID(Convert.ToInt32(txtIdProducto.Texts));
                     if (Id != true)
                     {
                         var msg = productoService.Guardar(producto);
@@ -124,7 +124,7 @@ namespace Sistema_de_Gestion_GUI
                         PrecioCompra = Convert.ToDecimal(txtPrecioCompra.Texts),
                         PrecioVenta = Convert.ToDecimal(txtPrecioVenta.Texts),
                         Categoria = CategoriaIndex,
-                        IdProducto = txtIdProducto.Texts,
+                        IdProducto = Convert.ToInt32(txtIdProducto.Texts),
                     };
                     var msg = productoService.ModificarRegistros(producto);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,7 +157,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             Producto producto = new Producto
                             {
-                                IdProducto = txtIdProducto.Texts
+                                IdProducto = Convert.ToInt32(txtIdProducto.Texts)
                             };
                             var msg = productoService.EliminarRegistros(producto);
                             MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);

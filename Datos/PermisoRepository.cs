@@ -26,10 +26,6 @@ namespace Datos
             stringBuilder.AppendLine("inner join ROL r on r.IdRol = p.IdRol");
             stringBuilder.AppendLine("inner join USUARIO u on u.IdRol = r.IdRol");
             stringBuilder.AppendLine("where u.IdUsuario = @IdUsuario");
-            //string Consulta = "select p.IdRol,p.Permiso from PERMISO p" +
-            //                  "inner join ROL r on r.IdRol = p.IdRol" +
-            //                  "inner join USUARIO u on u.IdRol = r.IdRol" +
-            //                  "where u.IdUsuario = @IdUsuario";
             try
             {
                 SqlCommand command = new SqlCommand(stringBuilder.ToString(), Connection);
@@ -58,13 +54,13 @@ namespace Datos
             {
                 NPermiso = Convert.ToString(reader["Permiso"]),
             };
-            string IdRol = Convert.ToString(reader["IdRol"]);
+            int IdRol = Convert.ToInt32(reader["IdRol"]);
             permiso.Rol = ObtenerRol(IdRol);
 
             return permiso;
         }
 
-        private Rol ObtenerRol(string IdRol)
+        private Rol ObtenerRol(int IdRol)
         {
             return rolRepository.CargarRegistro().Find(c => c.IdRol == IdRol);
         }

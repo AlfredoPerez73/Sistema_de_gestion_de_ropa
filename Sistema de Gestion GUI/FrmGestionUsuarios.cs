@@ -41,14 +41,14 @@ namespace Sistema_de_Gestion_GUI
                     Rol RolIndex = (Rol)cboRoles.SelectedItem;
                     Usuario usuario = new Usuario
                     {
-                        IdUser = txtIdUsuario.Texts,
+                        IdUser = Convert.ToInt32(txtIdUsuario.Texts),
                         Documento = txtDocumento.Texts,
                         User = txtIdUsuario.Texts,
                         Password = txtContraseña.Texts,
                         Rol = RolIndex,
                         Correo = txtCorreo.Texts.ToLower()
                     };
-                    var ID = usuarioService.BuscarID(txtIdUsuario.Texts);
+                    var ID = usuarioService.BuscarID(Convert.ToInt32(txtIdUsuario.Texts));
                     if (ID != true)
                     {
                         var msg = usuarioService.Guardar(usuario);
@@ -119,7 +119,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             Usuario usuario = new Usuario
                             {
-                                IdUser = txtIdUsuario.Texts
+                                IdUser = Convert.ToInt32(txtIdUsuario.Texts)
                             };
                             var msg = usuarioService.EliminarRegistros(usuario);
                             MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);

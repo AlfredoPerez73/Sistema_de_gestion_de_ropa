@@ -105,7 +105,7 @@ namespace Datos
         {
             Categoria categoria = new Categoria
             {
-                IdCategoria = Convert.ToString(reader["IdCategoria"]),
+                IdCategoria = Convert.ToInt32(reader["IdCategoria"]),
                 TipoCategoria = Convert.ToString(reader["TipoCategoria"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };

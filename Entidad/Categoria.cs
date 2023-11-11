@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class Categoria
     {
-        public string IdCategoria { get; set; }
+        public int IdCategoria { get; set; }
         public string TipoCategoria { get; set; }
         public DateTime FechaRegistro { get; set; }
 

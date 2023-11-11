@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class Usuario
     {
-        public string IdUser { get; set; }
+        public int IdUser { get; set; }
         public string Documento { get; set; }
         public string User { get; set; }
         public string Password { get; set; }

@@ -25,7 +25,7 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(string id)
+        public bool BuscarID(int id)
         {
             return CargarRegistro().Any(cl => cl.IdCliente == id);
         }
@@ -33,7 +33,7 @@ namespace Logica
         public List<Cliente> BuscarX(string x)
         {
             return CargarRegistro()
-                .Where(item => item.IdCliente == x || item.Documento == x || item.NombreCliente.Contains(x.ToUpper()) 
+                .Where(item => item.IdCliente == Convert.ToInt32(x) || item.Documento == x || item.NombreCliente.Contains(x.ToUpper()) 
                 || item.Telefono.Contains(x)).ToList();
         }
 

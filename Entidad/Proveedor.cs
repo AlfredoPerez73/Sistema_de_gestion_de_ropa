@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class Proveedor
     {
-        public string IdProveedor { get; set; }
+        public int IdProveedor { get; set; }
         public string Documento { get; set; }
         public string RazonSocial { get; set; }
         public string Correo { get; set; }

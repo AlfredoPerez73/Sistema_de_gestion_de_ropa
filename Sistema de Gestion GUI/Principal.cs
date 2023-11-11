@@ -15,6 +15,7 @@ namespace Sistema_de_Gestion_GUI
         [STAThread]
         static void Main()
         {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-CO");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Usuario oUsuario = new Usuario();

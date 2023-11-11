@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class Rol
     {
-        public string IdRol { get; set; }
+        public int IdRol { get; set; }
         public string NRol { get; set; }
         public DateTime FechaRegistro { get; set; }
 

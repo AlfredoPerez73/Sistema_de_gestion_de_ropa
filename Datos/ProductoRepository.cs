@@ -116,7 +116,7 @@ namespace Datos
         {
             Producto producto = new Producto
             {
-                IdProducto = Convert.ToString(reader["IdProducto"]),
+                IdProducto = Convert.ToInt32(reader["IdProducto"]),
                 NombreProducto = Convert.ToString(reader["NombreProducto"]),
                 Marca = Convert.ToString(reader["Marca"]),
                 Stock = Convert.ToInt32(reader["Stock"]),
@@ -124,14 +124,14 @@ namespace Datos
                 PrecioCompra = Convert.ToDecimal(reader["PrecioVenta"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };
-            string IdCategoria = Convert.ToString(reader["IdCategoria"]);
+            int IdCategoria = Convert.ToInt32(reader["IdCategoria"]);
             string TipoCategoria = Convert.ToString(reader["TipoCategoria"]);
             producto.Categoria = ObtenerCategoria(IdCategoria, TipoCategoria);
 
             return producto;
         }
 
-        private Categoria ObtenerCategoria(string IdCategoria, string TipoCategoria)
+        private Categoria ObtenerCategoria(int IdCategoria, string TipoCategoria)
         {
             return categoriaRepository.CargarRegistro().Find(c => c.IdCategoria == IdCategoria && c.TipoCategoria == TipoCategoria);
         }

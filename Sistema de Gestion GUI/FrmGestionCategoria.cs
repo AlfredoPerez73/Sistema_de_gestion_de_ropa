@@ -42,10 +42,10 @@ namespace Sistema_de_Gestion_GUI
                 {
                     Categoria categoria = new Categoria
                     {
-                        IdCategoria = txtIdCategoria.Texts,
+                        IdCategoria = Convert.ToInt32(txtIdCategoria.Texts),
                         TipoCategoria = txtTipoCategoria.Texts.ToUpper()
                     };
-                    var ID = categoriaService.BuscarID(txtIdCategoria.Text);
+                    var ID = categoriaService.BuscarID(Convert.ToInt32(txtIdCategoria.Texts));
                     if (ID != true)
                     {
                         var msg = categoriaService.Guardar(categoria);
@@ -93,7 +93,7 @@ namespace Sistema_de_Gestion_GUI
                     Categoria categoria = new Categoria
                     {
                         TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
-                        IdCategoria = txtIdCategoria.Texts
+                        IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
                     };
                     var msg = categoriaService.ModificarRegistros(categoria);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,7 +125,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             Categoria categoria = new Categoria
                             {
-                                IdCategoria = txtIdCategoria.Texts
+                                IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
                             };
                             var msg = categoriaService.EliminarRegistros(categoria);
                             MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);

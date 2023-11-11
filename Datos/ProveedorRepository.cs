@@ -111,7 +111,7 @@ namespace Datos
         {
             Proveedor proveedor = new Proveedor
             {
-                IdProveedor = Convert.ToString(reader["IdProveedor"]),
+                IdProveedor = Convert.ToInt32(reader["IdProveedor"]),
                 Documento = Convert.ToString(reader["Documento"]),
                 RazonSocial = Convert.ToString(reader["RazonSocial"]),
                 Correo = Convert.ToString(reader["Correo"]),

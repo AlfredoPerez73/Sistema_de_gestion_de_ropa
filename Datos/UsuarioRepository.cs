@@ -113,26 +113,21 @@ namespace Datos
         {
             Usuario usuario = new Usuario
             {
-                IdUser = Convert.ToString(reader["IdUsuario"]),
-                Rol = new Rol
-                {
-                    IdRol = Convert.ToString(reader["IdRol"]),
-                    NRol = Convert.ToString(reader["Rol"])
-                },
+                IdUser = Convert.ToInt32(reader["IdUsuario"]),
                 Documento = Convert.ToString(reader["Documento"]),
                 User = Convert.ToString(reader["Usuario"]),
                 Password = Convert.ToString(reader["Contraseña"]),
                 Correo = Convert.ToString(reader["Correo"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };
-            string IdRol = Convert.ToString(reader["IdRol"]);
+            int IdRol = Convert.ToInt32(reader["IdRol"]);
             string Rol = Convert.ToString(reader["Rol"]);
             usuario.Rol = ObtenerRol(IdRol, Rol);
 
             return usuario;
         }
 
-        private Rol ObtenerRol(string IdRol, string Rol)
+        private Rol ObtenerRol(int IdRol, string Rol)
         {
             return rolRepository.CargarRegistro().Find(c => c.IdRol == IdRol && c.NRol == Rol);
         }

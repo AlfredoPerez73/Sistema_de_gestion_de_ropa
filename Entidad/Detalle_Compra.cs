@@ -8,7 +8,7 @@ namespace Entidad
 {
     public class Detalle_Compra
     {
-        public string IdDetalleCompra { get; set; }
+        public int IdDetalleCompra { get; set; }
         public Compra Compra { get; set; }
         public Producto Producto { get; set; }
         public decimal PrecioVenta { get; set; }

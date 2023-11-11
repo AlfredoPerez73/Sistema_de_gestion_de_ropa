@@ -64,11 +64,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.txtBuscarProducto = new CustomControls.RJControls.RJTextBox();
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -115,7 +115,6 @@
             this.tblRegistro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblRegistro.EnableHeadersVisualStyles = false;
             this.tblRegistro.Location = new System.Drawing.Point(0, 0);
-            this.tblRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.tblRegistro.MultiSelect = false;
             this.tblRegistro.Name = "tblRegistro";
             this.tblRegistro.ReadOnly = true;
@@ -128,7 +127,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.tblRegistro.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.tblRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tblRegistro.Size = new System.Drawing.Size(1015, 476);
+            this.tblRegistro.Size = new System.Drawing.Size(761, 387);
             this.tblRegistro.TabIndex = 17;
             this.tblRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistro_CellContentClick);
             this.tblRegistro.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistro_CellPainting);
@@ -247,10 +246,9 @@
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panel3.Location = new System.Drawing.Point(1261, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Location = new System.Drawing.Point(946, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(356, 712);
+            this.panel3.Size = new System.Drawing.Size(268, 579);
             this.panel3.TabIndex = 52;
             // 
             // cboTipoCategoria
@@ -264,11 +262,12 @@
             this.cboTipoCategoria.IconColor = System.Drawing.Color.SteelBlue;
             this.cboTipoCategoria.ListBackColor = System.Drawing.Color.White;
             this.cboTipoCategoria.ListTextColor = System.Drawing.Color.Black;
-            this.cboTipoCategoria.Location = new System.Drawing.Point(43, 165);
-            this.cboTipoCategoria.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cboTipoCategoria.Location = new System.Drawing.Point(32, 134);
+            this.cboTipoCategoria.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTipoCategoria.MinimumSize = new System.Drawing.Size(150, 24);
             this.cboTipoCategoria.Name = "cboTipoCategoria";
             this.cboTipoCategoria.Padding = new System.Windows.Forms.Padding(2);
-            this.cboTipoCategoria.Size = new System.Drawing.Size(250, 30);
+            this.cboTipoCategoria.Size = new System.Drawing.Size(188, 24);
             this.cboTipoCategoria.TabIndex = 54;
             this.cboTipoCategoria.Texts = "";
             // 
@@ -282,15 +281,15 @@
             this.txtPrecioVenta.BorderSize = 2;
             this.txtPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioVenta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPrecioVenta.Location = new System.Drawing.Point(36, 478);
-            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(27, 388);
+            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrecioVenta.Multiline = false;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtPrecioVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtPrecioVenta.PasswordChar = false;
             this.txtPrecioVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPrecioVenta.PlaceholderText = "";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(212, 39);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(198, 32);
             this.txtPrecioVenta.TabIndex = 32;
             this.txtPrecioVenta.Texts = "";
             this.txtPrecioVenta.UnderlinedStyle = false;
@@ -306,15 +305,15 @@
             this.txtPrecioCompra.BorderSize = 2;
             this.txtPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtPrecioCompra.Location = new System.Drawing.Point(36, 412);
-            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(5);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(27, 335);
+            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrecioCompra.Multiline = false;
             this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtPrecioCompra.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtPrecioCompra.PasswordChar = false;
             this.txtPrecioCompra.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtPrecioCompra.PlaceholderText = "";
-            this.txtPrecioCompra.Size = new System.Drawing.Size(264, 39);
+            this.txtPrecioCompra.Size = new System.Drawing.Size(198, 32);
             this.txtPrecioCompra.TabIndex = 31;
             this.txtPrecioCompra.Texts = "";
             this.txtPrecioCompra.UnderlinedStyle = false;
@@ -330,15 +329,15 @@
             this.txtStock.BorderSize = 2;
             this.txtStock.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtStock.Location = new System.Drawing.Point(36, 348);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(5);
+            this.txtStock.Location = new System.Drawing.Point(27, 283);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtStock.Multiline = false;
             this.txtStock.Name = "txtStock";
-            this.txtStock.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtStock.PasswordChar = false;
             this.txtStock.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtStock.PlaceholderText = "";
-            this.txtStock.Size = new System.Drawing.Size(257, 39);
+            this.txtStock.Size = new System.Drawing.Size(193, 32);
             this.txtStock.TabIndex = 30;
             this.txtStock.Texts = "";
             this.txtStock.UnderlinedStyle = false;
@@ -354,15 +353,15 @@
             this.txtMarcaProducto.BorderSize = 2;
             this.txtMarcaProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarcaProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMarcaProducto.Location = new System.Drawing.Point(36, 284);
-            this.txtMarcaProducto.Margin = new System.Windows.Forms.Padding(5);
+            this.txtMarcaProducto.Location = new System.Drawing.Point(27, 231);
+            this.txtMarcaProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMarcaProducto.Multiline = false;
             this.txtMarcaProducto.Name = "txtMarcaProducto";
-            this.txtMarcaProducto.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtMarcaProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtMarcaProducto.PasswordChar = false;
             this.txtMarcaProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtMarcaProducto.PlaceholderText = "";
-            this.txtMarcaProducto.Size = new System.Drawing.Size(257, 39);
+            this.txtMarcaProducto.Size = new System.Drawing.Size(193, 32);
             this.txtMarcaProducto.TabIndex = 29;
             this.txtMarcaProducto.Texts = "";
             this.txtMarcaProducto.UnderlinedStyle = false;
@@ -378,15 +377,15 @@
             this.txtNombreProducto.BorderSize = 2;
             this.txtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombreProducto.Location = new System.Drawing.Point(36, 219);
-            this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(5);
+            this.txtNombreProducto.Location = new System.Drawing.Point(27, 178);
+            this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombreProducto.Multiline = false;
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtNombreProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtNombreProducto.PasswordChar = false;
             this.txtNombreProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtNombreProducto.PlaceholderText = "";
-            this.txtNombreProducto.Size = new System.Drawing.Size(257, 39);
+            this.txtNombreProducto.Size = new System.Drawing.Size(193, 32);
             this.txtNombreProducto.TabIndex = 28;
             this.txtNombreProducto.Texts = "";
             this.txtNombreProducto.UnderlinedStyle = false;
@@ -402,15 +401,15 @@
             this.txtIdProducto.BorderSize = 2;
             this.txtIdProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtIdProducto.Location = new System.Drawing.Point(36, 90);
-            this.txtIdProducto.Margin = new System.Windows.Forms.Padding(5);
+            this.txtIdProducto.Location = new System.Drawing.Point(27, 73);
+            this.txtIdProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdProducto.Multiline = false;
             this.txtIdProducto.Name = "txtIdProducto";
-            this.txtIdProducto.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtIdProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtIdProducto.PasswordChar = false;
             this.txtIdProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtIdProducto.PlaceholderText = "";
-            this.txtIdProducto.Size = new System.Drawing.Size(257, 39);
+            this.txtIdProducto.Size = new System.Drawing.Size(193, 32);
             this.txtIdProducto.TabIndex = 22;
             this.txtIdProducto.Texts = "";
             this.txtIdProducto.UnderlinedStyle = false;
@@ -423,10 +422,9 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(45, 198);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(34, 161);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 20);
+            this.label4.Size = new System.Drawing.Size(137, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "Nombre del producto";
             // 
@@ -442,10 +440,9 @@
             this.btnLimpiarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProducto.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba;
-            this.btnLimpiarProducto.Location = new System.Drawing.Point(36, 651);
-            this.btnLimpiarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiarProducto.Location = new System.Drawing.Point(27, 529);
             this.btnLimpiarProducto.Name = "btnLimpiarProducto";
-            this.btnLimpiarProducto.Size = new System.Drawing.Size(271, 39);
+            this.btnLimpiarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnLimpiarProducto.TabIndex = 26;
             this.btnLimpiarProducto.Text = "Limpiar";
             this.btnLimpiarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -466,10 +463,9 @@
             this.btnEliminarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarProducto.ForeColor = System.Drawing.Color.White;
             this.btnEliminarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.basura1;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(35, 609);
-            this.btnEliminarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(26, 495);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
-            this.btnEliminarProducto.Size = new System.Drawing.Size(271, 39);
+            this.btnEliminarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnEliminarProducto.TabIndex = 25;
             this.btnEliminarProducto.Text = "Eliminar";
             this.btnEliminarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -490,10 +486,9 @@
             this.btnModificarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarProducto.ForeColor = System.Drawing.Color.White;
             this.btnModificarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado_de_la_pluma;
-            this.btnModificarProducto.Location = new System.Drawing.Point(35, 567);
-            this.btnModificarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarProducto.Location = new System.Drawing.Point(26, 461);
             this.btnModificarProducto.Name = "btnModificarProducto";
-            this.btnModificarProducto.Size = new System.Drawing.Size(271, 39);
+            this.btnModificarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnModificarProducto.TabIndex = 24;
             this.btnModificarProducto.Text = "Modificar";
             this.btnModificarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -514,10 +509,9 @@
             this.btnGuardarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarProducto.ForeColor = System.Drawing.Color.White;
             this.btnGuardarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.disco;
-            this.btnGuardarProducto.Location = new System.Drawing.Point(35, 527);
-            this.btnGuardarProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardarProducto.Location = new System.Drawing.Point(26, 428);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
-            this.btnGuardarProducto.Size = new System.Drawing.Size(271, 39);
+            this.btnGuardarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnGuardarProducto.TabIndex = 23;
             this.btnGuardarProducto.Text = "Guardar";
             this.btnGuardarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -533,10 +527,9 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 457);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(34, 371);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 20);
+            this.label6.Size = new System.Drawing.Size(104, 17);
             this.label6.TabIndex = 19;
             this.label6.Text = "Precio de venta";
             // 
@@ -548,10 +541,9 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.label1.Location = new System.Drawing.Point(39, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(29, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 23);
+            this.label1.Size = new System.Drawing.Size(138, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Detalle producto";
             // 
@@ -562,10 +554,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(45, 263);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(34, 214);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(159, 20);
+            this.label5.Size = new System.Drawing.Size(128, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Marca del producto";
             // 
@@ -576,10 +567,9 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(45, 329);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(34, 267);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 20);
+            this.label7.Size = new System.Drawing.Size(42, 17);
             this.label7.TabIndex = 6;
             this.label7.Text = "Stock";
             // 
@@ -590,10 +580,9 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(45, 68);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(34, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 20);
+            this.label2.Size = new System.Drawing.Size(99, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Id del Producto";
             // 
@@ -604,10 +593,9 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(45, 391);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(34, 318);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 20);
+            this.label8.Size = new System.Drawing.Size(115, 17);
             this.label8.TabIndex = 7;
             this.label8.Text = "Precio de compra";
             // 
@@ -618,10 +606,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(45, 134);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(34, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 20);
+            this.label3.Size = new System.Drawing.Size(110, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tipo de producto";
             // 
@@ -636,10 +623,18 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1617, 711);
+            this.panel1.Size = new System.Drawing.Size(1213, 578);
             this.panel1.TabIndex = 43;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tblRegistro);
+            this.panel2.Location = new System.Drawing.Point(142, 141);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(761, 387);
+            this.panel2.TabIndex = 53;
             // 
             // txtBuscarProducto
             // 
@@ -652,15 +647,15 @@
             this.txtBuscarProducto.BorderSize = 1;
             this.txtBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarProducto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.txtBuscarProducto.Location = new System.Drawing.Point(371, 97);
-            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(5);
+            this.txtBuscarProducto.Location = new System.Drawing.Point(278, 79);
+            this.txtBuscarProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBuscarProducto.Multiline = false;
             this.txtBuscarProducto.Name = "txtBuscarProducto";
-            this.txtBuscarProducto.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.txtBuscarProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtBuscarProducto.PasswordChar = false;
             this.txtBuscarProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtBuscarProducto.PlaceholderText = "";
-            this.txtBuscarProducto.Size = new System.Drawing.Size(833, 39);
+            this.txtBuscarProducto.Size = new System.Drawing.Size(625, 32);
             this.txtBuscarProducto.TabIndex = 20;
             this.txtBuscarProducto.Texts = "Buscar:";
             this.txtBuscarProducto.UnderlinedStyle = false;
@@ -681,10 +676,9 @@
             this.btnExcel.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
             this.btnExcel.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.file_excel;
-            this.btnExcel.Location = new System.Drawing.Point(189, 100);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcel.Location = new System.Drawing.Point(142, 81);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(172, 37);
+            this.btnExcel.Size = new System.Drawing.Size(129, 30);
             this.btnExcel.TabIndex = 21;
             this.btnExcel.Text = "Exportar a excel";
             this.btnExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -696,10 +690,9 @@
             // 
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(205, 58);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(154, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(239, 23);
+            this.label9.Size = new System.Drawing.Size(179, 19);
             this.label9.TabIndex = 19;
             this.label9.Text = "Lista de productos:";
             // 
@@ -714,35 +707,26 @@
             this.rjTextBox1.BorderSize = 3;
             this.rjTextBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox1.Location = new System.Drawing.Point(189, 49);
-            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(5);
+            this.rjTextBox1.Location = new System.Drawing.Point(142, 40);
+            this.rjTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rjTextBox1.Multiline = false;
             this.rjTextBox1.Name = "rjTextBox1";
-            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.rjTextBox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.rjTextBox1.PasswordChar = false;
             this.rjTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.rjTextBox1.PlaceholderText = "";
-            this.rjTextBox1.Size = new System.Drawing.Size(1015, 43);
+            this.rjTextBox1.Size = new System.Drawing.Size(761, 34);
             this.rjTextBox1.TabIndex = 22;
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.tblRegistro);
-            this.panel2.Location = new System.Drawing.Point(189, 174);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1015, 476);
-            this.panel2.TabIndex = 53;
-            // 
             // FrmGestionProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1617, 711);
+            this.ClientSize = new System.Drawing.Size(1213, 578);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmGestionProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Productos";

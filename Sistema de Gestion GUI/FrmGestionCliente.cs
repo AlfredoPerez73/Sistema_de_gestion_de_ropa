@@ -38,14 +38,14 @@ namespace Sistema_de_Gestion_GUI
 
                     Cliente cliente = new Cliente
                     {
-                        IdCliente = txtIdCliente.Texts,
+                        IdCliente = Convert.ToInt32(txtIdCliente.Texts),
                         Documento = txtDocumento.Texts,
                         NombreCliente = txtNombreCliente.Texts.ToUpper(),
                         Correo = txtCorreo.Texts.ToLower(),
                         Telefono = txtTelefono.Texts
                     };
 
-                    var ID = clienteService.BuscarID(txtIdCliente.Texts);
+                    var ID = clienteService.BuscarID(Convert.ToInt32(txtIdCliente.Texts));
                     if (ID != true)
                     {
                         var msg = clienteService.Guardar(cliente);
@@ -98,7 +98,7 @@ namespace Sistema_de_Gestion_GUI
                 {
                     Cliente cliente = new Cliente
                     {
-                        IdCliente = txtIdCliente.Texts,
+                        IdCliente = Convert.ToInt32(txtIdCliente.Texts),
                         Documento = txtDocumento.Texts,
                         NombreCliente = txtNombreCliente.Texts.ToUpper(),
                         Correo = txtCorreo.Texts.ToLower(),
@@ -136,7 +136,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             Cliente cliente = new Cliente
                             {
-                                IdCliente = txtIdCliente.Texts,
+                                IdCliente = Convert.ToInt32(txtIdCliente.Texts),
                             };
                             var msg = clienteService.EliminarRegistros(cliente);
                             MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);

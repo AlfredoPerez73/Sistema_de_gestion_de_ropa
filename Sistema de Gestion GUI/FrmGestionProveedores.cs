@@ -38,14 +38,14 @@ namespace Sistema_de_Gestion_GUI
 
                     Proveedor proveedor = new Proveedor
                     {
-                        IdProveedor = txtIdProveedor.Texts,
+                        IdProveedor = Convert.ToInt32(txtIdProveedor.Texts),
                         Documento = txtDocumento.Texts,
                         RazonSocial = txtRazonSocial.Texts.ToUpper(),
                         Correo = txtCorreo.Texts.ToLower(),
                         Telefono = txtTelefono.Texts
                     };
 
-                    var ID = productoService.BuscarID(txtIdProveedor.Texts);
+                    var ID = productoService.BuscarID(Convert.ToInt32(txtIdProveedor.Texts));
                     if (ID != true)
                     {
                         var msg = productoService.Guardar(proveedor);
@@ -102,7 +102,7 @@ namespace Sistema_de_Gestion_GUI
                         RazonSocial = txtRazonSocial.Texts.ToUpper(),
                         Correo = txtCorreo.Texts.ToLower(),
                         Telefono = txtCorreo.Texts,
-                        IdProveedor = txtIdProveedor.Texts
+                        IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
                     };
                     var msg = productoService.ModificarRegistros(proveedor);
                     MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -135,7 +135,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             Proveedor proveedor = new Proveedor
                             {
-                                IdProveedor = txtIdProveedor.Texts
+                                IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
                             };
                             var msg = productoService.EliminarRegistros(proveedor);
                             MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);

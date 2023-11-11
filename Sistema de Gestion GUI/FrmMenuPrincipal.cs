@@ -46,7 +46,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void Permisos()
         {
-            List<Permiso> permisoList = new PermisoService().CargarRegistro(oUsuario.IdUser);
+            List<Permiso> permisoList = new PermisoService().CargarRegistro(Convert.ToString(oUsuario.IdUser));
 
             bool index = permisoList.Any(m => m.NPermiso == btnGestionCategorias.Name);
             if (index == false)

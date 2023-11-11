@@ -110,7 +110,7 @@ namespace Datos
         {
             Cliente proveedor = new Cliente
             {
-                IdCliente = Convert.ToString(reader["IdCliente"]),
+                IdCliente = Convert.ToInt32(reader["IdCliente"]),
                 Documento = Convert.ToString(reader["Documento"]),
                 NombreCliente = Convert.ToString(reader["NombreCliente"]),
                 Correo = Convert.ToString(reader["Correo"]),

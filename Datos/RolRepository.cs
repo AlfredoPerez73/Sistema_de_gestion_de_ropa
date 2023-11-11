@@ -44,7 +44,7 @@ namespace Datos
         {
             Rol rol = new Rol
             {
-                IdRol = Convert.ToString(reader["IdRol"]),
+                IdRol = Convert.ToInt32(reader["IdRol"]),
                 NRol = Convert.ToString(reader["Rol"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };

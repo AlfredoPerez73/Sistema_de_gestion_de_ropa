@@ -79,7 +79,7 @@ namespace Sistema_de_Gestion_GUI
                 {
                     producto = new Producto()
                     {
-                        IdProducto = tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString(),
+                        IdProducto = Convert.ToInt32(tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString()),
                         NombreProducto = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString()
                     };
                     this.DialogResult = DialogResult.OK;
