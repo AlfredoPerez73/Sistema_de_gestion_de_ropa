@@ -48,8 +48,8 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO PRODUCTO(IdProducto,NombreProducto,Marca,Stock,PrecioCompra,PrecioVenta,IdCategoria,TipoCategoria) VALUES" +
-                    "('" + producto.IdProducto + "', '" + producto.NombreProducto + "', '" + producto.Marca + "', " + producto.Stock + ", " + producto.PrecioCompra + ", '" + producto.PrecioVenta + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
+                string Registro = "INSERT INTO PRODUCTO(NombreProducto,Marca,IdCategoria,TipoCategoria) VALUES" +
+                    "('" + producto.NombreProducto + "', '" + producto.Marca + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -57,10 +57,9 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al registrar el producto...";
+                return null;
             }
-            return $"Se ha registrado el producto {producto.NombreProducto}" +
-                $"con la ID {producto.IdProducto}";
+            return $"Se ha registrado el producto {producto.NombreProducto}";
         }
 
         public string ModificarRegistros(Producto producto)
@@ -71,9 +70,6 @@ namespace Datos
                 SqlCommand command = new SqlCommand(Actualizar, Connection);
                 command.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
                 command.Parameters.AddWithValue("@Marca", producto.Marca);
-                command.Parameters.AddWithValue("@Stock", producto.Stock);
-                command.Parameters.AddWithValue("@PrecioCompra", producto.PrecioCompra);
-                command.Parameters.AddWithValue("@PrecioVenta", producto.PrecioVenta);
                 command.Parameters.AddWithValue("@IdCategoria", producto.Categoria.IdCategoria);
                 command.Parameters.AddWithValue("@TipoCategoria", producto.Categoria.TipoCategoria);
                 command.Parameters.AddWithValue("@IdProducto", producto.IdProducto);
@@ -84,10 +80,11 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al modificar el producto";
+                return "Error al modificar el producto, " +
+                    "el producto se encuentra relacionada con una compra o venta";
             }
 
-            return $"Se ha modificar el producto {producto.NombreProducto}" +
+            return $"Se ha modificado el producto {producto.NombreProducto} " +
                 $"con la ID {producto.IdProducto}";
         }
 
@@ -106,9 +103,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al eliminar el producto";
+                return "Error al eliminar el producto, " +
+                    "el producto se encuentra relacionada con una compra o venta";
             }
-            return $"Se ha eliminar el producto {producto.NombreProducto}" +
+            return $"Se ha eliminado el producto {producto.NombreProducto} " +
                 $"con la ID {producto.IdProducto}";
         }
 
@@ -124,7 +122,7 @@ namespace Datos
                 PrecioCompra = Convert.ToDecimal(reader["PrecioVenta"]),
                 FechaRegistro = Convert.ToDateTime(reader["FechaRegistro"])
             };
-            int IdCategoria = Convert.ToInt32(reader["IdCategoria"]);
+            int IdCategoria = Convert.ToInt16(reader["IdCategoria"]);
             string TipoCategoria = Convert.ToString(reader["TipoCategoria"]);
             producto.Categoria = ObtenerCategoria(IdCategoria, TipoCategoria);
 

@@ -13,5 +13,7 @@ namespace Entidad
         public Proveedor Proveedor { get; set; }
         public string Documento { get; set; }
         public decimal MontoTotal { get; set; }
+        public DateTime FechaRegistro { get; set; }
+        public List<Detalle_Compra> DetalleCompra { get; set; }
     }
 }

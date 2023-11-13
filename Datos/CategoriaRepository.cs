@@ -45,7 +45,7 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO CATEGORIA(IdCategoria,TipoCategoria) VALUES('" + categoria.IdCategoria + "', '" + categoria.TipoCategoria + "');";
+                string Registro = "INSERT INTO CATEGORIA(TipoCategoria) VALUES('" + categoria.TipoCategoria + "');";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -55,8 +55,8 @@ namespace Datos
             {
                 return null;
             }
-            return $"Se ha registrado la categoria {categoria.TipoCategoria}" +
-                $"con la ID {categoria.IdCategoria}";
+            return $"Se ha registrado la categoria {categoria.TipoCategoria} " +
+                $"con exito!";
         }
 
         public string ModificarRegistros(Categoria categoria)
@@ -74,9 +74,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al modificar la categoria";
+                return "Error al modificar la categoria, " +
+                    "la categoria se encuentra relacionada con productos";
             }
-            return $"Se ha modificar el producto {categoria.TipoCategoria}" +
+            return $"Se ha modificado el producto {categoria.TipoCategoria} " +
                 $"con la ID {categoria.IdCategoria}";
         }
 
@@ -95,10 +96,11 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al eliminar la categoria";
+                return "Error al eliminar la categoria, " +
+                    "la categoria se encuentra relacionada con productos";
             }
-            return $"Se ha eliminar la categoria {categoria.TipoCategoria}" +
-                $"con la ID {categoria.TipoCategoria}";
+            return $"Se ha eliminado la categoria {categoria.TipoCategoria} " +
+                $"con la ID {categoria.IdCategoria}";
         }
 
         private Categoria Map(SqlDataReader reader)

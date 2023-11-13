@@ -44,8 +44,8 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO CLIENTE(IdCliente,Documento,NombreCliente,Correo,Telefono) VALUES" +
-                    "('" + cliente.IdCliente + "','" + cliente.Documento + "','" + cliente.NombreCliente + "','" + cliente.Correo + "','" + cliente.Telefono + "')";
+                string Registro = "INSERT INTO CLIENTE(Documento,NombreCliente,Correo,Telefono) VALUES" +
+                    "('" + cliente.Documento + "','" + cliente.NombreCliente + "','" + cliente.Correo + "','" + cliente.Telefono + "')";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -53,11 +53,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al registrar el cliente...";
+                return null;
             }
 
-            return $"Se ha registrado el cliente {cliente.NombreCliente}" +
-                $"con la ID {cliente.IdCliente}";
+            return $"Se ha registrado el cliente {cliente.NombreCliente} ";
         }
 
         public string ModificarRegistros(Cliente cliente)
@@ -81,7 +80,7 @@ namespace Datos
                 return "Error al modificar el cliente";
             }
 
-            return $"Se ha modificar el cliente {cliente.NombreCliente}" +
+            return $"Se ha modificar el cliente {cliente.NombreCliente} " +
                 $"con la ID {cliente.IdCliente}";
         }
 
@@ -102,7 +101,7 @@ namespace Datos
             {
                 return "Error al eliminar el cliente";
             }
-            return $"Se ha eliminar el cliente {cliente.NombreCliente}" +
+            return $"Se ha eliminar el cliente {cliente.NombreCliente} " +
                 $"con la ID {cliente.IdCliente}";
         }
 

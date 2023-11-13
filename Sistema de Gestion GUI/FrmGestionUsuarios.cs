@@ -32,65 +32,59 @@ namespace Sistema_de_Gestion_GUI
 
         public void GuardarRegistro()
         {
-            try
+            if ((txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
+                || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
             {
-                if ((txtIdUsuario.Texts != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
-                    || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
-                {
 
-                    Rol RolIndex = (Rol)cboRoles.SelectedItem;
-                    Usuario usuario = new Usuario
-                    {
-                        IdUser = Convert.ToInt32(txtIdUsuario.Texts),
-                        Documento = txtDocumento.Texts,
-                        User = txtIdUsuario.Texts,
-                        Password = txtContraseña.Texts,
-                        Rol = RolIndex,
-                        Correo = txtCorreo.Texts.ToLower()
-                    };
-                    var ID = usuarioService.BuscarID(Convert.ToInt32(txtIdUsuario.Texts));
-                    if (ID != true)
-                    {
-                        var msg = usuarioService.Guardar(usuario);
-                        MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros(usuarioService.CargarRegistro());
-                        Nuevo();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"El usuario con la ID {usuario.IdUser} y/o" +
-                            $"DOCUMENTO {usuario.Documento} ya existe!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                Rol RolIndex = (Rol)cboRoles.SelectedItem;
+                Usuario usuario = new Usuario
+                {
+                    Documento = txtDocumento.Texts,
+                    User = txtIdUsuario.Texts,
+                    Password = txtContraseña.Texts,
+                    Rol = RolIndex,
+                    Correo = txtCorreo.Texts.ToLower()
+                };
+                var ID = usuarioService.BuscarID(txtDocumento.Texts);
+                if (ID != true)
+                {
+                    var msg = usuarioService.Guardar(usuario);
+                    MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro almacenado con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecargarRegistros(usuarioService.CargarRegistro());
+                    Nuevo();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"El usuario con la ID {usuario.IdUser} y/o " +
+                        $"DOCUMENTO {usuario.Documento} ya existe!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("ID de producto ya ingresado!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         public void RecargarRegistros(List<Usuario> usuarios)
         {
             tblRegistro.Rows.Clear();
-            tblRegistro.Columns[3].Visible = false;
 
-            foreach (var usuario in usuarios)
+            if (usuarios != null)
             {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdUsuario"].Value = usuario.IdUser;
-                row.Cells["Documento"].Value = usuario.Documento;
-                row.Cells["IdRol"].Value = usuario.Rol.IdRol;
-                row.Cells["Rol"].Value = usuario.Rol.NRol;
-                row.Cells["Usuario"].Value = usuario.User;
-                row.Cells["Contraseña"].Value = usuario.Password;
-                row.Cells["Correo"].Value = usuario.Correo;
-                row.Cells["FechaRegistro"].Value = usuario.FechaRegistro.ToString("d");
+                foreach (var usuario in usuarios)
+                {
+                    int index = tblRegistro.Rows.Add();
+                    DataGridViewRow row = tblRegistro.Rows[index];
+                    row.Cells["IdUsuario"].Value = usuario.IdUser;
+                    row.Cells["Documento"].Value = usuario.Documento;
+                    row.Cells["IdRol"].Value = usuario.Rol.IdRol;
+                    row.Cells["Rol"].Value = usuario.Rol.NRol;
+                    row.Cells["Usuario"].Value = usuario.User;
+                    row.Cells["Contraseña"].Value = usuario.Password;
+                    row.Cells["Correo"].Value = usuario.Correo;
+                    row.Cells["FechaRegistro"].Value = usuario.FechaRegistro.ToString("d");
+                }
             }
         }
 
@@ -106,37 +100,38 @@ namespace Sistema_de_Gestion_GUI
 
         public void EliminarRegistro()
         {
-            string idUsuario = txtIdUsuario.Texts;
-
-            try
+            if ((txtIdUsuario.Texts != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
+                || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
             {
-                if ((txtIdUsuario.Texts != "") || (txtDocumento.Texts != "") || (txtNombreUsuario.Texts != "")
-                    || (txtContraseña.Texts != "") || (cboRoles.Texts != "") || (txtCorreo.Texts != ""))
+                if (Convert.ToInt32(txtIdUsuario.Texts) != 0)
                 {
-                    if (Convert.ToInt32(txtIdUsuario.Texts) != 0)
+                    if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de usuarios", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        Usuario usuario = new Usuario
                         {
-                            Usuario usuario = new Usuario
-                            {
-                                IdUser = Convert.ToInt32(txtIdUsuario.Texts)
-                            };
+                            IdUser = Convert.ToInt32(txtIdUsuario.Texts)
+                        };
+                        if (usuario == null)
+                        {
                             var msg = usuarioService.EliminarRegistros(usuario);
-                            MessageBox.Show(msg, "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MessageBox.Show("Eliminacion con exito!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(msg, "Gestion de usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros(usuarioService.CargarRegistro());
-                            EnabledDelete();
+                            Nuevo();
+                            EnabledUpdate();
+                        }
+                        else
+                        {
+                            var msg = usuarioService.EliminarRegistros(usuario);
+                            MessageBox.Show(msg, "Gestion de usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Nuevo();
+                            EnabledUpdate();
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se eliminaron correctamente", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de usuarios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -355,6 +350,11 @@ namespace Sistema_de_Gestion_GUI
             {
                 CargarUsuarioFiltrado();
             }
+        }
+
+        private void FrmGestionUsuarios_Resize(object sender, EventArgs e)
+        {
+            BorderRadius();
         }
     }
 }

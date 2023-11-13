@@ -23,7 +23,7 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO USUARIO(IdUsuario,Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + usuario.IdUser + "','" + usuario.Documento + "','" + usuario.User + "','" + usuario.Password + "','" + usuario.Correo + "','" + usuario.Rol.IdRol + "','" + usuario.Rol.NRol + "');";
+                string Registro = "INSERT INTO USUARIO(Documento,Usuario,Contraseña,Correo,IdRol,Rol) VALUES ('" + usuario.Documento + "','" + usuario.User + "','" + usuario.Password + "','" + usuario.Correo + "','" + usuario.Rol.IdRol + "','" + usuario.Rol.NRol + "');";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -31,11 +31,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al registrar el usuario";
+                return null;
             }
 
-            return $"Se ha registrado el producto {usuario.User}" +
-                $"con la ID {usuario.IdUser}";
+            return $"Se ha registrado el producto {usuario.User}";
         }
 
         public List<Usuario> CargarRegistro()
@@ -81,10 +80,11 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al modificar el usuario";
+                return "Error al modifcar el usuario, " +
+                    "el usuario se encuentra relacionada con una compra";
             }
 
-            return $"Se ha modificar el usuario {usuario.User}" +
+            return $"Se ha modificado el usuario {usuario.User}" +
                 $"con la ID {usuario.IdUser}";
         }
 
@@ -102,10 +102,11 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al modificar el usuario";
+                return "Error al eliminar el usuario, " +
+                    "el usuario se encuentra relacionada con una compra";
             }
 
-            return $"Se ha modificar el usuario {usuario.User}" +
+            return $"Se ha eliminado el usuario {usuario.User}" +
                 $"con la ID {usuario.IdUser}";
         }
 

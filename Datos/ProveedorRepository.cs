@@ -45,8 +45,8 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO PROVEEDOR(IdProveedor,Documento,RazonSocial,Correo,Telefono) VALUES" +
-                    "('" + proveedor.IdProveedor + "','" + proveedor.Documento + "','" + proveedor.RazonSocial + "','" + proveedor.Correo + "','" + proveedor.Telefono + "')";
+                string Registro = "INSERT INTO PROVEEDOR(Documento,RazonSocial,Correo,Telefono) VALUES" +
+                    "('" + proveedor.Documento + "','" + proveedor.RazonSocial + "','" + proveedor.Correo + "','" + proveedor.Telefono + "')";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -54,11 +54,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al registrar el proveedor...";
+                return null;
             }
 
-            return $"Se ha registrado el producto {proveedor.RazonSocial}" +
-                $"con la ID {proveedor.IdProveedor}";
+            return $"Se ha registrado el producto {proveedor.RazonSocial}";
         }
 
         public string ModificarRegistros(Proveedor proveedor)
@@ -79,10 +78,11 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al modificar el proveedor";
+                return "Error al modificar el proveedor, " +
+                    "el proveedor se encuentra relacionada con una compra o venta";
             }
 
-            return $"Se ha modificar el proveedor {proveedor.RazonSocial}" +
+            return $"Se ha modificado el proveedor {proveedor.RazonSocial} " +
                 $"con la ID {proveedor.IdProveedor}";
         }
 
@@ -101,9 +101,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                return "Error al eliminar el producto";
+                return "Error al eliminar el proveedor, " +
+                    "el proveedor se encuentra relacionada con una compra o venta";
             }
-            return $"Se ha eliminar el producto {proveedor.RazonSocial}" +
+            return $"Se ha eliminado el producto {proveedor.RazonSocial} " +
                 $"con la ID {proveedor.IdProveedor}";
         }
 

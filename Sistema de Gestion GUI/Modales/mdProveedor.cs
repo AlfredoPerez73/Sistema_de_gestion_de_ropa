@@ -36,9 +36,9 @@ namespace Sistema_de_Gestion_GUI.Modales
             {
                 int index = tblRegistroProveedores.Rows.Add();
                 DataGridViewRow row = tblRegistroProveedores.Rows[index];
+                row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
                 row.Cells["Documento"].Value = proveedor.Documento;
                 row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
-                row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
             }
         }
 
@@ -80,9 +80,9 @@ namespace Sistema_de_Gestion_GUI.Modales
                 {
                     proveedor = new Proveedor()
                     {
+                        IdProveedor = Convert.ToInt32(tblRegistroProveedores.Rows[index].Cells["IdProveedor"].Value.ToString()),
                         Documento = tblRegistroProveedores.Rows[index].Cells["Documento"].Value.ToString(),
-                        RazonSocial = tblRegistroProveedores.Rows[index].Cells["RazonSocial"].Value.ToString(),
-                        FechaRegistro = Convert.ToDateTime(tblRegistroProveedores.Rows[index].Cells["FechaRegistro"].Value.ToString())
+                        RazonSocial = tblRegistroProveedores.Rows[index].Cells["RazonSocial"].Value.ToString()
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();

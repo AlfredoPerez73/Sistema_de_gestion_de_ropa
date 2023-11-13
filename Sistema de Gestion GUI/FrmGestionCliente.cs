@@ -30,130 +30,128 @@ namespace Sistema_de_Gestion_GUI
 
         public void GuardarRegistro()
         {
-            try
+            if ((txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
-                    || (txtTelefono.Texts != ""))
+
+                Cliente cliente = new Cliente
                 {
+                    Documento = txtDocumento.Texts,
+                    NombreCliente = txtNombreCliente.Texts.ToUpper(),
+                    Correo = txtCorreo.Texts.ToLower(),
+                    Telefono = txtTelefono.Texts
+                };
 
-                    Cliente cliente = new Cliente
-                    {
-                        IdCliente = Convert.ToInt32(txtIdCliente.Texts),
-                        Documento = txtDocumento.Texts,
-                        NombreCliente = txtNombreCliente.Texts.ToUpper(),
-                        Correo = txtCorreo.Texts.ToLower(),
-                        Telefono = txtTelefono.Texts
-                    };
-
-                    var ID = clienteService.BuscarID(Convert.ToInt32(txtIdCliente.Texts));
-                    if (ID != true)
-                    {
-                        var msg = clienteService.Guardar(cliente);
-                        MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Registro almacenado con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros(clienteService.CargarRegistro());
-                        Nuevo();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"El registro con la ID {cliente.IdCliente} y/o" +
-                            $"DOCUMENTO {cliente.Documento} ya existe!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
+                var ID = clienteService.BuscarID(txtDocumento.Texts);
+                if (ID != true)
+                {
+                    var msg = clienteService.Guardar(cliente);
+                    MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Registro almacenado con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecargarRegistros(clienteService.CargarRegistro());
+                    Nuevo();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"El registro con la ID {cliente.IdCliente} y/o " +
+                        $"DOCUMENTO {cliente.Documento} ya existe!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Error al ingresar el cliente!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void RecargarRegistros(List<Cliente> clientes)
         {
             tblRegistro.Rows.Clear();
-
-            foreach (var cliente in clientes)
+            if (clientes != null)
             {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdCliente"].Value = cliente.IdCliente;
-                row.Cells["Documento"].Value = cliente.Documento;
-                row.Cells["NombreCliente"].Value = cliente.NombreCliente;
-                row.Cells["Correo"].Value = cliente.Correo;
-                row.Cells["Telefono"].Value = cliente.Telefono;
-                row.Cells["FechaRegistro"].Value = cliente.FechaRegistro.ToString("d");
+                foreach (var cliente in clientes)
+                {
+                    int index = tblRegistro.Rows.Add();
+                    DataGridViewRow row = tblRegistro.Rows[index];
+                    row.Cells["IdCliente"].Value = cliente.IdCliente;
+                    row.Cells["Documento"].Value = cliente.Documento;
+                    row.Cells["NombreCliente"].Value = cliente.NombreCliente;
+                    row.Cells["Correo"].Value = cliente.Correo;
+                    row.Cells["Telefono"].Value = cliente.Telefono;
+                    row.Cells["FechaRegistro"].Value = cliente.FechaRegistro.ToString("d");
+                }
             }
         }
 
         public void ModificarRegistro()
         {
-            try
+            if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
-                    || (txtTelefono.Texts != ""))
+                Cliente cliente = new Cliente
                 {
-                    Cliente cliente = new Cliente
-                    {
-                        IdCliente = Convert.ToInt32(txtIdCliente.Texts),
-                        Documento = txtDocumento.Texts,
-                        NombreCliente = txtNombreCliente.Texts.ToUpper(),
-                        Correo = txtCorreo.Texts.ToLower(),
-                        Telefono = txtTelefono.Texts
-                    };
-
+                    IdCliente = Convert.ToInt32(txtIdCliente.Texts),
+                    Documento = txtDocumento.Texts,
+                    NombreCliente = txtNombreCliente.Texts.ToUpper(),
+                    Correo = txtCorreo.Texts.ToLower(),
+                    Telefono = txtTelefono.Texts
+                };
+                if (cliente == null)
+                {
                     var msg = clienteService.ModificarRegistros(cliente);
                     MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show("Actualizacion con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros(clienteService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var msg = clienteService.ModificarRegistros(cliente);
+                    MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevo();
+                    EnabledUpdate();
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se insertaron correctamente", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         public void EliminarRegistro()
         {
-            try
+            if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdCliente.Texts != "") || (txtDocumento.Texts != "") || (txtNombreCliente.Texts != "") || (txtCorreo.Texts != "")
-                    || (txtTelefono.Texts != ""))
+                if (Convert.ToInt32(txtIdCliente.Texts) != 0)
                 {
-                    if (Convert.ToInt32(txtIdCliente.Texts) != 0)
+                    if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de proveedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de proveedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        Cliente cliente = new Cliente
                         {
-                            Cliente cliente = new Cliente
-                            {
-                                IdCliente = Convert.ToInt32(txtIdCliente.Texts),
-                            };
+                            IdCliente = Convert.ToInt32(txtIdCliente.Texts),
+                        };
+                        if (cliente == null)
+                        {
                             var msg = clienteService.EliminarRegistros(cliente);
-                            MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MessageBox.Show("Eliminacion con exito!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros(clienteService.CargarRegistro());
+                            Nuevo();
+                            EnabledDelete();
+                        }
+                        else
+                        {
+                            var msg = clienteService.EliminarRegistros(cliente);
+                            MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Nuevo();
                             EnabledDelete();
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se eliminaron correctamente", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -252,20 +250,18 @@ namespace Sistema_de_Gestion_GUI
         private void BorderRadius()
         {
             int radio = 20;
-            var tamañoOriginal = panel1.Size;
             GraphicsPath path = new GraphicsPath();
             path.StartFigure();
             path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
             path.AddLine(radio, 0, panel1.Width - radio, 0);
             path.AddArc(panel1.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
-            path.AddLine(panel2.Width, radio, panel1.Width, panel1.Height - radio);
+            path.AddLine(panel1.Width, radio, panel1.Width, panel1.Height - radio);
             path.AddArc(panel1.Width - radio * 2, panel1.Height - radio * 2, radio * 2, radio * 2, 0, 90);
             path.AddLine(panel1.Width - radio, panel1.Height, radio, panel1.Height);
             path.AddArc(0, panel1.Height - radio * 2, radio * 2, radio * 2, 90, 90);
             path.CloseFigure();
 
             panel1.Region = new Region(path);
-            panel1.Size = tamañoOriginal;
 
         }
 
@@ -365,6 +361,11 @@ namespace Sistema_de_Gestion_GUI
             {
                 CargarClientesFiltrado();
             }
+        }
+
+        private void FrmGestionCliente_Resize(object sender, EventArgs e)
+        {
+            BorderRadius();
         }
     }
 }

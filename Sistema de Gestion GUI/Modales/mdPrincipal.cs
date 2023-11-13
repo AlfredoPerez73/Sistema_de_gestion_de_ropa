@@ -20,6 +20,15 @@ namespace Sistema_de_Gestion_GUI.Modales
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             slideBar.Start();
+            UbicacionReloj();
+        }
+
+        private void UbicacionReloj()
+        {
+            Point nuevaUbicacionFecha1 = new Point(585, 320);
+            lblFecha.Location = nuevaUbicacionFecha1;
+            Point nuevaUbicacionFecha2 = new Point(530, 370);
+            lblFechaActual.Location = nuevaUbicacionFecha2;
         }
 
         private void FechaActual()

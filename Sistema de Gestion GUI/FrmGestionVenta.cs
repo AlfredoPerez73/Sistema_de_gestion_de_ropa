@@ -49,5 +49,10 @@ namespace Sistema_de_Gestion_GUI
             panel.Region = new Region(path);
         }
 
+        private void FrmGestionVenta_Resize(object sender, EventArgs e)
+        {
+            BorderRadiusPanel(panel3, 25);
+            BorderRadiusPanel(panel2, 20);
+        }
     }
 }

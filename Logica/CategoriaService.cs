@@ -18,15 +18,26 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(int id)
+        public bool BuscarID(string id)
         {
-            return CargarRegistro().Any(c => c.IdCategoria == id);
+            return CargarRegistro().Any(c => c.TipoCategoria == id.ToUpper());
         }
 
         public List<Categoria> BuscarX(string x)
         {
-            return CargarRegistro()
-                .Where(item => item.IdCategoria == Convert.ToInt32(x) || item.TipoCategoria.Contains(x.ToUpper())).ToList();
+            int idCategoria;
+            List<Categoria> categorias = CargarRegistro();
+            if (int.TryParse(x, out idCategoria))
+            {
+                categorias = categorias
+                    .Where(item => item.IdCategoria == idCategoria).ToList();
+            }
+            else
+            {
+                categorias = categorias
+                    .Where(item => item.TipoCategoria.Contains(x.ToUpper())).ToList();
+            }
+            return categorias;
         }
 
         public List<Categoria> CargarRegistro()

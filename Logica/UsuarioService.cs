@@ -15,9 +15,9 @@ namespace Logica
     {
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
-        public bool BuscarID(int id)
+        public bool BuscarID(string id)
         {
-            return CargarRegistro().Any(u => u.IdUser == id);
+            return CargarRegistro().Any(u => u.Documento == id);
         }
 
         public string Guardar(Usuario usuario)
@@ -39,9 +39,20 @@ namespace Logica
 
         public List<Usuario> BuscarX(string x)
         {
-            return CargarRegistro()
-                .Where(item => item.IdUser == Convert.ToInt32(x) || item.Documento == x || item.User.Contains(x.ToUpper()) 
-                || item.Rol.NRol.Contains(x.ToUpper())).ToList();
+            int idUsuario;
+            List<Usuario> usuarios = CargarRegistro();
+            if (int.TryParse(x, out idUsuario))
+            {
+                usuarios = usuarios
+                    .Where(item => item.IdUser == idUsuario).ToList();
+            }
+            else
+            {
+                usuarios = usuarios
+                    .Where(item => item.Documento.Contains(x.ToUpper()) || item.User.Contains(x.ToUpper())
+                    || item.Rol.NRol.Contains(x.ToUpper())).ToList();
+            }
+            return usuarios;
         }
 
         public string ModificarRegistros(Usuario usuario)

@@ -36,113 +36,111 @@ namespace Sistema_de_Gestion_GUI
 
         public void GuardarRegistro()
         {
-            try
+            if ((txtTipoCategoria.Texts != ""))
             {
-                if ((txtIdCategoria.Texts != "") || (txtTipoCategoria.Texts != ""))
+                Categoria categoria = new Categoria
                 {
-                    Categoria categoria = new Categoria
-                    {
-                        IdCategoria = Convert.ToInt32(txtIdCategoria.Texts),
-                        TipoCategoria = txtTipoCategoria.Texts.ToUpper()
-                    };
-                    var ID = categoriaService.BuscarID(Convert.ToInt32(txtIdCategoria.Texts));
-                    if (ID != true)
-                    {
-                        var msg = categoriaService.Guardar(categoria);
-                        MessageBox.Show(msg, "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Registro almacenado con exito!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros(categoriaService.CargarRegistro());
-                        Nuevo();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"Categoria con la ID {categoria.IdCategoria} ya existe!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    TipoCategoria = txtTipoCategoria.Texts.ToUpper()
+                };
+                var ID = categoriaService.BuscarID(txtTipoCategoria.Texts);
+                if (ID != true)
+                {
+                    var msg = categoriaService.Guardar(categoria);
+                    MessageBox.Show(msg, "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecargarRegistros(categoriaService.CargarRegistro());
+                    Nuevo();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Categoria {txtTipoCategoria.Texts} ya existe!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se insertaron correctamente", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de categoria", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void RecargarRegistros(List<Categoria> categorias)
         {
             tblRegistro.Rows.Clear();
-
-            foreach (var categoria in categorias)
+            if (categorias != null)
             {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdCategoria"].Value = categoria.IdCategoria;
-                row.Cells["TipoCategoria"].Value = categoria.TipoCategoria;
-                row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
+                foreach (var categoria in categorias)
+                {
+                    int index = tblRegistro.Rows.Add();
+                    DataGridViewRow row = tblRegistro.Rows[index];
+                    row.Cells["IdCategoria"].Value = categoria.IdCategoria;
+                    row.Cells["TipoCategoria"].Value = categoria.TipoCategoria;
+                    row.Cells["FechaRegistro"].Value = categoria.FechaRegistro.ToString("d");
+                }
             }
+
         }
 
         private void ModificarCategoria()
         {
-            try
+
+            if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
             {
-                if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
+                Categoria categoria = new Categoria
                 {
-                    Categoria categoria = new Categoria
-                    {
-                        TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
-                        IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
-                    };
+                    TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
+                    IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
+                };
+                if (categoria == null)
+                {
                     var msg = categoriaService.ModificarRegistros(categoria);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show("Actualizacion con exito!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros(categoriaService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var msg = categoriaService.ModificarRegistros(categoria);
+                    MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevo();
+                    EnabledUpdate();
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se insertaron correctamente", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void EliminarCategoria()
         {
-            try
+            if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
             {
-                if ((txtIdCategoria.Texts != "") || (txtIdCategoria.Texts != ""))
+                if (Convert.ToInt32(txtIdCategoria.Texts) != 0)
                 {
-                    if (Convert.ToInt32(txtIdCategoria.Texts) != 0)
+                    if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de categorias", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de categorias", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        Categoria categoria = new Categoria
                         {
-                            Categoria categoria = new Categoria
-                            {
-                                IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
-                            };
+                            IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
+                        };
+                        if (categoria == null)
+                        {
                             var msg = categoriaService.EliminarRegistros(categoria);
                             MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MessageBox.Show("Eliminacion con exito!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros(categoriaService.CargarRegistro());
+                            EnabledDelete();
+                        }
+                        else
+                        {
+                            var msg = categoriaService.EliminarRegistros(categoria);
+                            MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             EnabledDelete();
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se eliminaron correctamente", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -312,6 +310,11 @@ namespace Sistema_de_Gestion_GUI
             {
                 CargarCategoriasFiltrado();
             }
+        }
+
+        private void FrmGestionCategoria_Resize(object sender, EventArgs e)
+        {
+            BorderRadius();
         }
     }
 }

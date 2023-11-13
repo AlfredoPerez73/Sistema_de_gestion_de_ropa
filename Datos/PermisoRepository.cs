@@ -22,6 +22,7 @@ namespace Datos
         {
             List<Permiso> permisoList = new List<Permiso>();
             StringBuilder stringBuilder = new StringBuilder();
+
             stringBuilder.AppendLine("select p.IdRol,p.Permiso from PERMISO p");
             stringBuilder.AppendLine("inner join ROL r on r.IdRol = p.IdRol");
             stringBuilder.AppendLine("inner join USUARIO u on u.IdRol = r.IdRol");

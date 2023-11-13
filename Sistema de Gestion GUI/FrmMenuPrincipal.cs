@@ -22,9 +22,10 @@ namespace Sistema_de_Gestion_GUI
         // ---------------------------------
         private static Button MenuActivo = null;
         private static Form FormularioActivo = null;
-        // --------------------------------
+        // ---------------------------------
         bool SliderExpand;
-        bool BorderRadiusEvent = true;
+        bool SliderExpandButtonProducts;
+        // ---------------------------------
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -39,7 +40,6 @@ namespace Sistema_de_Gestion_GUI
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             ContenedorPrincipal();
-            BorderRadius(BorderRadiusEvent);
             CargarUsuario();
             Permisos();
         }
@@ -65,7 +65,7 @@ namespace Sistema_de_Gestion_GUI
             Point nuevaUbicacionBtnProveedores = new Point(3, 225);
             panel5.Location = nuevaUbicacionBtnProveedores;
             Point nuevaUbicacionBtnCompras = new Point(3, 283);
-            panel7.Location = nuevaUbicacionBtnCompras;
+            SlideFinanciera.Location = nuevaUbicacionBtnCompras;
         }
 
         private void CargarUsuario()
@@ -131,13 +131,10 @@ namespace Sistema_de_Gestion_GUI
         {
             if (WindowState == FormWindowState.Normal)
             {
-                BorderRadiusEvent = true;
-                BorderRadius(false);
                 this.WindowState = FormWindowState.Maximized;
             }
             else
             {
-                BorderRadius(BorderRadiusEvent);
                 this.WindowState = FormWindowState.Normal;
             }
         }
@@ -155,25 +152,6 @@ namespace Sistema_de_Gestion_GUI
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             Minimizar();
-        }
-
-        private void BorderRadius(bool BorderRadius)
-        {
-            this.FormBorderStyle = FormBorderStyle.None;
-
-            int radio = 20;
-            GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
-            path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
-            path.AddLine(radio, 0, this.Width - radio, 0);
-            path.AddArc(this.Width - radio * 2, 0, radio * 2, radio * 2, 270, 90);
-            path.AddLine(this.Width, radio, this.Width, this.Height - radio);
-            path.AddArc(this.Width - radio * 2, this.Height - radio * 2, radio * 2, radio * 2, 0, 90);
-            path.AddLine(this.Width - radio, this.Height, radio, this.Height);
-            path.AddArc(0, this.Height - radio * 2, radio * 2, radio * 2, 90, 90);
-            path.CloseFigure();
-
-            this.Region = BorderRadius ? new Region(path) : null;
         }
 
         public void SliderBar2()
@@ -200,14 +178,48 @@ namespace Sistema_de_Gestion_GUI
             }
         }
 
+        public void SliderButton()
+        {
+            if (SliderExpandButtonProducts)
+            {
+                SlideFinanciera.Height += 10;
+                if (SlideFinanciera.Height == SlideFinanciera.MaximumSize.Height)
+                {
+                    SliderExpandButtonProducts = false;
+                    slideButton.Stop();
+
+                }
+            }
+            else
+            {
+                SlideFinanciera.Height -= 10;
+                if (SlideFinanciera.Height == SlideFinanciera.MinimumSize.Height)
+                {
+                    SliderExpandButtonProducts = true;
+                    slideButton.Stop();
+
+                }
+            }
+        }
+
         private void slideBar2_Tick(object sender, EventArgs e)
         {
             SliderBar2();
         }
 
-        private void MenuDesplegable_Click(object sender, EventArgs e)
+        private void btnMenuDesplegable_Click(object sender, EventArgs e)
         {
             slideBar2.Start();
+        }
+
+        private void btnDesplegarCompra_Click(object sender, EventArgs e)
+        {
+            slideButton.Start();
+        }
+
+        private void slideButton_Tick(object sender, EventArgs e)
+        {
+            SliderButton();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
@@ -255,6 +267,16 @@ namespace Sistema_de_Gestion_GUI
             AbrirFrmGestionProductos((Button)sender, new FrmGestionVenta(oUsuario));
         }
 
+        private void btnDetalleCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionDetalleCompra());
+        }
+
+        private void btnDetalleVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFrmGestionProductos((Button)sender, new FrmGestionDetalleVenta());
+        }
+
         private void panel9_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -277,11 +299,6 @@ namespace Sistema_de_Gestion_GUI
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void Contenedor_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

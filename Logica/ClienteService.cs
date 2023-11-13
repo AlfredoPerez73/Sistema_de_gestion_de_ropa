@@ -25,16 +25,27 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(int id)
+        public bool BuscarID(string id)
         {
-            return CargarRegistro().Any(cl => cl.IdCliente == id);
+            return CargarRegistro().Any(cl => cl.Documento == id);
         }
 
         public List<Cliente> BuscarX(string x)
         {
-            return CargarRegistro()
-                .Where(item => item.IdCliente == Convert.ToInt32(x) || item.Documento == x || item.NombreCliente.Contains(x.ToUpper()) 
-                || item.Telefono.Contains(x)).ToList();
+            int idCliente;
+            List<Cliente> clientes = CargarRegistro();
+            if (int.TryParse(x, out idCliente))
+            {
+                clientes = clientes
+                    .Where(item => item.IdCliente == idCliente).ToList();
+            }
+            else
+            {
+                clientes = clientes
+                    .Where(item => item.NombreCliente.Contains(x.ToUpper()) || item.Documento.Contains(x.ToUpper())
+                    || item.Telefono.Contains(x.ToUpper())).ToList();
+            }
+            return clientes;
         }
 
         public string ModificarRegistros(Cliente cliente)

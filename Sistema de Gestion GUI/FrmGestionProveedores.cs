@@ -30,45 +30,36 @@ namespace Sistema_de_Gestion_GUI
 
         public void GuardarRegistro()
         {
-            try
+            if ((txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "") 
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "") 
-                    || (txtTelefono.Texts != ""))
+
+                Proveedor proveedor = new Proveedor
                 {
+                    Documento = txtDocumento.Texts,
+                    RazonSocial = txtRazonSocial.Texts.ToUpper(),
+                    Correo = txtCorreo.Texts.ToLower(),
+                    Telefono = txtTelefono.Texts
+                };
 
-                    Proveedor proveedor = new Proveedor
-                    {
-                        IdProveedor = Convert.ToInt32(txtIdProveedor.Texts),
-                        Documento = txtDocumento.Texts,
-                        RazonSocial = txtRazonSocial.Texts.ToUpper(),
-                        Correo = txtCorreo.Texts.ToLower(),
-                        Telefono = txtTelefono.Texts
-                    };
-
-                    var ID = productoService.BuscarID(Convert.ToInt32(txtIdProveedor.Texts));
-                    if (ID != true)
-                    {
-                        var msg = productoService.Guardar(proveedor);
-                        MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show("Registro almacenado con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RecargarRegistros(productoService.CargarRegistro());
-                        Nuevo();
-                    }
-                    else
-                    {
-                        MessageBox.Show($"El registro con la ID {proveedor.IdProveedor} y/o" +
-                            $"DOCUMENTO {proveedor.Documento} ya existe!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
+                var ID = productoService.BuscarID(txtDocumento.Texts);
+                if (ID != true)
+                {
+                    var msg = productoService.Guardar(proveedor);
+                    MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RecargarRegistros(productoService.CargarRegistro());
+                    Nuevo();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"El registro con la ID {proveedor.IdProveedor} y/o " +
+                        $"DOCUMENTO {proveedor.Documento} ya existe!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("Error al ingresar el proveedor!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -76,83 +67,93 @@ namespace Sistema_de_Gestion_GUI
         {
             tblRegistro.Rows.Clear();
 
-            foreach (var proveedor in proveedores)
+            if(proveedores != null)
             {
-                int index = tblRegistro.Rows.Add();
-                DataGridViewRow row = tblRegistro.Rows[index];
-                row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
-                row.Cells["Documento"].Value = proveedor.Documento;
-                row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
-                row.Cells["Correo"].Value = proveedor.Correo;
-                row.Cells["Telefono"].Value = proveedor.Telefono;
-                row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
+                foreach (var proveedor in proveedores)
+                {
+                    int index = tblRegistro.Rows.Add();
+                    DataGridViewRow row = tblRegistro.Rows[index];
+                    row.Cells["IdProveedor"].Value = proveedor.IdProveedor;
+                    row.Cells["Documento"].Value = proveedor.Documento;
+                    row.Cells["RazonSocial"].Value = proveedor.RazonSocial;
+                    row.Cells["Correo"].Value = proveedor.Correo;
+                    row.Cells["Telefono"].Value = proveedor.Telefono;
+                    row.Cells["FechaRegistro"].Value = proveedor.FechaRegistro.ToString("d");
+                }
             }
         }
 
         public void ModificarRegistro()
         {
-            try
+            if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
-                    || (txtTelefono.Texts != ""))
+
+                Proveedor proveedor = new Proveedor
                 {
-                    Proveedor proveedor = new Proveedor
-                    {
-                        Documento = txtDocumento.Texts,
-                        RazonSocial = txtRazonSocial.Texts.ToUpper(),
-                        Correo = txtCorreo.Texts.ToLower(),
-                        Telefono = txtCorreo.Texts,
-                        IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
-                    };
+                    Documento = txtDocumento.Texts,
+                    RazonSocial = txtRazonSocial.Texts.ToUpper(),
+                    Correo = txtCorreo.Texts.ToLower(),
+                    Telefono = txtCorreo.Texts,
+                    IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
+                };
+                if (proveedor == null)
+                {
                     var msg = productoService.ModificarRegistros(proveedor);
-                    MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show("Actualizacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(msg, "Gestion de proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RecargarRegistros(productoService.CargarRegistro());
                     Nuevo();
                     EnabledUpdate();
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    var msg = productoService.ModificarRegistros(proveedor);
+                    MessageBox.Show(msg, "Gestion de proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevo();
+                    EnabledUpdate();
                 }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se insertaron correctamente", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         public void EliminarRegistro()
         {
-            try
+            if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
+                || (txtTelefono.Texts != ""))
             {
-                if ((txtIdProveedor.Texts != "") || (txtDocumento.Texts != "") || (txtRazonSocial.Texts != "") || (txtCorreo.Texts != "")
-                    || (txtTelefono.Texts != ""))
+                if (Convert.ToInt32(txtIdProveedor.Texts) != 0)
                 {
-                    if (Convert.ToInt32(txtIdProveedor.Texts) != 0)
+                    if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de proveedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        if (MessageBox.Show("¿Desea eliminar este producto?", "Gestion de proveedores", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+                        Proveedor proveedor = new Proveedor
                         {
-                            Proveedor proveedor = new Proveedor
-                            {
-                                IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
-                            };
+                            IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
+                        };
+                        if (proveedor == null)
+                        {
                             var msg = productoService.EliminarRegistros(proveedor);
-                            MessageBox.Show(msg, "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            MessageBox.Show("Eliminacion con exito!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show(msg, "Gestion de proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             RecargarRegistros(productoService.CargarRegistro());
+                            Nuevo();
+                            EnabledDelete();
+                        }
+                        else
+                        {
+                            var msg = productoService.ModificarRegistros(proveedor);
+                            MessageBox.Show(msg, "Gestion de proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Nuevo();
                             EnabledDelete();
                         }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se eliminaron correctamente", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Faltan datos por ingresar!", "Gestion de proveedores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -365,6 +366,11 @@ namespace Sistema_de_Gestion_GUI
             {
                 CargarProveedoresFiltrado();
             }
+        }
+
+        private void FrmGestionProveedores_Resize(object sender, EventArgs e)
+        {
+            BorderRadius();
         }
     }
 }

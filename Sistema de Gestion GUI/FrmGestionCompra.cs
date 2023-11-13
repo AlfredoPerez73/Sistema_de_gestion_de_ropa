@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
+using Logica;
 using Sistema_de_Gestion_GUI.Modales;
 
 namespace Sistema_de_Gestion_GUI
@@ -36,7 +37,7 @@ namespace Sistema_de_Gestion_GUI
             decimal PrecioVenta = 0;
             bool ProductoExiste = false;
 
-            if (int.Parse(txtIdProducto.Texts) == 0)
+            if (txtIdProducto.Texts == "")
             {
                 MessageBox.Show($"Ingrese un producto", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -77,13 +78,79 @@ namespace Sistema_de_Gestion_GUI
 
         }
 
+        private void RegistrarCompra()
+        {
+            if (txtIdProveedor.Text == "")
+            {
+                MessageBox.Show($"Ingrese un proveedor", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (tblRegistro.Rows.Count < 1)
+            {
+                MessageBox.Show($"Debe ingresar un producto a la compra", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DataTable DetalleCompra = DetalleCompraTable();
+            int IdCorrelativo = new CompraService().ObtenerCorrelativo();
+            string NumDoc = string.Format("{0:00000}", IdCorrelativo);
+
+            Compra compra = new Compra()
+            {
+                Usuario = new Usuario() { IdUser = oUsuario.IdUser },
+                Proveedor = new Proveedor() { IdProveedor = Convert.ToInt32(txtIdProveedor.Text) },
+                Documento = NumDoc,
+                MontoTotal = Convert.ToDecimal(txtTotalPagar.Texts)
+            };
+
+            bool Respuesta = new CompraService().RegistrarCompra(compra, DetalleCompra);
+            if (Respuesta)
+            {
+                var result = MessageBox.Show($"Compra generada N° {NumDoc}", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Limpiar();
+                txtIdProveedor.Text = "";
+                txtDocumento.Texts = "";
+                txtProveedor.Texts = "";
+                tblRegistro.Rows.Clear();
+                CalcularPagoTotal();
+            }
+            else
+            {
+                MessageBox.Show($"No se puedo generar la compra N° {NumDoc}", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void Limpiar()
         {
             txtIdProducto.Texts = "";
             txtNombreProducto.Texts = "";
+
             txtPrecioCompra.Texts = "";
             txtPrecioVenta.Texts = "";
             txtCantidad.Texts = "";
+        }
+
+        private DataTable DetalleCompraTable()
+        {
+            DataTable DetalleCompra = new DataTable();
+            DetalleCompra.Columns.Add("IdProducto", typeof(int));
+            DetalleCompra.Columns.Add("PrecioCompra", typeof(decimal));
+            DetalleCompra.Columns.Add("PrecioVenta", typeof(decimal));
+            DetalleCompra.Columns.Add("Cantidad", typeof(int));
+            DetalleCompra.Columns.Add("MontoTotal", typeof(decimal));
+
+            foreach (DataGridViewRow Rows in tblRegistro.Rows)
+            {
+                DetalleCompra.Rows.Add(new object[]
+                {
+                    Convert.ToInt32(Rows.Cells["IdProducto"].Value.ToString()),
+                    Rows.Cells["PrecioCompra"].Value.ToString(),
+                    Rows.Cells["PrecioVenta"].Value.ToString(),
+                    Rows.Cells["Cantidad"].Value.ToString(),
+                    Rows.Cells["SubTotal"].Value.ToString(),
+                });
+            }
+            return DetalleCompra;
         }
 
         private void CalcularPagoTotal()
@@ -181,6 +248,7 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
+                    txtIdProveedor.Text = modal.proveedor.IdProveedor.ToString();
                     txtDocumento.Texts = modal.proveedor.Documento.ToString();
                     txtProveedor.Texts = modal.proveedor.RazonSocial.ToString();
                 }
@@ -198,7 +266,12 @@ namespace Sistema_de_Gestion_GUI
 
         private void tblRegistro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            CellContentClick(sender, e);
+        }
 
+        private void btnRegistrarCompra_Click(object sender, EventArgs e)
+        {
+            RegistrarCompra();
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -263,6 +336,22 @@ namespace Sistema_de_Gestion_GUI
             {
                 e.Handled = true;
             }
+        }
+
+        private void FrmGestionCompra_Resize(object sender, EventArgs e)
+        {
+            BorderRadiusPanel(panel3, 25);
+            BorderRadiusPanel(panel2, 20);
+        }
+
+        private void btnRegistrarCompra_Click_1(object sender, EventArgs e)
+        {
+            RegistrarCompra();
+        }
+
+        private void btnAgregarCompra_Click(object sender, EventArgs e)
+        {
+            AgregarProducto();
         }
     }
 }

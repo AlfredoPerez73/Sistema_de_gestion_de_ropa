@@ -21,16 +21,28 @@ namespace Logica
             return msg;
         }
 
-        public bool BuscarID(int id)
+        public bool BuscarID(string nombre, string marca, string categoria)
         {
-            return CargarRegistro().Any(p => p.IdProducto == id); 
+            return CargarRegistro().Any(p => p.NombreProducto == nombre.ToUpper() && p.Marca == marca.ToUpper()
+            && p.Categoria.TipoCategoria == categoria.ToUpper()); 
         }
 
         public List<Producto> BuscarX(string x)
         {
-            return CargarRegistro()
-                .Where(item => item.IdProducto == Convert.ToInt32(x) || item.NombreProducto.Contains(x.ToUpper()) ||
-                item.Marca.Contains(x.ToUpper()) || item.Categoria.TipoCategoria.Contains(x.ToUpper())).ToList();
+            int idProducto;
+            List<Producto> productos = CargarRegistro();
+            if (int.TryParse(x, out idProducto))
+            {
+                productos = productos
+                    .Where(item => item.IdProducto == idProducto).ToList();
+            }
+            else
+            {
+                productos = productos
+                    .Where(item => item.NombreProducto.Contains(x.ToUpper()) || item.Marca.Contains(x.ToUpper()) 
+                    || item.Categoria.TipoCategoria.Contains(x.ToUpper())).ToList();
+            }
+            return productos;
         }
 
         public List<Producto> CargarRegistro()
