@@ -840,7 +840,6 @@
             this.awdawdawd.TextColor = System.Drawing.Color.White;
             this.awdawdawd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.awdawdawd.UseVisualStyleBackColor = false;
-            this.awdawdawd.Click += new System.EventHandler(this.btnRegistrarCompra_Click);
             // 
             // FrmGestionCompra
             // 

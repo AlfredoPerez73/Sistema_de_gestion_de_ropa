@@ -58,7 +58,6 @@ C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion
 C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdProveedor.resources
 C:\Users\Angie Zarate\source\repos\Sistema_de_gestion_de_ropa\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdPrincipal.resources
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.mdProducto.resources
-C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdUsuario.resources
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdProveedor.resources
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdPrincipal.resources
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionDetalleCompra.resources
@@ -86,3 +85,4 @@ C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Ge
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\itextsharp.dll
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\itextsharp.xmlworker.dll
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\itextsharp.xml
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdCliente.resources

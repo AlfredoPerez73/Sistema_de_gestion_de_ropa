@@ -255,7 +255,6 @@
             this.btnPerfil.Text = "            ADMINISTRADOR";
             this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPerfil.UseVisualStyleBackColor = false;
-            this.btnPerfil.Click += new System.EventHandler(this.btnPerfil_Click);
             // 
             // panel6
             // 

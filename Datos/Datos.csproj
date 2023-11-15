@@ -55,6 +55,7 @@
     <Compile Include="ProveedorRepository.cs" />
     <Compile Include="RolRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />
+    <Compile Include="VentaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidad\Entidad.csproj">

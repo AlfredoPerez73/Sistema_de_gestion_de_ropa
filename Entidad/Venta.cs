@@ -10,7 +10,8 @@ namespace Entidad
     {
         public int IdVenta { get; set; }
         public Usuario Usuario { get; set; }
-        public string Documento { get; set; }
+        public string DocumentoVenta { get; set; }
+        public string DocumentoCliente { get; set; }
         public string NombreCliente { get; set; }
         public decimal MontoPago { get; set; }
         public decimal MontoCambio { get; set; }

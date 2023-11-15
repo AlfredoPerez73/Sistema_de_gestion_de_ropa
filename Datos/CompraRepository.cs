@@ -20,6 +20,24 @@ namespace Datos
 
         }
 
+        public int ObtenerCorrelativo()
+        {
+            int IdCorrelativo = 0;
+            string Consulta = "SELECT COUNT(*) + 1 FROM COMPRA";
+            try
+            {
+                SqlCommand command = new SqlCommand(Consulta, Connection);
+                AbrirConnection();
+
+                IdCorrelativo = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                IdCorrelativo = 0;
+            }
+            return IdCorrelativo;
+        }
+
         public Compra CargarRegistroCompra(string NumDoc)
         {
             Compra compra = new Compra();
@@ -81,24 +99,6 @@ namespace Datos
                 return null;
             }
             return detalleCompraList;
-        }
-
-        public int ObtenerCorrelativo()
-        {
-            int IdCorrelativo = 0;
-            string Consulta = "SELECT COUNT(*) + 1 FROM COMPRA";
-            try
-            {
-                SqlCommand command = new SqlCommand(Consulta, Connection);
-                AbrirConnection();
-
-                IdCorrelativo = Convert.ToInt32(command.ExecuteScalar());
-            }
-            catch (Exception)
-            {
-                IdCorrelativo = 0;
-            }
-            return IdCorrelativo;
         }
 
         public bool RegistrarCompra(Compra compra, DataTable DetalleCompra)

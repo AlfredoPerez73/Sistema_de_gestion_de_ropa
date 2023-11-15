@@ -18,6 +18,9 @@ namespace Sistema_de_Gestion_GUI
     {
         private Usuario oUsuario;
         private bool allowEdit = false;
+        decimal precioCompra = 0;
+        decimal precioVenta = 0;
+
         public FrmGestionCompra(Usuario oUsuario)
         {
             InitializeComponent();
@@ -33,8 +36,6 @@ namespace Sistema_de_Gestion_GUI
 
         private void AgregarProducto()
         {
-            decimal PrecioCompra = 0;
-            decimal PrecioVenta = 0;
             bool ProductoExiste = false;
 
             if (txtIdProducto.Texts == "")
@@ -42,16 +43,17 @@ namespace Sistema_de_Gestion_GUI
                 MessageBox.Show($"Ingrese un producto", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (!decimal.TryParse(txtPrecioCompra.Texts, out PrecioCompra))
+            if (!decimal.TryParse(txtPrecioCompra.Texts, out precioCompra))
             {
                 MessageBox.Show("Precio Compra - Formato de moneda incorrecto", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (!decimal.TryParse(txtPrecioVenta.Texts, out PrecioVenta))
+            if (!decimal.TryParse(txtPrecioVenta.Texts, out precioVenta))
             {
                 MessageBox.Show("Precio Venta - Formato de moneda incorrecto", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             foreach (DataGridViewRow Fils in tblRegistro.Rows)
             {
                 if (Fils.Cells["IdProducto"].Value.ToString() == txtIdProducto.Texts)
@@ -66,10 +68,10 @@ namespace Sistema_de_Gestion_GUI
                 {
                     txtIdProducto.Texts,
                     txtNombreProducto.Texts,
-                    PrecioCompra.ToString("0.00"),
-                    PrecioVenta.ToString("0.00"),
+                    precioCompra.ToString("0.00"),
+                    precioVenta.ToString("0.00"),
                     txtCantidad.Texts.ToString(),
-                    (Convert.ToDecimal(txtCantidad.Texts) * PrecioCompra).ToString("0.00")
+                    (Convert.ToDecimal(txtCantidad.Texts) * precioCompra).ToString("0.00")
                 });
             }
             CalcularPagoTotal();
@@ -107,12 +109,7 @@ namespace Sistema_de_Gestion_GUI
             if (Respuesta)
             {
                 var result = MessageBox.Show($"Compra generada N° {NumDoc}", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
-                txtIdProveedor.Text = "";
-                txtDocumento.Texts = "";
-                txtProveedor.Texts = "";
-                tblRegistro.Rows.Clear();
-                CalcularPagoTotal();
+                Nuevo();
             }
             else
             {
@@ -128,6 +125,16 @@ namespace Sistema_de_Gestion_GUI
             txtPrecioCompra.Texts = "";
             txtPrecioVenta.Texts = "";
             txtCantidad.Texts = "";
+        }
+
+        private void Nuevo()
+        {
+            Limpiar();
+            txtIdProveedor.Text = "";
+            txtDocumento.Texts = "";
+            txtProveedor.Texts = "";
+            tblRegistro.Rows.Clear();
+            CalcularPagoTotal();
         }
 
         private DataTable DetalleCompraTable()
@@ -269,9 +276,14 @@ namespace Sistema_de_Gestion_GUI
             CellContentClick(sender, e);
         }
 
-        private void btnRegistrarCompra_Click(object sender, EventArgs e)
+        private void btnRegistrarCompra_Click_1(object sender, EventArgs e)
         {
             RegistrarCompra();
+        }
+
+        private void btnAgregarCompra_Click(object sender, EventArgs e)
+        {
+            AgregarProducto();
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -342,16 +354,6 @@ namespace Sistema_de_Gestion_GUI
         {
             BorderRadiusPanel(panel3, 25);
             BorderRadiusPanel(panel2, 20);
-        }
-
-        private void btnRegistrarCompra_Click_1(object sender, EventArgs e)
-        {
-            RegistrarCompra();
-        }
-
-        private void btnAgregarCompra_Click(object sender, EventArgs e)
-        {
-            AgregarProducto();
         }
     }
 }

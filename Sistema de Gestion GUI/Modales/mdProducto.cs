@@ -44,6 +44,8 @@ namespace Sistema_de_Gestion_GUI
                 DataGridViewRow row = tblRegistro.Rows[index];
                 row.Cells["IdProducto"].Value = producto.IdProducto;
                 row.Cells["NombreProducto"].Value = producto.NombreProducto;
+                row.Cells["PrecioVenta"].Value = producto.PrecioVenta;
+                row.Cells["Stock"].Value = producto.Stock;
             }
         }
 
@@ -80,7 +82,9 @@ namespace Sistema_de_Gestion_GUI
                     producto = new Producto()
                     {
                         IdProducto = Convert.ToInt32(tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString()),
-                        NombreProducto = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString()
+                        NombreProducto = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString(),
+                        PrecioVenta = Convert.ToDecimal(tblRegistro.Rows[index].Cells["PrecioVenta"].Value.ToString()),
+                        Stock = Convert.ToInt32(tblRegistro.Rows[index].Cells["Stock"].Value.ToString()),
                     };
                     this.DialogResult = DialogResult.OK;
                     this.Close();

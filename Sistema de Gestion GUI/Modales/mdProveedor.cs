@@ -138,9 +138,9 @@ namespace Sistema_de_Gestion_GUI.Modales
 
         private void txtBuscarProveedor_Leave(object sender, EventArgs e)
         {
-            if (txtBuscarProveedor.Texts == "Buscar:")
+            if (txtBuscarProveedor.Texts == "")
             {
-                txtBuscarProveedor.Texts = "";
+                txtBuscarProveedor.Texts = "Buscar:";
                 txtBuscarProveedor.ForeColor = Color.Gainsboro;
             }
         }

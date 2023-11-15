@@ -108,11 +108,6 @@ namespace Sistema_de_Gestion_GUI
             Formulario.Show();
         }
 
-        private void btnPerfil_Click(object sender, EventArgs e)
-        {
-            Inicio(new mdUsuario());
-        }
-
         private void btnMenuPrincipal_Click(object sender, EventArgs e)
         {
             if (FormularioActivo != null)
