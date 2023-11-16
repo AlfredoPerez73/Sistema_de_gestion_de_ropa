@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
+using Sistema_de_Gestion_GUI.Modales;
 
 namespace Sistema_de_Gestion_GUI
 {
@@ -18,8 +19,6 @@ namespace Sistema_de_Gestion_GUI
             System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("es-CO");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Usuario oUsuario = new Usuario();
-            Permiso oPermiso = new Permiso();
             Application.Run(new FrmLogin());
         }
     }

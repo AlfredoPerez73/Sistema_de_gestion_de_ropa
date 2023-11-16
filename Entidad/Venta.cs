@@ -16,6 +16,7 @@ namespace Entidad
         public decimal MontoPago { get; set; }
         public decimal MontoCambio { get; set; }
         public decimal MontoTotal { get; set; }
+        public DateTime FechaRegistro { get; set; }
         public List<Detalle_Venta> DetalleVentaList { get; set; }
     }
 }

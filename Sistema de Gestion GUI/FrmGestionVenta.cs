@@ -37,7 +37,7 @@ namespace Sistema_de_Gestion_GUI
         {
             bool ProductoExiste = false;
 
-            if (txtIdProducto.Texts == "")
+            if (textBox1.Text == "")
             {
                 MessageBox.Show($"Ingrese un producto", "Gestion de venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -61,7 +61,7 @@ namespace Sistema_de_Gestion_GUI
 
             foreach (DataGridViewRow Fils in tblRegistro.Rows)
             {
-                if (Fils.Cells["IdProducto"].Value.ToString() == txtIdProducto.Texts)
+                if (Fils.Cells["IdProducto"].Value.ToString() == textBox1.Text)
                 {
                     ProductoExiste = true;
                     break;
@@ -71,14 +71,14 @@ namespace Sistema_de_Gestion_GUI
             {
                 bool Estado = false;
                 bool Respuesta = new VentaService().ModificarStock(
-                    Convert.ToInt32(txtIdProducto.Texts), 
+                    Convert.ToInt32(textBox1.Text), 
                     Convert.ToInt32(txtCantidad.Texts.ToString()), Estado);
 
                 if (Respuesta)
                 {
                     tblRegistro.Rows.Add(new object[]
                 {
-                    txtIdProducto.Texts,
+                    textBox1.Text,
                     txtNombreProducto.Texts,
                     Precio.ToString("0.00"),
                     txtCantidad.Texts.ToString(),
@@ -93,7 +93,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void RegistrarVenta()
         {
-            if (txtDocumento.Texts == "")
+            if (textBox2.Text == "")
             {
                 MessageBox.Show($"Ingrese el documento del cliente", "Gestion de venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -118,7 +118,7 @@ namespace Sistema_de_Gestion_GUI
             {
                 Usuario = new Usuario() { IdUser = oUsuario.IdUser },
                 DocumentoVenta = NumDoc,
-                DocumentoCliente = txtDocumento.Texts,
+                DocumentoCliente = textBox2.Text,
                 NombreCliente = txtCliente.Texts,
                 MontoPago = Convert.ToDecimal(txtPagoVenta.Texts),
                 MontoCambio = Convert.ToDecimal(txtCambioVenta.Texts),
@@ -161,9 +161,11 @@ namespace Sistema_de_Gestion_GUI
 
         private void Limpiar()
         {
-            txtIdProducto.Texts = "";
-            txtNombreProducto.Texts = "";
+            txtIdProducto.BackColor = Color.White;
+            textBox1.BackColor = Color.White;
 
+            textBox1.Text = "";
+            txtNombreProducto.Texts = "";
             txtStock.Texts = "";
             txtPrecioVenta.Texts = "";
             txtCantidad.Texts = "";
@@ -172,8 +174,12 @@ namespace Sistema_de_Gestion_GUI
         private void Nuevo()
         {
             Limpiar();
+
+            txtDocumento.BackColor = Color.White;
+            textBox2.BackColor = Color.White;
+
             txtIdCliente.Text = "";
-            txtDocumento.Texts = "";
+            textBox2.Text = "";
             txtCliente.Texts = "";
             txtPagoVenta.Texts = "";
             txtCambioVenta.Texts = "";
@@ -204,11 +210,11 @@ namespace Sistema_de_Gestion_GUI
                 MessageBox.Show("Venta - No exiten los productos", "Gestion de venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (txtPagoVenta.Texts.Trim() == "")
+            if (textBox3.Text.Trim() == "")
             {
-                txtPagoVenta.Texts = "";
+                textBox3.Text = "";
             }
-            if (decimal.TryParse(txtPagoVenta.Texts.Trim(), out Pagacon))
+            if (decimal.TryParse(textBox3.Text.Trim(), out Pagacon))
             {
                 if (Pagacon < Total)
                 {
@@ -234,7 +240,7 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    txtIdProducto.Texts = modal.producto.IdProducto.ToString();
+                    textBox1.Text = modal.producto.IdProducto.ToString();
                     txtNombreProducto.Texts = modal.producto.NombreProducto.ToString();
                     txtPrecioVenta.Texts = modal.producto.PrecioVenta.ToString();
                     txtStock.Texts = modal.producto.Stock.ToString();
@@ -254,7 +260,7 @@ namespace Sistema_de_Gestion_GUI
                 if (result == DialogResult.OK)
                 {
                     txtIdCliente.Text = modal.clientes.IdCliente.ToString();
-                    txtDocumento.Texts = modal.clientes.Documento.ToString();
+                    textBox2.Text = modal.clientes.Documento.ToString();
                     txtCliente.Texts = modal.clientes.NombreCliente.ToString();
                 }
                 else
@@ -412,6 +418,63 @@ namespace Sistema_de_Gestion_GUI
             if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Cliente oCliente = new ClienteService().CargarRegistro().Where(c => c.Documento == textBox2.Text).FirstOrDefault();
+
+                if (oCliente != null)
+                {
+                    txtDocumento.BackColor = Color.Honeydew;
+                    textBox2.BackColor = Color.Honeydew;
+                    txtIdCliente.Text = oCliente.IdCliente.ToString();
+                    txtCliente.Texts = oCliente.NombreCliente;
+                }
+                else
+                {
+                    txtDocumento.BackColor = Color.MistyRose;
+                    textBox2.BackColor = Color.MistyRose;
+                    txtIdCliente.Text = "";
+                    txtCliente.Texts = "";
+                }
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Producto oProducto = new ProductoService().CargarRegistro().Where(p => p.IdProducto == Convert.ToInt32(textBox1.Text)).FirstOrDefault();
+
+                if (oProducto != null)
+                {
+                    txtIdProducto.BackColor = Color.Honeydew;
+                    textBox1.BackColor = Color.Honeydew;
+                    txtIdProducto.Texts = oProducto.IdProducto.ToString();
+                    txtNombreProducto.Texts = oProducto.NombreProducto;
+                    txtPrecioVenta.Texts = oProducto.PrecioVenta.ToString();
+                    txtStock.Texts = oProducto.Stock.ToString();
+                    txtCantidad.Select();
+                }
+                else
+                {
+                    txtIdProducto.BackColor = Color.MistyRose;
+                    textBox1.BackColor = Color.MistyRose;
+                    txtIdProducto.Texts = "";
+                    txtNombreProducto.Texts = "";
+                }
+            }
+        }
+
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                CalcularCambio();
             }
         }
     }

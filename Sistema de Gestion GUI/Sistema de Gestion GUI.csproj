@@ -244,6 +244,9 @@
     <EmbeddedResource Include="FrmGestionDetalleCompra.resx">
       <DependentUpon>FrmGestionDetalleCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionDetalleVenta.resx">
+      <DependentUpon>FrmGestionDetalleVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionVenta.resx">
       <DependentUpon>FrmGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
@@ -446,6 +449,7 @@
     <None Include="Resources\Fit__3_-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PlantillaVenta.html" />
     <None Include="Resources\logo_pdf.png" />
     <None Include="Resources\PlantillaCompra.html" />
     <None Include="Resources\recibo1.png" />
@@ -478,6 +482,25 @@
     <None Include="Resources\bolsa.png" />
     <None Include="Resources\escoba1.png" />
     <Content Include="Resources\Fit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

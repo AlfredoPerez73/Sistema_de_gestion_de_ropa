@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidad;
 using iTextSharp.text;
@@ -26,6 +20,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void FrmGestionDetalleCompra_Load(object sender, EventArgs e)
         {
+            Limpiar();
             BorderRadiusPanel(panel3, 20);
             BorderRadiusPanel(panel2, 25);
         }
@@ -65,13 +60,13 @@ namespace Sistema_de_Gestion_GUI
             txtMontoTotal.Texts = compra.MontoTotal.ToString("0.00");
         }
 
-        private string GenerarContenidoHTML()
+        public string GenerarContenidoHTML()
         {
             string read_Html = Properties.Resources.PlantillaCompra.ToString();
             string NombreNegocio = "FITCONTOL";
             string NitNegocio = "35342-212";
             string CorreoNegocio = "alfredojoseperez@unicesar.edu.co";
-            string Compra = "Compra";
+            string Compra = "COMPRA";
 
             read_Html = read_Html.Replace("@nombrenegocio", NombreNegocio);
             read_Html = read_Html.Replace("@docnegocio", NitNegocio);
@@ -102,7 +97,7 @@ namespace Sistema_de_Gestion_GUI
             return read_Html;
         }
 
-        private void GuardarPDF(string contenidoHtml)
+        public string GuardarPDF(string contenidoHtml)
         {
             SaveFileDialog guardarPDF = new SaveFileDialog();
             guardarPDF.FileName = string.Format("ReporteCompra_{0}.pdf", txtNumDoc.Texts);
@@ -134,9 +129,22 @@ namespace Sistema_de_Gestion_GUI
 
                     PDFdoc.Close();
                     stream.Close();
-                    MessageBox.Show("Informe generado con éxito!", "Gestión de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult result = MessageBox.Show("Informe generado con éxito! ¿Deseas abrir la factura?", "Gestión de producto", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            System.Diagnostics.Process.Start(guardarPDF.FileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("No se pudo abrir el archivo. Error: " + ex.Message, "Error al abrir archivo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
+            return guardarPDF.FileName;
         }
 
         private void ReportePDF()

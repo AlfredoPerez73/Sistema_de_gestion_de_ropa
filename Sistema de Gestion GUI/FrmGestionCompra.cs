@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace Sistema_de_Gestion_GUI
     public partial class FrmGestionCompra : Form
     {
         private Usuario oUsuario;
+
         private bool allowEdit = false;
         decimal precioCompra = 0;
         decimal precioVenta = 0;
@@ -66,7 +69,7 @@ namespace Sistema_de_Gestion_GUI
             {
                 tblRegistro.Rows.Add(new object[]
                 {
-                    txtIdProducto.Texts,
+                    textBox1.Text,
                     txtNombreProducto.Texts,
                     precioCompra.ToString("0.00"),
                     precioVenta.ToString("0.00"),
@@ -108,7 +111,7 @@ namespace Sistema_de_Gestion_GUI
             bool Respuesta = new CompraService().RegistrarCompra(compra, DetalleCompra);
             if (Respuesta)
             {
-                var result = MessageBox.Show($"Compra generada N° {NumDoc}", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Compra generada N° {NumDoc}. ¿Deseas ver la factura de la compra?", "Gestion de compra", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 Nuevo();
             }
             else
@@ -119,9 +122,11 @@ namespace Sistema_de_Gestion_GUI
 
         private void Limpiar()
         {
-            txtIdProducto.Texts = "";
-            txtNombreProducto.Texts = "";
+            txtDocumento.BackColor = Color.White;
+            textBox2.BackColor = Color.White;
 
+            textBox1.Text = "";
+            txtNombreProducto.Texts = "";
             txtPrecioCompra.Texts = "";
             txtPrecioVenta.Texts = "";
             txtCantidad.Texts = "";
@@ -130,8 +135,12 @@ namespace Sistema_de_Gestion_GUI
         private void Nuevo()
         {
             Limpiar();
+
+            txtDocumento.BackColor = Color.White;
+            textBox2.BackColor = Color.White;
+
             txtIdProveedor.Text = "";
-            txtDocumento.Texts = "";
+            textBox2.Text = "";
             txtProveedor.Texts = "";
             tblRegistro.Rows.Clear();
             CalcularPagoTotal();
@@ -238,7 +247,7 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    txtIdProducto.Texts = modal.producto.IdProducto.ToString();
+                    textBox1.Text = modal.producto.IdProducto.ToString();
                     txtNombreProducto.Texts = modal.producto.NombreProducto.ToString();
                 }
                 else
@@ -256,7 +265,7 @@ namespace Sistema_de_Gestion_GUI
                 if (result == DialogResult.OK)
                 {
                     txtIdProveedor.Text = modal.proveedor.IdProveedor.ToString();
-                    txtDocumento.Texts = modal.proveedor.Documento.ToString();
+                    textBox2.Text = modal.proveedor.Documento.ToString();
                     txtProveedor.Texts = modal.proveedor.RazonSocial.ToString();
                 }
                 else
@@ -354,6 +363,56 @@ namespace Sistema_de_Gestion_GUI
         {
             BorderRadiusPanel(panel3, 25);
             BorderRadiusPanel(panel2, 20);
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Producto oProducto = new ProductoService().CargarRegistro().Where(p => p.IdProducto == Convert.ToInt32(textBox1.Text)).FirstOrDefault();
+
+                if (oProducto != null)
+                {
+                    txtIdProducto.BackColor = Color.Honeydew;
+                    textBox1.BackColor = Color.Honeydew;
+                    txtIdProducto.Texts = oProducto.IdProducto.ToString();
+                    txtNombreProducto.Texts = oProducto.NombreProducto;
+                    txtPrecioCompra.Select();
+                }
+                else
+                {
+                    txtIdProducto.BackColor = Color.MistyRose;
+                    textBox1.BackColor = Color.MistyRose;
+                    txtIdProducto.Texts = "";
+                    txtNombreProducto.Texts = "";
+                }
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                Proveedor oProveedor = new ProveedorService().CargarRegistro().Where(p => p.Documento == textBox2.Text).FirstOrDefault();
+
+                if (oProveedor != null)
+                {
+                    txtDocumento.BackColor = Color.Honeydew;
+                    textBox2.BackColor = Color.Honeydew;
+                    txtIdProveedor.Text = oProveedor.IdProveedor.ToString();
+                    txtDocumento.Texts = oProveedor.Documento;
+                    txtProveedor.Texts = oProveedor.RazonSocial;
+                    txtPrecioCompra.Select();
+                }
+                else
+                {
+                    txtDocumento.BackColor = Color.MistyRose;
+                    textBox2.BackColor = Color.MistyRose;
+                    txtIdProveedor.Text = "";
+                    txtDocumento.Texts = "";
+                    txtProveedor.Texts = "";
+                }
+            }
         }
     }
 }

@@ -24,9 +24,22 @@ namespace Logica
             return ventaRepository.RegistrarVenta(venta, DetalleCompra);
         }
 
+        public Venta CargarRegistroVenta(string NumDoc)
+        {
+            var oVenta = ventaRepository.CargarRegistroVenta(NumDoc);
+            if (oVenta.IdVenta != 0)
+            {
+                List<Detalle_Venta> oDetalleVenta = ventaRepository.CargarRegistroDetalleVenta(oVenta.IdVenta);
+                oVenta.DetalleVentaList = oDetalleVenta;
+            }
+            return oVenta;
+        }
+
         public bool ModificarStock(int IdProducto, int Cantidad, bool Estado)
         {
             return ventaRepository.ModificarStock(IdProducto, Cantidad, Estado);
         }
+
+
     }
 }

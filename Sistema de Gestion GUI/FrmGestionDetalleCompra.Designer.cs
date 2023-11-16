@@ -33,9 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new CustomControls.RJControls.RJButton();
             this.txtNumDoc = new CustomControls.RJControls.RJTextBox();
             this.txtMontoTotal = new CustomControls.RJControls.RJTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnDescargarPDF = new CustomControls.RJControls.RJButton();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tblRegistro = new System.Windows.Forms.DataGridView();
@@ -43,6 +45,7 @@
             this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBuscarCompra = new CustomControls.RJControls.RJButton();
             this.txtBuscarCompra = new CustomControls.RJControls.RJTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,9 +58,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDocumento = new CustomControls.RJControls.RJTextBox();
-            this.rjButton1 = new CustomControls.RJControls.RJButton();
-            this.btnDescargarPDF = new CustomControls.RJControls.RJButton();
-            this.btnBuscarCompra = new CustomControls.RJControls.RJButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -105,6 +105,31 @@
             this.panel2.Size = new System.Drawing.Size(738, 551);
             this.panel2.TabIndex = 0;
             // 
+            // rjButton1
+            // 
+            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjButton1.BackColor = System.Drawing.Color.LightGray;
+            this.rjButton1.BackgroundColor = System.Drawing.Color.LightGray;
+            this.rjButton1.BorderColor = System.Drawing.Color.LightGray;
+            this.rjButton1.BorderRadius = 15;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.White;
+            this.rjButton1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba1;
+            this.rjButton1.Location = new System.Drawing.Point(687, 62);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(39, 32);
+            this.rjButton1.TabIndex = 60;
+            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.rjButton1.TextColor = System.Drawing.Color.White;
+            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.rjButton1.UseVisualStyleBackColor = false;
+            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            // 
             // txtNumDoc
             // 
             this.txtNumDoc.BackColor = System.Drawing.SystemColors.Window;
@@ -124,6 +149,7 @@
             this.txtNumDoc.PlaceholderText = "";
             this.txtNumDoc.Size = new System.Drawing.Size(158, 32);
             this.txtNumDoc.TabIndex = 59;
+            this.txtNumDoc.TabStop = false;
             this.txtNumDoc.Texts = "";
             this.txtNumDoc.UnderlinedStyle = false;
             // 
@@ -161,6 +187,31 @@
             this.label6.Size = new System.Drawing.Size(130, 17);
             this.label6.TabIndex = 57;
             this.label6.Text = "Monto de la compra";
+            // 
+            // btnDescargarPDF
+            // 
+            this.btnDescargarPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDescargarPDF.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnDescargarPDF.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.btnDescargarPDF.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.btnDescargarPDF.BorderRadius = 15;
+            this.btnDescargarPDF.BorderSize = 0;
+            this.btnDescargarPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDescargarPDF.FlatAppearance.BorderSize = 0;
+            this.btnDescargarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescargarPDF.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescargarPDF.ForeColor = System.Drawing.Color.White;
+            this.btnDescargarPDF.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiquetas1;
+            this.btnDescargarPDF.Location = new System.Drawing.Point(617, 502);
+            this.btnDescargarPDF.Name = "btnDescargarPDF";
+            this.btnDescargarPDF.Size = new System.Drawing.Size(101, 32);
+            this.btnDescargarPDF.TabIndex = 56;
+            this.btnDescargarPDF.Text = "Descargar";
+            this.btnDescargarPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDescargarPDF.TextColor = System.Drawing.Color.White;
+            this.btnDescargarPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDescargarPDF.UseVisualStyleBackColor = false;
+            this.btnDescargarPDF.Click += new System.EventHandler(this.btnDescargarPDF_Click);
             // 
             // label5
             // 
@@ -264,6 +315,31 @@
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.ReadOnly = true;
             this.SubTotal.Width = 180;
+            // 
+            // btnBuscarCompra
+            // 
+            this.btnBuscarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarCompra.BackColor = System.Drawing.Color.LightGray;
+            this.btnBuscarCompra.BackgroundColor = System.Drawing.Color.LightGray;
+            this.btnBuscarCompra.BorderColor = System.Drawing.Color.LightGray;
+            this.btnBuscarCompra.BorderRadius = 15;
+            this.btnBuscarCompra.BorderSize = 0;
+            this.btnBuscarCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCompra.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnBuscarCompra.FlatAppearance.BorderSize = 0;
+            this.btnBuscarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCompra.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.busqueda;
+            this.btnBuscarCompra.Location = new System.Drawing.Point(643, 62);
+            this.btnBuscarCompra.Name = "btnBuscarCompra";
+            this.btnBuscarCompra.Size = new System.Drawing.Size(39, 32);
+            this.btnBuscarCompra.TabIndex = 54;
+            this.btnBuscarCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCompra.TextColor = System.Drawing.Color.White;
+            this.btnBuscarCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarCompra.UseVisualStyleBackColor = false;
+            this.btnBuscarCompra.Click += new System.EventHandler(this.btnBuscarCompra_Click);
             // 
             // txtBuscarCompra
             // 
@@ -457,81 +533,6 @@
             this.txtDocumento.TabIndex = 44;
             this.txtDocumento.Texts = "";
             this.txtDocumento.UnderlinedStyle = false;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjButton1.BackColor = System.Drawing.Color.LightGray;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.LightGray;
-            this.rjButton1.BorderColor = System.Drawing.Color.LightGray;
-            this.rjButton1.BorderRadius = 15;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba1;
-            this.rjButton1.Location = new System.Drawing.Point(687, 62);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(39, 32);
-            this.rjButton1.TabIndex = 60;
-            this.rjButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
-            // 
-            // btnDescargarPDF
-            // 
-            this.btnDescargarPDF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDescargarPDF.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnDescargarPDF.BackgroundColor = System.Drawing.Color.RoyalBlue;
-            this.btnDescargarPDF.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.btnDescargarPDF.BorderRadius = 15;
-            this.btnDescargarPDF.BorderSize = 0;
-            this.btnDescargarPDF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDescargarPDF.FlatAppearance.BorderSize = 0;
-            this.btnDescargarPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDescargarPDF.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDescargarPDF.ForeColor = System.Drawing.Color.White;
-            this.btnDescargarPDF.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiquetas1;
-            this.btnDescargarPDF.Location = new System.Drawing.Point(617, 502);
-            this.btnDescargarPDF.Name = "btnDescargarPDF";
-            this.btnDescargarPDF.Size = new System.Drawing.Size(101, 32);
-            this.btnDescargarPDF.TabIndex = 56;
-            this.btnDescargarPDF.Text = "Descargar";
-            this.btnDescargarPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDescargarPDF.TextColor = System.Drawing.Color.White;
-            this.btnDescargarPDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDescargarPDF.UseVisualStyleBackColor = false;
-            this.btnDescargarPDF.Click += new System.EventHandler(this.btnDescargarPDF_Click);
-            // 
-            // btnBuscarCompra
-            // 
-            this.btnBuscarCompra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarCompra.BackColor = System.Drawing.Color.LightGray;
-            this.btnBuscarCompra.BackgroundColor = System.Drawing.Color.LightGray;
-            this.btnBuscarCompra.BorderColor = System.Drawing.Color.LightGray;
-            this.btnBuscarCompra.BorderRadius = 15;
-            this.btnBuscarCompra.BorderSize = 0;
-            this.btnBuscarCompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCompra.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnBuscarCompra.FlatAppearance.BorderSize = 0;
-            this.btnBuscarCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCompra.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCompra.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.busqueda;
-            this.btnBuscarCompra.Location = new System.Drawing.Point(643, 62);
-            this.btnBuscarCompra.Name = "btnBuscarCompra";
-            this.btnBuscarCompra.Size = new System.Drawing.Size(39, 32);
-            this.btnBuscarCompra.TabIndex = 54;
-            this.btnBuscarCompra.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarCompra.TextColor = System.Drawing.Color.White;
-            this.btnBuscarCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscarCompra.UseVisualStyleBackColor = false;
-            this.btnBuscarCompra.Click += new System.EventHandler(this.btnBuscarCompra_Click);
             // 
             // FrmGestionDetalleCompra
             // 
