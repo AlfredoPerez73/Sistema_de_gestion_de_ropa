@@ -34,12 +34,5 @@ namespace Logica
             }
             return oVenta;
         }
-
-        public bool ModificarStock(int IdProducto, int Cantidad, bool Estado)
-        {
-            return ventaRepository.ModificarStock(IdProducto, Cantidad, Estado);
-        }
-
-
     }
 }

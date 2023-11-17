@@ -39,11 +39,12 @@ namespace Sistema_de_Gestion_GUI
                     Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                     Producto producto = new Producto
                     {
+                        Codigo = txtCodigo.Texts,
                         NombreProducto = txtNombreProducto.Texts.ToUpper(),
                         Marca = txtMarcaProducto.Texts.ToUpper(),
                         Categoria = CategoriaIndex
                     };
-                    var Id = productoService.BuscarID(txtNombreProducto.Texts, txtMarcaProducto.Texts, cboTipoCategoria.Texts);
+                    var Id = productoService.BuscarID(txtCodigo.Texts);
                     if (Id != true)
                     {
                         var msg = productoService.Guardar(producto);
@@ -53,7 +54,7 @@ namespace Sistema_de_Gestion_GUI
                     }
                     else
                     {
-                        MessageBox.Show($"El registro con la ID {txtNombreProducto.Texts} ya existe!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"El registro con la ID {txtCodigo.Texts} ya existe!", "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
@@ -73,6 +74,7 @@ namespace Sistema_de_Gestion_GUI
                     int index = tblRegistro.Rows.Add();
                     DataGridViewRow row = tblRegistro.Rows[index];
                     row.Cells["IdProducto"].Value = producto.IdProducto;
+                    row.Cells["Codigo"].Value = producto.Codigo;
                     row.Cells["IdCategoria"].Value = producto.Categoria.IdCategoria;
                     row.Cells["TipoCategoria"].Value = producto.Categoria.TipoCategoria;
                     row.Cells["NombreProducto"].Value = producto.NombreProducto;
@@ -104,6 +106,7 @@ namespace Sistema_de_Gestion_GUI
                 Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                 Producto producto = new Producto
                 {
+                    Codigo = txtCodigo.Texts,
                     NombreProducto = txtNombreProducto.Texts.ToUpper(),
                     Marca = txtMarcaProducto.Texts.ToUpper(),
                     Categoria = CategoriaIndex,
@@ -178,30 +181,35 @@ namespace Sistema_de_Gestion_GUI
         private void EnabledUpdate()
         {
             txtIdProducto.Enabled = true;
+            txtCodigo.Enabled = true;
             btnGuardarProducto.Enabled = true;
             btnEliminarProducto.Enabled = true;
             txtIdProducto.Texts = "";
+            txtCodigo.Texts = "";
             cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
-            txtIdProducto.Focus();
+            txtCodigo.Focus();
         }
 
         private void EnabledDelete()
         {
             txtIdProducto.Enabled = true;
+            txtCodigo.Enabled = true;
             btnGuardarProducto.Enabled = true;
             btnModificarProducto.Enabled = true;
             txtIdProducto.Texts = "";
+            txtCodigo.Texts = "";
             cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
-            txtIdProducto.Focus();
+            txtCodigo.Focus();
         }
 
         private void EnabledDgtv()
         {
             txtIdProducto.Enabled = false;
+            txtCodigo.Enabled = false;
             btnGuardarProducto.Enabled = false;
             btnModificarProducto.Enabled = true;
         }
@@ -209,13 +217,15 @@ namespace Sistema_de_Gestion_GUI
         private void Nuevo()
         {
             txtIdProducto.Enabled = true;
+            txtCodigo.Enabled = true;
             btnGuardarProducto.Enabled = true;
             btnEliminarProducto.Enabled = true;
             txtIdProducto.Texts = "";
+            txtCodigo.Texts = "";
             cboTipoCategoria.SelectedIndex = -1;
             txtNombreProducto.Texts = "";
             txtMarcaProducto.Texts = "";
-            txtIdProducto.Focus();
+            txtCodigo.Focus();
         }
 
         private DataTable DataTable(DataGridView DataTableParametro)
@@ -236,7 +246,7 @@ namespace Sistema_de_Gestion_GUI
                 {
                     DataTable.Rows.Add(new object[]
                     {
-                        row.Cells[1].Value.ToString(),
+                        row.Cells[2].Value.ToString(),
                         row.Cells[3].Value.ToString(),
                         row.Cells[4].Value.ToString(),
                         row.Cells[5].Value.ToString(),
@@ -334,6 +344,7 @@ namespace Sistema_de_Gestion_GUI
                 {
                     EnabledDgtv();
                     txtIdProducto.Texts = tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString();
+                    txtCodigo.Texts = tblRegistro.Rows[index].Cells["Codigo"].Value.ToString();
                     txtNombreProducto.Texts = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString();
                     txtMarcaProducto.Texts = tblRegistro.Rows[index].Cells["Marca"].Value.ToString();
                     cboTipoCategoria.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
@@ -473,6 +484,14 @@ namespace Sistema_de_Gestion_GUI
         private void btnExcel_Click(object sender, EventArgs e)
         {
             ReporteExcel();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

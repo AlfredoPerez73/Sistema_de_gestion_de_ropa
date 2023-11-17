@@ -41,7 +41,7 @@ namespace Sistema_de_Gestion_GUI
         {
             bool ProductoExiste = false;
 
-            if (txtIdProducto.Texts == "")
+            if (txtIdProducto.Text == "")
             {
                 MessageBox.Show($"Ingrese un producto", "Gestion de compra", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -59,7 +59,7 @@ namespace Sistema_de_Gestion_GUI
 
             foreach (DataGridViewRow Fils in tblRegistro.Rows)
             {
-                if (Fils.Cells["IdProducto"].Value.ToString() == txtIdProducto.Texts)
+                if (Fils.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
                 {
                     ProductoExiste = true;
                     break;
@@ -69,7 +69,7 @@ namespace Sistema_de_Gestion_GUI
             {
                 tblRegistro.Rows.Add(new object[]
                 {
-                    textBox1.Text,
+                    txtIdProducto.Text,
                     txtNombreProducto.Texts,
                     precioCompra.ToString("0.00"),
                     precioVenta.ToString("0.00"),
@@ -79,7 +79,7 @@ namespace Sistema_de_Gestion_GUI
             }
             CalcularPagoTotal();
             Limpiar();
-            txtIdProducto.Select();
+            txtCodigo.Select();
 
         }
 
@@ -160,8 +160,8 @@ namespace Sistema_de_Gestion_GUI
                 DetalleCompra.Rows.Add(new object[]
                 {
                     Convert.ToInt32(Rows.Cells["IdProducto"].Value.ToString()),
-                    Rows.Cells["PrecioCompra"].Value.ToString(),
-                    Rows.Cells["PrecioVenta"].Value.ToString(),
+                    Rows.Cells["PrecioCompra2"].Value.ToString(),
+                    Rows.Cells["PrecioVenta2"].Value.ToString(),
                     Rows.Cells["Cantidad"].Value.ToString(),
                     Rows.Cells["SubTotal"].Value.ToString(),
                 });
@@ -247,12 +247,13 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    textBox1.Text = modal.producto.IdProducto.ToString();
+                    txtIdProducto.Text = modal.producto.IdProducto.ToString();
+                    textBox1.Text = modal.producto.Codigo.ToString();
                     txtNombreProducto.Texts = modal.producto.NombreProducto.ToString();
                 }
                 else
                 {
-                    txtDocumento.Select();
+                    textBox1.Select();
                 }
             }
         }
@@ -270,7 +271,7 @@ namespace Sistema_de_Gestion_GUI
                 }
                 else
                 {
-                    txtDocumento.Select();
+                    textBox2.Select();
                 }
             }
         }
@@ -369,21 +370,23 @@ namespace Sistema_de_Gestion_GUI
         {
             if (e.KeyData == Keys.Enter)
             {
-                Producto oProducto = new ProductoService().CargarRegistro().Where(p => p.IdProducto == Convert.ToInt32(textBox1.Text)).FirstOrDefault();
+                Producto oProducto = new ProductoService().CargarRegistro().Where(p => p.Codigo == textBox1.Text).FirstOrDefault();
 
                 if (oProducto != null)
                 {
-                    txtIdProducto.BackColor = Color.Honeydew;
+                    txtCodigo.BackColor = Color.Honeydew;
                     textBox1.BackColor = Color.Honeydew;
-                    txtIdProducto.Texts = oProducto.IdProducto.ToString();
+                    txtIdProducto.Text = oProducto.IdProducto.ToString();
+                    txtCodigo.Texts = oProducto.Codigo.ToString();
                     txtNombreProducto.Texts = oProducto.NombreProducto;
                     txtPrecioCompra.Select();
                 }
                 else
                 {
-                    txtIdProducto.BackColor = Color.MistyRose;
+                    txtCodigo.BackColor = Color.MistyRose;
                     textBox1.BackColor = Color.MistyRose;
-                    txtIdProducto.Texts = "";
+                    txtIdProducto.Text = "";
+                    txtCodigo.Texts = "";
                     txtNombreProducto.Texts = "";
                 }
             }

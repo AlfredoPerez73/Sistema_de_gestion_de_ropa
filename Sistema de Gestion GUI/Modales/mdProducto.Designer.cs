@@ -41,6 +41,7 @@
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +91,7 @@
             this.tblRegistro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
             this.IdProducto,
+            this.Codigo,
             this.NombreProducto,
             this.PrecioVenta,
             this.Stock});
@@ -233,6 +235,12 @@
             this.IdProducto.ReadOnly = true;
             this.IdProducto.Width = 150;
             // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
             // NombreProducto
             // 
             this.NombreProducto.HeaderText = "Nombre de producto";
@@ -285,6 +293,7 @@
         private System.Windows.Forms.DataGridView tblRegistro;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stock;

@@ -48,8 +48,8 @@ namespace Datos
         {
             try
             {
-                string Registro = "INSERT INTO PRODUCTO(NombreProducto,Marca,IdCategoria,TipoCategoria) VALUES" +
-                    "('" + producto.NombreProducto + "', '" + producto.Marca + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
+                string Registro = "INSERT INTO PRODUCTO(Codigo,NombreProducto,Marca,IdCategoria,TipoCategoria) VALUES" +
+                    "('" + producto.Codigo + "','" + producto.NombreProducto + "', '" + producto.Marca + "', '" + producto.Categoria.IdCategoria + "', '" + producto.Categoria.TipoCategoria + "');";
                 SqlCommand command = new SqlCommand(Registro, Connection);
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
@@ -68,6 +68,7 @@ namespace Datos
             {
                 string Actualizar = "ModificarProductos";
                 SqlCommand command = new SqlCommand(Actualizar, Connection);
+                command.Parameters.AddWithValue("@Codigo", producto.Codigo);
                 command.Parameters.AddWithValue("@NombreProducto", producto.NombreProducto);
                 command.Parameters.AddWithValue("@Marca", producto.Marca);
                 command.Parameters.AddWithValue("@IdCategoria", producto.Categoria.IdCategoria);
@@ -115,6 +116,7 @@ namespace Datos
             Producto producto = new Producto
             {
                 IdProducto = Convert.ToInt32(reader["IdProducto"]),
+                Codigo = Convert.ToString(reader["Codigo"]),
                 NombreProducto = Convert.ToString(reader["NombreProducto"]),
                 Marca = Convert.ToString(reader["Marca"]),
                 Stock = Convert.ToInt32(reader["Stock"]),

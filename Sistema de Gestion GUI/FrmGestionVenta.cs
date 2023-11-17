@@ -37,7 +37,7 @@ namespace Sistema_de_Gestion_GUI
         {
             bool ProductoExiste = false;
 
-            if (textBox1.Text == "")
+            if (txtIdProducto.Text == "")
             {
                 MessageBox.Show($"Ingrese un producto", "Gestion de venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -61,7 +61,7 @@ namespace Sistema_de_Gestion_GUI
 
             foreach (DataGridViewRow Fils in tblRegistro.Rows)
             {
-                if (Fils.Cells["IdProducto"].Value.ToString() == textBox1.Text)
+                if (Fils.Cells["IdProducto"].Value.ToString() == txtIdProducto.Text)
                 {
                     ProductoExiste = true;
                     break;
@@ -69,14 +69,7 @@ namespace Sistema_de_Gestion_GUI
             }
             if (!ProductoExiste)
             {
-                bool Estado = false;
-                bool Respuesta = new VentaService().ModificarStock(
-                    Convert.ToInt32(textBox1.Text), 
-                    Convert.ToInt32(txtCantidad.Texts.ToString()), Estado);
-
-                if (Respuesta)
-                {
-                    tblRegistro.Rows.Add(new object[]
+                tblRegistro.Rows.Add(new object[]
                 {
                     textBox1.Text,
                     txtNombreProducto.Texts,
@@ -84,16 +77,15 @@ namespace Sistema_de_Gestion_GUI
                     txtCantidad.Texts.ToString(),
                     (Convert.ToDecimal(txtCantidad.Texts) * Precio).ToString("0.00")
                 });
-                }
             }
             CalcularPagoTotal();
             Limpiar();
-            txtIdProducto.Select();
+            txtCodigo.Select();
         }
 
         private void RegistrarVenta()
         {
-            if (textBox2.Text == "")
+            if (txtIdCliente.Text == "")
             {
                 MessageBox.Show($"Ingrese el documento del cliente", "Gestion de venta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -120,7 +112,7 @@ namespace Sistema_de_Gestion_GUI
                 DocumentoVenta = NumDoc,
                 DocumentoCliente = textBox2.Text,
                 NombreCliente = txtCliente.Texts,
-                MontoPago = Convert.ToDecimal(txtPagoVenta.Texts),
+                MontoPago = Convert.ToDecimal(textBox3.Text),
                 MontoCambio = Convert.ToDecimal(txtCambioVenta.Texts),
                 MontoTotal = Convert.ToDecimal(txtTotalPagar.Texts),
                 
@@ -161,9 +153,10 @@ namespace Sistema_de_Gestion_GUI
 
         private void Limpiar()
         {
-            txtIdProducto.BackColor = Color.White;
+            txtCodigo.BackColor = Color.White;
             textBox1.BackColor = Color.White;
 
+            txtIdProducto.Text = "";
             textBox1.Text = "";
             txtNombreProducto.Texts = "";
             txtStock.Texts = "";
@@ -240,7 +233,8 @@ namespace Sistema_de_Gestion_GUI
                 var result = modal.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    textBox1.Text = modal.producto.IdProducto.ToString();
+                    txtIdProducto.Text = modal.producto.IdProducto.ToString();
+                    textBox1.Text = modal.producto.Codigo.ToString();
                     txtNombreProducto.Texts = modal.producto.NombreProducto.ToString();
                     txtPrecioVenta.Texts = modal.producto.PrecioVenta.ToString();
                     txtStock.Texts = modal.producto.Stock.ToString();
@@ -312,16 +306,9 @@ namespace Sistema_de_Gestion_GUI
                 int index = e.RowIndex;
                 if (index >= 0)
                 {
-                    bool Estado = true;
-                    bool Respuesta = new VentaService().ModificarStock(Convert.ToInt32(tblRegistro.Rows[index].Cells["IdProducto"].Value.ToString()),
-                        Convert.ToInt32(tblRegistro.Rows[index].Cells["Cantidad"].Value.ToString()), Estado);
-
-                    if (Respuesta)
-                    {
-                        tblRegistro.Rows.RemoveAt(index);
-                        CalcularPagoTotal();
-                        CalcularCambio();
-                    }
+                    tblRegistro.Rows.RemoveAt(index);
+                    CalcularPagoTotal();
+                    CalcularCambio();
                 }
             }
         }
@@ -452,9 +439,10 @@ namespace Sistema_de_Gestion_GUI
 
                 if (oProducto != null)
                 {
-                    txtIdProducto.BackColor = Color.Honeydew;
+                    txtCodigo.BackColor = Color.Honeydew;
                     textBox1.BackColor = Color.Honeydew;
-                    txtIdProducto.Texts = oProducto.IdProducto.ToString();
+                    txtIdProducto.Text = oProducto.IdProducto.ToString();
+                    txtCodigo.Texts = oProducto.Codigo.ToString();
                     txtNombreProducto.Texts = oProducto.NombreProducto;
                     txtPrecioVenta.Texts = oProducto.PrecioVenta.ToString();
                     txtStock.Texts = oProducto.Stock.ToString();
@@ -462,9 +450,10 @@ namespace Sistema_de_Gestion_GUI
                 }
                 else
                 {
-                    txtIdProducto.BackColor = Color.MistyRose;
+                    txtCodigo.BackColor = Color.MistyRose;
                     textBox1.BackColor = Color.MistyRose;
-                    txtIdProducto.Texts = "";
+                    txtIdProducto.Text = "";
+                    txtCodigo.Texts = "";
                     txtNombreProducto.Texts = "";
                 }
             }

@@ -33,16 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tblRegistro = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboTipoCategoria = new CustomControls.RJControls.RJComboBox();
             this.txtMarcaProducto = new CustomControls.RJControls.RJTextBox();
@@ -63,6 +53,19 @@
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
+            this.txtCodigo = new CustomControls.RJControls.RJTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -91,6 +94,7 @@
             this.btnSeleccionar,
             this.IdProducto,
             this.IdCategoria,
+            this.Codigo,
             this.TipoCategoria,
             this.NombreProducto,
             this.Marca,
@@ -126,101 +130,14 @@
             this.tblRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistro_CellContentClick);
             this.tblRegistro.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistro_CellPainting);
             // 
-            // btnSeleccionar
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 3;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Text = "Id de producto";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "Id de producto";
-            this.IdProducto.MinimumWidth = 6;
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.ReadOnly = true;
-            this.IdProducto.Width = 115;
-            // 
-            // IdCategoria
-            // 
-            this.IdCategoria.HeaderText = "Id de categoria";
-            this.IdCategoria.MinimumWidth = 6;
-            this.IdCategoria.Name = "IdCategoria";
-            this.IdCategoria.ReadOnly = true;
-            this.IdCategoria.Visible = false;
-            this.IdCategoria.Width = 120;
-            // 
-            // TipoCategoria
-            // 
-            this.TipoCategoria.HeaderText = "Categoria";
-            this.TipoCategoria.MinimumWidth = 6;
-            this.TipoCategoria.Name = "TipoCategoria";
-            this.TipoCategoria.ReadOnly = true;
-            this.TipoCategoria.Width = 125;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Nombre de producto";
-            this.NombreProducto.MinimumWidth = 6;
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            this.NombreProducto.Width = 160;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            this.Marca.Width = 125;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 6;
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 125;
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Precio de compra";
-            this.PrecioCompra.MinimumWidth = 6;
-            this.PrecioCompra.Name = "PrecioCompra";
-            this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Width = 160;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.HeaderText = "Precio de venta";
-            this.PrecioVenta.MinimumWidth = 6;
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 160;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha de registro";
-            this.FechaRegistro.MinimumWidth = 6;
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 150;
-            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.txtCodigo);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.cboTipoCategoria);
             this.panel3.Controls.Add(this.txtMarcaProducto);
             this.panel3.Controls.Add(this.txtNombreProducto);
@@ -251,7 +168,7 @@
             this.cboTipoCategoria.IconColor = System.Drawing.Color.SteelBlue;
             this.cboTipoCategoria.ListBackColor = System.Drawing.Color.White;
             this.cboTipoCategoria.ListTextColor = System.Drawing.Color.Black;
-            this.cboTipoCategoria.Location = new System.Drawing.Point(28, 80);
+            this.cboTipoCategoria.Location = new System.Drawing.Point(28, 139);
             this.cboTipoCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.cboTipoCategoria.MinimumSize = new System.Drawing.Size(150, 24);
             this.cboTipoCategoria.Name = "cboTipoCategoria";
@@ -270,7 +187,7 @@
             this.txtMarcaProducto.BorderSize = 2;
             this.txtMarcaProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMarcaProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtMarcaProducto.Location = new System.Drawing.Point(23, 177);
+            this.txtMarcaProducto.Location = new System.Drawing.Point(23, 236);
             this.txtMarcaProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtMarcaProducto.Multiline = false;
             this.txtMarcaProducto.Name = "txtMarcaProducto";
@@ -294,7 +211,7 @@
             this.txtNombreProducto.BorderSize = 2;
             this.txtNombreProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombreProducto.Location = new System.Drawing.Point(23, 124);
+            this.txtNombreProducto.Location = new System.Drawing.Point(23, 183);
             this.txtNombreProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreProducto.Multiline = false;
             this.txtNombreProducto.Name = "txtNombreProducto";
@@ -340,7 +257,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 107);
+            this.label4.Location = new System.Drawing.Point(30, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 17);
             this.label4.TabIndex = 3;
@@ -372,7 +289,7 @@
             this.btnLimpiarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarProducto.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.escoba;
-            this.btnLimpiarProducto.Location = new System.Drawing.Point(23, 315);
+            this.btnLimpiarProducto.Location = new System.Drawing.Point(23, 374);
             this.btnLimpiarProducto.Name = "btnLimpiarProducto";
             this.btnLimpiarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnLimpiarProducto.TabIndex = 26;
@@ -395,7 +312,7 @@
             this.btnEliminarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminarProducto.ForeColor = System.Drawing.Color.White;
             this.btnEliminarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.basura1;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(22, 281);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(22, 340);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnEliminarProducto.TabIndex = 25;
@@ -418,7 +335,7 @@
             this.btnModificarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificarProducto.ForeColor = System.Drawing.Color.White;
             this.btnModificarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.cuadrado_de_la_pluma;
-            this.btnModificarProducto.Location = new System.Drawing.Point(22, 247);
+            this.btnModificarProducto.Location = new System.Drawing.Point(22, 306);
             this.btnModificarProducto.Name = "btnModificarProducto";
             this.btnModificarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnModificarProducto.TabIndex = 24;
@@ -441,7 +358,7 @@
             this.btnGuardarProducto.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarProducto.ForeColor = System.Drawing.Color.White;
             this.btnGuardarProducto.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.disco;
-            this.btnGuardarProducto.Location = new System.Drawing.Point(22, 214);
+            this.btnGuardarProducto.Location = new System.Drawing.Point(22, 273);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
             this.btnGuardarProducto.Size = new System.Drawing.Size(203, 32);
             this.btnGuardarProducto.TabIndex = 23;
@@ -473,7 +390,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 160);
+            this.label5.Location = new System.Drawing.Point(30, 219);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(128, 17);
             this.label5.TabIndex = 4;
@@ -486,7 +403,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 55);
+            this.label3.Location = new System.Drawing.Point(30, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(110, 17);
             this.label3.TabIndex = 2;
@@ -605,6 +522,139 @@
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCodigo.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txtCodigo.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtCodigo.BorderRadius = 15;
+            this.txtCodigo.BorderSize = 2;
+            this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCodigo.Location = new System.Drawing.Point(23, 77);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigo.Multiline = false;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCodigo.PasswordChar = false;
+            this.txtCodigo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtCodigo.PlaceholderText = "";
+            this.txtCodigo.Size = new System.Drawing.Size(193, 32);
+            this.txtCodigo.TabIndex = 56;
+            this.txtCodigo.Texts = "";
+            this.txtCodigo.UnderlinedStyle = false;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Codigo";
+            // 
+            // btnSeleccionar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 3;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Text = "Id de producto";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Id de producto";
+            this.IdProducto.MinimumWidth = 6;
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Visible = false;
+            this.IdProducto.Width = 115;
+            // 
+            // IdCategoria
+            // 
+            this.IdCategoria.HeaderText = "Id de categoria";
+            this.IdCategoria.MinimumWidth = 6;
+            this.IdCategoria.Name = "IdCategoria";
+            this.IdCategoria.ReadOnly = true;
+            this.IdCategoria.Visible = false;
+            this.IdCategoria.Width = 120;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // TipoCategoria
+            // 
+            this.TipoCategoria.HeaderText = "Categoria";
+            this.TipoCategoria.MinimumWidth = 6;
+            this.TipoCategoria.Name = "TipoCategoria";
+            this.TipoCategoria.ReadOnly = true;
+            this.TipoCategoria.Width = 125;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Nombre de producto";
+            this.NombreProducto.MinimumWidth = 6;
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            this.NombreProducto.Width = 160;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 125;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 6;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 125;
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Precio de compra";
+            this.PrecioCompra.MinimumWidth = 6;
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
+            this.PrecioCompra.Width = 160;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.HeaderText = "Precio de venta";
+            this.PrecioVenta.MinimumWidth = 6;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 160;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.MinimumWidth = 6;
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 150;
+            // 
             // FrmGestionProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -649,9 +699,12 @@
         private CustomControls.RJControls.RJTextBox rjTextBox1;
         private CustomControls.RJControls.RJComboBox cboTipoCategoria;
         private System.Windows.Forms.Panel panel2;
+        private CustomControls.RJControls.RJTextBox txtCodigo;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marca;

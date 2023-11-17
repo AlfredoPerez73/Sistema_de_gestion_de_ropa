@@ -37,38 +37,6 @@ namespace Datos
             return IdCorrelativo;
         }
 
-        public bool ModificarStock(int IdProducto, int Cantidad, bool Estado)
-        {
-            bool Respuesta = false;
-            StringBuilder stringBuilder = new StringBuilder();
-
-            if (Estado)
-            {
-                stringBuilder.AppendLine("UPDATE PRODUCTO SET Stock = Stock + @Cantidad WHERE IdProducto = @IdProducto");
-            }
-            else
-            {
-                stringBuilder.AppendLine("UPDATE PRODUCTO SET Stock = Stock - @Cantidad WHERE IdProducto = @IdProducto");
-            }
-
-            try
-            {
-                SqlCommand command = new SqlCommand(stringBuilder.ToString(), Connection);
-                command.Parameters.AddWithValue("@Cantidad", Cantidad);
-                command.Parameters.AddWithValue("@IdProducto", IdProducto);
-                command.CommandType = CommandType.Text;
-
-                AbrirConnection();
-                Respuesta = command.ExecuteNonQuery() > 0 ? true : false;
-                CerrarConnection();
-            }
-            catch (Exception)
-            {
-                Respuesta = false;
-            }
-            return Respuesta;
-        }
-
         public bool RegistrarVenta(Venta venta, DataTable DetalleVenta)
         {
             bool Respuesta = false;
