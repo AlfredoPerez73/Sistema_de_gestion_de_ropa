@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -182,7 +184,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.BackColor = System.Drawing.SystemColors.Window;
+            this.txtContraseña.BackColor = System.Drawing.Color.White;
             this.txtContraseña.BorderColor = System.Drawing.Color.SteelBlue;
             this.txtContraseña.BorderFocusColor = System.Drawing.Color.SteelBlue;
             this.txtContraseña.BorderRadius = 15;
@@ -194,7 +196,7 @@
             this.txtContraseña.Multiline = false;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtContraseña.PasswordChar = false;
+            this.txtContraseña.PasswordChar = true;
             this.txtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.txtContraseña.PlaceholderText = "";
             this.txtContraseña.Size = new System.Drawing.Size(250, 31);
@@ -205,7 +207,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.txtUsuario.BackColor = System.Drawing.Color.White;
             this.txtUsuario.BorderColor = System.Drawing.Color.SteelBlue;
             this.txtUsuario.BorderFocusColor = System.Drawing.Color.SteelBlue;
             this.txtUsuario.BorderRadius = 15;
@@ -270,6 +272,11 @@
             this.label4.Size = new System.Drawing.Size(251, 226);
             this.label4.TabIndex = 18;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 30;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,9 +284,11 @@
             this.ClientSize = new System.Drawing.Size(549, 226);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLogin";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.Load += new System.EventHandler(this.FrmLogin_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -304,5 +313,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.Timer timer1;
     }
 }

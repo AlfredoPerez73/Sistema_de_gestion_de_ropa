@@ -30,58 +30,36 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblFechaActual = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.slideBar = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lblFechaActual);
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel1.Controls.Add(this.lblFecha);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1213, 578);
             this.panel1.TabIndex = 0;
             // 
-            // lblFechaActual
-            // 
-            this.lblFechaActual.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblFechaActual.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaActual.ForeColor = System.Drawing.Color.LightSteelBlue;
-            this.lblFechaActual.Location = new System.Drawing.Point(522, 515);
-            this.lblFechaActual.Name = "lblFechaActual";
-            this.lblFechaActual.Size = new System.Drawing.Size(395, 39);
-            this.lblFechaActual.TabIndex = 2;
-            // 
             // lblFecha
             // 
-            this.lblFecha.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFecha.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblFecha.Location = new System.Drawing.Point(575, 450);
-            this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(356, 69);
-            this.lblFecha.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.fit_contol;
-            this.pictureBox1.Location = new System.Drawing.Point(441, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(488, 372);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblFecha.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.fit_contol;
+            this.lblFecha.Location = new System.Drawing.Point(254, 88);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(698, 345);
+            this.lblFecha.TabIndex = 1;
+            this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // slideBar
             // 
@@ -98,7 +76,6 @@
             this.Text = "FrmPrincipal";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -107,8 +84,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFecha;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer slideBar;
-        private System.Windows.Forms.Label lblFechaActual;
     }
 }

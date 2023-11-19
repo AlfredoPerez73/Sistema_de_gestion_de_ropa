@@ -42,7 +42,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnGestionProveedores = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnPerfil = new System.Windows.Forms.Button();
+            this.lblPerfil = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnGestionUsuarios = new System.Windows.Forms.Button();
             this.btnMenuDesplegable = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.btnMaximizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala2;
-            this.btnMaximizar.Location = new System.Drawing.Point(1346, 0);
+            this.btnMaximizar.Location = new System.Drawing.Point(1347, 0);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(18, 18);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -110,7 +110,7 @@
             this.btnMinimizar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala3;
-            this.btnMinimizar.Location = new System.Drawing.Point(1323, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1324, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(20, 18);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -124,7 +124,7 @@
             this.btnCerrar.BackColor = System.Drawing.Color.SteelBlue;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bala;
-            this.btnCerrar.Location = new System.Drawing.Point(1366, 0);
+            this.btnCerrar.Location = new System.Drawing.Point(1367, 0);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(20, 18);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -165,9 +165,9 @@
             this.SlideContenedor2.Controls.Add(this.ContenedorProducto);
             this.SlideContenedor2.Location = new System.Drawing.Point(0, 0);
             this.SlideContenedor2.MaximumSize = new System.Drawing.Size(214, 0);
-            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 928);
+            this.SlideContenedor2.MinimumSize = new System.Drawing.Size(66, 790);
             this.SlideContenedor2.Name = "SlideContenedor2";
-            this.SlideContenedor2.Size = new System.Drawing.Size(66, 928);
+            this.SlideContenedor2.Size = new System.Drawing.Size(66, 790);
             this.SlideContenedor2.TabIndex = 1;
             // 
             // panel1
@@ -229,32 +229,26 @@
             // panel8
             // 
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel8.Controls.Add(this.btnPerfil);
+            this.panel8.Controls.Add(this.lblPerfil);
             this.panel8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel8.Location = new System.Drawing.Point(3, 733);
+            this.panel8.Location = new System.Drawing.Point(3, 735);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(211, 52);
             this.panel8.TabIndex = 47;
             // 
-            // btnPerfil
+            // lblPerfil
             // 
-            this.btnPerfil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPerfil.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPerfil.FlatAppearance.BorderSize = 0;
-            this.btnPerfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPerfil.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPerfil.ForeColor = System.Drawing.Color.White;
-            this.btnPerfil.Image = ((System.Drawing.Image)(resources.GetObject("btnPerfil.Image")));
-            this.btnPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerfil.Location = new System.Drawing.Point(8, 7);
-            this.btnPerfil.Name = "btnPerfil";
-            this.btnPerfil.Size = new System.Drawing.Size(196, 38);
-            this.btnPerfil.TabIndex = 45;
-            this.btnPerfil.Text = "            ADMINISTRADOR";
-            this.btnPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerfil.UseVisualStyleBackColor = false;
+            this.lblPerfil.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPerfil.ForeColor = System.Drawing.Color.White;
+            this.lblPerfil.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.profile_user;
+            this.lblPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPerfil.Location = new System.Drawing.Point(10, 7);
+            this.lblPerfil.Name = "lblPerfil";
+            this.lblPerfil.Size = new System.Drawing.Size(194, 41);
+            this.lblPerfil.TabIndex = 51;
+            this.lblPerfil.Text = "            ADMINISTRADOR";
+            this.lblPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel6
             // 
@@ -390,7 +384,7 @@
             this.btnDetalleVenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDetalleVenta.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.bolsa;
             this.btnDetalleVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDetalleVenta.Location = new System.Drawing.Point(20, 212);
+            this.btnDetalleVenta.Location = new System.Drawing.Point(20, 209);
             this.btnDetalleVenta.Name = "btnDetalleVenta";
             this.btnDetalleVenta.Size = new System.Drawing.Size(166, 62);
             this.btnDetalleVenta.TabIndex = 49;
@@ -408,7 +402,7 @@
             this.btnDetalleCompra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDetalleCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.archivo_factura_dolar;
             this.btnDetalleCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDetalleCompra.Location = new System.Drawing.Point(20, 111);
+            this.btnDetalleCompra.Location = new System.Drawing.Point(20, 107);
             this.btnDetalleCompra.Name = "btnDetalleCompra";
             this.btnDetalleCompra.Size = new System.Drawing.Size(184, 62);
             this.btnDetalleCompra.TabIndex = 49;
@@ -426,7 +420,7 @@
             this.btnVenta.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnVenta.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.recibo1;
             this.btnVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVenta.Location = new System.Drawing.Point(20, 161);
+            this.btnVenta.Location = new System.Drawing.Point(20, 158);
             this.btnVenta.Name = "btnVenta";
             this.btnVenta.Size = new System.Drawing.Size(155, 62);
             this.btnVenta.TabIndex = 47;
@@ -444,7 +438,7 @@
             this.btnDesplegarCompra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnDesplegarCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.carro_de_compras_rapido;
             this.btnDesplegarCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesplegarCompra.Location = new System.Drawing.Point(13, 5);
+            this.btnDesplegarCompra.Location = new System.Drawing.Point(13, 1);
             this.btnDesplegarCompra.Name = "btnDesplegarCompra";
             this.btnDesplegarCompra.Size = new System.Drawing.Size(197, 62);
             this.btnDesplegarCompra.TabIndex = 48;
@@ -462,7 +456,7 @@
             this.btnCompra.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnCompra.Image = global::Sistema_de_Gestion_GUI.Properties.Resources.etiquetas__1_;
             this.btnCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCompra.Location = new System.Drawing.Point(20, 60);
+            this.btnCompra.Location = new System.Drawing.Point(20, 56);
             this.btnCompra.Name = "btnCompra";
             this.btnCompra.Size = new System.Drawing.Size(155, 62);
             this.btnCompra.TabIndex = 47;
@@ -514,7 +508,7 @@
             this.Controls.Add(this.Contenedor);
             this.Controls.Add(this.panel10);
             this.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu Principal";
@@ -551,7 +545,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnGestionProveedores;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btnPerfil;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnGestionUsuarios;
         private System.Windows.Forms.Button btnMenuDesplegable;
@@ -569,5 +562,6 @@
         private System.Windows.Forms.Button btnDetalleVenta;
         private System.Windows.Forms.Button btnVenta;
         private System.Windows.Forms.Timer slideButton;
+        private System.Windows.Forms.Label lblPerfil;
     }
 }

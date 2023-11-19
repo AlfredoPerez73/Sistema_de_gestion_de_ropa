@@ -92,3 +92,7 @@ C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Ge
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\AxInterop.AcroPDFLib.dll
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema de Gestion GUI.csproj.ResolveComReference.cache
 C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.FrmGestionDetalleVenta.resources
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\CircularProgressBar.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\WinFormAnimation.dll
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\bin\Debug\CircularProgressBar.xml
+C:\Users\Alfredo\Documents\VisualStudioProjects\Sistema de Gestion\Sistema de Gestion GUI\obj\Debug\Sistema_de_Gestion_GUI.Modales.mdBienvenida.resources

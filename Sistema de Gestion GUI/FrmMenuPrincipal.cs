@@ -35,6 +35,11 @@ namespace Sistema_de_Gestion_GUI
         {
             InitializeComponent();
             this.oUsuario = oUsuario;
+
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
@@ -42,6 +47,7 @@ namespace Sistema_de_Gestion_GUI
             ContenedorPrincipal();
             CargarUsuario();
             Permisos();
+
         }
 
         private void Permisos()
@@ -62,15 +68,19 @@ namespace Sistema_de_Gestion_GUI
             btnVenta.Visible = false;
             btnClientes.Visible = false;
             //-----------------------------
-            Point nuevaUbicacionBtnProveedores = new Point(3, 225);
+            Point nuevaUbicacionBtnProductos = new Point(3, 144);
+            panel1.Location = nuevaUbicacionBtnProductos;
+            Point nuevaUbicacionBtnProveedores = new Point(3, 205);
             panel5.Location = nuevaUbicacionBtnProveedores;
-            Point nuevaUbicacionBtnCompras = new Point(3, 283);
-            SlideFinanciera.Location = nuevaUbicacionBtnCompras;
+            Point nuevaUbicacionBtnFinanzas = new Point(3, 265);
+            SlideFinanciera.Location = nuevaUbicacionBtnFinanzas;
+            Point nuevaUbicacionBtnDetalleVenta = new Point(20, 161);
+            btnDetalleVenta.Location = nuevaUbicacionBtnDetalleVenta;
         }
 
         private void CargarUsuario()
         {
-            btnPerfil.Text = "            " + oUsuario.Rol.NRol;
+            lblPerfil.Text = "            " + oUsuario.User.ToString();
 
         }
 
@@ -124,14 +134,10 @@ namespace Sistema_de_Gestion_GUI
 
         private void Maximizar()
         {
-            if (WindowState == FormWindowState.Normal)
-            {
+            if (this.WindowState == FormWindowState.Normal)
                 this.WindowState = FormWindowState.Maximized;
-            }
             else
-            {
                 this.WindowState = FormWindowState.Normal;
-            }
         }
 
         private void Minimizar()

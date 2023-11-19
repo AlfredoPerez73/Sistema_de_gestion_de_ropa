@@ -7,15 +7,16 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Sistema_de_Gestion_GUI.Modales;
 
 namespace Sistema_de_Gestion_GUI
 {
     public partial class FrmLogin : Form
     {
+        int cont = 0;
         public FrmLogin()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -33,6 +34,8 @@ namespace Sistema_de_Gestion_GUI
                     Usuario oUsuario = new UsuarioService().LoginUser(txtUsuario.Texts, txtContraseña.Texts).FirstOrDefault();
                     if (oUsuario != null)
                     {
+                        mdBienvenida bienvenida = new mdBienvenida(oUsuario);
+                        bienvenida.ShowDialog();
                         FrmMenuPrincipal menu = new FrmMenuPrincipal(oUsuario);
                         menu.Show();
                         this.Hide();
@@ -67,10 +70,9 @@ namespace Sistema_de_Gestion_GUI
             this.Show();
         }
 
-        private void BorderRadius()
+        private void BorderRadiusPanel()
         {
             int radio = 20;
-
             GraphicsPath path = new GraphicsPath();
             path.StartFigure();
             path.AddArc(0, 0, radio * 2, radio * 2, 180, 90);
@@ -133,9 +135,21 @@ namespace Sistema_de_Gestion_GUI
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
+        private void FrmLogin_Load_1(object sender, EventArgs e)
         {
-            BorderRadius();
+            BorderRadiusPanel();
+            this.Opacity = 0.0;
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity < 1) this.Opacity += 0.05;
+            cont += 1;
+            if (cont == 90)
+            {
+                timer1.Stop();
+            }
         }
     }
 }

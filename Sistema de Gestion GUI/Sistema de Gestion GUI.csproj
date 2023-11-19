@@ -37,6 +37,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="CircularProgressBar, Version=2.8.0.16, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.8.0.16\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.102.1.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.102.1\lib\netstandard2.0\ClosedXML.dll</HintPath>
     </Reference>
@@ -135,6 +138,9 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
     <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
       <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
     </Reference>
@@ -175,6 +181,12 @@
     </Compile>
     <Compile Include="FrmGestionVenta.Designer.cs">
       <DependentUpon>FrmGestionVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modales\mdBienvenida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdBienvenida.Designer.cs">
+      <DependentUpon>mdBienvenida.cs</DependentUpon>
     </Compile>
     <Compile Include="Modales\mdCliente.cs">
       <SubType>Form</SubType>
@@ -250,6 +262,9 @@
     <EmbeddedResource Include="FrmGestionVenta.resx">
       <DependentUpon>FrmGestionVenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdBienvenida.resx">
+      <DependentUpon>mdBienvenida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdCliente.resx">
       <DependentUpon>mdCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +297,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="BD\DBSISTEMA_INVENTARIO2.rar" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -449,6 +465,10 @@
     <None Include="Resources\Fit__3_-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\sistemas de gestion de inventarios.jpg" />
+    <None Include="Resources\sistema-de-inventarios-perpetuos-1.jpg" />
+    <None Include="Resources\Omnichannel-Fulfillment-All-You-Need-to-Know.jpg" />
+    <None Include="Resources\seo-report.png" />
     <None Include="Resources\PlantillaVenta.html" />
     <None Include="Resources\logo_pdf.png" />
     <None Include="Resources\PlantillaCompra.html" />

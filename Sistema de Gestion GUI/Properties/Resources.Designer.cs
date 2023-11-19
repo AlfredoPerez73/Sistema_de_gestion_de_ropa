@@ -561,10 +561,20 @@ namespace Sistema_de_Gestion_GUI.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Omnichannel_Fulfillment_All_You_Need_to_Know {
+            get {
+                object obj = ResourceManager.GetObject("Omnichannel-Fulfillment-All-You-Need-to-Know", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;title&gt;RECIBO DE COMPRA&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
@@ -584,7 +594,7 @@ namespace Sistema_de_Gestion_GUI.Properties {
         ///    &lt;/style&gt;
         ///&lt;/head&gt;
         ///&lt;body&gt;
-        ///    &lt;tab [resto de la cadena truncado]&quot;;.
+        ///    &lt;ta [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string PlantillaCompra {
             get {
@@ -596,7 +606,7 @@ namespace Sistema_de_Gestion_GUI.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;title&gt;RECIBO DE VENTA&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
@@ -627,6 +637,16 @@ namespace Sistema_de_Gestion_GUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap profile_user {
+            get {
+                object obj = ResourceManager.GetObject("profile-user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap recibo {
             get {
                 object obj = ResourceManager.GetObject("recibo", resourceCulture);
@@ -640,6 +660,36 @@ namespace Sistema_de_Gestion_GUI.Properties {
         internal static System.Drawing.Bitmap recibo1 {
             get {
                 object obj = ResourceManager.GetObject("recibo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap seo_report {
+            get {
+                object obj = ResourceManager.GetObject("seo-report", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sistema_de_inventarios_perpetuos_1 {
+            get {
+                object obj = ResourceManager.GetObject("sistema-de-inventarios-perpetuos-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sistemas_de_gestion_de_inventarios {
+            get {
+                object obj = ResourceManager.GetObject("sistemas de gestion de inventarios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

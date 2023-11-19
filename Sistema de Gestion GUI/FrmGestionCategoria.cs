@@ -27,6 +27,7 @@ namespace Sistema_de_Gestion_GUI
         {
             BorderRadius();
             RecargarRegistros(categoriaService.CargarRegistro());
+
         }
 
         private void Limpiar_Click(object sender, EventArgs e)
