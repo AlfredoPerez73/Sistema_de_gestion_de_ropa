@@ -67,20 +67,13 @@ namespace Sistema_de_Gestion_GUI
             btnGestionUsuarios.Visible = false;
             btnVenta.Visible = false;
             btnClientes.Visible = false;
-            ////-----------------------------
-            //Point nuevaUbicacionBtnProductos = new Point(3, 144);
-            //panel1.Location = nuevaUbicacionBtnProductos;
-            //Point nuevaUbicacionBtnProveedores = new Point(3, 205);
-            //panel5.Location = nuevaUbicacionBtnProveedores;
-            //Point nuevaUbicacionBtnFinanzas = new Point(3, 265);
-            //SlideFinanciera.Location = nuevaUbicacionBtnFinanzas;
-            //Point nuevaUbicacionBtnDetalleVenta = new Point(20, 161);
-            //btnDetalleVenta.Location = nuevaUbicacionBtnDetalleVenta;
+            SlideFinanciera.MaximumSize = new Size(208, 268);
+
         }
 
         private void CargarUsuario()
         {
-            lblPerfil.Text = "            " + oUsuario.User.ToUpper();
+            lblPerfil.Text = "              " + oUsuario.User.ToUpper();
 
         }
 
