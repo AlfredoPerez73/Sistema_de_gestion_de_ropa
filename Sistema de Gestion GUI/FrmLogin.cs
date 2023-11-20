@@ -146,7 +146,7 @@ namespace Sistema_de_Gestion_GUI
         {
             if (this.Opacity < 1) this.Opacity += 0.05;
             cont += 1;
-            if (cont == 90)
+            if (cont == 100)
             {
                 timer1.Stop();
             }
