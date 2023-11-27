@@ -89,7 +89,7 @@ namespace Sistema_de_Gestion_GUI
                     TipoCategoria = txtTipoCategoria.Texts.ToUpper(),
                     IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
                 };
-                if (categoria == null)
+                if (categoria != null)
                 {
                     var msg = categoriaService.ModificarRegistros(categoria);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -123,7 +123,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             IdCategoria = Convert.ToInt32(txtIdCategoria.Texts)
                         };
-                        if (categoria == null)
+                        if (categoria != null)
                         {
                             var msg = categoriaService.EliminarRegistros(categoria);
                             MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);

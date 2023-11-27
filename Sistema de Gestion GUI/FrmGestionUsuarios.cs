@@ -40,7 +40,7 @@ namespace Sistema_de_Gestion_GUI
                 Usuario usuario = new Usuario
                 {
                     Documento = txtDocumento.Texts,
-                    User = txtIdUsuario.Texts,
+                    User = txtNombreUsuario.Texts,
                     Password = txtContraseña.Texts,
                     Rol = RolIndex,
                     Correo = txtCorreo.Texts.ToLower()
@@ -111,7 +111,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             IdUser = Convert.ToInt32(txtIdUsuario.Texts)
                         };
-                        if (usuario == null)
+                        if (usuario != null)
                         {
                             var msg = usuarioService.EliminarRegistros(usuario);
                             MessageBox.Show(msg, "Gestion de usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);

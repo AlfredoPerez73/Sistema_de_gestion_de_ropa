@@ -64,8 +64,8 @@ namespace Datos
 
         public string ModificarRegistros(Producto producto)
         {
-            try
-            {
+            //try
+            //{
                 string Actualizar = "ModificarProductos";
                 SqlCommand command = new SqlCommand(Actualizar, Connection);
                 command.Parameters.AddWithValue("@Codigo", producto.Codigo);
@@ -78,12 +78,12 @@ namespace Datos
                 AbrirConnection();
                 var index = command.ExecuteNonQuery();
                 CerrarConnection();
-            }
-            catch (Exception)
-            {
-                return "Error al modificar el producto, " +
-                    "el producto se encuentra relacionada con una compra o venta";
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    return "Error al modificar el producto, " +
+            //        "el producto se encuentra relacionada con una compra o venta";
+            //}
 
             return $"Se ha modificado el producto {producto.NombreProducto} " +
                 $"con la ID {producto.IdProducto}";

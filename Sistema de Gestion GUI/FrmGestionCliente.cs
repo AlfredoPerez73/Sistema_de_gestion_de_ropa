@@ -96,7 +96,7 @@ namespace Sistema_de_Gestion_GUI
                     Correo = txtCorreo.Texts.ToLower(),
                     Telefono = txtTelefono.Texts
                 };
-                if (cliente == null)
+                if (cliente != null)
                 {
                     var msg = clienteService.ModificarRegistros(cliente);
                     MessageBox.Show(msg, "Gestion de cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,7 +131,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             IdCliente = Convert.ToInt32(txtIdCliente.Texts),
                         };
-                        if (cliente == null)
+                        if (cliente != null)
                         {
                             var msg = clienteService.EliminarRegistros(cliente);
                             MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);

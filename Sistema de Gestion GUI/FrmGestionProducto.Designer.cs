@@ -33,7 +33,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tblRegistro = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtCodigo = new CustomControls.RJControls.RJTextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cboTipoCategoria = new CustomControls.RJControls.RJComboBox();
             this.txtMarcaProducto = new CustomControls.RJControls.RJTextBox();
             this.txtNombreProducto = new CustomControls.RJControls.RJTextBox();
@@ -53,19 +66,8 @@
             this.btnExcel = new CustomControls.RJControls.RJButton();
             this.label9 = new System.Windows.Forms.Label();
             this.rjTextBox1 = new CustomControls.RJControls.RJTextBox();
-            this.txtCodigo = new CustomControls.RJControls.RJTextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioVenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtIdCategoria = new CustomControls.RJControls.RJTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tblRegistro)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -130,6 +132,102 @@
             this.tblRegistro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblRegistro_CellContentClick);
             this.tblRegistro.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tblRegistro_CellPainting);
             // 
+            // btnSeleccionar
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.MinimumWidth = 3;
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Text = "Id de producto";
+            this.btnSeleccionar.Width = 30;
+            // 
+            // IdProducto
+            // 
+            this.IdProducto.HeaderText = "Id de producto";
+            this.IdProducto.MinimumWidth = 6;
+            this.IdProducto.Name = "IdProducto";
+            this.IdProducto.ReadOnly = true;
+            this.IdProducto.Visible = false;
+            this.IdProducto.Width = 115;
+            // 
+            // IdCategoria
+            // 
+            this.IdCategoria.HeaderText = "Id de categoria";
+            this.IdCategoria.MinimumWidth = 6;
+            this.IdCategoria.Name = "IdCategoria";
+            this.IdCategoria.ReadOnly = true;
+            this.IdCategoria.Visible = false;
+            this.IdCategoria.Width = 120;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // TipoCategoria
+            // 
+            this.TipoCategoria.HeaderText = "Categoria";
+            this.TipoCategoria.MinimumWidth = 6;
+            this.TipoCategoria.Name = "TipoCategoria";
+            this.TipoCategoria.ReadOnly = true;
+            this.TipoCategoria.Width = 125;
+            // 
+            // NombreProducto
+            // 
+            this.NombreProducto.HeaderText = "Nombre de producto";
+            this.NombreProducto.MinimumWidth = 6;
+            this.NombreProducto.Name = "NombreProducto";
+            this.NombreProducto.ReadOnly = true;
+            this.NombreProducto.Width = 160;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 125;
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.MinimumWidth = 6;
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            this.Stock.Width = 125;
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Precio de compra";
+            this.PrecioCompra.MinimumWidth = 6;
+            this.PrecioCompra.Name = "PrecioCompra";
+            this.PrecioCompra.ReadOnly = true;
+            this.PrecioCompra.Width = 160;
+            // 
+            // PrecioVenta
+            // 
+            this.PrecioVenta.HeaderText = "Precio de venta";
+            this.PrecioVenta.MinimumWidth = 6;
+            this.PrecioVenta.Name = "PrecioVenta";
+            this.PrecioVenta.ReadOnly = true;
+            this.PrecioVenta.Width = 160;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.HeaderText = "Fecha de registro";
+            this.FechaRegistro.MinimumWidth = 6;
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 150;
+            // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -141,7 +239,9 @@
             this.panel3.Controls.Add(this.cboTipoCategoria);
             this.panel3.Controls.Add(this.txtMarcaProducto);
             this.panel3.Controls.Add(this.txtNombreProducto);
+            this.panel3.Controls.Add(this.txtIdCategoria);
             this.panel3.Controls.Add(this.txtIdProducto);
+            this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.btnLimpiarProducto);
@@ -156,6 +256,43 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(268, 579);
             this.panel3.TabIndex = 52;
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCodigo.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCodigo.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txtCodigo.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtCodigo.BorderRadius = 15;
+            this.txtCodigo.BorderSize = 2;
+            this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCodigo.Location = new System.Drawing.Point(23, 77);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigo.Multiline = false;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCodigo.PasswordChar = false;
+            this.txtCodigo.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtCodigo.PlaceholderText = "";
+            this.txtCodigo.Size = new System.Drawing.Size(193, 32);
+            this.txtCodigo.TabIndex = 56;
+            this.txtCodigo.Texts = "";
+            this.txtCodigo.UnderlinedStyle = false;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(30, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.TabIndex = 55;
+            this.label6.Text = "Codigo";
             // 
             // cboTipoCategoria
             // 
@@ -522,138 +659,44 @@
             this.rjTextBox1.Texts = "";
             this.rjTextBox1.UnderlinedStyle = false;
             // 
-            // txtCodigo
+            // label7
             // 
-            this.txtCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCodigo.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCodigo.BorderColor = System.Drawing.Color.SteelBlue;
-            this.txtCodigo.BorderFocusColor = System.Drawing.Color.SteelBlue;
-            this.txtCodigo.BorderRadius = 15;
-            this.txtCodigo.BorderSize = 2;
-            this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtCodigo.Location = new System.Drawing.Point(23, 77);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCodigo.Multiline = false;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCodigo.PasswordChar = false;
-            this.txtCodigo.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCodigo.PlaceholderText = "";
-            this.txtCodigo.Size = new System.Drawing.Size(193, 32);
-            this.txtCodigo.TabIndex = 56;
-            this.txtCodigo.Texts = "";
-            this.txtCodigo.UnderlinedStyle = false;
-            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(30, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 17);
-            this.label6.TabIndex = 55;
-            this.label6.Text = "Codigo";
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(30, 444);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(104, 17);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Id del categoria";
+            this.label7.Visible = false;
             // 
-            // btnSeleccionar
+            // txtIdCategoria
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            this.btnSeleccionar.DefaultCellStyle = dataGridViewCellStyle2;
-            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.MinimumWidth = 3;
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Text = "Id de producto";
-            this.btnSeleccionar.Width = 30;
-            // 
-            // IdProducto
-            // 
-            this.IdProducto.HeaderText = "Id de producto";
-            this.IdProducto.MinimumWidth = 6;
-            this.IdProducto.Name = "IdProducto";
-            this.IdProducto.ReadOnly = true;
-            this.IdProducto.Visible = false;
-            this.IdProducto.Width = 115;
-            // 
-            // IdCategoria
-            // 
-            this.IdCategoria.HeaderText = "Id de categoria";
-            this.IdCategoria.MinimumWidth = 6;
-            this.IdCategoria.Name = "IdCategoria";
-            this.IdCategoria.ReadOnly = true;
-            this.IdCategoria.Visible = false;
-            this.IdCategoria.Width = 120;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            // 
-            // TipoCategoria
-            // 
-            this.TipoCategoria.HeaderText = "Categoria";
-            this.TipoCategoria.MinimumWidth = 6;
-            this.TipoCategoria.Name = "TipoCategoria";
-            this.TipoCategoria.ReadOnly = true;
-            this.TipoCategoria.Width = 125;
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.HeaderText = "Nombre de producto";
-            this.NombreProducto.MinimumWidth = 6;
-            this.NombreProducto.Name = "NombreProducto";
-            this.NombreProducto.ReadOnly = true;
-            this.NombreProducto.Width = 160;
-            // 
-            // Marca
-            // 
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            this.Marca.Width = 125;
-            // 
-            // Stock
-            // 
-            this.Stock.HeaderText = "Stock";
-            this.Stock.MinimumWidth = 6;
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
-            this.Stock.Width = 125;
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Precio de compra";
-            this.PrecioCompra.MinimumWidth = 6;
-            this.PrecioCompra.Name = "PrecioCompra";
-            this.PrecioCompra.ReadOnly = true;
-            this.PrecioCompra.Width = 160;
-            // 
-            // PrecioVenta
-            // 
-            this.PrecioVenta.HeaderText = "Precio de venta";
-            this.PrecioVenta.MinimumWidth = 6;
-            this.PrecioVenta.Name = "PrecioVenta";
-            this.PrecioVenta.ReadOnly = true;
-            this.PrecioVenta.Width = 160;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.HeaderText = "Fecha de registro";
-            this.FechaRegistro.MinimumWidth = 6;
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 150;
+            this.txtIdCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIdCategoria.BackColor = System.Drawing.SystemColors.Window;
+            this.txtIdCategoria.BorderColor = System.Drawing.Color.SteelBlue;
+            this.txtIdCategoria.BorderFocusColor = System.Drawing.Color.SteelBlue;
+            this.txtIdCategoria.BorderRadius = 15;
+            this.txtIdCategoria.BorderSize = 2;
+            this.txtIdCategoria.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdCategoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtIdCategoria.Location = new System.Drawing.Point(23, 462);
+            this.txtIdCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdCategoria.Multiline = false;
+            this.txtIdCategoria.Name = "txtIdCategoria";
+            this.txtIdCategoria.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtIdCategoria.PasswordChar = false;
+            this.txtIdCategoria.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtIdCategoria.PlaceholderText = "";
+            this.txtIdCategoria.Size = new System.Drawing.Size(193, 32);
+            this.txtIdCategoria.TabIndex = 22;
+            this.txtIdCategoria.Texts = "";
+            this.txtIdCategoria.UnderlinedStyle = false;
+            this.txtIdCategoria.Visible = false;
+            this.txtIdCategoria.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProducto_KeyPress);
             // 
             // FrmGestionProducto
             // 
@@ -712,6 +755,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaRegistro;
+        private CustomControls.RJControls.RJTextBox txtIdCategoria;
+        private System.Windows.Forms.Label label7;
     }
 }
 

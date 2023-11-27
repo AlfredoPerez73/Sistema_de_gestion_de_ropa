@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Logica
 {
-    public class UsuarioService : ICrudService<Usuario>
+    public class UsuarioService
     {
         private UsuarioRepository usuarioRepository = new UsuarioRepository();
 
@@ -53,12 +53,6 @@ namespace Logica
                     || item.Rol.NRol.Contains(x.ToUpper())).ToList();
             }
             return usuarios;
-        }
-
-        public string ModificarRegistros(Usuario usuario)
-        {
-            var msg = usuarioRepository.ModificarRegistros(usuario);
-            return msg;
         }
 
         public string EliminarRegistros(Usuario usuario)

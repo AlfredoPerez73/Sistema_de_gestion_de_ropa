@@ -133,7 +133,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             IdProveedor = Convert.ToInt32(txtIdProveedor.Texts)
                         };
-                        if (proveedor == null)
+                        if (proveedor != null)
                         {
                             var msg = productoService.EliminarRegistros(proveedor);
                             MessageBox.Show(msg, "Gestion de proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);

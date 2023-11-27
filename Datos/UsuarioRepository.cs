@@ -61,33 +61,6 @@ namespace Datos
             return usuarioList;
         }
 
-        public string ModificarRegistros(Usuario usuario)
-        {
-            try
-            {
-                string Actualizar = "ModificarUsuario";
-                SqlCommand command = new SqlCommand(Actualizar, Connection);
-                command.Parameters.AddWithValue("@Usuario", usuario.User);
-                command.Parameters.AddWithValue("@Contraseña", usuario.Password);
-                command.Parameters.AddWithValue("@Correo", usuario.Correo);
-                command.Parameters.AddWithValue("@IdRol", usuario.Rol.NRol);
-                command.Parameters.AddWithValue("@Rol", usuario.Rol.NRol);
-                command.Parameters.AddWithValue("@IdUsuario", usuario.IdUser);
-                command.CommandType = CommandType.StoredProcedure;
-                AbrirConnection();
-                var index = command.ExecuteNonQuery();
-                CerrarConnection();
-            }
-            catch (Exception)
-            {
-                return "Error al modifcar el usuario, " +
-                    "el usuario se encuentra relacionada con una compra";
-            }
-
-            return $"Se ha modificado el usuario {usuario.User}" +
-                $"con la ID {usuario.IdUser}";
-        }
-
         public string EliminarRegistros(Usuario usuario)
         {
             try

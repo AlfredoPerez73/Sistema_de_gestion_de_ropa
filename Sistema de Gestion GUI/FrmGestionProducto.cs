@@ -103,16 +103,19 @@ namespace Sistema_de_Gestion_GUI
                     || (cboTipoCategoria.Texts != ""))
                 {
 
-                Categoria CategoriaIndex = (Categoria)cboTipoCategoria.SelectedItem;
                 Producto producto = new Producto
                 {
                     Codigo = txtCodigo.Texts,
                     NombreProducto = txtNombreProducto.Texts.ToUpper(),
                     Marca = txtMarcaProducto.Texts.ToUpper(),
-                    Categoria = CategoriaIndex,
+                    Categoria = new Categoria
+                    {
+                        IdCategoria = Convert.ToInt32(txtIdCategoria.Texts),
+                        TipoCategoria = cboTipoCategoria.Texts
+                    },
                     IdProducto = Convert.ToInt32(txtIdProducto.Texts),
                 };
-                if (producto == null)
+                if (producto != null)
                 {
                     var msg = productoService.ModificarRegistros(producto);
                     MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,11 +150,10 @@ namespace Sistema_de_Gestion_GUI
                         {
                             IdProducto = Convert.ToInt32(txtIdProducto.Texts)
                         };
-                        if (producto == null)
+                        if (producto != null)
                         {
                             var msg = productoService.EliminarRegistros(producto);
                             MessageBox.Show(msg, "Gestion de producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            RecargarRegistros(productoService.CargarRegistro());
                             Nuevo();
                             EnabledDelete();
                         }
@@ -159,6 +161,7 @@ namespace Sistema_de_Gestion_GUI
                         {
                             var msg = productoService.EliminarRegistros(producto);
                             MessageBox.Show(msg, "Gestion de categorias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RecargarRegistros(productoService.CargarRegistro());
                             Nuevo();
                             EnabledDelete();
                         }
@@ -347,6 +350,7 @@ namespace Sistema_de_Gestion_GUI
                     txtCodigo.Texts = tblRegistro.Rows[index].Cells["Codigo"].Value.ToString();
                     txtNombreProducto.Texts = tblRegistro.Rows[index].Cells["NombreProducto"].Value.ToString();
                     txtMarcaProducto.Texts = tblRegistro.Rows[index].Cells["Marca"].Value.ToString();
+                    txtIdCategoria.Texts = tblRegistro.Rows[index].Cells["IdCategoria"].Value.ToString();
                     cboTipoCategoria.Texts = tblRegistro.Rows[index].Cells["TipoCategoria"].Value.ToString();
                 }
             }
@@ -400,7 +404,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtNombreProducto_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (char.IsDigit(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            if (char.IsDigit(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -440,7 +444,7 @@ namespace Sistema_de_Gestion_GUI
 
         private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsLetter(e.KeyChar) || char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
+            if (char.IsSeparator(e.KeyChar) || char.IsSymbol(e.KeyChar) || char.IsPunctuation(e.KeyChar))
             {
                 e.Handled = true;
             }
